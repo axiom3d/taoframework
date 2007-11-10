@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Prebuild xmlns="http://dnpb.sourceforge.net/schemas/prebuild-1.7.xsd" version="1.7">
+    <Solution name="Tao.DevIl">
+        <Configuration name="Debug">
+            <Options>
+                <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+                <OptimizeCode>false</OptimizeCode>
+                <OutputPath>bin/Debug</OutputPath>
+                <DebugInformation>true</DebugInformation>
+            </Options>
+        </Configuration>
+        <Configuration name="Release">
+            <Options>
+                <CompilerDefines>TRACE;WIN32</CompilerDefines>
+                <OptimizeCode>true</OptimizeCode>
+                <OutputPath>bin/Release</OutputPath>
+                <DebugInformation>false</DebugInformation>
+            </Options>
+        </Configuration>
+        <Files>
+            <File>Tao.DevIl.License.txt</File>
+            <File>Tao.DevIl.Readme.txt</File>
+            <File>Tao.DevIl.snk</File>
+            <File>Tao.DevIl.dll.config</File>
+        </Files>
+	<Project name="Tao.DevIl" path="." language="C#" type="Library" designerFolder="Properties">
+        <Configuration name="Debug">
+            <Options>
+                <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+                <OptimizeCode>false</OptimizeCode>
+                <OutputPath>bin/Debug</OutputPath>
+                <XmlDocFile>Tao.DevIl.xml</XmlDocFile>
+		<KeyFile>Tao.DevIl.snk</KeyFile>
+                <DebugInformation>true</DebugInformation>
+            </Options>
+        </Configuration>
+        <Configuration name="Release">
+            <Options>
+                <CompilerDefines>TRACE;WIN32</CompilerDefines>
+                <OptimizeCode>true</OptimizeCode>
+                <OutputPath>bin/Release</OutputPath>
+                <XmlDocFile>Tao.DevIl.xml</XmlDocFile>
+		<KeyFile>Tao.DevIl.snk</KeyFile>
+                <DebugInformation>false</DebugInformation>
+            </Options>
+        </Configuration>
+	    <Reference name="System" />
+            <Files>
+                <Match path="." pattern="*.cs" recurse="true"/>
+            </Files>
+	</Project>
+	<Project name="DevIlExamples.SimpleExample" icon="App.ico" path="../../examples/DevIlExamples/SimpleExample" language="C#" type="Exe" startupObject="DevIlExamples.SimpleExample" designerFolder="Properties">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin/Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.DevIl/Tao.DevIl.snk</KeyFile>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <KeyFile>../../../src/Tao.DevIl/Tao.DevIl.snk</KeyFile>
+		    <OutputPath>bin/Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.DevIl" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+    </Solution>
+</Prebuild>

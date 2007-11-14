@@ -29,7 +29,7 @@
         <File>Tao.GlBindGen.snk</File>
     </Files>
 
-	<Project name="Tao.GlBindGen" icon="App.ico" path="." language="C#" type="Exe" startupObject="Tao.GlBindGen.MainClass" designerFolder="Properties">
+	<Project name="Tao.GlBindGen" icon="App.ico" path="." language="C#" type="Exe" designerFolder="Properties">
 
       <Configuration name="Debug">
         <Options>
@@ -54,14 +54,13 @@
       <Reference name="System" />
 
       <Files>
-        <Match path="." pattern="*.cs" recurse="false"/>
+        <Match path="." pattern="*.cs" recurse="true"/>
         <Match path="." pattern="*.config" recurse="false" buildAction="None"/>
-        <Match path="Data" pattern="*.spec" recurse="false" buildAction="None"/>
-        <Match path="Data" pattern="*.tm" recurse="false" buildAction="None"/>
+        <Match path="." pattern="*.spec" recurse="true" buildAction="None"/>
+        <Match path="." pattern="*.tm" recurse="true" buildAction="None"/>
         <Match path="Properties" pattern="*.cs" recurse="false">
           <Exclude name="Properties/Bind.Designer.cs"/>
         </Match>
-        <Match path="Properties" pattern="Bind.Designer.cs" recurse="false" subType="Settings"/>
         <Match path="Properties" pattern="*.settings" recurse="false" buildAction="None" subType="Settings"/>
       </Files>
 

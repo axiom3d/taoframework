@@ -30,6 +30,13 @@ SOFTWARE.
 //
 // Applicable to Freetype 2.1.9 or later
 //
+// 2007-Nov-18 - Euan D MacInnes
+//         Repaired FT_Library_Version
+//
+// 2007-Nov-12 - Jendave. 
+//         Added FT_NATIVE_LIBRARY and CALLING CONVENTION
+//         Added Summary tags for all fields in structs/classes
+//
 // 2007-Nov-9- Euan D MacInnes. 
 //         Converted names to official FreeType names
 //         Added help text from FreeType website
@@ -2160,7 +2167,7 @@ namespace Tao.FreeType
         /// <param name="aminor">The minor version number</param>
         /// <param name="apatch">The patch version number</param>
         [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern void FT_Library_Version(IntPtr /*LibraryRec_*/ library, [In, Out] int[] amajor, [In, Out] int[] aminor, [In, Out] int[] apatch);
+        public static extern void FT_Library_Version(IntPtr /*LibraryRec_*/ library, ref int amajor, ref int aminor, ref int apatch);
 
         /// <summary>
         /// Destroy a given FreeType library object and all of its children, including resources, drivers, faces, sizes, etc.

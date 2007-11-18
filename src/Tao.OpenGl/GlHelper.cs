@@ -490,6 +490,7 @@ namespace Tao.OpenGl
         /// underlying Unix kernel.
         /// </summary>
         /// <returns>"Unix", "Linux", "Darwin" or null.</returns>
+        /// <remarks>Source code from "Mono: A Developer's Notebook"</remarks>
         private static string DetectUnixKernel()
         {
             ProcessStartInfo startInfo = new ProcessStartInfo();

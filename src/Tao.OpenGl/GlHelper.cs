@@ -34,6 +34,7 @@ using System.Runtime.InteropServices;
 using System.Reflection;
 using System.Diagnostics;
 using System.Reflection.Emit;
+using System.IO;
 
 #endregion
 
@@ -134,9 +135,7 @@ namespace Tao.OpenGl
                 MethodInfo[] methods = importsClass.GetMethods(BindingFlags.Static | BindingFlags.NonPublic);
                 FunctionMap = new SortedList<string, MethodInfo>(methods.Length);
                 foreach (MethodInfo m in methods)
-                {
                     FunctionMap.Add(m.Name, m);
-                }
             }
         }
 
@@ -452,18 +451,72 @@ namespace Tao.OpenGl
                 {
                     getProcAddress = new GetProcAddressWindows();
                 }
-                else if (System.Environment.OSVersion.Platform == PlatformID.Unix)
+                else if (System.Environment.OSVersion.Platform == PlatformID.Unix ||
+                         System.Environment.OSVersion.Platform == (PlatformID)4)
                 {
-                    getProcAddress = new GetProcAddressX11();
+                    // Distinguish between Unix and Mac OS X kernels.
+                    switch (DetectUnixKernel())
+                    {
+                        case "Unix":
+                        case "Linux":
+                            getProcAddress = new GetProcAddressX11();
+                            break;
+
+                        case "Darwin":
+                            getProcAddress = new GetProcAddressOSX();
+                            break;
+
+                        default:
+                            throw new PlatformNotSupportedException(
+                                "Unknown Unix platform - cannot load extensions. Please report a bug at http://taoframework.com");
+                    }
                 }
                 else
                 {
                     throw new PlatformNotSupportedException(
-                        "Extension loading is only supported under X11 and Windows. We are sorry for the inconvience.");
+                        "Extension loading is only supported under Mac OS X, Unix/X11 and Windows. We are sorry for the inconvience.");
                 }
             }
 
             return getProcAddress.GetProcAddress(function);
+        }
+
+        #endregion
+
+        #region private static string DetectUnixKernel()
+
+        /// <summary>
+        /// Executes "uname" which returns a string representing the name of the
+        /// underlying Unix kernel.
+        /// </summary>
+        /// <returns>"Unix", "Linux", "Darwin" or null.</returns>
+        private static string DetectUnixKernel()
+        {
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.Arguments = "-s";
+            startInfo.RedirectStandardOutput = true;
+            startInfo.RedirectStandardError = true;
+            startInfo.UseShellExecute = false;
+            foreach (string unameprog in new string[] { "/usr/bin/uname", "/bin/uname", "uname" })
+            {
+                try
+                {
+                    startInfo.FileName = unameprog;
+                    Process uname = Process.Start(startInfo);
+                    StreamReader stdout = uname.StandardOutput;
+                    return stdout.ReadLine().Trim();
+                }
+                catch (System.IO.FileNotFoundException)
+                {
+                    // The requested executable doesn't exist, try next one.
+                    continue;
+                }
+                catch (System.ComponentModel.Win32Exception)
+                {
+                    continue;
+                }
+            }
+            return null;
         }
 
         #endregion

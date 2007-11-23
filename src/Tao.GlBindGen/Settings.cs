@@ -129,7 +129,7 @@ namespace Bind
             /// <summary>
             /// Turn GLboolean to int (Boolean enum), not bool.
             /// </summary>
-            NoBoolParameters = 0100,
+            NoBoolParameters = 0x100,
             Tao = ConstIntEnums |
                   NoAdvancedEnumProcessing |
                   NoPublicUnsafeFunctions |
@@ -137,8 +137,8 @@ namespace Bind
                   NoTrimFunctionPrefix |
                   NoSeparateFunctionNamespaces |
                   TurnVoidPointersToIntPtr |
-                  NestedEnums |
-                  NoBoolParameters,
+                  NestedEnums
+                  /*NoBoolParameters,*/
                   /*GenerateAllPermutations,*/
         }
         

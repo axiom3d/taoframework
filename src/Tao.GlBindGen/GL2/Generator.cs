@@ -404,7 +404,7 @@ namespace Bind.GL2
                 if (words.Length < 2)
                     continue;
 
-                if (((Settings.Compatibility & Settings.Legacy.NoBoolParameters) != Settings.Legacy.None) && words[1] == "bool")
+                if (((Settings.Compatibility & Settings.Legacy.NoBoolParameters) != Settings.Legacy.None) && words[1].ToLower().Contains("bool"))
                     words[1] = "Int32";
 
                 CSTypes.Add(words[0], words[1]);

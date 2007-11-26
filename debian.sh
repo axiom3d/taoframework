@@ -1,5 +1,5 @@
 version=$(date +2.0.0.svn%Y%m%d)
-pkgdir=tao-$version
+pkgdir=taoframework-$version
 rm -Rf $pkgdir
 mkdir $pkgdir
 

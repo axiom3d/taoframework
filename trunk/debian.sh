@@ -16,6 +16,6 @@ for subdir in OpenGl DevIl FFmpeg Lua Ode PhysFs Sdl; do
     rm -Rf src/Tao.$subdir/autotools)
 done
 
-tar czf tao_$version.orig.tar.gz $pkgdir
+tar czf taoframework_$version.orig.tar.gz $pkgdir
 rm -Rf $pkgdir
 

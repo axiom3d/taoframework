@@ -4565,7 +4565,7 @@ namespace Tao.Cg
 		/// <param name="vals"></param>
 		// CGDLL_API void cgSetParameterValuedr(CGparameter param, int n, const double *vals);
 		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgSetParameterValuedr(IntPtr param, int n, out double vals);
+		public static extern void cgSetParameterValuedr(IntPtr param, int n, double[] vals);
 		
 		/// <summary>
 		/// 
@@ -4575,7 +4575,7 @@ namespace Tao.Cg
 		/// <param name="vals"></param>
 		// CGDLL_API void cgSetParameterValuedc(CGparameter param, int n, out double vals);
 		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgSetParameterValuedc(IntPtr param, int n, out double vals);
+		public static extern void cgSetParameterValuedc(IntPtr param, int n, double[] vals);
 		
 		/// <summary>
 		/// 
@@ -4585,7 +4585,7 @@ namespace Tao.Cg
 		/// <param name="vals"></param>
 		// CGDLL_API void cgSetParameterValuefr(CGparameter param, int n, const float *vals);
 		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgSetParameterValuefr(IntPtr param, int n, out float vals);
+		public static extern void cgSetParameterValuefr(IntPtr param, int n, float[] vals);
 		
 		/// <summary>
 		/// 
@@ -4595,7 +4595,7 @@ namespace Tao.Cg
 		/// <param name="vals"></param>
 		// CGDLL_API void cgSetParameterValuefc(CGparameter param, int n, const float *vals);
 		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgSetParameterValuefc(IntPtr param, int n, out float vals);
+		public static extern void cgSetParameterValuefc(IntPtr param, int n, float[] vals);
 		
 		/// <summary>
 		/// 
@@ -4605,7 +4605,7 @@ namespace Tao.Cg
 		/// <param name="vals"></param>
 		// CGDLL_API void cgSetParameterValueir(CGparameter param, int n, const int *vals);
 		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgSetParameterValueir(IntPtr param, int n, out int vals);
+		public static extern void cgSetParameterValueir(IntPtr param, int n, int[] vals);
 		
 		/// <summary>
 		/// 
@@ -4615,7 +4615,7 @@ namespace Tao.Cg
 		/// <param name="vals"></param>
 		// CGDLL_API void cgSetParameterValueic(CGparameter param, int n, const int *vals);
 		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgSetParameterValueic(IntPtr param, int n, out int vals);
+		public static extern void cgSetParameterValueic(IntPtr param, int n, int[] vals);
 		
 		/// <summary>
 		/// 
@@ -4626,7 +4626,7 @@ namespace Tao.Cg
 		/// <returns></returns>
 		// CGDLL_API int cgGetParameterValuedr(CGparameter param, int n, double *vals);
 		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern int cgGetParameterValuedr(IntPtr param, int n, out double vals);
+		public static extern int cgGetParameterValuedr(IntPtr param, int n, double[] vals);
 		
 		/// <summary>
 		/// 
@@ -4637,7 +4637,7 @@ namespace Tao.Cg
 		/// <returns></returns>
 		// CGDLL_API int cgGetParameterValuedc(CGparameter param, int n, double *vals);
 		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern int cgGetParameterValuedc(IntPtr param, int n, out double vals);
+		public static extern int cgGetParameterValuedc(IntPtr param, int n, double[] vals);
 		
 		/// <summary>
 		/// 
@@ -4648,7 +4648,7 @@ namespace Tao.Cg
 		/// <returns></returns>
 		// CGDLL_API int cgGetParameterValuefr(CGparameter param, int n, float *vals);
 		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern int cgGetParameterValuefr(IntPtr param, int n, out float vals);
+		public static extern int cgGetParameterValuefr(IntPtr param, int n, float[] vals);
 		
 		/// <summary>
 		/// 
@@ -4659,7 +4659,7 @@ namespace Tao.Cg
 		/// <returns></returns>
 		// CGDLL_API int cgGetParameterValuefc(CGparameter param, int n, float *vals);
 		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern int cgGetParameterValuefc(IntPtr param, int n, out float vals);
+		public static extern int cgGetParameterValuefc(IntPtr param, int n, float[] vals);
 		
 		/// <summary>
 		/// 
@@ -4670,7 +4670,7 @@ namespace Tao.Cg
 		/// <returns></returns>
 		// CGDLL_API int cgGetParameterValueir(CGparameter param, int n, int *vals);
 		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern int cgGetParameterValueir(IntPtr param, int n, out int vals);
+		public static extern int cgGetParameterValueir(IntPtr param, int n, int[] vals);
 		
 		/// <summary>
 		/// 
@@ -4681,7 +4681,7 @@ namespace Tao.Cg
 		/// <returns></returns>
 		// CGDLL_API int cgGetParameterValueic(CGparameter param, int n, int *vals);
 		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern int cgGetParameterValueic(IntPtr param, int n, out int vals);
+		public static extern int cgGetParameterValueic(IntPtr param, int n, int[] vals);
 		
 		/// <summary>
 		/// 
@@ -5516,6 +5516,16 @@ namespace Tao.Cg
 		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr cgGetStateAssignmentState(IntPtr stateassignment);
 		
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="state"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        // CGDLL_API int cgGetStateEnumerantValue(CGstate, const char*)
+        [DllImport(CG_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern int cgGetStateEnumerantValue(IntPtr state, string name);
+
 		/// <summary>
 		/// 
 		/// </summary>

@@ -566,6 +566,20 @@ namespace Tao.FFmpeg
         ///
         /// </summary>
         /// <param name="pAVCodecContext"></param>
+        /// <param name="samples"></param>
+        /// <param name="frame_size_ptr"></param>
+        /// <param name="buf"></param>
+        /// <param name="buf_size"></param>
+        /// <returns></returns>
+        [DllImport(AVCODEC_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern int avcodec_decode_audio2(IntPtr pAVCodecContext,
+        IntPtr samples, [In, Out]ref int frame_size_ptr,
+        IntPtr buf, int buf_size);
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="pAVCodecContext"></param>
         /// <param name="pAVFrame"></param>
         /// <param name="got_picture_ptr"></param>
         /// <param name="buf"></param>
@@ -795,13 +809,6 @@ String name);
         /// <returns></returns>
         [DllImport(AVCODEC_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr av_strdup([MarshalAs(UnmanagedType.LPStr)]String s);
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="ptr"></param>
-        [DllImport(AVCODEC_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern void av_freep(IntPtr ptr);
 
         /// <summary>
         ///

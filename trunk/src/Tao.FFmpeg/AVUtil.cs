@@ -49,6 +49,21 @@ namespace Tao.FFmpeg
         #endregion string AVUTIL_NATIVE_LIBRARY
 
         #endregion Private Constants
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="ptr"></param>
+        [DllImport(AVUTIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void av_free(IntPtr ptr);
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="ptr"></param>
+        [DllImport(AVUTIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void av_freep(IntPtr ptr);
+
         /// <summary>
         /// 
         /// </summary>

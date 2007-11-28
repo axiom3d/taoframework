@@ -881,21 +881,21 @@ String url,
         [StructLayout(LayoutKind.Sequential)]
         public struct AVFormatParameters
         {
-            AVRational time_base;
-            int sample_rate;
-            int channels;
-            int width;
-            int height;
-            PixelFormat pix_fmt;
-            IntPtr image_format; // AVImageFormat
-            int channel;
+            public AVRational time_base;
+            public int sample_rate;
+            public int channels;
+            public int width;
+            public int height;
+            public PixelFormat pix_fmt;
+            public IntPtr image_format; // AVImageFormat
+            public int channel;
             [MarshalAs(UnmanagedType.LPStr)]
-            String device;
+            public String device;
             /// <summary>
             /// 
             /// </summary>
             [MarshalAs(UnmanagedType.LPStr)]
-            String standard;
+            public String standard;
             /// <summary>
             /// 
             /// </summary>
@@ -912,15 +912,15 @@ String url,
             /// <summary>
             /// 
             /// </summary>
-            int prealloced_context;
+            public int prealloced_context;
             /// <summary>
             /// 
             /// </summary>
-            CodecID video_codec_id;
+            public CodecID video_codec_id;
             /// <summary>
             /// 
             /// </summary>
-            CodecID audio_codec_id;
+            public CodecID audio_codec_id;
         };
 
         /// <summary>

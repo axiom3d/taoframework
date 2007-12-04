@@ -881,14 +881,41 @@ String url,
         [StructLayout(LayoutKind.Sequential)]
         public struct AVFormatParameters
         {
+            /// <summary>
+            /// 
+            /// </summary>
             public AVRational time_base;
+            /// <summary>
+            /// 
+            /// </summary>
             public int sample_rate;
+            /// <summary>
+            /// 
+            /// </summary>
             public int channels;
+            /// <summary>
+            /// 
+            /// </summary>
             public int width;
+            /// <summary>
+            /// 
+            /// </summary>
             public int height;
+            /// <summary>
+            /// 
+            /// </summary>
             public PixelFormat pix_fmt;
+            /// <summary>
+            /// 
+            /// </summary>
             public IntPtr image_format; // AVImageFormat
+            /// <summary>
+            /// 
+            /// </summary>
             public int channel;
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.LPStr)]
             public String device;
             /// <summary>

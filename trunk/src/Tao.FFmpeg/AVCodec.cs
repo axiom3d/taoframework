@@ -4569,6 +4569,9 @@ uint8_t * (*realloc)(struct AVCodecContext *s, uint8_t *buf, int buf_size);
         [StructLayout(LayoutKind.Sequential)]
         public struct AVPicture
         {
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
             public IntPtr[] data; // uint8_t *data[4]
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]

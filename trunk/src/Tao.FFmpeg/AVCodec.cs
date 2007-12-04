@@ -2833,8 +2833,6 @@ stream (only used by libavformat) */
             * - encoding: set by user.
             * - decoding: set by lavc
             */
-
-
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
             public short[] position;// [3][2] = 3 x 2 = 6
         };
@@ -2844,6 +2842,300 @@ stream (only used by libavformat) */
         /// </summary>
         public struct AVFrame
         {
+            /*
+ * pointer to the picture planes.
+ * This might be different from the first allocated byte
+ * - encoding: 
+ * - decoding: 
+ */
+            /// <summary>
+            /// uint8_t *data[4]
+            /// </summary>
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
+            public IntPtr[] data;
+
+            /// <summary>
+            /// int linesize[4];
+            /// </summary>
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
+            public int[] linesize;
+            /*
+             * pointer to the first allocated byte of the picture. Can be used in get_buffer/release_buffer.
+             * This isn't used by libavcodec unless the default get/release_buffer() is used.
+             * - encoding: 
+             * - decoding: 
+             */
+            /// <summary>
+            /// uint8_t *base[4];
+            /// </summary>
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
+            public IntPtr[] @base;
+            /*
+             * 1 -> keyframe, 0-> not
+             * - encoding: Set by libavcodec.
+             * - decoding: Set by libavcodec.
+             */
+            /// <summary>
+            /// 
+            /// </summary>
+            public int key_frame;
+
+            /*
+             * Picture type of the frame, see ?_TYPE below.
+             * - encoding: Set by libavcodec. for coded_picture (and set by user for input).
+             * - decoding: Set by libavcodec.
+             */
+            /// <summary>
+            /// 
+            /// </summary>
+            public int pict_type;
+
+            /*
+             * presentation timestamp in time_base units (time when frame should be shown to user)
+             * If AV_NOPTS_VALUE then frame_rate = 1/time_base will be assumed.
+             * - encoding: MUST be set by user.
+             * - decoding: Set by libavcodec.
+             */
+            /// <summary>
+            /// 
+            /// </summary>
+            public long pts;
+
+            /*
+             * picture number in bitstream order
+             * - encoding: set by
+             * - decoding: Set by libavcodec.
+             */
+            /// <summary>
+            /// 
+            /// </summary>
+            public int coded_picture_number;
+            /*
+             * picture number in display order
+             * - encoding: set by
+             * - decoding: Set by libavcodec.
+             */
+            /// <summary>
+            /// 
+            /// </summary>
+            public int display_picture_number;
+
+            /*
+             * quality (between 1 (good) and FF_LAMBDA_MAX (bad)) 
+             * - encoding: Set by libavcodec. for coded_picture (and set by user for input).
+             * - decoding: Set by libavcodec.
+             */
+            /// <summary>
+            /// 
+            /// </summary>
+            public int quality;
+
+            /*
+             * buffer age (1->was last buffer and dint change, 2->..., ...).
+             * Set to INT_MAX if the buffer has not been used yet.
+             * - encoding: unused
+             * - decoding: MUST be set by get_buffer().
+             */
+            /// <summary>
+            /// 
+            /// </summary>
+            public int age;
+
+            /**
+             * is this picture used as reference
+             * - encoding: unused
+             * - decoding: Set by libavcodec. (before get_buffer() call)).
+             */
+            public int reference;
+
+            /*
+             * QP table
+             * - encoding: unused
+             * - decoding: Set by libavcodec.
+             */
+            /// <summary>
+            /// int8_t *qscale_table;
+            /// </summary>
+            public byte[] qscale_table;
+            /**
+             * QP store stride
+             * - encoding: unused
+             * - decoding: Set by libavcodec.
+             */
+            public int qstride;
+
+            /**
+             * mbskip_table[mb]>=1 if MB didn't change
+             * stride= mb_width = (width+15)>>4
+             * - encoding: unused
+             * - decoding: Set by libavcodec.
+             */
+            public byte[] mbskip_table;
+
+            /*
+             * motion vector table
+             * @code
+             * example:
+             * int mv_sample_log2= 4 - motion_subsample_log2;
+             * int mb_width= (width+15)>>4;
+             * int mv_stride= (mb_width << mv_sample_log2) + 1;
+             * motion_val[direction][x + y*mv_stride][0->mv_x, 1->mv_y];
+             * @endcode
+             * - encoding: Set by user.
+             * - decoding: Set by libavcodec.
+             */
+            /// <summary>
+            /// int16_t (*motion_val[2])[2];
+            /// </summary>
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
+            public IntPtr[] motion_val;
+
+            /*
+             * macroblock type table
+             * mb_type_base + mb_width + 2
+             * - encoding: Set by user.
+             * - decoding: Set by libavcodec.
+             */
+            /// <summary>
+            /// 
+            /// </summary>
+            [CLSCompliant(false)]
+            public uint[] mb_type;
+
+            /*
+             * log2 of the size of the block which a single vector in motion_val represents: 
+             * (4->16x16, 3->8x8, 2-> 4x4, 1-> 2x2)
+             * - encoding: unused
+             * - decoding: Set by libavcodec.
+             */
+            /// <summary>
+            /// 
+            /// </summary>
+            public byte motion_subsample_log2;
+
+            /*
+             * for some private data of the user
+             * - encoding: unused
+             * - decoding: Set by user.
+             */
+            /// <summary>
+            /// 
+            /// </summary>
+            public IntPtr opaque;
+
+            /*
+             * error
+             * - encoding: Set by libavcodec. if flags&CODEC_FLAG_PSNR.
+             * - decoding: unused
+             */
+            /// <summary>
+            /// uint64_t error[4];
+            /// </summary>
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
+            public long[] error;
+
+            /*
+             * type of the buffer (to keep track of who has to deallocate data[*])
+             * - encoding: Set by the one who allocates it.
+             * - decoding: Set by the one who allocates it.
+             * Note: User allocated (direct rendering) & internal buffers cannot coexist currently.
+             */
+            /// <summary>
+            /// 
+            /// </summary>
+            public int type;
+
+            /*
+             * When decoding, this signals how much the picture must be delayed.
+             * extra_delay = repeat_pict / (2*fps)
+             * - encoding: unused
+             * - decoding: Set by libavcodec.
+             */
+            /// <summary>
+            /// 
+            /// </summary>
+            public int repeat_pict;
+
+            /*
+             * 
+             */
+            /// <summary>
+            /// 
+            /// </summary>
+            public int qscale_type;
+
+            /*
+             * The content of the picture is interlaced.
+             * - encoding: Set by user.
+             * - decoding: Set by libavcodec. (default 0)
+             */
+            /// <summary>
+            /// 
+            /// </summary>
+            public int interlaced_frame;
+
+            /*
+             * If the content is interlaced, is top field displayed first.
+             * - encoding: Set by user.
+             * - decoding: Set by libavcodec.
+             */
+            /// <summary>
+            /// 
+            /// </summary>
+            public int top_field_first;
+
+            /*
+             * Pan scan.
+             * - encoding: Set by user.
+             * - decoding: Set by libavcodec.
+             */
+
+            /// <summary>
+            /// AVPanScan *pan_scan;
+            /// </summary>
+            public IntPtr pan_scan;
+
+            /*
+             * Tell user application that palette has changed from previous frame.
+             * - encoding: ??? (no palette-enabled encoder yet)
+             * - decoding: Set by libavcodec. (default 0).
+             */
+            /// <summary>
+            /// 
+            /// </summary>
+            public int palette_has_changed;
+
+            /*
+             * codec suggestion on buffer type if != 0
+             * - encoding: unused
+             * - decoding: Set by libavcodec. (before get_buffer() call)).
+             */
+            /// <summary>
+            /// 
+            /// </summary>
+            public int buffer_hints;
+
+            /*
+             * DCT coefficients
+             * - encoding: unused
+             * - decoding: Set by libavcodec.
+             */
+            /// <summary>
+            /// 
+            /// </summary>
+            public short[] dct_coeff;
+
+            /*
+             * motion referece frame index
+             * - encoding: Set by user.
+             * - decoding: Set by libavcodec.
+             */
+
+            /// <summary>
+            /// int8_t *ref_index[2];
+            /// </summary>
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
+            public IntPtr[] ref_index;
         };
         /// <summary>
         /// 

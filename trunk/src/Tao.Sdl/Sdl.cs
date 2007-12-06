@@ -5230,29 +5230,40 @@ namespace Tao.Sdl
             /// An array of pitches, one for each plane. 
             /// Pitch is the length of a row in bytes.
             /// </summary>
-            public short[] pitches;
+            public IntPtr pitches;
             /// <summary>
             /// An array of pointers to the data of each plane. 
             /// The overlay should be locked before these pointers are used.
             /// </summary>
-            public IntPtr[] pixels;//TODO double pointer to bytes
-            // Hardware-specific surface info
+            public IntPtr pixels;//TODO double pointer to bytes
             /// <summary>
-            /// 
+            /// Hardware-specific surface info
             /// </summary>
             public IntPtr hwfuncs;
             /// <summary>
             /// 
             /// </summary>
             public IntPtr hwdata;
-            /// <summary>
-            /// This will be set to 1 if the overlay is hardware accelerated.
-            /// </summary>
-            public int hw_overlay;
+
             /// <summary>
             /// 
             /// </summary>
-            public int UnusedBits;
+            public int field1;
+            ///// <summary>
+            ///// 
+            ///// </summary>
+            //public int UnusedBits;
+
+            /// <summary>
+            /// This will be set to 1 if the overlay is hardware accelerated.
+            /// </summary>
+            public int hw_overlay
+            {
+                get
+                {
+                    return (field1 & 1);
+                }
+            }
         }
         #endregion SDL_Overlay
         #endregion SDL_video.h

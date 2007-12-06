@@ -10,6 +10,130 @@ namespace Tao.Sdl
 
 	#endregion SDL_syswm.h
 
+    /// <summary>
+	/// SDL Tests.
+	/// </summary>
+    [TestFixture]
+    public class SdlTestOverlay
+    {
+        int init;
+        int flags;
+        int bpp;
+        int width;
+        int height;        
+        int pix_fmt = Sdl.SDL_YV12_OVERLAY;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [SetUp]
+        public void Init()
+        {
+            init = Sdl.SDL_Init(Sdl.SDL_INIT_VIDEO);
+            flags = (Sdl.SDL_DOUBLEBUF | Sdl.SDL_ANYFORMAT);
+            bpp = 16;
+            width = 640;
+            height = 480;
+            
+            //surfacePtr = IntPtr.Zero;
+            //Sdl.SDL_FreeSurfaceInternal(surfacePtr);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        private IntPtr VideoSetup(bool hardware)
+        {
+            Sdl.SDL_Quit();
+            init = Sdl.SDL_Init(Sdl.SDL_INIT_VIDEO);
+            IntPtr surfacePtr;
+            //Assert.IsNotNull(surfacePtr);
+            //Sdl.SDL_FreeSurface(surfacePtr);
+            if (hardware)
+            {
+                flags = flags | Sdl.SDL_HWSURFACE;
+            }
+            surfacePtr = Sdl.SDL_SetVideoMode(
+                width,
+                height,
+                bpp,
+                flags);
+            Assert.IsNotNull(surfacePtr);
+            return surfacePtr;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        private IntPtr VideoSetupOpenGl()
+        {
+            flags |= Sdl.SDL_OPENGL;
+            return this.VideoSetup(false);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Test]
+        public void SetOverlay()
+        {            
+            IntPtr surfacePtr = VideoSetup(false);
+            IntPtr ptrBmp = Sdl.SDL_CreateYUVOverlay(width, height, pix_fmt, surfacePtr);
+            Assert.IsNotNull(ptrBmp);
+            Sdl.SDL_FreeSurface(surfacePtr);
+        }
+
+        /// <summary>
+        /// Tests to see if video can support 800x600 8bit.
+        /// </summary>
+        [Test]
+        public void BasicMarshal()
+        {
+            IntPtr surfacePtr = VideoSetup(false);
+            IntPtr ptrBmp = Sdl.SDL_CreateYUVOverlay(width, height, pix_fmt, surfacePtr);
+
+            Sdl.SDL_Overlay bmp = new Sdl.SDL_Overlay();
+            Sdl.SDL_LockYUVOverlay(ptrBmp);
+
+            bmp = (Sdl.SDL_Overlay)Marshal.PtrToStructure(ptrBmp,
+                    typeof(Sdl.SDL_Overlay));
+            Assert.IsNotNull(bmp);
+            Sdl.SDL_FreeSurface(surfacePtr);
+        }
+
+        /// <summary>
+        /// Tests to see if video can support 800x600 8bit.
+        /// </summary>
+        [Test]
+        public void hw_overlayTrue()
+        {
+            IntPtr surfacePtr = VideoSetup(true);
+            IntPtr ptrBmp = Sdl.SDL_CreateYUVOverlay(width, height, pix_fmt, surfacePtr);
+
+            Sdl.SDL_Overlay bmp = new Sdl.SDL_Overlay();
+            Sdl.SDL_LockYUVOverlay(ptrBmp);
+
+            bmp = (Sdl.SDL_Overlay)Marshal.PtrToStructure(ptrBmp,
+                    typeof(Sdl.SDL_Overlay));
+            Assert.IsTrue(bmp.hw_overlay == 1);
+            Sdl.SDL_FreeSurface(surfacePtr);
+        }
+        /// <summary>
+        /// Tests to see if video can support 800x600 8bit.
+        /// </summary>
+        [Test]
+        public void hw_overlayFalse()
+        {
+            IntPtr surfacePtr = VideoSetup(false);
+            IntPtr ptrBmp = Sdl.SDL_CreateYUVOverlay(width, height, pix_fmt, surfacePtr);
+
+            Sdl.SDL_Overlay bmp = new Sdl.SDL_Overlay();
+            Sdl.SDL_LockYUVOverlay(ptrBmp);
+
+            bmp = (Sdl.SDL_Overlay)Marshal.PtrToStructure(ptrBmp,
+                    typeof(Sdl.SDL_Overlay));
+            Assert.IsTrue(bmp.hw_overlay == 0);
+            Sdl.SDL_FreeSurface(surfacePtr);
+        }
+    }
+
 	#region SDL_video.h
 	/// <summary>
 	/// SDL Tests.

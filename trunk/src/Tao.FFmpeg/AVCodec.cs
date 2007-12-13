@@ -4866,8 +4866,11 @@ uint8_t * (*realloc)(struct AVCodecContext *s, uint8_t *buf, int buf_size);
             /// </summary>
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
             public IntPtr[] data; // uint8_t *data[4]
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
-            int[] linesize;
+            public int[] linesize;
         };
 
         /// <summary>

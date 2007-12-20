@@ -468,7 +468,7 @@ namespace Tao.OpenGl
 
                         default:
                             throw new PlatformNotSupportedException(
-                                "Unknown Unix platform - cannot load extensions. Please report a bug at http://taoframework.com");
+                                DetectUnixKernel() + ": Unknown Unix platform - cannot load extensions. Please report a bug at http://taoframework.com");
                     }
                 }
                 else

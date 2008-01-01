@@ -621,8 +621,13 @@ namespace Tao.OpenAl
         ///     Returns a pointer to a string.
         /// </returns>
         // ALCAPI ALCubyte* ALCAPIENTRY alcGetString(ALCdevice *device, ALCenum param);
-        [DllImport(ALC_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION, CharSet = CharSet.Ansi, EntryPoint = "alcGetString"), SuppressUnmanagedCodeSecurity]
-        public static extern string alcGetString([In] IntPtr device, int attribute);
+        //[DllImport(ALC_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION, CharSet = CharSet.Ansi, EntryPoint = "alcGetString"), SuppressUnmanagedCodeSecurity]
+        //public static extern string alcGetString([In] IntPtr device, int attribute);
+        public static string alcGetString([In] IntPtr device, int attribute)
+        {
+            return Marshal.PtrToStringAnsi(alcGetStringInternal(device, attribute));
+        }
+
         [DllImport(ALC_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION, CharSet = CharSet.Ansi, EntryPoint = "alcGetString"), SuppressUnmanagedCodeSecurity]
         private static extern IntPtr alcGetStringInternal([In] IntPtr device, int attribute);
 

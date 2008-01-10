@@ -37,7 +37,7 @@ namespace Tao.Sdl
 {
     #region Class Documentation
     /// <summary>
-    ///     Simple DirectMedia Layer binding for .NET, implementing SDL 1.2.12.
+    ///     Simple DirectMedia Layer binding for .NET, implementing SDL 1.2.13.
     /// </summary>
     /// <remarks>
     /// This library is designed to make it easy to write games that run 
@@ -507,6 +507,14 @@ namespace Tao.Sdl
         /// <summary>
         /// 
         /// </summary>
+        public const byte SDL_BUTTON_X1 = 6;
+        /// <summary>
+        /// 
+        /// </summary>
+        public const byte SDL_BUTTON_X2 = 7;
+        /// <summary>
+        /// 
+        /// </summary>
         public const byte SDL_BUTTON_LMASK = SDL_PRESSED << ((byte)SDL_BUTTON_LEFT - 1);
         /// <summary>
         /// 
@@ -516,6 +524,14 @@ namespace Tao.Sdl
         /// 
         /// </summary>
         public const byte SDL_BUTTON_RMASK = SDL_PRESSED << ((byte)SDL_BUTTON_RIGHT - 1);
+        /// <summary>
+        /// 
+        /// </summary>
+        public const byte SDL_BUTTON_X1MASK = SDL_PRESSED << ((byte)SDL_BUTTON_X1 - 1);
+        /// <summary>
+        /// 
+        /// </summary>
+        public const byte SDL_BUTTON_X2MASK = SDL_PRESSED << ((byte)SDL_BUTTON_X2 - 1);
         #endregion SDL_mouse.h
 
         #region SDL_mutex.h

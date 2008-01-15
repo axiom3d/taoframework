@@ -80,5 +80,33 @@
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
+		<Project name="Tao.Ode.Tests" path="../../tests/Ode" language="C#" type="Library" designerFolder="Properties">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin/Debug</OutputPath>
+		    <KeyFile>../../src/Tao.Ode/Tao.Ode.snk</KeyFile>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin/Release</OutputPath>
+		    <KeyFile>../../src/Tao.Ode/Tao.Ode.snk</KeyFile>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="nunit.framework"/>
+	    <Reference name="Tao.Ode" />
+	    <Files>
+              <Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
     </Solution>
 </Prebuild>

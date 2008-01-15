@@ -2,7 +2,7 @@ using NUnit.Framework;
 using System;
 using Tao.Ode;
 
-namespace Tao_Ode_Tests
+namespace Tao.Ode
 {
 	/// <summary>
 	/// This fixture tests marshalling of Tao.Ode functions using dMatrix3 as a parameter.

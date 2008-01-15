@@ -1,2 +1,2 @@
-2006-11-03T17:19  C.J. Adams-Collier  <cjcollier@colliertech.org>
-	* moved AssemblyInfo.cs to this directory
+2008-01-11T17:19  David Hudson  <jendave@yahoo.com>
+	* updated to SDL 1.2.13

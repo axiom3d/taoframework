@@ -1105,6 +1105,37 @@ namespace Tao.Platform.Windows {
         };
         #endregion POINTFLOAT Struct
 
+        #region LAYERPLANEDESCRIPTOR Struct
+        [StructLayout(LayoutKind.Sequential)]
+        public struct LAYERPLANEDESCRIPTOR
+        {
+            public short nSize;
+            public short nVersion;
+            public int dwFlags;
+            public byte iPixelType;
+            public byte cColorBits;
+            public byte cRedBits;
+            public byte cRedShift;
+            public byte cGreenBits;
+            public byte cGreenShift;
+            public byte cBlueBits;
+            public byte cBlueShift;
+            public byte cAlphaBits;
+            public byte cAlphaShift;
+            public byte cAccumBits;
+            public byte cAccumRedBits;
+            public byte cAccumGreenBits;
+            public byte cAccumBlueBits;
+            public byte cAccumAlphaBits;
+            public byte cDepthBits;
+            public byte cStencilBits;
+            public byte cAuxBuffers;
+            public byte iLayerPlane;
+            public byte bReserved;
+            public int crTransparent;
+        };
+        #endregion
+
         // --- Private Externs ---
         #region bool _SetPixelFormat(IntPtr deviceContext, int pixelFormat, ref PIXELFORMATDESCRIPTOR pixelFormatDescriptor)
         /// <summary>

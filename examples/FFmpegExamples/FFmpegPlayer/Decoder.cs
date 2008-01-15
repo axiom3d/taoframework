@@ -3,7 +3,7 @@ using System.Runtime;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 using Tao.FFmpeg;
-using Tao.OpenAl;
+//using Tao.OpenAl;
 
 namespace FFmpegExamples
 {
@@ -28,7 +28,7 @@ namespace FFmpegExamples
         //private readonly String path;
         private int audioStartIndex = -1;
         private int audioSampleRate;
-        private int format;
+        //private int format;
         private const int AUDIO_FRAME_SIZE = 5000;
         private byte[] samples = new byte[AUDIO_FRAME_SIZE];
         private int sampleSize = -1;
@@ -120,11 +120,11 @@ namespace FFmpegExamples
 
             if (audioCodecContext.channels == 1)
             {
-                format = Al.AL_FORMAT_MONO16;
+                //format = Al.AL_FORMAT_MONO16;
             }
             else
             {
-                format = Al.AL_FORMAT_STEREO16;
+                //format = Al.AL_FORMAT_STEREO16;
             }
 
             return true;
@@ -201,10 +201,10 @@ namespace FFmpegExamples
             get { return sampleSize; }
         }
 
-        public int Format
-        {
-            get { return format; }
-        }
+        //public int Format
+        //{
+        //    get { return format; }
+        //}
 
         public int Frequency
         {

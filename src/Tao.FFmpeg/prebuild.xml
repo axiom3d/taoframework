@@ -79,7 +79,7 @@
 	    <Reference name="System.Data" /> 
 	    <Reference name="System.Drawing" />
 	    <Reference name="Tao.FFmpeg" />
-	    <Reference name="Tao.OpenAl" localCopy="true"/>
+	    <!-- <Reference name="Tao.OpenAl" localCopy="true"/> -->
 	    <Files>
 		<File subType="Form" resourceName="Player">Player.cs</File>
 		<File buildAction="EmbeddedResource">Resources/RapidBaccarat_Green.bmp</File>

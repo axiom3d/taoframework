@@ -46,6 +46,7 @@
 	<nant buildfile="${src.dir}/Tao.PhysFs/Tao.PhysFs.build" target="clean" />
 	<nant buildfile="${src.dir}/Tao.Sdl/Tao.Sdl.build" target="clean" />
 	<nant buildfile="${src.dir}/Tao.Lua/Tao.Lua.build" target="clean" />
+	<nant buildfile="${src.dir}/Tao.FFmpeg/Tao.FFmpeg.build" target="clean" />
 	<nant buildfile="${src.dir}/Tao.OpenGl/Tao.OpenGl.build" target="clean" />
     </target>
 
@@ -55,6 +56,7 @@
 	<nant buildfile="${src.dir}/Tao.PhysFs/Tao.PhysFs.build" target="${nant.settings.currentframework} package" />
 	<nant buildfile="${src.dir}/Tao.Sdl/Tao.Sdl.build" target="${nant.settings.currentframework} package" />
 	<nant buildfile="${src.dir}/Tao.Lua/Tao.Lua.build" target="${nant.settings.currentframework} package" />
+	<nant buildfile="${src.dir}/Tao.FFmpeg/Tao.FFmpeg.build" target="${nant.settings.currentframework} package" />
 	<nant buildfile="${src.dir}/Tao.OpenGl/Tao.OpenGl.build" target="${nant.settings.currentframework} package" />
 	<call target="copyfiles" />
 	<call target="zip" />
@@ -67,6 +69,7 @@
 	<nant buildfile="${src.dir}/Tao.PhysFs/Tao.PhysFs.build" target="${nant.settings.currentframework} clean build-debug" />
 	<nant buildfile="${src.dir}/Tao.Sdl/Tao.Sdl.build" target="${nant.settings.currentframework} clean build-debug" />
 	<nant buildfile="${src.dir}/Tao.Lua/Tao.Lua.build" target="${nant.settings.currentframework} clean build-debug" />
+	<nant buildfile="${src.dir}/Tao.FFmpeg/Tao.FFmpeg.build" target="${nant.settings.currentframework} build-debug" />
 	<nant buildfile="${src.dir}/Tao.OpenGl/Tao.OpenGl.build" target="${nant.settings.currentframework} clean build-debug" />
 	<call target="copyfiles" />
     </target>

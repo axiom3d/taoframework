@@ -82,7 +82,6 @@
 	    <!-- <Reference name="Tao.OpenAl" localCopy="true"/> -->
 	    <Files>
 		<File subType="Form" resourceName="Player">Player.cs</File>
-		<File buildAction="EmbeddedResource">Resources/RapidBaccarat_Green.bmp</File>
 		<Match buildAction="EmbeddedResource" subType="Designer" pattern="Resources.resx" recurse="true"/>
 		<Match path="." pattern="*.cs" recurse="true">
 		    <Exclude name="Player.cs"/>

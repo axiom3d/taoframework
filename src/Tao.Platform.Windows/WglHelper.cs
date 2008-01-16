@@ -49,6 +49,9 @@ namespace Tao.Platform.Windows
 
         internal const string Library = "opengl32.dll";
 
+        private static SortedList<string, bool> AvailableExtensions = new SortedList<string, bool>();
+        private static bool rebuildExtensionList;
+
         private static Type glClass;
         private static Type delegatesClass;
         private static Type importsClass;
@@ -144,6 +147,8 @@ namespace Tao.Platform.Windows
 
             foreach (FieldInfo f in delegates)
                 f.SetValue(null, GetDelegate(f.Name, f.FieldType));
+
+            rebuildExtensionList = true;
         }
 
         static void set(object d, Delegate value)
@@ -221,6 +226,56 @@ namespace Tao.Platform.Windows
             }
         }
 
+        #endregion
+
+        #region public static bool IsExtensionSupported(string name)
+
+        /// <summary>
+        /// Determines whether the specified OpenGL extension category is available in
+        /// the current OpenGL context. Equivalent to IsExtensionSupported(name, true)
+        /// </summary>
+        /// <param name="name">The string for the OpenGL extension category (eg. "GL_ARB_multitexture")</param>
+        /// <returns>True if the specified extension is available, false otherwise.</returns>
+        public static bool IsExtensionSupported(string name)
+        {
+            if (rebuildExtensionList)
+                BuildExtensionList();
+
+            lock (gl_lock)
+            {
+                sb.Remove(0, sb.Length);
+                if (!name.StartsWith("WGL_"))
+                    sb.Append("wgl_");
+                sb.Append(name.ToLower());
+
+                // Search the cache for the string.
+                return AvailableExtensions.ContainsKey(sb.ToString());
+            }
+        }
+
+        #endregion
+
+
+        #region BuildExtensionList
+        internal static void BuildExtensionList()
+        {
+            AvailableExtensions.Clear();
+
+            string extension_string = "";
+            try
+            {
+                extension_string = wglGetExtensionsStringARB(wglGetCurrentDC());
+            }
+            catch (NullReferenceException nre)
+            { }
+
+            if (String.IsNullOrEmpty(extension_string))
+                return;               // no extensions are available
+
+            string[] extensions = extension_string.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (string ext in extensions)
+                AvailableExtensions.Add(ext.ToLower(), true);
+        }
         #endregion
 
         #endregion

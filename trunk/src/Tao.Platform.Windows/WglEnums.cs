@@ -2,6 +2,9 @@ namespace Tao.Platform.Windows
 {
     public static partial class Wgl
     {
+        // Manually added, GlBindGen seems to skip this one
+        public const int WGL_FONT_POLYGONS = ((int)1);
+
         public const int WGL_SWAP_METHOD_EXT = ((int)0x2007);
         public const int WGL_MIPMAP_TEXTURE_ARB = ((int)0x2074);
         public const int WGL_NO_ACCELERATION_ARB = ((int)0x2025);

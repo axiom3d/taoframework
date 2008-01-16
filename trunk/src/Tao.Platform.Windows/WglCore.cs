@@ -8,6 +8,7 @@ namespace Tao.Platform.Windows
 
         internal static partial class Imports
         {
+
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Wgl.Library, EntryPoint = "wglCreateContext", ExactSpelling = true)]
             internal extern static IntPtr CreateContext(IntPtr hDc);

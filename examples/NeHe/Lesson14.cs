@@ -194,7 +194,7 @@ namespace NeHe {
                 "Comic Sans MS");                                               // Font Name
 
             Gdi.SelectObject(hDC, font);                                        // Selects The Font We Created
-            Wgl.wglUseFontOutlines(
+            Wgl.wglUseFontOutlinesA(
                 hDC,                                                            // Select The Current DC
                 0,                                                              // Starting Character
                 255,                                                            // Number Of Display Lists To Build

@@ -194,7 +194,7 @@ namespace NeHe {
                 "Courier New");                                                 // Font Name
 
             oldfont = Gdi.SelectObject(hDC, font);                              // Selects The Font We Want
-            Wgl.wglUseFontBitmaps(hDC, 32, 96, fontbase);                       // Builds 96 Characters Starting At Character 32
+            Wgl.wglUseFontBitmapsA(hDC, 32, 96, fontbase);                       // Builds 96 Characters Starting At Character 32
             Gdi.SelectObject(hDC, oldfont);                                     // Selects The Font We Want
             Gdi.DeleteObject(font);                                             // Delete The Font
         }

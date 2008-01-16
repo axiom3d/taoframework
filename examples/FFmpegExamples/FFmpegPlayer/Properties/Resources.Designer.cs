@@ -59,12 +59,5 @@ namespace FFmpegExamples.Properties {
                 resourceCulture = value;
             }
         }
-        
-        internal static System.Drawing.Bitmap RapidBaccarat_Green {
-            get {
-                object obj = ResourceManager.GetObject("RapidBaccarat_Green", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

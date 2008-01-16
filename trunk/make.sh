@@ -12,6 +12,8 @@ PACKAGES="Tao.DevIl
 	  Tao.PhysFs
 	  Tao.Sdl
 	  Tao.Lua
+	  Tao.FFmpeg
+	  Tao.FreeType
 	  Tao.OpenGl
 	  "
 
@@ -51,6 +53,8 @@ cp -f examples/CgExamples/Data/*.* dist/examples/Data
 cp -f examples/DevIlExamples/SimpleExample/bin/Release/*.exe dist/examples
 cp -f examples/DevIlExamples/SimpleExample/Data/*.* dist/examples/Data
 
+cp -f examples/FFmpegExamples/FFmpegPlayer/bin/Release/*.exe dist/examples
+
 cp -f examples/FreeGlutExamples/One/bin/Release/*.exe dist/examples
 
 cp -f examples/GeWangExamples/bin/Release/*.exe dist/examples
@@ -86,7 +90,9 @@ cp -f examples/SdlExamples/Data/*.* dist/examples/Data
 mkdir -p dist/doc
 cp -f src/Tao.Cg/bin/Release/*.xml dist/doc
 cp -f src/Tao.DevIl/bin/Release/*.xml dist/doc
+cp -f src/Tao.FFmpeg/bin/Release/*.xml dist/doc
 cp -f src/Tao.FreeGlut/bin/Release/*.xml dist/doc
+cp -f src/Tao.FreeType/bin/Release/*.xml dist/doc
 cp -f src/Tao.Glfw/bin/Release/*.xml dist/doc
 cp -f src/Tao.Lua/bin/Release/*.xml dist/doc
 cp -f src/Tao.Ode/bin/Release/*.xml dist/doc

@@ -264,7 +264,7 @@ namespace Bind.Structures
                     Pointer = false;
                     WrapperType = WrapperTypes.None;
                 }
-                else if (CurrentType.ToLower().Contains("void") || PreviousType.ToLower().Contains("void")) /*|| CurrentType.Contains("IntPtr"))*/
+                else if (PreviousType != null && (CurrentType.ToLower().Contains("void") || PreviousType.ToLower().Contains("void"))) /*|| CurrentType.Contains("IntPtr"))*/
                 {
                     CurrentType = "IntPtr";
                     Pointer = false;

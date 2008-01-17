@@ -51,6 +51,19 @@
 	<nant buildfile="${src.dir}/Tao.OpenGl/Tao.OpenGl.build" target="clean" />
     </target>
 
+    <target name="build-release" depends="clean" description="Package">
+	<nant buildfile="${src.dir}/Tao.DevIl/Tao.DevIl.build" target="${nant.settings.currentframework} build-release" />
+	<nant buildfile="${src.dir}/Tao.Ode/Tao.Ode.build" target="${nant.settings.currentframework} build-release" />
+	<nant buildfile="${src.dir}/Tao.PhysFs/Tao.PhysFs.build" target="${nant.settings.currentframework} build-release" />
+	<nant buildfile="${src.dir}/Tao.Sdl/Tao.Sdl.build" target="${nant.settings.currentframework} build-release" />
+	<nant buildfile="${src.dir}/Tao.Lua/Tao.Lua.build" target="${nant.settings.currentframework} build-release" />
+	<nant buildfile="${src.dir}/Tao.FFmpeg/Tao.FFmpeg.build" target="${nant.settings.currentframework} build-release" />
+	<nant buildfile="${src.dir}/Tao.FreeType/Tao.FreeType.build" target="${nant.settings.currentframework} build-release" />
+	<nant buildfile="${src.dir}/Tao.OpenGl/Tao.OpenGl.build" target="${nant.settings.currentframework} build-release" />
+	<call target="copyfiles" />
+	<call target="zip" />
+    </target>
+
     <target name="package" depends="clean" description="Package">
 	<nant buildfile="${src.dir}/Tao.DevIl/Tao.DevIl.build" target="${nant.settings.currentframework} package" />
 	<nant buildfile="${src.dir}/Tao.Ode/Tao.Ode.build" target="${nant.settings.currentframework} package" />

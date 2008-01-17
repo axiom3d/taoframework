@@ -67,6 +67,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         int wglChoosePixelFormat(IntPtr hDc, IntPtr pPfd)
         {
@@ -136,6 +137,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         int wglDescribePixelFormat(IntPtr hdc, int ipfd, Int32 cjpfd, IntPtr ppfd)
         {
@@ -193,6 +195,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         Boolean wglSetPixelFormat(IntPtr hdc, int ipfd, IntPtr ppfd)
         {
@@ -280,6 +283,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         Boolean wglDescribeLayerPlane(IntPtr hDc, int pixelFormat, int layerPlane, Int32 nBytes, IntPtr plpd)
         {
@@ -313,6 +317,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         int wglSetLayerPaletteEntries(IntPtr hdc, int iLayerPlane, int iStart, int cEntries, IntPtr pcr)
         {
@@ -346,6 +351,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         int wglGetLayerPaletteEntries(IntPtr hdc, int iLayerPlane, int iStart, int cEntries, IntPtr pcr)
         {
@@ -410,6 +416,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         Boolean wglUseFontOutlinesA(IntPtr hDC, Int32 first, Int32 count, Int32 listBase, float thickness, float deviation, Int32 fontMode, IntPtr glyphMetrics)
         {
@@ -443,6 +450,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         Boolean wglUseFontOutlinesW(IntPtr hDC, Int32 first, Int32 count, Int32 listBase, float thickness, float deviation, Int32 fontMode, IntPtr glyphMetrics)
         {
@@ -560,6 +568,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         Boolean wglGetPixelFormatAttribivARB(IntPtr hdc, int iPixelFormat, int iLayerPlane, Int32 nAttributes, IntPtr piAttributes, [Out] IntPtr piValues)
         {
@@ -637,6 +646,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         Boolean wglGetPixelFormatAttribfvARB(IntPtr hdc, int iPixelFormat, int iLayerPlane, Int32 nAttributes, IntPtr piAttributes, [Out] IntPtr pfValues)
         {
@@ -769,6 +779,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         IntPtr wglCreatePbufferARB(IntPtr hDC, int iPixelFormat, int iWidth, int iHeight, IntPtr piAttribList)
         {
@@ -822,6 +833,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         Boolean wglQueryPbufferARB(IntPtr hPbuffer, int iAttribute, [Out] IntPtr piValue)
         {
@@ -867,6 +879,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         Boolean wglSetPbufferAttribARB(IntPtr hPbuffer, IntPtr piAttribList)
         {
@@ -1029,6 +1042,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         IntPtr wglCreatePbufferEXT(IntPtr hDC, int iPixelFormat, int iWidth, int iHeight, IntPtr piAttribList)
         {
@@ -1082,6 +1096,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         Boolean wglQueryPbufferEXT(IntPtr hPbuffer, int iAttribute, [Out] IntPtr piValue)
         {
@@ -1161,6 +1176,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         Boolean wglGetPixelFormatAttribivEXT(IntPtr hdc, int iPixelFormat, int iLayerPlane, Int32 nAttributes, [Out] IntPtr piAttributes, [Out] IntPtr piValues)
         {
@@ -1240,6 +1256,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         Boolean wglGetPixelFormatAttribfvEXT(IntPtr hdc, int iPixelFormat, int iLayerPlane, Int32 nAttributes, [Out] IntPtr piAttributes, [Out] IntPtr pfValues)
         {
@@ -1379,6 +1396,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         void wglFreeMemoryNV([Out] IntPtr pointer)
         {
@@ -1420,6 +1438,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         Boolean wglGetSyncValuesOML(IntPtr hdc, [Out] IntPtr ust, [Out] IntPtr msc, [Out] IntPtr sbc)
         {
@@ -1458,6 +1477,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         Boolean wglGetMscRateOML(IntPtr hdc, [Out] IntPtr numerator, [Out] IntPtr denominator)
         {
@@ -1511,6 +1531,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         Boolean wglWaitForMscOML(IntPtr hdc, Int64 target_msc, Int64 divisor, Int64 remainder, [Out] IntPtr ust, [Out] IntPtr msc, [Out] IntPtr sbc)
         {
@@ -1552,6 +1573,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         Boolean wglWaitForSbcOML(IntPtr hdc, Int64 target_sbc, [Out] IntPtr ust, [Out] IntPtr msc, [Out] IntPtr sbc)
         {
@@ -1587,6 +1609,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         Boolean wglGetDigitalVideoParametersI3D(IntPtr hDC, int iAttribute, [Out] IntPtr piValue)
         {
@@ -1620,6 +1643,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         Boolean wglSetDigitalVideoParametersI3D(IntPtr hDC, int iAttribute, IntPtr piValue)
         {
@@ -1655,6 +1679,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         Boolean wglGetGammaTableParametersI3D(IntPtr hDC, int iAttribute, [Out] IntPtr piValue)
         {
@@ -1688,6 +1713,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         Boolean wglSetGammaTableParametersI3D(IntPtr hDC, int iAttribute, IntPtr piValue)
         {
@@ -1877,6 +1903,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         Boolean wglIsEnabledGenlockI3D(IntPtr hDC, [Out] IntPtr pFlag)
         {
@@ -2515,6 +2542,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         Boolean wglAssociateImageBufferEventsI3D(IntPtr hDC, IntPtr pEvent, [In, Out] object pAddress, IntPtr pSize, Int32 count)
         {
@@ -2553,6 +2581,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         Boolean wglAssociateImageBufferEventsI3D(IntPtr hDC, IntPtr pEvent, [In, Out] object pAddress, Int32[] pSize, Int32 count)
         {
@@ -2594,6 +2623,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         Boolean wglAssociateImageBufferEventsI3D(IntPtr hDC, IntPtr pEvent, [In, Out] object pAddress, ref Int32 pSize, Int32 count)
         {
@@ -2706,6 +2736,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         Boolean wglIsEnabledFrameLockI3D([Out] IntPtr pFlag)
         {
@@ -2741,6 +2772,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         Boolean wglQueryFrameLockMasterI3D([Out] IntPtr pFlag)
         {
@@ -2776,6 +2808,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         Boolean wglGetFrameUsageI3D([Out] IntPtr pUsage)
         {
@@ -2829,6 +2862,7 @@ namespace Tao.Platform.Windows
             }
         }
 
+        [System.CLSCompliant(false)]
         public static 
         Boolean wglQueryFrameTrackingI3D([Out] IntPtr pFrameCount, [Out] IntPtr pMissedFrames, [Out] IntPtr pLastMissedUsage)
         {

@@ -21,7 +21,7 @@ namespace FFmpegExamples
         void audio_LivtUpdateEvent(object update)
         {
             if (InvokeRequired) {
-                BeginInvoke(new TimerCallback(audio_LivtUpdateEvent), update);
+                BeginInvoke(new TimerCallback(audio_LivtUpdateEvent), new object[] { update });
                 return;
             }
             if (this.label1.Text != update.ToString())

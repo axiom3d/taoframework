@@ -895,12 +895,23 @@ String url,
         [StructLayout(LayoutKind.Sequential)]
         public struct AVFrac
         {
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.I8)]
-            Int64 val;
+            public Int64 val;
+
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.I8)]
-            Int64 num;
+            public Int64 num;
+
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.I8)]
-            Int64 den;
+            public Int64 den;
         };
 
         /// <summary>
@@ -909,10 +920,21 @@ String url,
         [StructLayout(LayoutKind.Sequential)]
         public struct AVProbeData
         {
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.LPStr)]
-            String filename;
-            IntPtr buf;
-            int buf_size;
+            public String filename;
+
+            /// <summary>
+            /// 
+            /// </summary>
+            public IntPtr buf;
+
+            /// <summary>
+            /// 
+            /// </summary>
+            public int buf_size;
         };
 
         /// <summary>
@@ -968,16 +990,16 @@ String url,
             /// <summary>
             /// 
             /// </summary>
-            int mpeg2ts_raw;
+            public int mpeg2ts_raw;
             /// <summary>
             /// 
             /// </summary>
-            int mpeg2ts_compute_pcr;
+            public int mpeg2ts_compute_pcr;
 
             /// <summary>
             /// 
             /// </summary>
-            int initial_pause;
+            public int initial_pause;
             /// <summary>
             /// 
             /// </summary>
@@ -1036,42 +1058,84 @@ String url,
         [StructLayout(LayoutKind.Sequential)]
         public struct AVOutputFormat
         {
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.LPStr)]
-            String name;
+            public String name;
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.LPStr)]
-            String long_name;
+            public String long_name;
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.LPStr)]
-            String mime_type;
+            public String mime_type;
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.LPStr)]
-            String extensions;
+            public String extensions;
 
-            int priv_data_size;
+            /// <summary>
+            /// 
+            /// </summary>
+            public int priv_data_size;
 
-            CodecID audio_codec;
+            /// <summary>
+            /// 
+            /// </summary>
+            public CodecID audio_codec;
 
-            CodecID video_codec;
+            /// <summary>
+            /// 
+            /// </summary>
+            public CodecID video_codec;
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.FunctionPtr)]
-            WriteHeader write_header;
+            public WriteHeader write_header;
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.FunctionPtr)]
-            WritePacket write_packet;
+            public WritePacket write_packet;
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.FunctionPtr)]
-            WriteTrailer write_trailer;
+            public WriteTrailer write_trailer;
 
-            int flags;
+            /// <summary>
+            /// 
+            /// </summary>
+            public int flags;
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.FunctionPtr)]
-            SetParametersCallback set_parameters;
+            public SetParametersCallback set_parameters;
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.FunctionPtr)]
-            InterleavePacketCallback interleave_packet;
+            public InterleavePacketCallback interleave_packet;
 
-            IntPtr nextAVOutputFormat;
+            /// <summary>
+            /// 
+            /// </summary>
+            public IntPtr nextAVOutputFormat;
         };
 
         /// <summary>
@@ -1140,47 +1204,92 @@ String url,
         [StructLayout(LayoutKind.Sequential)]
         public struct AVInputFormat
         {
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.LPStr)]
-            String name;
+            public String name;
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.LPStr)]
-            String long_name;
+            public String long_name;
 
-            int priv_data_size;
+            /// <summary>
+            /// 
+            /// </summary>
+            public int priv_data_size;
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.FunctionPtr)]
-            ReadProbeCallback read_probe;
+            public ReadProbeCallback read_probe;
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.FunctionPtr)]
-            ReadHeaderCallback read_header;
+            public ReadHeaderCallback read_header;
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.FunctionPtr)]
-            ReadPacketCallback read_packet;
+            public ReadPacketCallback read_packet;
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.FunctionPtr)]
-            ReadCloseCallback read_close;
+            public ReadCloseCallback read_close;
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.FunctionPtr)]
-            ReadSeekCallback read_seek;
+            public ReadSeekCallback read_seek;
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.FunctionPtr)]
-            ReadTimestampCallback read_timestamp;
+            public ReadTimestampCallback read_timestamp;
 
             // can use flags: AVFMT_NOFILE, AVFMT_NEEDNUMBER
-            int flags;
+            /// <summary>
+            /// 
+            /// </summary>
+            public int flags;
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.LPStr)]
-            String extensions;
+            public String extensions;
 
-            int value;
+            /// <summary>
+            /// 
+            /// </summary>
+            public int value;
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.FunctionPtr)]
-            ReadPlayCallback read_play;
+            public ReadPlayCallback read_play;
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.FunctionPtr)]
-            ReadPauseCallback read_pause;
+            public ReadPauseCallback read_pause;
 
-            IntPtr nextAVInputFormat;
+            /// <summary>
+            /// 
+            /// </summary>
+            public IntPtr nextAVInputFormat;
         };
 
         /// <summary>
@@ -1189,11 +1298,26 @@ String url,
         [StructLayout(LayoutKind.Sequential)]
         public struct AVIndexEntry
         {
-            Int64 pos;
-            Int64 timestamp;
-            int flags;
-            int size;
-            int min_distance;
+            /// <summary>
+            /// 
+            /// </summary>
+            public Int64 pos;
+            /// <summary>
+            /// 
+            /// </summary>
+            public Int64 timestamp;
+            /// <summary>
+            /// 
+            /// </summary>
+            public int flags;
+            /// <summary>
+            /// 
+            /// </summary>
+            public int size;
+            /// <summary>
+            /// 
+            /// </summary>
+            public int min_distance;
         };
 
         /// <summary>
@@ -1653,8 +1777,14 @@ String url,
         [StructLayout(LayoutKind.Sequential)]
         public struct AVPacketList
         {
-            AVPacket pkt;
-            IntPtr next; // AVPacketList
+            /// <summary>
+            /// 
+            /// </summary>
+            public AVPacket pkt;
+            /// <summary>
+            /// 
+            /// </summary>
+            public IntPtr next; // AVPacketList
         };
 
         /// <summary>
@@ -1663,18 +1793,33 @@ String url,
         [StructLayout(LayoutKind.Sequential)]
         public struct AVImageInfo
         {
-            PixelFormat pix_fmt; // requested pixel format
+            /// <summary>
+            /// 
+            /// </summary>
+            public PixelFormat pix_fmt; // requested pixel format
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.I4)]
-            int width; // requested width
+            public int width; // requested width
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.I4)]
-            int height; // requested height
+            public int height; // requested height
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.I4)]
-            int interleaved; // image is interleaved (e.g. interleaved GIF)
+            public int interleaved; // image is interleaved (e.g. interleaved GIF)
 
-            AVPicture pict; // returned allocated image
+            /// <summary>
+            /// 
+            /// </summary>
+            public AVPicture pict; // returned allocated image
         };
 
         /// <summary>
@@ -1716,32 +1861,56 @@ AllocCBCallback alloc_cb,
         [StructLayout(LayoutKind.Sequential)]
         public struct AVImageFormat
         {
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.LPTStr)]
-            String name;
+            public String name;
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.LPTStr)]
-            String extensions;
+            public String extensions;
 
             // tell if a given file has a chance of being parsing by this format
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.FunctionPtr)]
-            ImgProbeCallback img_probe;
+            public ImgProbeCallback img_probe;
 
             /* read a whole image. 'alloc_cb' is called when the image size is
             known so that the caller can allocate the image. If 'allo_cb'
             returns non zero, then the parsing is aborted. Return '0' if
             OK. */
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.FunctionPtr)]
-            ImgReadCallback img_read;
+            public ImgReadCallback img_read;
 
             /* write the image */
-            int supported_pixel_formats; // mask of supported formats for output
+            /// <summary>
+            /// 
+            /// </summary>
+            public int supported_pixel_formats; // mask of supported formats for output
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.FunctionPtr)]
-            ImgWriteCallback img_write;
+            public ImgWriteCallback img_write;
 
-            int flags;
+            /// <summary>
+            /// 
+            /// </summary>
+            public int flags;
 
-            IntPtr next; // AVImageFormat
+            /// <summary>
+            /// 
+            /// </summary>
+            public IntPtr next; // AVImageFormat
         };
     }
 }

@@ -40,7 +40,7 @@ namespace Tao.Sdl
 		private void InitSdl()
 		{
 			Sdl.SDL_Quit();
-			int init = Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
+			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
 			this.GfxSetup();
 			
 		}
@@ -75,7 +75,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.pixelColor(surfacePtr, 100,100,7777777);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -90,7 +90,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.pixelRGBA(surfacePtr, 100,100, 200, 0,(byte)0, 254);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -105,7 +105,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.hlineColor(surfacePtr, 100, 200,100,7777777);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -120,7 +120,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.hlineRGBA(surfacePtr, 100,200,100, 200, 0,(byte)0, 254);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -135,7 +135,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.vlineColor(surfacePtr, 100, 200,100,7777777);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -150,7 +150,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.vlineRGBA(surfacePtr, 100,200,100, 200, 0,(byte)0, 254);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -165,7 +165,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.rectangleColor(surfacePtr, 100, 200,300, 300,7777777);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -180,7 +180,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.rectangleRGBA(surfacePtr, 100,200,300,300, 200, 0,(byte)0, 254);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -195,7 +195,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.boxColor(surfacePtr, 100, 200,300, 300,7777777);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -210,7 +210,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.boxRGBA(surfacePtr, 100,200,300,300, 200, 0,(byte)0, 254);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -225,7 +225,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.lineColor(surfacePtr, 100, 200,300, 300,7777777);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -240,7 +240,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.lineRGBA(surfacePtr, 100,200,300,300, 200, 0,(byte)0, 254);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -255,7 +255,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.aalineColor(surfacePtr, 100, 200,300, 300,7777777);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -270,7 +270,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.aalineRGBA(surfacePtr, 100,200,300,300, 200, 0,(byte)0, 254);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -285,7 +285,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.circleRGBA(surfacePtr, 100,100, 50,200, 0,(byte)0, 254);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -300,7 +300,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.circleColor(surfacePtr, 100,100, 50,7777777);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -316,7 +316,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.aacircleRGBA(surfacePtr, 100,100, 50,200, 0,(byte)0, 254);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -331,7 +331,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.aacircleColor(surfacePtr, 100,100, 50,7777777);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -346,7 +346,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.filledCircleColor(surfacePtr, 100,100, 50,7777777);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -361,7 +361,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.filledCircleRGBA(surfacePtr, 100,100, 50,200, 0,(byte)0, 254);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -376,7 +376,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.ellipseColor(surfacePtr, 200,100, 100, 50,7777777);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -391,7 +391,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.ellipseRGBA(surfacePtr, 200,100,100, 50,200, 0,(byte)0, 254);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -406,7 +406,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.aaellipseColor(surfacePtr, 200,100, 100, 50,7777777);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -421,7 +421,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.aaellipseRGBA(surfacePtr, 200,100,100, 50,200, 0,(byte)0, 254);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -436,7 +436,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.filledEllipseColor(surfacePtr, 200,100, 100, 50,7777777);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -451,7 +451,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.filledEllipseRGBA(surfacePtr, 200,100,100, 50,200, 0,(byte)0, 254);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -466,7 +466,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.pieColor(surfacePtr, 200,100, 100, 50, 100,7777777);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -481,7 +481,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.pieRGBA(surfacePtr, 200,100,100, 50, 100,200, 0,(byte)0, 254);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -496,7 +496,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.filledPieColor(surfacePtr, 200,100, 100, 50, 100,7777777);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -511,7 +511,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.filledPieRGBA(surfacePtr, 200,100,100, 50, 100,200, 0,(byte)0, 254);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -526,7 +526,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.trigonColor(surfacePtr, 100,100, 250,400, 100, 300,7777777);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -541,7 +541,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.trigonRGBA(surfacePtr, 100,100, 250,400, 100, 300,200, 0,(byte)0, 254);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -556,7 +556,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.aatrigonColor(surfacePtr, 100,100, 250,400, 100, 300,7777777);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -571,7 +571,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.aatrigonRGBA(surfacePtr, 100,100, 250,400, 100, 300,200, 0,(byte)0, 254);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -586,7 +586,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.filledTrigonColor(surfacePtr, 100,100, 250,400, 100, 300,7777777);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -601,7 +601,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.filledTrigonRGBA(surfacePtr, 100,100, 250,400, 100, 300,200, 0,(byte)0, 254);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -615,7 +615,7 @@ namespace Tao.Sdl
 		public void polygonColor()
 		{
 			this.InitSdl();
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.polygonColor(surfacePtr,vx, vy,vx.Length,7777777);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -629,7 +629,7 @@ namespace Tao.Sdl
 		public void polygonRGBA()
 		{
 			this.InitSdl();
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = 
 				SdlGfx.polygonRGBA(surfacePtr,vx, vy,vx.Length, 200, 0,(byte)0, 254);
 			result = Sdl.SDL_Flip(surfacePtr);
@@ -644,7 +644,7 @@ namespace Tao.Sdl
 		public void aapolygonColor()
 		{
 			this.InitSdl();
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.aapolygonColor(surfacePtr,vx, vy,vx.Length,7777777);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -658,7 +658,7 @@ namespace Tao.Sdl
 		public void aapolygonRGBA()
 		{
 			this.InitSdl();
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = 
 				SdlGfx.aapolygonRGBA(surfacePtr,vx, vy,vx.Length, 200, 0,(byte)0, 254);
 			result = Sdl.SDL_Flip(surfacePtr);
@@ -673,7 +673,7 @@ namespace Tao.Sdl
 		public void FilledPolygonColor()
 		{
 			this.InitSdl();
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.filledPolygonColor(surfacePtr,vx, vy,vx.Length,7777777);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -687,7 +687,7 @@ namespace Tao.Sdl
 		public void FilledPolygonRGBA()
 		{
 			this.InitSdl();
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = 
 				SdlGfx.filledPolygonRGBA(surfacePtr,vx, vy,vx.Length, 200, 0,(byte)0, 254);
 			result = Sdl.SDL_Flip(surfacePtr);
@@ -702,7 +702,7 @@ namespace Tao.Sdl
 		public void bezierColor()
 		{
 			this.InitSdl();
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.bezierColor(surfacePtr,vx, vy,vx.Length,4, 7777777);
 			result = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
@@ -716,7 +716,7 @@ namespace Tao.Sdl
 		public void bezierRGBA()
 		{
 			this.InitSdl();
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = 
 				SdlGfx.bezierRGBA(surfacePtr,vx, vy,vx.Length, 4, 200, 0,(byte)0, 254);
 			result = Sdl.SDL_Flip(surfacePtr);
@@ -732,7 +732,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.characterColor(
 				surfacePtr, 100,100, 'X',7777777);
 			result = Sdl.SDL_Flip(surfacePtr);
@@ -748,7 +748,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.characterRGBA(
 				surfacePtr, 100,100, 'X', 200, 0,(byte)0, 254);
 			result = Sdl.SDL_Flip(surfacePtr);
@@ -764,7 +764,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.stringColor(
 				surfacePtr, 100,100, "SDL.NET",7777777);
 			result = Sdl.SDL_Flip(surfacePtr);
@@ -780,7 +780,7 @@ namespace Tao.Sdl
 		{
 			this.InitSdl();
 			
-			Random rand = new Random();
+			//Random rand = new Random();
 			int result = SdlGfx.stringRGBA(
 				surfacePtr, 100,100, "SDL.NET", 200, 0,(byte)0, 254);
 			result = Sdl.SDL_Flip(surfacePtr);
@@ -811,7 +811,7 @@ namespace Tao.Sdl
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,400,400);
 			IntPtr bmpImagePtr = Sdl.SDL_LoadBMP("test.bmp");
 			IntPtr rotoSurfacePtr = SdlGfx.rotozoomSurface(bmpImagePtr, 90, 2, SdlGfx.SMOOTHING_OFF);
-			int result = Sdl.SDL_BlitSurface(rotoSurfacePtr, ref rect1, surfacePtr, ref rect2);
+			Sdl.SDL_BlitSurface(rotoSurfacePtr, ref rect1, surfacePtr, ref rect2);
 			Assert.IsNotNull(rotoSurfacePtr);
 			Assert.IsFalse(rotoSurfacePtr==IntPtr.Zero);
 			Sdl.SDL_UpdateRect(surfacePtr, 0,0,400,400);
@@ -838,7 +838,7 @@ namespace Tao.Sdl
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,400,400);
 			IntPtr bmpImagePtr = Sdl.SDL_LoadBMP("test.bmp");
 			IntPtr zoomSurfacePtr = SdlGfx.zoomSurface(bmpImagePtr, 5, 2, SdlGfx.SMOOTHING_OFF);
-			int result = Sdl.SDL_BlitSurface(zoomSurfacePtr, ref rect1, surfacePtr, ref rect2);
+			Sdl.SDL_BlitSurface(zoomSurfacePtr, ref rect1, surfacePtr, ref rect2);
 			Assert.IsNotNull(zoomSurfacePtr);
 			Assert.IsFalse(zoomSurfacePtr==IntPtr.Zero);
 			Sdl.SDL_UpdateRect(surfacePtr, 0,0,400,400);
@@ -869,7 +869,7 @@ namespace Tao.Sdl
 		[Test]
 		public void ImageFilterAdd()
 		{
-			int result = SdlGfx.SDL_imageFilterAdd(src1, src2, dest, src1.Length);
+			SdlGfx.SDL_imageFilterAdd(src1, src2, dest, src1.Length);
 			//Console.WriteLine("result: " + result.ToString());
 			//Console.WriteLine(
 			//	"dest: " + dest[0].ToString() + 

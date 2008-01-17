@@ -13,10 +13,10 @@ namespace Tao.Sdl
 	public class SdlTest
 	{
 		#region SDL.h
-		private void InitSdl()
-		{
-			Tao.Sdl.Sdl.SDL_Quit();
-		}
+        //private void InitSdl()
+        //{
+        //    Tao.Sdl.Sdl.SDL_Quit();
+        //}
 		private void Quit()
 		{
 			Tao.Sdl.Sdl.SDL_Quit();
@@ -419,7 +419,7 @@ namespace Tao.Sdl
 
 			int audio_len;
 			
-			IntPtr pointer = Sdl.SDL_LoadWAV("test.wav", out spec, out audio_buf, out audio_len);
+			Sdl.SDL_LoadWAV("test.wav", out spec, out audio_buf, out audio_len);
 				Console.WriteLine("Error: " + Sdl.SDL_GetError());
 			this.Quit();
 		}
@@ -438,7 +438,7 @@ namespace Tao.Sdl
 
 			int audio_len;
 			
-			IntPtr result = Sdl.SDL_LoadWAV_RW(Sdl.SDL_RWFromFile("test.wav", "rb"), 1,  out spec,  out audio_buf, out audio_len);
+			Sdl.SDL_LoadWAV_RW(Sdl.SDL_RWFromFile("test.wav", "rb"), 1,  out spec,  out audio_buf, out audio_len);
 			Console.WriteLine("Error: " + Sdl.SDL_GetError());
 			this.Quit();
 		}
@@ -777,7 +777,7 @@ namespace Tao.Sdl
 			Sdl.SDL_Quit();
 			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
 			IntPtr cd = Sdl.SDL_CDOpen(0);
-			int result = Sdl.SDL_CDEject(cd);
+			Sdl.SDL_CDEject(cd);
 			Sdl.SDL_CDClose(cd);
 			this.Quit();
 		}

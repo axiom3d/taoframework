@@ -17,10 +17,10 @@ namespace FFmpegExamples
         private FFmpeg.AVFormatContext formatContext;
 
         private FFmpeg.AVCodecContext audioCodecContext;
-        private IntPtr pAudioCodecContext;
+        //private IntPtr pAudioCodecContext;
 
         private FFmpeg.AVRational timebase;
-        private IntPtr pAudioStream;
+        //private IntPtr pAudioStream;
 
         private IntPtr pAudioCodec;
         //private FFmpeg.AVCodecStruct audioCodec;
@@ -93,8 +93,8 @@ namespace FFmpegExamples
                 if (codec.codec_type == FFmpeg.CodecType.CODEC_TYPE_AUDIO &&
                                         audioStartIndex == -1)
                 {
-                    this.pAudioCodecContext = stream.codec;
-                    this.pAudioStream = formatContext.streams[i];
+                    //this.pAudioCodecContext = stream.codec;
+                    //this.pAudioStream = formatContext.streams[i];
                     this.audioCodecContext = codec;
                     this.audioStartIndex = i;
                     this.timebase = stream.time_base;
@@ -170,8 +170,8 @@ namespace FFmpegExamples
             try
             {
                 pSamples = Marshal.AllocHGlobal(AUDIO_FRAME_SIZE);
-                int size = FFmpeg.avcodec_decode_audio(pAudioCodecContext, pSamples,
-                        ref frameSize, packet.data, packet.size);
+                //int size = FFmpeg.avcodec_decode_audio(pAudioCodecContext, pSamples,
+                //        ref frameSize, packet.data, packet.size);
 
                 //FFmpeg.av_free_packet(pPacket);                                      
 

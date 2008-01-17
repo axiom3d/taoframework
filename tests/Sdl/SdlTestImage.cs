@@ -13,7 +13,6 @@ namespace Tao.Sdl
 	[TestFixture]
 	public class SdlTestImage
 	{
-		int init;
 		int flags;
 		int bpp;
 		int width;
@@ -33,7 +32,7 @@ namespace Tao.Sdl
 		public void Init()
 		{
 			Sdl.SDL_Quit();
-			init = Sdl.SDL_Init(Sdl.SDL_INIT_VIDEO);
+			Sdl.SDL_Init(Sdl.SDL_INIT_VIDEO);
 			flags = (Sdl.SDL_HWSURFACE|Sdl.SDL_DOUBLEBUF|Sdl.SDL_ANYFORMAT);
 			bpp = 16;
 			width = 640;
@@ -361,7 +360,7 @@ namespace Tao.Sdl
 		public void ReadXPMFromArray()
 		{
 			//string file = "test.xpm";
-			IntPtr surfacePtr = VideoSetup();
+			VideoSetup();
 			//IntPtr imagePtr = SdlImage.IMG_ReadXPMFromArray();
 			//Assert.IsFalse(imagePtr == IntPtr.Zero);
 		}

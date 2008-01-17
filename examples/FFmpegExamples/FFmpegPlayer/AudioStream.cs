@@ -13,7 +13,7 @@ namespace FFmpegExamples
         private Decoder decoder;
         //private int source;
         private int[] buffers = new int[MAX_BUFFERS];
-        private float[] zeros = { 0.0f, 0.0f, 0.0f };
+        //private float[] zeros = { 0.0f, 0.0f, 0.0f };
         private bool playing;
 
         public event LiveUpdateCallback LivtUpdateEvent;
@@ -92,8 +92,8 @@ namespace FFmpegExamples
         {
             if (decoder.Stream()) {
                 if (decoder.IsAudioStream) {
-                    byte[] samples = decoder.Samples;
-                    int sampleSize = decoder.SampleSize;
+                    //byte[] samples = decoder.Samples;
+                    //int sampleSize = decoder.SampleSize;
                     //Al.alBufferData(buffer, decoder.Format, samples, sampleSize, decoder.Frequency);
                     Check();
                 }

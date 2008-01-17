@@ -16,7 +16,6 @@ namespace Tao.Sdl
     [TestFixture]
     public class SdlTestOverlay
     {
-        int init;
         int flags;
         int bpp;
         int width;
@@ -29,7 +28,7 @@ namespace Tao.Sdl
         [SetUp]
         public void Init()
         {
-            init = Sdl.SDL_Init(Sdl.SDL_INIT_VIDEO);
+            Sdl.SDL_Init(Sdl.SDL_INIT_VIDEO);
             flags = (Sdl.SDL_DOUBLEBUF | Sdl.SDL_ANYFORMAT);
             bpp = 16;
             width = 640;
@@ -44,7 +43,7 @@ namespace Tao.Sdl
         private IntPtr VideoSetup(bool hardware)
         {
             Sdl.SDL_Quit();
-            init = Sdl.SDL_Init(Sdl.SDL_INIT_VIDEO);
+            Sdl.SDL_Init(Sdl.SDL_INIT_VIDEO);
             IntPtr surfacePtr;
             //Assert.IsNotNull(surfacePtr);
             //Sdl.SDL_FreeSurface(surfacePtr);
@@ -60,14 +59,14 @@ namespace Tao.Sdl
             Assert.IsNotNull(surfacePtr);
             return surfacePtr;
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        private IntPtr VideoSetupOpenGl()
-        {
-            flags |= Sdl.SDL_OPENGL;
-            return this.VideoSetup(false);
-        }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //private IntPtr VideoSetupOpenGl()
+        //{
+        //    flags |= Sdl.SDL_OPENGL;
+        //    return this.VideoSetup(false);
+        //}
         /// <summary>
         /// 
         /// </summary>
@@ -141,7 +140,6 @@ namespace Tao.Sdl
 	[TestFixture]
 	public class SdlTestVideo
 	{
-		int init;
 		int flags;
 		int bpp;
 		int width;
@@ -156,7 +154,7 @@ namespace Tao.Sdl
 		[SetUp]
 		public void Init()
 		{
-			init = Sdl.SDL_Init(Sdl.SDL_INIT_VIDEO);
+			Sdl.SDL_Init(Sdl.SDL_INIT_VIDEO);
 			flags = (Sdl.SDL_HWSURFACE|Sdl.SDL_DOUBLEBUF|Sdl.SDL_ANYFORMAT);
 			bpp = 16;
 			width = 640;
@@ -171,7 +169,7 @@ namespace Tao.Sdl
 		private IntPtr VideoSetup()
 		{
 			Sdl.SDL_Quit();
-			init = Sdl.SDL_Init(Sdl.SDL_INIT_VIDEO);
+			Sdl.SDL_Init(Sdl.SDL_INIT_VIDEO);
 			IntPtr surfacePtr;
 			//Assert.IsNotNull(surfacePtr);
 			//Sdl.SDL_FreeSurface(surfacePtr);
@@ -183,14 +181,14 @@ namespace Tao.Sdl
 			Assert.IsNotNull(surfacePtr);
 			return surfacePtr;
 		}
-		/// <summary>
-		/// 
-		/// </summary>
-		private IntPtr VideoSetupOpenGl()
-		{
-			flags |= Sdl.SDL_OPENGL;
-			return this.VideoSetup();
-		}
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //private IntPtr VideoSetupOpenGl()
+        //{
+        //    flags |= Sdl.SDL_OPENGL;
+        //    return this.VideoSetup();
+        //}
 		/// <summary>
 		/// 
 		/// </summary>
@@ -198,7 +196,7 @@ namespace Tao.Sdl
 		public void SetVideoWindow()
 		{
 			Sdl.SDL_Quit();
-			init = Sdl.SDL_Init(Sdl.SDL_INIT_VIDEO);
+			Sdl.SDL_Init(Sdl.SDL_INIT_VIDEO);
 			IntPtr surfacePtr = Sdl.SDL_SetVideoMode(
 				width, 
 				height, 
@@ -214,7 +212,7 @@ namespace Tao.Sdl
 		[Test]
 		public void VideoModeOk()
 		{
-			int init = Sdl.SDL_Init(Sdl.SDL_INIT_VIDEO);
+			Sdl.SDL_Init(Sdl.SDL_INIT_VIDEO);
 			int result = Sdl.SDL_VideoModeOK(
 				width, 
 				height, 
@@ -275,7 +273,7 @@ namespace Tao.Sdl
 			IntPtr surfacePtr = VideoSetup();
 			Assert.IsNotNull(surfacePtr);
 			Sdl.SDL_Rect rect = new Sdl.SDL_Rect(100,100,100,100);
-			int result = Sdl.SDL_FillRect(surfacePtr, ref rect, 10000);
+			Sdl.SDL_FillRect(surfacePtr, ref rect, 10000);
 			int resultFlip = Sdl.SDL_Flip(surfacePtr);
 			Thread.Sleep(sleepTime);
 
@@ -357,8 +355,8 @@ namespace Tao.Sdl
 		{
 			//TODO: Must figure out a real test for this method.
 			IntPtr surfacePtr = VideoSetup();
-			Sdl.SDL_Rect rect = new Sdl.SDL_Rect(100,100,100,100);
-			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(150,150,150,150);
+			//Sdl.SDL_Rect rect = new Sdl.SDL_Rect(100,100,100,100);
+			
 			Sdl.SDL_Rect[] rects = {
 									   new Sdl.SDL_Rect(100,100,100,100), 
 									   new Sdl.SDL_Rect(150,150,150,150)
@@ -436,7 +434,7 @@ namespace Tao.Sdl
 		[Test]
 		public void GetGammaRamp()
 		{
-			IntPtr surfacePtr = VideoSetup();
+			VideoSetup();
 			short[] red = new short[256];
 			short[] blue = new short[256];
 			short[] green = new short[256];
@@ -495,7 +493,7 @@ namespace Tao.Sdl
 		public void ListModes()
 		{
 			Sdl.SDL_Quit();
-			init = Sdl.SDL_Init(Sdl.SDL_INIT_VIDEO);
+			Sdl.SDL_Init(Sdl.SDL_INIT_VIDEO);
 			IntPtr format = IntPtr.Zero;
 			Sdl.SDL_Rect[] rects = Sdl.SDL_ListModes(format, Sdl.SDL_FULLSCREEN|Sdl.SDL_HWSURFACE);
 			Console.WriteLine("ListModes: " + rects.Length);
@@ -556,8 +554,8 @@ namespace Tao.Sdl
 			Sdl.SDL_Surface surface = 
 				(Sdl.SDL_Surface)Marshal.PtrToStructure(surfacePtr, typeof(Sdl.SDL_Surface));
 			surfaceFormatPtr = surface.format;
-			Sdl.SDL_PixelFormat surfaceFormat = 
-				(Sdl.SDL_PixelFormat)Marshal.PtrToStructure(surfaceFormatPtr, typeof(Sdl.SDL_PixelFormat));
+            //Sdl.SDL_PixelFormat surfaceFormat = 
+            //    (Sdl.SDL_PixelFormat)Marshal.PtrToStructure(surfaceFormatPtr, typeof(Sdl.SDL_PixelFormat));
 			Sdl.SDL_GetRGB(pixel, surfaceFormatPtr, out r, out g, out b);
 			Assert.AreEqual(r, 255);
 			Assert.AreEqual(g, 255);
@@ -580,8 +578,8 @@ namespace Tao.Sdl
 			Sdl.SDL_Surface surface = 
 				(Sdl.SDL_Surface)Marshal.PtrToStructure(surfacePtr, typeof(Sdl.SDL_Surface));
 			surfaceFormatPtr = surface.format;
-			Sdl.SDL_PixelFormat surfaceFormat = 
-				(Sdl.SDL_PixelFormat)Marshal.PtrToStructure(surfaceFormatPtr, typeof(Sdl.SDL_PixelFormat));
+            //Sdl.SDL_PixelFormat surfaceFormat = 
+            //    (Sdl.SDL_PixelFormat)Marshal.PtrToStructure(surfaceFormatPtr, typeof(Sdl.SDL_PixelFormat));
 			Sdl.SDL_GetRGBA(pixel, surfaceFormatPtr, out r, out g, out b, out a);
 			Assert.AreEqual(r, 255);
 			Assert.AreEqual(g, 255);
@@ -721,7 +719,7 @@ namespace Tao.Sdl
 		[Test]
 		public void WM_SetIcon()
 		{
-			IntPtr surfacePtr = VideoSetup();
+			VideoSetup();
 			Sdl.SDL_WM_SetIcon(Sdl.SDL_LoadBMP("testicon.bmp"), null);
 			Thread.Sleep(sleepTime);
 		}
@@ -731,7 +729,7 @@ namespace Tao.Sdl
 		[Test] 
 		public void GetWMinfo()
 		{
-			IntPtr surfacePtr = VideoSetup();
+			VideoSetup();
 			Sdl.SDL_SysWMinfo_Windows info;
 			int result = Sdl.SDL_GetWMInfo(out info);
 			Console.WriteLine("result: " + result);

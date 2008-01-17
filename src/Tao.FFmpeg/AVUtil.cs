@@ -264,56 +264,112 @@ namespace Tao.FFmpeg
         [StructLayout(LayoutKind.Sequential)]
         public class ByteIOContext
         {
-            IntPtr buffer;
+            /// <summary>
+            /// 
+            /// </summary>
+            public IntPtr buffer;
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.I4)]
-            int buffer_size;
+            public int buffer_size;
 
-            IntPtr buf_ptr;
+            /// <summary>
+            /// 
+            /// </summary>
+            public IntPtr buf_ptr;
 
-            IntPtr buf_end;
+            /// <summary>
+            /// 
+            /// </summary>
+            public IntPtr buf_end;
 
             //[MarshalAs(UnmanagedType.FunctionPtr)]
             //AnonymousCallback opaque;
-            IntPtr opaque;
+            /// <summary>
+            /// 
+            /// </summary>
+            public IntPtr opaque;
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.FunctionPtr)]
-            Read_PacketCallback read_packet;
+            public Read_PacketCallback read_packet;
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.FunctionPtr)]
-            WritePacketCallback write_packet;
+            public WritePacketCallback write_packet;
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.FunctionPtr)]
-            SeekCallback seek;
+            public SeekCallback seek;
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.I8)]
-            Int64 pos; // position in the file of the current buffer
+            public Int64 pos; // position in the file of the current buffer
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.I4)]
-            int must_flush; // true if the next seek should flush
+            public int must_flush; // true if the next seek should flush
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.I4)]
-            int eof_reached; // true if eof reached
+            public int eof_reached; // true if eof reached
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.I4)]
-            int write_flag; // true if open for writing
+            public int write_flag; // true if open for writing
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.I4)]
-            int is_streamed;
+            public int is_streamed;
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.I4)]
-            int max_packet_size;
+            public int max_packet_size;
 
+            /// <summary>
+            /// 
+            /// </summary>
+            [CLSCompliant(false)]
             [MarshalAs(UnmanagedType.U4)]
-            uint checksum;
+            public uint checksum;
 
-            IntPtr checksum_ptr;
+            /// <summary>
+            /// 
+            /// </summary>
+            public IntPtr checksum_ptr;
 
+            /// <summary>
+            /// 
+            /// </summary>
+            [CLSCompliant(false)]
             [MarshalAs(UnmanagedType.FunctionPtr)]
-            UpdateChecksumCallback update_checksum;
+            public UpdateChecksumCallback update_checksum;
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.I4)]
-            int error; // contains the error code or 0 if no error happened
+            public int error; // contains the error code or 0 if no error happened
         };
 
         /// <summary>
@@ -328,10 +384,19 @@ namespace Tao.FFmpeg
         [StructLayout(LayoutKind.Sequential)]
         public struct AVClass
         {
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.LPStr)]
-            String class_name;
-            ItemNameCallback item_name;
-            IntPtr pAVOption;
+            public String class_name;
+            /// <summary>
+            /// 
+            /// </summary>
+            public ItemNameCallback item_name;
+            /// <summary>
+            /// 
+            /// </summary>
+            public IntPtr pAVOption;
         };
 
         /// <summary>

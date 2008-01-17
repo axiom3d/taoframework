@@ -5225,16 +5225,28 @@ uint8_t * (*realloc)(struct AVCodecContext *s, uint8_t *buf, int buf_size);
         [StructLayout(LayoutKind.Sequential)]
         public struct AVBitStreamFilter
         {
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.LPStr)]
-            String name;
+            public String name;
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.I4)]
-            int priv_data_size;
+            public int priv_data_size;
 
+            /// <summary>
+            /// 
+            /// </summary>
             [MarshalAs(UnmanagedType.FunctionPtr)]
-            FilterCallback filter;
+            public FilterCallback filter;
 
-            IntPtr next; // AVBitStreamFilter *next
+            /// <summary>
+            /// 
+            /// </summary>
+            public IntPtr next; // AVBitStreamFilter *next
         };
     }
 }

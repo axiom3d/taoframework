@@ -689,71 +689,71 @@ namespace Tao.DevIl
         /// <summary>
         /// /\
         /// </summary>
-        ILuint Id;         // the image's id
+        public ILuint Id;         // the image's id
         /// <summary>
         /// 
         /// </summary>
-        ILubyte[] Data;      // the image's data
+        public ILubyte[] Data;      // the image's data
         /// <summary>
         /// 
         /// </summary>
-        ILuint Width;      // the image's width
+        public ILuint Width;      // the image's width
         /// <summary>
         /// 
         /// </summary>
-        ILuint Height;     // the image's height
+        public ILuint Height;     // the image's height
         /// <summary>
         /// 
         /// </summary>
-        ILuint Depth;      // the image's depth
+        public ILuint Depth;      // the image's depth
         /// <summary>
         /// 
         /// </summary>
-        ILubyte Bpp;        // bytes per pixel (not bits) of the image
+        public ILubyte Bpp;        // bytes per pixel (not bits) of the image
         /// <summary>
         /// 
         /// </summary>
-        ILuint SizeOfData; // the total size of the data (in bytes)
+        public ILuint SizeOfData; // the total size of the data (in bytes)
         /// <summary>
         /// 
         /// </summary>
-        ILenum Format;     // image format (in IL enum style)
+        public ILenum Format;     // image format (in IL enum style)
         /// <summary>
         /// 
         /// </summary>
-        ILenum Type;       // image type (in IL enum style)
+        public ILenum Type;       // image type (in IL enum style)
         /// <summary>
         /// 
         /// </summary>
-        ILenum Origin;     // origin of the image
+        public ILenum Origin;     // origin of the image
         /// <summary>
         /// 
         /// </summary>
-        ILubyte[] Palette;   // the image's palette
+        public ILubyte[] Palette;   // the image's palette
         /// <summary>
         /// 
         /// </summary>
-        ILenum PalType;    // palette type
+        public ILenum PalType;    // palette type
         /// <summary>
         /// 
         /// </summary>
-        ILuint PalSize;    // palette size
+        public ILuint PalSize;    // palette size
         /// <summary>
         /// 
         /// </summary>
-        ILenum CubeFlags;  // flags for what cube map sides are present
+        public ILenum CubeFlags;  // flags for what cube map sides are present
         /// <summary>
         /// 
         /// </summary>
-        ILuint NumNext;    // number of images following
+        public ILuint NumNext;    // number of images following
         /// <summary>
         /// 
         /// </summary>
-        ILuint NumMips;    // number of mipmaps
+        public ILuint NumMips;    // number of mipmaps
         /// <summary>
         /// 
         /// </summary>
-        ILuint NumLayers;  // number of layers
+        public ILuint NumLayers;  // number of layers
     };
     #endregion ILinfo
 

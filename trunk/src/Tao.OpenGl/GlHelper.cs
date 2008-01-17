@@ -231,7 +231,7 @@ namespace Tao.OpenGl
         /// <summary>
         /// Tries to reload the given OpenGL function (core or extension).
         /// </summary>
-        /// <param name="name">The name of the OpenGL function (i.e. glShaderSource)</param>
+        /// <param name="function">The name of the OpenGL function (i.e. glShaderSource)</param>
         /// <returns>True if the function was found and reloaded, false otherwise.</returns>
         /// <remarks>
         /// <para>
@@ -423,7 +423,7 @@ namespace Tao.OpenGl
         /// <summary>
         /// Retrieves the entry point for a dynamically exported OpenGL function.
         /// </summary>
-        /// <param name="name">The function string for the OpenGL function (eg. "glNewList")</param>
+        /// <param name="function">The function string for the OpenGL function (eg. "glNewList")</param>
         /// <returns>
         /// An IntPtr contaning the address for the entry point, or IntPtr.Zero if the specified
         /// OpenGL function is not dynamically exported.
@@ -438,7 +438,6 @@ namespace Tao.OpenGl
         /// correct wgl, glx or agl GetAddress function to retrieve the function pointer.
         /// </para>
         /// <see cref="Marshal.GetDelegateForFunctionPointer"/>
-        /// <seealso cref="Gl.GetDelegateForExtensionMethod"/>
         /// </remarks>
         private static IntPtr GetAddress(string function)
         {

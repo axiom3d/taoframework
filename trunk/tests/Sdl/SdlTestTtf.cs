@@ -13,7 +13,6 @@ namespace Tao.Sdl
 	[TestFixture]
 	public class SdlTestTtf
 	{
-		int init;
 		int flags;
 		int bpp;
 		int width;
@@ -35,7 +34,7 @@ namespace Tao.Sdl
 		{
 			this.Quit();
 			SdlTtf.TTF_Init();
-			init = Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
+			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
 			flags = (Sdl.SDL_HWSURFACE|Sdl.SDL_DOUBLEBUF|Sdl.SDL_ANYFORMAT);
 			bpp = 16;
 			width = 640;
@@ -50,7 +49,7 @@ namespace Tao.Sdl
 		private IntPtr VideoSetup()
 		{
 			this.Quit();
-			init = Sdl.SDL_Init(Sdl.SDL_INIT_VIDEO);
+			Sdl.SDL_Init(Sdl.SDL_INIT_VIDEO);
 			IntPtr surfacePtr;
 			//Assert.IsNotNull(surfacePtr);
 			//Sdl.SDL_FreeSurface(surfacePtr);
@@ -292,9 +291,8 @@ namespace Tao.Sdl
 			int maxx;
 			int maxy;
 			int advance;
-			int result;
 
-			result = SdlTtf.TTF_GlyphMetrics(fontPtr, 1 , out minx, out maxx,out  miny, out maxy, out advance);
+			SdlTtf.TTF_GlyphMetrics(fontPtr, 1 , out minx, out maxx,out  miny, out maxy, out advance);
 			Assert.AreEqual(-1, minx);
 			Assert.AreEqual(4, maxx);
 			Assert.AreEqual(0, miny);
@@ -318,7 +316,7 @@ namespace Tao.Sdl
 			IntPtr fontPtr = SdlTtf.TTF_OpenFont("../../FreeSans.ttf", 10);
 			int w; 
 			int h;
-			int result = SdlTtf.TTF_SizeText(fontPtr, "hello", out w, out h);
+			SdlTtf.TTF_SizeText(fontPtr, "hello", out w, out h);
 //			Console.WriteLine("w: " + w.ToString());
 //			Console.WriteLine("h: " + h.ToString());
 			Assert.AreEqual(w, 6);
@@ -336,7 +334,7 @@ namespace Tao.Sdl
 			IntPtr fontPtr = SdlTtf.TTF_OpenFont("../../FreeSans.ttf", 10);
 			int w; 
 			int h;
-			int result = SdlTtf.TTF_SizeUTF8(fontPtr, "hello", out w, out h);
+			SdlTtf.TTF_SizeUTF8(fontPtr, "hello", out w, out h);
 						Console.WriteLine("w: " + w.ToString());
 						Console.WriteLine("h: " + h.ToString());
 			Assert.AreEqual(w, 6);
@@ -354,7 +352,7 @@ namespace Tao.Sdl
 			IntPtr fontPtr = SdlTtf.TTF_OpenFont("../../FreeSans.ttf", 10);
 			int w; 
 			int h;
-			int result = SdlTtf.TTF_SizeUNICODE(fontPtr, "hello", out w, out h);
+			SdlTtf.TTF_SizeUNICODE(fontPtr, "hello", out w, out h);
 						Console.WriteLine("w: " + w.ToString());
 						Console.WriteLine("h: " + h.ToString());
 			Assert.AreEqual(w, 22);

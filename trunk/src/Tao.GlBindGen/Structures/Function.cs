@@ -75,6 +75,21 @@ namespace Bind.Structures
             }
         }
 
+        public string Signature()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(this.Name);
+
+            foreach (Parameter p in this.Parameters)
+            {
+                sb.AppendLine(p.CurrentType);
+                if (p.Array > 0)
+                    sb.Append("[]");
+            }
+
+            return sb.ToString();
+        }
+
         #region public override bool Unsafe
 
         public override bool Unsafe

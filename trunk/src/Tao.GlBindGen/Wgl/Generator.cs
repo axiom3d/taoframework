@@ -60,6 +60,8 @@ namespace Bind.Wgl
             Trace.WriteLine("Processing specs, please wait...");
             //this.Translate();
 
+            MakeCLScompliant();
+
             this.WriteBindings(
             	Bind.Structures.Delegate.Delegates,
             	Bind.Structures.Function.Wrappers,

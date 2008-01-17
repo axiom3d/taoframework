@@ -16,6 +16,8 @@ PACKAGES="Tao.DevIl
 	  Tao.Lua
 	  Tao.OpenGl
 	  Tao.OpenAl
+	  Tao.FFmpeg
+	  Tao.FreeType
 	  "
 
 # clean up dist files

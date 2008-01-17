@@ -81,6 +81,26 @@ namespace Bind.GL2
 
         #endregion
 
+        protected void MakeCLScompliant()
+        {
+            // Matching function signature is not CLS compliant
+            foreach (List<Function> fc in Bind.Structures.Function.Wrappers.Values)
+            {
+                List<string> signatureList = new List<string>();
+                foreach (Function f in fc)
+                {
+                    if (!f.CLSCompliant)
+                        continue;
+
+                    string signature = f.Signature();
+                    if (signatureList.Contains(signature))
+                        f.CLSCompliant = false;
+                    else
+                        signatureList.Add(signature);
+                }
+            }
+        }
+
         #region private void Translate()
 #if false
         protected virtual void Translate()

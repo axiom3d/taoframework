@@ -73,6 +73,8 @@ namespace Bind.Structures
 
         #region public bool CLSCompliant
 
+        protected bool notCLSCompliant = false;
+
         /// <summary>
         ///  Gets the CLSCompliant property. True if the delegate is not CLSCompliant.
         /// </summary>
@@ -80,6 +82,9 @@ namespace Bind.Structures
         {
             get
             {
+                if (notCLSCompliant)
+                    return false;
+
                 if (Unsafe)
                     return false;
 
@@ -93,6 +98,8 @@ namespace Bind.Structures
                 }
                 return true;
             }
+
+            set { notCLSCompliant = !value; }
         }
 
         #endregion

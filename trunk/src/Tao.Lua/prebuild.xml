@@ -19,13 +19,6 @@
                 <DebugInformation>false</DebugInformation>
             </Options>
         </Configuration>
-        <Files>
-            <File>Tao.Lua.License.txt</File>
-            <File>Tao.Lua.Readme.txt</File>
-            <File>Tao.Lua.snk</File>
-            <File>Tao.Lua.dll.config</File>
-            <File>prebuild.xml</File>
-        </Files>
 	<Project name="Tao.Lua" path="." language="C#" type="Library" designerFolder="Properties">
         <Configuration name="Debug">
             <Options>
@@ -51,6 +44,8 @@
         </Configuration>
 	    <Reference name="System" />
             <Files>
+            	<File buildAction="None">Tao.Lua.snk</File>
+            	<File buildAction="None">Tao.Lua.dll.config</File>
                 <Match path="." pattern="*.cs" recurse="true"/>
             </Files>
 	</Project>

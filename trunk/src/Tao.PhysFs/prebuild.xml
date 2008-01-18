@@ -19,12 +19,6 @@
                 <DebugInformation>false</DebugInformation>
             </Options>
         </Configuration>
-        <Files>
-            <File>Tao.PhysFs.License.txt</File>
-            <File>Tao.PhysFs.Readme.txt</File>
-            <File>Tao.PhysFs.snk</File>
-	    <File>Tao.PhysFs.dll.config</File>
-        </Files>
 	<Project name="Tao.PhysFs" path="." language="C#" type="Library" designerFolder="Properties">
         <Configuration name="Debug">
             <Options>
@@ -50,8 +44,10 @@
         </Configuration>
 	    <Reference name="System" />
             <Files>
+            	<File buildAction="None">Tao.PhysFs.snk</File>
+	    	<File buildAction="None">Tao.PhysFs.dll.config</File>
                 <Match path="." pattern="*.cs" recurse="true"/>
-            </Files>
+	    </Files>
 	</Project>
 	<Project name="PhysFsExamples.Simple" icon="App.ico" path="../../examples/PhysFsExamples/Simple" language="C#" type="Exe" startupObject="PhysFsExamples.Simple" designerFolder="Properties">
 	    <Configuration name="Debug">

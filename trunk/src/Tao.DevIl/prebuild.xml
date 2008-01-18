@@ -17,12 +17,6 @@
                 <DebugInformation>false</DebugInformation>
             </Options>
         </Configuration>
-        <Files>
-            <File>Tao.DevIl.License.txt</File>
-            <File>Tao.DevIl.Readme.txt</File>
-            <File>Tao.DevIl.snk</File>
-            <File>Tao.DevIl.dll.config</File>
-        </Files>
 	<Project name="Tao.DevIl" path="." language="C#" type="Library" designerFolder="Properties">
         <Configuration name="Debug">
             <Options>
@@ -46,6 +40,8 @@
         </Configuration>
 	    <Reference name="System" />
             <Files>
+            	<File buildAction="None">Tao.DevIl.snk</File>
+            	<File buildAction="None">Tao.DevIl.dll.config</File>
                 <Match path="." pattern="*.cs" recurse="true"/>
             </Files>
 	</Project>

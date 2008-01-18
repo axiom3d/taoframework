@@ -19,12 +19,6 @@
                 <DebugInformation>false</DebugInformation>
             </Options>
         </Configuration>
-        <Files>
-            <File>Tao.FreeType.License.txt</File>
-            <File>Tao.FreeType.Readme.txt</File>
-            <File>Tao.FreeType.snk</File>
-            <File>Tao.FreeType.dll.config</File>
-        </Files>
 	<Project name="Tao.FreeType" path="." language="C#" type="Library" designerFolder="Properties">
         <Configuration name="Debug">
             <Options>
@@ -50,6 +44,8 @@
         </Configuration>
 	    <Reference name="System" />
             <Files>
+            	<File buildAction="None">Tao.FreeType.snk</File>
+            	<File buildAction="None">Tao.FreeType.dll.config</File>
                 <Match path="." pattern="*.cs" recurse="true"/>
             </Files>
 	</Project>

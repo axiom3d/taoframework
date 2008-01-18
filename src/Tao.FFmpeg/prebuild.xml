@@ -19,11 +19,6 @@
 		<DebugInformation>false</DebugInformation>
 	    </Options>
 	</Configuration>
-	<Files>
-	    <File>Tao.FFmpeg.License.txt</File>
-	    <File>Tao.FFmpeg.Readme.txt</File>
-	    <File>Tao.FFmpeg.dll.config</File>
-	</Files>
 	<Project name="Tao.FFmpeg" path="." language="C#" type="Library" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
@@ -50,6 +45,7 @@
 	    <Reference name="System" /> 
 	    <Files>
 	    	<File buildAction="None">Tao.FFmpeg.snk</File>
+	    	<File buildAction="None">Tao.FFmpeg.dll.config</File>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>

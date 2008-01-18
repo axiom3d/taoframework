@@ -19,11 +19,6 @@
 		<DebugInformation>false</DebugInformation>
 	    </Options>
 	</Configuration>
-	<Files>
-	    <File>Tao.Sdl.License.txt</File>
-	    <File>Tao.Sdl.Readme.txt</File>
-	    <File>Tao.Sdl.dll.config</File>
-	</Files>
 	<Project name="Tao.Sdl" path="." language="C#" type="Library" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
@@ -50,6 +45,7 @@
 	    <Reference name="System" /> 
 	    <Files>
 	    	<File buildAction="None">Tao.Sdl.snk</File>
+	    	<File buildAction="None">Tao.Sdl.dll.config</File>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>

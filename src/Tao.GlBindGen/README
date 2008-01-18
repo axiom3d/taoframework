@@ -1,0 +1,5 @@
+Usage:
+"Tao.GlBindGen.exe -mode:gl2 -in:../../Specifications -out:. -o:tao"
+
+Pretty self-explanatory, "-o:tao" sets the generator to Tao compatibillity mode, "-in","-out" set the input and output directory, "-mode:gl2" for OpenGL 2.1 bindings. Available parameters to "-mode:gl2,wgl,glu,glx,gl3". Gl2 and wgl work, glu,glx,gl3 are not ready yet.
+

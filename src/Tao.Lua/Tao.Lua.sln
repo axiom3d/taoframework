@@ -6,15 +6,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuaExamples.Simple", "..\..
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuaExamples.Functions", "..\..\examples\LuaExamples\Functions\LuaExamples.Functions.csproj", "{1130F7D5-1CB1-4619-837F-D4325D723D53}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{468F1D07-AD17-4CC3-ABD0-2CA268E4E1A6}"
-	ProjectSection(SolutionItems) = preProject
-		prebuild.xml = prebuild.xml
-		Tao.Lua.dll.config = Tao.Lua.dll.config
-		Tao.Lua.License.txt = Tao.Lua.License.txt
-		Tao.Lua.Readme.txt = Tao.Lua.Readme.txt
-		Tao.Lua.snk = Tao.Lua.snk
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

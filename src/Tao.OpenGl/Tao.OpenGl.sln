@@ -32,34 +32,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeWangExamples", "..\..\exa
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{468F1D07-AD17-4CC3-ABD0-2CA268E4E1A6}"
 	ProjectSection(SolutionItems) = preProject
-		..\Tao.Cg\Tao.Cg.dll.config = ..\Tao.Cg\Tao.Cg.dll.config
-		..\Tao.Cg\Tao.Cg.License.txt = ..\Tao.Cg\Tao.Cg.License.txt
-		..\Tao.Cg\Tao.Cg.Readme.txt = ..\Tao.Cg\Tao.Cg.Readme.txt
-		..\Tao.Cg\Tao.Cg.snk = ..\Tao.Cg\Tao.Cg.snk
-		..\Tao.FreeGlut\Tao.FreeGlut.dll.config = ..\Tao.FreeGlut\Tao.FreeGlut.dll.config
-		..\Tao.FreeGlut\Tao.FreeGlut.License.txt = ..\Tao.FreeGlut\Tao.FreeGlut.License.txt
-		..\Tao.FreeGlut\Tao.FreeGlut.Readme.txt = ..\Tao.FreeGlut\Tao.FreeGlut.Readme.txt
-		..\Tao.FreeGlut\Tao.FreeGlut.snk = ..\Tao.FreeGlut\Tao.FreeGlut.snk
-		..\Tao.Glfw\Tao.Glfw.dll.config = ..\Tao.Glfw\Tao.Glfw.dll.config
-		..\Tao.Glfw\Tao.Glfw.License.txt = ..\Tao.Glfw\Tao.Glfw.License.txt
-		..\Tao.Glfw\Tao.Glfw.Readme.txt = ..\Tao.Glfw\Tao.Glfw.Readme.txt
-		..\Tao.Glfw\Tao.Glfw.snk = ..\Tao.Glfw\Tao.Glfw.snk
-		..\Tao.OpenAl\Tao.OpenAl.dll.config = ..\Tao.OpenAl\Tao.OpenAl.dll.config
-		..\Tao.OpenAl\Tao.OpenAl.License.txt = ..\Tao.OpenAl\Tao.OpenAl.License.txt
-		..\Tao.OpenAl\Tao.OpenAl.Readme.txt = ..\Tao.OpenAl\Tao.OpenAl.Readme.txt
-		..\Tao.OpenAl\Tao.OpenAl.snk = ..\Tao.OpenAl\Tao.OpenAl.snk
-		Tao.OpenGl.dll.config = Tao.OpenGl.dll.config
-		Tao.OpenGl.License.txt = Tao.OpenGl.License.txt
-		Tao.OpenGl.Readme.txt = Tao.OpenGl.Readme.txt
-		Tao.OpenGl.snk = Tao.OpenGl.snk
-		..\Tao.Platform.Windows\Tao.Platform.Windows.dll.config = ..\Tao.Platform.Windows\Tao.Platform.Windows.dll.config
-		..\Tao.Platform.Windows\Tao.Platform.Windows.License.txt = ..\Tao.Platform.Windows\Tao.Platform.Windows.License.txt
-		..\Tao.Platform.Windows\Tao.Platform.Windows.Readme.txt = ..\Tao.Platform.Windows\Tao.Platform.Windows.Readme.txt
-		..\Tao.Platform.Windows\Tao.Platform.Windows.snk = ..\Tao.Platform.Windows\Tao.Platform.Windows.snk
-		..\Tao.Platform.X11\Tao.Platform.X11.dll.config = ..\Tao.Platform.X11\Tao.Platform.X11.dll.config
-		..\Tao.Platform.X11\Tao.Platform.X11.License.txt = ..\Tao.Platform.X11\Tao.Platform.X11.License.txt
-		..\Tao.Platform.X11\Tao.Platform.X11.Readme.txt = ..\Tao.Platform.X11\Tao.Platform.X11.Readme.txt
-		..\Tao.Platform.X11\Tao.Platform.X11.snk = ..\Tao.Platform.X11\Tao.Platform.X11.snk
 		..\Tao.Platform.Windows\TaoButton.jpg = ..\Tao.Platform.Windows\TaoButton.jpg
 	EndProjectSection
 EndProject

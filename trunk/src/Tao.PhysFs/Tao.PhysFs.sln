@@ -4,14 +4,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tao.PhysFs", "Tao.PhysFs.cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhysFsExamples.Simple", "..\..\examples\PhysFsExamples\Simple\PhysFsExamples.Simple.csproj", "{8937F640-29DA-43B3-887E-88F5A855F01B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{468F1D07-AD17-4CC3-ABD0-2CA268E4E1A6}"
-	ProjectSection(SolutionItems) = preProject
-		Tao.PhysFs.dll.config = Tao.PhysFs.dll.config
-		Tao.PhysFs.License.txt = Tao.PhysFs.License.txt
-		Tao.PhysFs.Readme.txt = Tao.PhysFs.Readme.txt
-		Tao.PhysFs.snk = Tao.PhysFs.snk
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

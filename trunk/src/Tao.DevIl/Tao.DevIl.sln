@@ -4,14 +4,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevIlExamples.SimpleExample
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tao.DevIl", "Tao.DevIl.csproj", "{E644F15A-A963-4B9D-808D-9463CB96D0B2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{468F1D07-AD17-4CC3-ABD0-2CA268E4E1A6}"
-	ProjectSection(SolutionItems) = preProject
-		Tao.DevIl.dll.config = Tao.DevIl.dll.config
-		Tao.DevIl.License.txt = Tao.DevIl.License.txt
-		Tao.DevIl.Readme.txt = Tao.DevIl.Readme.txt
-		Tao.DevIl.snk = Tao.DevIl.snk
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

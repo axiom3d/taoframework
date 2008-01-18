@@ -25,7 +25,19 @@ namespace Tao.GlBindGen.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Tao.OpenGl")]
+        [global::System.Configuration.DefaultSettingValueAttribute("GL")]
+        public string OutputGLClass {
+            get {
+                return ((string)(this["OutputGLClass"]));
+            }
+            set {
+                this["OutputGLClass"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("OpenTK.OpenGL")]
         public string OutputNamespace {
             get {
                 return ((string)(this["OutputNamespace"]));
@@ -37,19 +49,7 @@ namespace Tao.GlBindGen.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Gl")]
-        public string OutputClass {
-            get {
-                return ((string)(this["OutputClass"]));
-            }
-            set {
-                this["OutputClass"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(".")]
+        [global::System.Configuration.DefaultSettingValueAttribute("..\\..\\Source\\OpenGL\\OpenGL\\Bindings")]
         public string OutputPath {
             get {
                 return ((string)(this["OutputPath"]));
@@ -61,7 +61,7 @@ namespace Tao.GlBindGen.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(".")]
+        [global::System.Configuration.DefaultSettingValueAttribute("..\\..\\Specifications")]
         public string InputPath {
             get {
                 return ((string)(this["InputPath"]));
@@ -73,25 +73,49 @@ namespace Tao.GlBindGen.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data")]
-        public string InputSpecFilesPath {
+        [global::System.Configuration.DefaultSettingValueAttribute("Platform")]
+        public string OutputPlatformNamespace {
             get {
-                return ((string)(this["InputSpecFilesPath"]));
+                return ((string)(this["OutputPlatformNamespace"]));
             }
             set {
-                this["InputSpecFilesPath"] = value;
+                this["OutputPlatformNamespace"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Setting {
+        [global::System.Configuration.DefaultSettingValueAttribute("Imports")]
+        public string WriteInternalImportsClass {
             get {
-                return ((string)(this["Setting"]));
+                return ((string)(this["WriteInternalImportsClass"]));
             }
             set {
-                this["Setting"] = value;
+                this["WriteInternalImportsClass"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Enums")]
+        public string OutputEnumsClass {
+            get {
+                return ((string)(this["OutputEnumsClass"]));
+            }
+            set {
+                this["OutputEnumsClass"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Context")]
+        public string OutputContextClass {
+            get {
+                return ((string)(this["OutputContextClass"]));
+            }
+            set {
+                this["OutputContextClass"] = value;
             }
         }
     }

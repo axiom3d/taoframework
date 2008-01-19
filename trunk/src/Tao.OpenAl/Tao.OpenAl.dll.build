@@ -18,6 +18,7 @@
                 <include name="Al.cs" />
                 <include name="Alc.cs" />
                 <include name="Alut.cs" />
+		    <include name="ALDelegates.cs" />
                 <include name="Properties/AssemblyInfo.cs" />
             </sources>
             <references basedir="${project::get-base-directory()}">

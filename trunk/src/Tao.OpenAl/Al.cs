@@ -25,9 +25,16 @@ SOFTWARE.
 */
 #endregion License
 
+// Disable missing XML comment warnings
+#pragma warning disable 1591 
+
 using System;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Security;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Tao.OpenAl
 {
@@ -800,6 +807,381 @@ namespace Tao.OpenAl
         // #define AL_ENV_HIGH_FREQUENCY_REFERENCE_IASIG 0x300B
         public const int AL_ENV_HIGH_FREQUENCY_REFERENCE_IASIG = 0x300B;
         #endregion AL_ENV_HIGH_FREQUENCY_REFERENCE_IASIG
+
+        #region AL_FORMAT_QUAD16
+        /// <summary>
+        ///     Format specifier for 16bit 4-channel audio.
+        /// </summary>
+        /// <remarks>
+        /// Note that if the enumeration value is not supported by the current OpenAl implementation,
+        /// an OpenAL error is generated the first, but only the first time this field is accessed.
+        /// The field then has a value of zero.
+        /// </remarks>
+        // Enumeration value has to be queried at runtime.
+        public static readonly int AL_FORMAT_QUAD16 = alGetEnumValue("AL_FORMAT_QUAD16");
+        #endregion AL_FORMAT_QUAD16
+
+        #region AL_FORMAT_51CHN16
+        /// <summary>
+        ///     Format specifier for 16bit 6-channel audio.
+        /// </summary>
+        /// <remarks>
+        /// Note that if the enumeration value is not supported by the current OpenAl implementation,
+        /// an OpenAL error is generated the first, but only the first time this field is accessed.
+        /// The field then has a value of zero.
+        /// </remarks>
+        // Enumeration value has to be queried at runtime.
+        public static readonly int AL_FORMAT_51CHN16 = alGetEnumValue("AL_FORMAT_51CHN16");
+        #endregion AL_FORMAT_51CHN16
+
+        #region AL_FORMAT_61CHN16
+        /// <summary>
+        ///     Format specifier for 16bit 7-channel audio.
+        /// </summary>
+        /// <remarks>
+        /// Note that if the enumeration value is not supported by the current OpenAl implementation,
+        /// an OpenAL error is generated the first, but only the first time this field is accessed.
+        /// The field then has a value of zero.
+        /// </remarks>
+        // Enumeration value has to be queried at runtime.
+        public static readonly int AL_FORMAT_61CHN16 = alGetEnumValue("AL_FORMAT_61CHN16");
+        #endregion AL_FORMAT_61CHN16
+
+        #region AL_FORMAT_71CHN16
+        /// <summary>
+        ///     Format specifier for 16bit 8-channel audio.
+        /// </summary>
+        /// <remarks>
+        /// Note that if the enumeration value is not supported by the current OpenAl implementation,
+        /// an OpenAL error is generated the first, but only the first time this field is accessed.
+        /// The field then has a value of zero.
+        /// </remarks>
+        // Enumeration value has to be queried at runtime.
+        public static readonly int AL_FORMAT_71CHN16 = alGetEnumValue("AL_FORMAT_71CHN16");
+        #endregion AL_FORMAT_71CHN16
+
+        #region AL_STORAGE_AUTOMATIC
+        /// <summary>
+        ///     See 'OpenAL Programmer's Guide' for more information.
+        /// </summary>
+        /// <remarks>
+        /// Note that if the enumeration value is not supported by the current OpenAl implementation,
+        /// an OpenAL error is generated the first, but only the first time this field is accessed.
+        /// The field then has a value of zero.
+        /// </remarks>
+        // Enumeration value has to be queried at runtime.
+        public static readonly int AL_STORAGE_AUTOMATIC = alGetEnumValue("AL_STORAGE_AUTOMATIC");
+        #endregion AL_STORAGE_AUTOMATIC
+
+        #region AL_STORAGE_HARDWARE
+        /// <summary>
+        ///     See 'OpenAL Programmer's Guide' for more information.
+        /// </summary>
+        /// <remarks>
+        /// Note that if the enumeration value is not supported by the current OpenAl implementation,
+        /// an OpenAL error is generated the first, but only the first time this field is accessed.
+        /// The field then has a value of zero.
+        /// </remarks>
+        // Enumeration value has to be queried at runtime.
+        public static readonly int AL_STORAGE_HARDWARE = alGetEnumValue("AL_STORAGE_HARDWARE");
+        #endregion AL_STORAGE_HARDWARE
+
+        #region AL_STORAGE_ACCESSIBLE
+        /// <summary>
+        ///     See 'OpenAL Programmer's Guide' for more information.
+        /// </summary>
+        /// <remarks>
+        /// Note that if the enumeration value is not supported by the current OpenAl implementation,
+        /// an OpenAL error is generated the first, but only the first time this field is accessed.
+        /// The field then has a value of zero.
+        /// </remarks>
+        // Enumeration value has to be queried at runtime.
+        public static readonly int AL_STORAGE_ACCESSIBLE = alGetEnumValue("AL_STORAGE_ACCESSIBLE");
+        #endregion AL_STORAGE_ACCESSIBLE
+
+        #region AL_EAX_RAM_SIZE
+        /// <summary>
+        ///     See 'OpenAL Programmer's Guide' for more information.
+        /// </summary>
+        /// <remarks>
+        /// Note that if the enumeration value is not supported by the current OpenAl implementation,
+        /// an OpenAL error is generated the first, but only the first time this field is accessed.
+        /// The field then has a value of zero.
+        /// </remarks>
+        // Enumeration value has to be queried at runtime.
+        public static readonly int AL_EAX_RAM_SIZE = alGetEnumValue("AL_EAX_RAM_SIZE");
+        #endregion AL_EAX_RAM_SIZE
+
+        #region AL_EAX_RAM_FREE
+        /// <summary>
+        ///     See 'OpenAL Programmer's Guide' for more information.
+        /// </summary>
+        /// <remarks>
+        /// Note that if the enumeration value is not supported by the current OpenAl implementation,
+        /// an OpenAL error is generated the first, but only the first time this field is accessed.
+        /// The field then has a value of zero.
+        /// </remarks>
+        // Enumeration value has to be queried at runtime.
+        public static readonly int AL_EAX_RAM_FREE = alGetEnumValue("AL_EAX_RAM_FREE");
+        #endregion AL_EAX_RAM_FREE
+
+        #region EFX_EXT
+        //#define AL_METERS_PER_UNIT                                 0x20004
+        public const int AL_METERS_PER_UNIT = 0x20004;
+
+        //#define AL_DIRECT_FILTER                                   0x20005
+        public const int AL_DIRECT_FILTER = 0x20005;
+        //#define AL_AUXILIARY_SEND_FILTER                           0x20006
+        public const int AL_AUXILIARY_SEND_FILTER = 0x20006;
+        //#define AL_AIR_ABSORPTION_FACTOR                           0x20007
+        public const int AL_AIR_ABSORPTION_FACTOR = 0x20007;
+        //#define AL_ROOM_ROLLOFF_FACTOR                             0x20008
+        public const int AL_ROOM_ROLLOFF_FACTOR = 0x20008;
+        //#define AL_CONE_OUTER_GAINHF                               0x20009
+        public const int AL_CONE_OUTER_GAINHF = 0x20009;
+        //#define AL_DIRECT_FILTER_GAINHF_AUTO                       0x2000A
+        public const int AL_DIRECT_FILTER_GAINHF_AUTO = 0x2000A;
+        //#define AL_AUXILIARY_SEND_FILTER_GAIN_AUTO                 0x2000B
+        public const int AL_AUXILIARY_SEND_FILTER_GAIN_AUTO = 0x2000B;
+        //#define AL_AUXILIARY_SEND_FILTER_GAINHF_AUTO               0x2000C
+        public const int AL_AUXILIARY_SEND_FILTER_GAINHF_AUTO = 0x2000C;
+
+        //#define AL_EFFECTSLOT_EFFECT                               0x0001
+        public const int AL_EFFECTSLOT_EFFECT = 0x0001;
+        //#define AL_EFFECTSLOT_GAIN                                 0x0002
+        public const int AL_EFFECTSLOT_GAIN = 0x0002;
+        //#define AL_EFFECTSLOT_AUXILIARY_SEND_AUTO                  0x0003
+        public const int AL_EFFECTSLOT_AUXILIARY_SEND_AUTO = 0x0003;
+        //#define AL_EFFECTSLOT_NULL                                 0x0000
+        public const int AL_EFFECTSLOT_NULL = 0x0000;
+
+        /* Reverb Parameters */
+        //#define AL_REVERB_DENSITY                                  0x0001
+        public const int AL_REVERB_DENSITY = 0x0001;
+        //#define AL_REVERB_DIFFUSION                                0x0002
+        public const int AL_REVERB_DIFFUSION = 0x0002;
+        //#define AL_REVERB_GAIN                                     0x0003
+        public const int AL_REVERB_GAIN = 0x0003;
+        //#define AL_REVERB_GAINHF                                   0x0004
+        public const int AL_REVERB_GAINHF = 0x0004;
+        //#define AL_REVERB_DECAY_TIME                               0x0005
+        public const int AL_REVERB_DECAY_TIME = 0x0005;
+        //#define AL_REVERB_DECAY_HFRATIO                            0x0006
+        public const int AL_REVERB_DECAY_HFRATIO = 0x0006;
+        //#define AL_REVERB_REFLECTIONS_GAIN                         0x0007
+        public const int AL_REVERB_REFLECTIONS_GAIN = 0x0007;
+        //#define AL_REVERB_REFLECTIONS_DELAY                        0x0008
+        public const int AL_REVERB_REFLECTIONS_DELAY = 0x0008;
+        //#define AL_REVERB_LATE_REVERB_GAIN                         0x0009
+        public const int AL_REVERB_LATE_REVERB_GAIN = 0x0009;
+        //#define AL_REVERB_LATE_REVERB_DELAY                        0x000A
+        public const int AL_REVERB_LATE_REVERB_DELAY = 0x000A;
+        //#define AL_REVERB_AIR_ABSORPTION_GAINHF                    0x000B 
+        public const int AL_REVERB_AIR_ABSORPTION_GAINHF = 0x000B;
+        //#define AL_REVERB_ROOM_ROLLOFF_FACTOR                      0x000C
+        public const int AL_REVERB_ROOM_ROLLOFF_FACTOR = 0x000C;
+        //#define AL_REVERB_DECAY_HFLIMIT                            0x000D
+        public const int AL_REVERB_DECAY_HFLIMIT = 0x000D;
+
+        ///* Chorus Parameters */
+        //#define AL_CHORUS_WAVEFORM                                 0x0001
+        public const int AL_CHORUS_WAVEFORM = 0x0001;
+        //#define AL_CHORUS_PHASE                                    0x0002
+        public const int AL_CHORUS_PHASE = 0x0002;
+        //#define AL_CHORUS_RATE                                     0x0003
+        public const int AL_CHORUS_RATE = 0x0003;
+        //#define AL_CHORUS_DEPTH                                    0x0004
+        public const int AL_CHORUS_DEPTH = 0x0004;
+        //#define AL_CHORUS_FEEDBACK                                 0x0005
+        public const int AL_CHORUS_FEEDBACK = 0x0005;
+        //#define AL_CHORUS_DELAY                                    0x0006
+        public const int AL_CHORUS_DELAY = 0x0006;
+
+        ///* Distortion Parameters */
+        //#define AL_DISTORTION_EDGE                                 0x0001
+        public const int AL_DISTORTION_EDGE = 0x0001;
+        //#define AL_DISTORTION_GAIN                                 0x0002
+        public const int AL_DISTORTION_GAIN = 0x0002;
+        //#define AL_DISTORTION_LOWPASS_CUTOFF                       0x0003
+        public const int AL_DISTORTION_LOWPASS_CUTOFF = 0x0003;
+        //#define AL_DISTORTION_EQCENTER                             0x0004
+        public const int AL_DISTORTION_EQCENTER = 0x0004;
+        //#define AL_DISTORTION_EQBANDWIDTH                          0x0005
+        public const int AL_DISTORTION_EQBANDWIDTH = 0x0005;
+
+        ///* Echo Parameters */
+        //#define AL_ECHO_DELAY                                      0x0001
+        public const int AL_ECHO_DELAY = 0x0001;
+        //#define AL_ECHO_LRDELAY                                    0x0002
+        public const int AL_ECHO_LRDELAY = 0x0002;
+        //#define AL_ECHO_DAMPING                                    0x0003
+        public const int AL_ECHO_DAMPING = 0x0003;
+        //#define AL_ECHO_FEEDBACK                                   0x0004
+        public const int AL_ECHO_FEEDBACK = 0x0004;
+        //#define AL_ECHO_SPREAD                                     0x0005
+        public const int AL_ECHO_SPREAD = 0x0005;
+
+        ///* Flanger Parameters */
+        //#define AL_FLANGER_WAVEFORM                                0x0001
+        public const int AL_FLANGER_WAVEFORM = 0x0001;
+        //#define AL_FLANGER_PHASE                                   0x0002
+        public const int AL_FLANGER_PHASE = 0x0002;
+        //#define AL_FLANGER_RATE                                    0x0003
+        public const int AL_FLANGER_RATE = 0x0003;
+        //#define AL_FLANGER_DEPTH                                   0x0004
+        public const int AL_FLANGER_DEPTH = 0x0004;
+        //#define AL_FLANGER_FEEDBACK                                0x0005
+        public const int AL_FLANGER_FEEDBACK = 0x0005;
+        //#define AL_FLANGER_DELAY                                   0x0006
+        public const int AL_FLANGER_DELAY = 0x0006;
+
+        ///* Frequencyshifter Parameters */
+        //#define AL_FREQUENCY_SHIFTER_FREQUENCY                     0x0001
+        public const int AL_FREQUENCY_SHIFTER_FREQUENCY = 0x0001;
+        //#define AL_FREQUENCY_SHIFTER_LEFT_DIRECTION                0x0002
+        public const int AL_FREQUENCY_SHIFTER_LEFT_DIRECTION = 0x0002;
+        //#define AL_FREQUENCY_SHIFTER_RIGHT_DIRECTION               0x0003
+        public const int AL_FREQUENCY_SHIFTER_RIGHT_DIRECTION = 0x0003;
+
+        ///* Vocalmorpher Parameters */
+        //#define AL_VOCAL_MORPHER_PHONEMEA                          0x0001
+        public const int AL_VOCAL_MORPHER_PHONEMEA = 0x0001;
+        //#define AL_VOCAL_MORPHER_PHONEMEA_COARSE_TUNING            0x0002
+        public const int AL_VOCAL_MORPHER_PHONEMEA_COARSE_TUNING = 0x0002;
+        //#define AL_VOCAL_MORPHER_PHONEMEB                          0x0003
+        public const int AL_VOCAL_MORPHER_PHONEMEB = 0x0003;
+        //#define AL_VOCAL_MORPHER_PHONEMEB_COARSE_TUNING            0x0004
+        public const int AL_VOCAL_MORPHER_PHENEMEB_COARSE_TUNING = 0x0004;
+        //#define AL_VOCAL_MORPHER_WAVEFORM                          0x0005
+        public const int AL_VOCAL_MORPHER_WAVEFORM = 0x0005;
+        //#define AL_VOCAL_MORPHER_RATE                              0x0006
+        public const int AL_VOCAL_MORPHER_RATE = 0x0006;
+
+        ///* Pitchshifter Parameters */
+        //#define AL_PITCH_SHIFTER_COARSE_TUNE                       0x0001
+        public const int AL_PITCH_SHIFTER_COARSE_TUNE = 0x0001;
+        //#define AL_PITCH_SHIFTER_FINE_TUNE                         0x0002
+        public const int AL_PITCH_SHIFTER_FINE_TUNE = 0x0002;
+
+        ///* Ringmodulator Parameters */
+        //#define AL_RING_MODULATOR_FREQUENCY                        0x0001
+        public const int AL_RING_MODULATOR_FREQUENCY = 0x0001;
+        //#define AL_RING_MODULATOR_HIGHPASS_CUTOFF                  0x0002
+        public const int AL_RING_MODULATOR_HIGHPASS_CUTOFF = 0x0002;
+        //#define AL_RING_MODULATOR_WAVEFORM                         0x0003
+        public const int AL_RING_MODULATOR_WAVEFORM = 0x0003;
+
+        ///* Autowah Parameters */
+        //#define AL_AUTOWAH_ATTACK_TIME                             0x0001
+        public const int AL_AUTOWAH_ATTACK_TIME = 0x0001;
+        //#define AL_AUTOWAH_RELEASE_TIME                            0x0002
+        public const int AL_AUTOWAH_RELEASE_TIME = 0x0002;
+        //#define AL_AUTOWAH_RESONANCE                               0x0003
+        public const int AL_AUTOWAH_RESONANCE = 0x0003;
+        //#define AL_AUTOWAH_PEAK_GAIN                               0x0004
+        public const int AL_AUTOWAH_PEAK_GAIN = 0x0004;
+
+        ///* Compressor Parameters */
+        //#define AL_COMPRESSOR_ONOFF                                0x0001
+        public const int AL_COMPRESSOR_ONOFF = 0x0001;
+
+        ///* Equalizer Parameters */
+        //#define AL_EQUALIZER_LOW_GAIN                              0x0001
+        public const int AL_EQUALIZER_LOW_GAIN = 0x0001;
+        //#define AL_EQUALIZER_LOW_CUTOFF                            0x0002
+        public const int AL_EQUALIZER_LOW_CUTOFF = 0x0002;
+        //#define AL_EQUALIZER_MID1_GAIN                             0x0003
+        public const int AL_EQUALIZER_MID1_GAIN = 0x0003;
+        //#define AL_EQUALIZER_MID1_CENTER                           0x0004
+        public const int AL_EQUALIZER_MID1_CENTER = 0x0004;
+        //#define AL_EQUALIZER_MID1_WIDTH                            0x0005
+        public const int AL_EQUALIZER_MID1_WIDTH = 0x0005;
+        //#define AL_EQUALIZER_MID2_GAIN                             0x0006
+        public const int AL_EQUALIZER_MID2_GAIN = 0x0006;
+        //#define AL_EQUALIZER_MID2_CENTER                           0x0007
+        public const int AL_EQUALIZER_MID2_CENTER = 0x0007;
+        //#define AL_EQUALIZER_MID2_WIDTH                            0x0008
+        public const int AL_EQUALIZER_MID2_WIDTH = 0x0008;
+        //#define AL_EQUALIZER_HIGH_GAIN                             0x0009
+        public const int AL_EQUALIZER_HIGH_GAIN = 0x0009;
+        //#define AL_EQUALIZER_HIGH_CUTOFF                           0x000A
+        public const int AL_EQUALIZER_HIGH_CUTOFF = 0x000A;
+
+        /* Effect type */
+        //#define AL_EFFECT_FIRST_PARAMETER                          0x0000
+        public const int AL_EFFECT_FIRST_PARAMETER = 0x0000;
+        //#define AL_EFFECT_LAST_PARAMETER                           0x8000
+        public const int AL_EFFECT_LAST_PARAMETER = 0x8000;
+        //#define AL_EFFECT_TYPE                                     0x8001
+        public const int AL_EFFECT_TYPE = 0x8001;
+
+        /* Effect type definitions to be used with AL_EFFECT_TYPE. */
+        //#define AL_EFFECT_NULL                                     0x0000  /* Can also be used as an Effect Object ID */
+        public const int AL_EFFECT_NULL = 0x0000;
+        //#define AL_EFFECT_REVERB                                   0x0001
+        public const int AL_EFFECT_REVERB = 0x0001;
+        //#define AL_EFFECT_CHORUS                                   0x0002
+        public const int AL_EFFECT_CHORUS = 0x0002;
+        //#define AL_EFFECT_DISTORTION                               0x0003
+        public const int AL_EFFECT_DISTORTION = 0x0003;
+        //#define AL_EFFECT_ECHO                                     0x0004
+        public const int AL_EFFECT_ECHO = 0x0004;
+        //#define AL_EFFECT_FLANGER                                  0x0005
+        public const int AL_EFFECT_FLANGER = 0x0005;
+        //#define AL_EFFECT_FREQUENCY_SHIFTER                        0x0006
+        public const int AL_EFFECT_FREQUENCY_SHIFTER = 0x0006;
+        //#define AL_EFFECT_VOCAL_MORPHER                            0x0007
+        public const int AL_EFFECT_VOCAL_MORPHER = 0x0007;
+        //#define AL_EFFECT_PITCH_SHIFTER                            0x0008
+        public const int AL_EFFECT_PITCH_SHIFTER = 0x0008;
+        //#define AL_EFFECT_RING_MODULATOR                           0x0009
+        public const int AL_EFFECT_RING_MODULATOR = 0x0009;
+        //#define AL_EFFECT_AUTOWAH                                  0x000A
+        public const int AL_EFFECT_AUTOWAH = 0x000A;
+        //#define AL_EFFECT_COMPRESSOR                               0x000B
+        public const int AL_EFFECT_COMPRESSOR = 0x000B;
+        //#define AL_EFFECT_EQUALIZER                                0x000C
+        public const int AL_EFFECT_EQUALIZER = 0x000C;
+
+        /* Lowpass parameters. */
+        //#define AL_LOWPASS_GAIN                                    0x0001
+        public const int AL_LOWPASS_GAIN = 0x0001;
+        //#define AL_LOWPASS_GAINHF                                  0x0002
+        public const int AL_LOWPASS_GAINHF = 0x0002;
+
+        ///* Highpass Parameters */
+        //#define AL_HIGHPASS_GAIN                                   0x0001
+        public const int AL_HIGHPASS_GAIN = 0x0001;
+        //#define AL_HIGHPASS_GAINLF                                 0x0002
+        public const int AL_HIGHPASS_GAINLF = 0x0002;
+
+        ///* Bandpass Parameters */
+        //#define AL_BANDPASS_GAIN                                   0x0001
+        public const int AL_BANDPASS_GAIN = 0x0001;
+        //#define AL_BANDPASS_GAINLF                                 0x0002
+        public const int AL_BANDPASS_GAINLF = 0x0002;
+        //#define AL_BANDPASS_GAINHF                                 0x0003
+        public const int AL_BANDPASS_GAINHF = 0x0003;
+
+        ///* Filter type */
+        //#define AL_FILTER_FIRST_PARAMETER                          0x0000
+        public const int AL_FILTER_FIRST_PARAMETER = 0x0000;
+        //#define AL_FILTER_LAST_PARAMETER                           0x8000
+        public const int AL_FILTER_LAST_PARAMETER = 0x8000;
+        //#define AL_FILTER_TYPE                                     0x8001
+        public const int AL_FILTER_TYPE = 0x8001;
+
+        ///* Filter type definitions to be used with AL_FILTER_TYPE. */
+        //#define AL_FILTER_NULL                                     0x0000  /* Can also be used as a Filter Object ID */
+        public const int AL_FILTER_NULL = 0x0000;
+        //#define    AL_FILTER_LOWPASS                                  0x0001
+        public const int AL_FILTER_LOWPASS = 0x0001;
+        //#define AL_FILTER_HIGHPASS                                 0x0002
+        public const int AL_FILTER_HIGHPASS = 0x0002;
+        //#define AL_FILTER_BANDPASS                                 0x0003
+        public const int AL_FILTER_BANDPASS = 0x0003;
+        #endregion
+
         #endregion Public OpenAL 1.1 Constants
 
         // --- Public Externs ---
@@ -4784,6 +5166,567 @@ namespace Tao.OpenAl
         #endregion alEnvironmentfIASIG(int environmentId, int attribute, int val)
         #endregion Public IASIG Methods
 
+        #region Public OpenAL Extension Methods
+        #region X-RAM Methods
+        #region EAXSetBufferMode
+        /// <summary>
+        ///     Sets the X-RAM mode for the specified buffers.
+        /// </summary>
+        /// <param name="n">
+        ///     The number of buffers to set.
+        /// </param>
+        /// <param name="buffers">
+        ///     A pointer to an array of buffers to set.
+        /// </param>
+        /// <param name="mode">
+        ///     <para>
+        ///         The X-RAM buffer mode for the specified buffers.
+        ///     </para>
+        ///     <para>
+        ///         <list type="bullet">
+        ///             <item><see cref="AL_STORAGE_AUTOMATIC" /></item>
+        ///             <item><see cref="AL_STORAGE_HARDWARE" /></item>
+        ///             <item><see cref="AL_STORAGE_ACCESSIBLE" /></item>
+        ///         </list>
+        ///     </para>
+        /// </param>
+        [CLSCompliant(false)]
+        public unsafe static void EAXSetBufferMode(int n, int* buffers, int mode)
+        {
+            Delegates.EAXSetBufferMode(n, buffers, mode);
+        }
+
+        /// <summary>
+        ///     Sets the X-RAM mode for the specified buffers.
+        /// </summary>
+        /// <param name="n">
+        ///     The number of buffers to set.
+        /// </param>
+        /// <param name="buffers">
+        ///     An array of buffers to set, with minimum n elements.
+        /// </param>
+        /// <param name="mode">
+        ///     <para>
+        ///         The X-RAM buffer mode for the specified buffers.
+        ///     </para>
+        ///     <para>
+        ///         <list type="bullet">
+        ///             <item><see cref="AL_STORAGE_AUTOMATIC" /></item>
+        ///             <item><see cref="AL_STORAGE_HARDWARE" /></item>
+        ///             <item><see cref="AL_STORAGE_ACCESSIBLE" /></item>
+        ///         </list>
+        ///     </para>
+        /// </param>
+        public static void EAXSetBufferMode(int n, int[] buffers, int mode)
+        {
+            unsafe
+            {
+                fixed (int* ptr = buffers)
+                {
+                    Delegates.EAXSetBufferMode(n, ptr, mode);
+                }
+            }
+        }
+        /// <summary>
+        ///     Sets the X-RAM mode for the specified buffers.
+        /// </summary>
+        /// <param name="n">
+        ///     The number of buffers to set.
+        /// </param>
+        /// <param name="buffers">
+        ///     A pointer to an array of buffers to set.
+        /// </param>
+        /// <param name="mode">
+        ///     <para>
+        ///         The X-RAM buffer mode for the specified buffers.
+        ///     </para>
+        ///     <para>
+        ///         <list type="bullet">
+        ///             <item><see cref="AL_STORAGE_AUTOMATIC" /></item>
+        ///             <item><see cref="AL_STORAGE_HARDWARE" /></item>
+        ///             <item><see cref="AL_STORAGE_ACCESSIBLE" /></item>
+        ///         </list>
+        ///     </para>
+        /// </param>
+        public static void EAXSetBufferMode(int n, ref int buffers, int mode)
+        {
+            unsafe
+            {
+                fixed (int* ptr = &buffers)
+                {
+                    Delegates.EAXSetBufferMode(n, ptr, mode);
+                }
+            }
+        }
+        #endregion EAXSetBufferMode
+
+        #region EAXGetBufferMode
+        /// <summary>
+        ///     Gets the X-RAM mode for the specified buffer.
+        /// </summary>
+        /// <param name="buffer">
+        ///     Buffer to retreive the property for.
+        /// </param>
+        /// <param name="reserved">
+        /// Not used yet.
+        /// </param>
+        /// <returns>
+        ///     <para>
+        ///         One of the following values:
+        ///     </para>
+        ///     <para>
+        ///         <list type="bullet">
+        ///             <item><see cref="AL_STORAGE_AUTOMATIC" /></item>
+        ///             <item><see cref="AL_STORAGE_HARDWARE" /></item>
+        ///             <item><see cref="AL_STORAGE_ACCESSIBLE" /></item>
+        ///         </list>
+        ///     </para>
+        /// </returns>
+        [CLSCompliant(false)]
+        public unsafe static int EAXGetBufferMode(int buffer, int* reserved)
+        {
+            return Delegates.EAXGetBufferMode(buffer, reserved);
+        }
+        /// <summary>
+        ///     Gets the X-RAM mode for the specified buffer.
+        /// </summary>
+        /// <param name="buffer">
+        ///     Buffer to retreive the property for.
+        /// </param>
+        /// <param name="reserved">
+        /// Not used yet.
+        /// </param>
+        /// <returns>
+        ///     <para>
+        ///         One of the following values:
+        ///     </para>
+        ///     <para>
+        ///         <list type="bullet">
+        ///             <item><see cref="AL_STORAGE_AUTOMATIC" /></item>
+        ///             <item><see cref="AL_STORAGE_HARDWARE" /></item>
+        ///             <item><see cref="AL_STORAGE_ACCESSIBLE" /></item>
+        ///         </list>
+        ///     </para>
+        /// </returns>
+        public static int EAXGetBufferMode(int buffer, int[] reserved)
+        {
+            unsafe
+            {
+                fixed (int* ptr = reserved)
+                {
+                    return Delegates.EAXGetBufferMode(buffer, ptr);
+                }
+            }
+        }
+        /// <summary>
+        ///     Gets the X-RAM mode for the specified buffer.
+        /// </summary>
+        /// <param name="buffer">
+        ///     Buffer to retreive the property for.
+        /// </param>
+        /// <param name="reserved">
+        /// Not used yet.
+        /// </param>
+        /// <returns>
+        ///     <para>
+        ///         One of the following values:
+        ///     </para>
+        ///     <para>
+        ///         <list type="bullet">
+        ///             <item><see cref="AL_STORAGE_AUTOMATIC" /></item>
+        ///             <item><see cref="AL_STORAGE_HARDWARE" /></item>
+        ///             <item><see cref="AL_STORAGE_ACCESSIBLE" /></item>
+        ///         </list>
+        ///     </para>
+        /// </returns>
+        public static int EAXGetBufferMode(int buffer, ref int reserved)
+        {
+            unsafe
+            {
+                fixed (int* ptr = &reserved)
+                {
+                    return Delegates.EAXGetBufferMode(buffer, ptr);
+                }
+            }
+        }
+        #endregion EAXGetBufferMode
+        #endregion X-RAM Methods
+
+        #region EFX_EXT Methods
+        #region alEffect
+        public static void alGenEffects(int size, int[] effects)
+        {
+            unsafe
+            {
+                fixed (int* ptr = &effects[0])
+                {
+                    Delegates.alGenEffects(size, ptr);
+                }
+            }
+        }
+
+        public static void alGenEffects(int size, out int effect)
+        {
+            unsafe
+            {
+                fixed (int* ptr = &effect)
+                {
+                    Delegates.alGenEffects(size, ptr);
+                }
+            }
+        }
+
+        public static void alDeleteEffects(int size, int[] effects)
+        {
+            unsafe
+            {
+                fixed (int* ptr = &effects[0])
+                {
+                    Delegates.alDeleteEffects(size, ptr);
+                }
+            }
+        }
+
+        public static void alDeleteEffects(int size, int effect)
+        {
+            unsafe
+            {
+                Delegates.alDeleteEffects(size, &effect);
+            }
+        }
+
+        public static bool alIsEffect(int effect)
+        {
+            return Delegates.alIsEffect(effect);
+        }
+
+        public static void alEffecti(int effect, int param, int value)
+        {
+            Delegates.alEffecti(effect, param, value);
+        }
+
+        public static void alEffectiv(int effect, int param, int[] value)
+        {
+            unsafe
+            {
+                fixed (int* ptr = &value[0])
+                {
+                    Delegates.alEffectiv(effect, param, ptr);
+                }
+            }
+        }
+
+        public static void alEffectf(int effect, int param, float value)
+        {
+            Delegates.alEffectf(effect, param, value);
+        }
+
+        public static void alEffectfv(int effect, int param, float[] value)
+        {
+            unsafe
+            {
+                fixed (float* ptr = &value[0])
+                {
+                    Delegates.alEffectfv(effect, param, ptr);
+                }
+            }
+        }
+
+        public static void alGetEffecti(int effect, int param, out int value)
+        {
+            unsafe
+            {
+                fixed (int* ptr = &value)
+                {
+                    Delegates.alGetEffecti(effect, param, ptr);
+                }
+            }
+        }
+
+        public static void alGetEffectiv(int effect, int param, int[] value)
+        {
+            unsafe
+            {
+                fixed (int* ptr = &value[0])
+                {
+                    Delegates.alGetEffectiv(effect, param, ptr);
+                }
+            }
+        }
+
+        public static void alGetEffectf(int effect, int param, out float value)
+        {
+            unsafe
+            {
+                fixed (float* ptr = &value)
+                {
+                    Delegates.alGetEffectf(effect, param, ptr);
+                }
+            }
+        }
+
+        public static void alGetEffectfv(int effect, int param, float[] value)
+        {
+            unsafe
+            {
+                fixed (float* ptr = &value[0])
+                {
+                    Delegates.alGetEffectfv(effect, param, ptr);
+                }
+            }
+        }
+        #endregion
+
+        #region alFilter
+        public static void alGenFilters(int size, int[] Filters)
+        {
+            unsafe
+            {
+                fixed (int* ptr = &Filters[0])
+                {
+                    Delegates.alGenFilters(size, ptr);
+                }
+            }
+        }
+
+        public static void alGenFilters(int size, out int Filter)
+        {
+            unsafe
+            {
+                fixed (int* ptr = &Filter)
+                {
+                    Delegates.alGenFilters(size, ptr);
+                }
+            }
+        }
+
+        public static void alDeleteFilters(int size, int[] Filters)
+        {
+            unsafe
+            {
+                fixed (int* ptr = &Filters[0])
+                {
+                    Delegates.alDeleteFilters(size, ptr);
+                }
+            }
+        }
+
+        public static void alDeleteFilters(int size, int Filter)
+        {
+            unsafe
+            {
+                Delegates.alDeleteFilters(size, &Filter);
+            }
+        }
+
+        public static bool alIsFilter(int Filter)
+        {
+            return Delegates.alIsFilter(Filter);
+        }
+
+        public static void alFilteri(int Filter, int param, int value)
+        {
+            Delegates.alFilteri(Filter, param, value);
+        }
+
+        public static void alFilteriv(int Filter, int param, int[] value)
+        {
+            unsafe
+            {
+                fixed (int* ptr = &value[0])
+                {
+                    Delegates.alFilteriv(Filter, param, ptr);
+                }
+            }
+        }
+
+        public static void alFilterf(int Filter, int param, float value)
+        {
+            Delegates.alFilterf(Filter, param, value);
+        }
+
+        public static void alFilterfv(int Filter, int param, float[] value)
+        {
+            unsafe
+            {
+                fixed (float* ptr = &value[0])
+                {
+                    Delegates.alFilterfv(Filter, param, ptr);
+                }
+            }
+        }
+
+        public static void alGetFilteri(int Filter, int param, out int value)
+        {
+            unsafe
+            {
+                fixed (int* ptr = &value)
+                {
+                    Delegates.alGetFilteri(Filter, param, ptr);
+                }
+            }
+        }
+
+        public static void alGetFilteriv(int Filter, int param, int[] value)
+        {
+            unsafe
+            {
+                fixed (int* ptr = &value[0])
+                {
+                    Delegates.alGetFilteriv(Filter, param, ptr);
+                }
+            }
+        }
+
+        public static void alGetFilterf(int Filter, int param, out float value)
+        {
+            unsafe
+            {
+                fixed (float* ptr = &value)
+                {
+                    Delegates.alGetFilterf(Filter, param, ptr);
+                }
+            }
+        }
+
+        public static void alGetFilterfv(int Filter, int param, float[] value)
+        {
+            unsafe
+            {
+                fixed (float* ptr = &value[0])
+                {
+                    Delegates.alGetFilterfv(Filter, param, ptr);
+                }
+            }
+        }
+        #endregion
+
+        #region alAuxiliaryEffectSlot
+        public static void alGenAuxiliaryEffectSlots(int size, int[] AuxiliaryEffectSlots)
+        {
+            unsafe
+            {
+                fixed (int* ptr = &AuxiliaryEffectSlots[0])
+                {
+                    Delegates.alGenAuxiliaryEffectSlots(size, ptr);
+                }
+            }
+        }
+
+        public static void alGenAuxiliaryEffectSlots(int size, out int AuxiliaryEffectSlot)
+        {
+            unsafe
+            {
+                fixed (int* ptr = &AuxiliaryEffectSlot)
+                {
+                    Delegates.alGenAuxiliaryEffectSlots(size, ptr);
+                }
+            }
+        }
+
+        public static void alDeleteAuxiliaryEffectSlots(int size, int[] AuxiliaryEffectSlots)
+        {
+            unsafe
+            {
+                fixed (int* ptr = &AuxiliaryEffectSlots[0])
+                {
+                    Delegates.alDeleteAuxiliaryEffectSlots(size, ptr);
+                }
+            }
+        }
+
+        public static void alDeleteAuxiliaryEffectSlots(int size, int AuxiliaryEffectSlot)
+        {
+            unsafe
+            {
+                Delegates.alDeleteAuxiliaryEffectSlots(size, &AuxiliaryEffectSlot);
+            }
+        }
+
+        public static bool alIsAuxiliaryEffectSlot(int AuxiliaryEffectSlot)
+        {
+            return Delegates.alIsAuxiliaryEffectSlot(AuxiliaryEffectSlot);
+        }
+
+        public static void alAuxiliaryEffectSloti(int AuxiliaryEffectSlot, int param, int value)
+        {
+            Delegates.alAuxiliaryEffectSloti(AuxiliaryEffectSlot, param, value);
+        }
+
+        public static void alAuxiliaryEffectSlotiv(int AuxiliaryEffectSlot, int param, int[] value)
+        {
+            unsafe
+            {
+                fixed (int* ptr = &value[0])
+                {
+                    Delegates.alAuxiliaryEffectSlotiv(AuxiliaryEffectSlot, param, ptr);
+                }
+            }
+        }
+
+        public static void alAuxiliaryEffectSlotf(int AuxiliaryEffectSlot, int param, float value)
+        {
+            Delegates.alAuxiliaryEffectSlotf(AuxiliaryEffectSlot, param, value);
+        }
+
+        public static void alAuxiliaryEffectSlotfv(int AuxiliaryEffectSlot, int param, float[] value)
+        {
+            unsafe
+            {
+                fixed (float* ptr = &value[0])
+                {
+                    Delegates.alAuxiliaryEffectSlotfv(AuxiliaryEffectSlot, param, ptr);
+                }
+            }
+        }
+
+        public static void alGetAuxiliaryEffectSloti(int AuxiliaryEffectSlot, int param, out int value)
+        {
+            unsafe
+            {
+                fixed (int* ptr = &value)
+                {
+                    Delegates.alGetAuxiliaryEffectSloti(AuxiliaryEffectSlot, param, ptr);
+                }
+            }
+        }
+
+        public static void alGetAuxiliaryEffectSlotiv(int AuxiliaryEffectSlot, int param, int[] value)
+        {
+            unsafe
+            {
+                fixed (int* ptr = &value[0])
+                {
+                    Delegates.alGetAuxiliaryEffectSlotiv(AuxiliaryEffectSlot, param, ptr);
+                }
+            }
+        }
+
+        public static void alGetAuxiliaryEffectSlotf(int AuxiliaryEffectSlot, int param, out float value)
+        {
+            unsafe
+            {
+                fixed (float* ptr = &value)
+                {
+                    Delegates.alGetAuxiliaryEffectSlotf(AuxiliaryEffectSlot, param, ptr);
+                }
+            }
+        }
+
+        public static void alGetAuxiliaryEffectSlotfv(int AuxiliaryEffectSlot, int param, float[] value)
+        {
+            unsafe
+            {
+                fixed (float* ptr = &value[0])
+                {
+                    Delegates.alGetAuxiliaryEffectSlotfv(AuxiliaryEffectSlot, param, ptr);
+                }
+            }
+        }
+        #endregion
+        #endregion
+        #endregion Public OpenAL Extension Methods
+
         #region Public Delegates
         /// <summary>
         /// 
@@ -5220,5 +6163,34 @@ namespace Tao.OpenAl
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void LPALDISTANCEMODELDelegate(int distanceModel);
         #endregion Public Delegates
+
+        #region Extension Support
+        /// <summary>
+        /// Reloads OpenAL extension functions.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// Call this function to reload context-dependent extension OpenAL entry points. This should be done 
+        /// whenever you change the current OpenAL context, or in the case you cannot (or do not want)
+        /// to use the automatic initialisation.
+        /// </para>
+        /// <para>
+        /// Calling this function before the automatic initialisation has taken place will result
+        /// in the Al class being initialised twice. This is harmless, but, given the choice, 
+        /// the automatic initialisation should be preferred.
+        /// </para>
+        /// </remarks>
+        public static void ReloadFunctions()
+        {
+            Assembly asm = Assembly.Load("Tao.OpenAl");
+            Type delegates_class = asm.GetType("Tao.OpenAl.Delegates");
+
+            FieldInfo[] v = delegates_class.GetFields();
+            foreach (FieldInfo f in v)
+            {
+                f.SetValue(null, Delegates.GetDelegateForExtensionMethod(f.Name, f.FieldType));
+            }
+        }
+        #endregion
     }
 }

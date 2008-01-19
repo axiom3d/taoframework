@@ -25,6 +25,9 @@ SOFTWARE.
 */
 #endregion License
 
+// Disable missing XML comment warnings
+#pragma warning disable 1591 
+
 using System;
 using System.Runtime.InteropServices;
 using System.Security;
@@ -260,6 +263,19 @@ namespace Tao.OpenAl
         // #define ALC_OUT_OF_MEMORY 0xA005
         public const int ALC_OUT_OF_MEMORY = 0xA005;
         #endregion ALC_OUT_OF_MEMORY
+
+        #region ALC_ENUMERATE_ALL_EXT
+        public const int ALC_DEFAULT_ALL_DEVICES_SPECIFIER = 0x1012;
+        public const int ALC_ALL_DEVICES_SPECIFIER = 0x1013;
+        #endregion
+
+        #region ALC_EFX_EXT
+        public const string ALC_EXT_EFX_NAME = "ALC_EXT_EFX";
+        public const int ALC_EFX_MAJOR_VERSION = 0x20001;
+        public const int ALC_EFX_MINOR_VERSION = 0x20002;
+        public const int ALC_MAX_AUXILIARY_SENDS = 0x20003;
+        #endregion
+
         #endregion Public OpenAL 1.0 Constants
 
         // --- Public Externs ---

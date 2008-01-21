@@ -1,0 +1,7 @@
+prefix=/usr
+libdir=${prefix}/lib
+
+Name: @Name@
+Description: @Description@
+Version: @Version@
+Libs: -r:${libdir}/mono/@Name@/@Name@.dll 

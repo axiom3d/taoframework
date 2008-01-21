@@ -87,6 +87,13 @@
 
     <target name="package" depends="clean, doc" description="Builds all" />
 
+    <target name="install" depends="Release, init" description="Installs assemblies into GAC">
+      <nant buildfile="Tao.OpenGl.dll.build" target="install" />
+      <nant if="${platform::is-unix()}" buildfile="../Tao.Platform.X11/Tao.Platform.X11.dll.build" target="install" />
+      <nant buildfile="../Tao.FreeGlut/Tao.FreeGlut.dll.build" target="install" />
+      <nant buildfile="../Tao.OpenAl/Tao.OpenAl.dll.build" target="install" />
+    </target>
+
     <target name="doc" depends="build-release">
         <echo message="Generating all documentation from all builds" />
         <nant buildfile="../Tao.OpenAl/Tao.OpenAl.dll.build" target="doc" />

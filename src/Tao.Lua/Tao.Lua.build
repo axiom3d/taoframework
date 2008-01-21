@@ -63,6 +63,10 @@
 
     <target name="package" depends="clean, doc" description="Builds all" />
 
+    <target name="install" depends="Release, init" description="Installs assemblies into GAC">
+      <nant buildfile="Tao.Lua.dll.build" target="install" />
+    </target>
+
     <target name="doc" depends="build-release">
         <echo message="Generating all documentation from all builds" />
         <nant buildfile="./Tao.Lua.dll.build" target="doc" />

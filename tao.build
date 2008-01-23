@@ -119,12 +119,9 @@
 		    <exclude name="**/${bin.dir}/**" />
 		    <exclude name="**/*j.user" />
 		    <exclude name="**.suo" />
-		    <exclude name="**/*.build" />
 		    <exclude name="**/*.mdp" />
 		    <exclude name="**/*.mds" />
-		    <exclude name="**/*.sln" />
 		    <exclude name="**/*.cmbx" />
-		    <exclude name="**/*.csproj" />
 		    <exclude name="**/*.old" />
 		    <exclude name="**/*.prjx" />
 		    <exclude name="**/*.am" />
@@ -146,6 +143,7 @@
 		    <exclude name="**.swp" />
 		    <exclude name="**.bak" />
 		    <exclude name="**.project" />
+		    <exclude name="**/autotools/**" />
 		</fileset>
 	    </copy>
 	</if>

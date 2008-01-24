@@ -79,7 +79,6 @@ namespace Tao.OpenGl
     /// <seealso cref="Gl.IsExtensionSupported"/>
     /// <seealso cref="Gl.GetDelegate"/>
     /// <seealso cref="Gl.ReloadFunctions"/>
-    /// <seealso cref="Gl.ReloadFunction"/>
     /// </para>
     /// </remarks>
     public static partial class Gl

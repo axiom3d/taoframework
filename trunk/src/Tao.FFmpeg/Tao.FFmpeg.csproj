@@ -81,6 +81,7 @@
     <Compile Include="AVFormat.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="AVSWScale.cs" />
     <Compile Include="AVUtil.cs">
       <SubType>Code</SubType>
     </Compile>

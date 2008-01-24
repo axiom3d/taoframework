@@ -49,14 +49,43 @@ namespace Tao.FFmpeg
         #endregion string AVSWSCALE_NATIVE_LIBRARY
 		#endregion Private Constants
 		
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="SwsContext"></param>
 		[DllImport(AVSWSCALE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern void sws_freeContext(IntPtr SwsContext);
 		
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="source_width"></param>
+        /// <param name="source_height"></param>
+        /// <param name="source_pix_fmt"></param>
+        /// <param name="dest_width"></param>
+        /// <param name="dest_height"></param>
+        /// <param name="dest_pix_fmt"></param>
+        /// <param name="flags"></param>
+        /// <param name="srcFilter"></param>
+        /// <param name="destFilter"></param>
+        /// <param name="Param"></param>
+        /// <returns></returns>
 		[DllImport(AVSWSCALE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr sws_getContext(int source_width, int source_height,
 		int source_pix_fmt, int dest_width, int dest_height, int dest_pix_fmt, int flags,
 		IntPtr srcFilter, IntPtr destFilter, IntPtr Param);
 		
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="SwsContext"></param>
+        /// <param name="src"></param>
+        /// <param name="srcStride"></param>
+        /// <param name="srcSliceY"></param>
+        /// <param name="srcSliceH"></param>
+        /// <param name="dst"></param>
+        /// <param name="dstStride"></param>
+        /// <returns></returns>
 		[DllImport(AVSWSCALE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern int sws_scale(IntPtr SwsContext,
 		IntPtr src, 
@@ -66,31 +95,88 @@ namespace Tao.FFmpeg
 		int[] dstStride);
 		
 /* values for the flags, the stuff on the command line is different */
+        /// <summary>
+        /// 
+        /// </summary>
         public const int SWS_FAST_BILINEAR=     1;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int SWS_BILINEAR     =     2;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int SWS_BICUBIC      =     4;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int SWS_X            =     8;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int SWS_POINT        =  0x10;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int SWS_AREA         =  0x20;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int SWS_BICUBLIN     =  0x40;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int SWS_GAUSS        =  0x80;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int SWS_SINC         = 0x100;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int SWS_LANCZOS      = 0x200;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int SWS_SPLINE       = 0x400;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public const int SWS_SRC_V_CHR_DROP_MASK   =  0x30000;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int SWS_SRC_V_CHR_DROP_SHIFT  =  16;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public const int SWS_PARAM_DEFAULT     =      123456;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public const int SWS_PRINT_INFO        =      0x1000;
 
 //the following 3 flags are not completely implemented
 //internal chrominace subsampling info
+        /// <summary>
+        /// 
+        /// </summary>
         public const int SWS_FULL_CHR_H_INT   = 0x2000;
 //input subsampling info
+        /// <summary>
+        /// 
+        /// </summary>
         public const int SWS_FULL_CHR_H_INP   = 0x4000;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int SWS_DIRECT_BGR       = 0x8000;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int SWS_ACCURATE_RND     = 0x40000;
 
        // public const int SWS_CPU_CAPS_MMX     = 0x80000000;
@@ -99,6 +185,9 @@ namespace Tao.FFmpeg
         //public const int SWS_CPU_CAPS_ALTIVEC = 0x10000000;
         //public const int SWS_CPU_CAPS_BFIN    = 0x01000000;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public const double SWS_MAX_REDUCE_CUTOFF = 0.002;			
 	}
 }

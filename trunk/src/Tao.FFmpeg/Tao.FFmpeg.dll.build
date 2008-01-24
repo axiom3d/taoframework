@@ -18,6 +18,7 @@
                 <include name="AVCodec.cs" />
                 <include name="AVFormat.cs" />
                 <include name="AVUtil.cs" />
+                <include name="AVSWScale.cs" />
                 <include name="Properties/AssemblyInfo.cs" />
             </sources>
             <references basedir="${project::get-base-directory()}">

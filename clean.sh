@@ -1,66 +1,15 @@
 #!/bin/sh
-# Builds the Tao Framework using both Prebuild and autotools 
+# Builds the Tao Framework using both Prebuild and NAnt 
 
-configure_args=$1
-
-# clean autotools Project Files 
-#other/Prebuild/prebuild /target autotools /file prebuild.xml /clean
-other/Prebuild/prebuild /file prebuild.xml /clean /yes
-
-# Build Solutions Using autotools 
-PACKAGES="Tao.DevIl
-          Tao.GlBindGen
-	  Tao.Ode
-	  Tao.PhysFs
-	  Tao.Sdl
-	  Tao.Lua
-	  Tao.OpenGl
-	  Tao.OpenAl
-	  Tao.FFmpeg
-	  Tao.FreeType
-	  "
-
-# clean up dist files
 rm -rf dist
 
-ROOTDIR=$PWD
-
-cd $ROOTDIR/src
-
-for thedir in $PACKAGES ;
-do
-  # If the configure.ac file exists, clean
-  if [ -f $thedir/configure.ac ]
-  then
-    pushd $thedir &&
-    autoreconf -i -s &&
-    ./configure $configure_args &&
-    make distclean
-    popd
-  fi
-done
-
-cd $ROOTDIR
-
-# Clean up the left-overs
-for i in \
-    Include.am \
-    autom4te.cache \
-    aclocal.m4 \
-    config.log \
-    config.status \
-    config.guess \
-    configure \
-    config.sub \
-    configure.ac \
-    Makefile \
-    Makefile.am \
-    Makefile.in \
-    install-sh \
-    missing \
-    '*.pc' \
-    '*.pc.in' ; do
-  find ./ -name $i -exec rm -rf \{\} \;
-done
-
-
+# Build Solutions Using NAnt 
+nant -t:mono-2.0 -buildfile:src/Tao.DevIl/Tao.DevIl.build clean
+nant -t:mono-2.0 -buildfile:src/Tao.GlBindGen/Tao.GlBindGen.build clean 
+nant -t:mono-2.0 -buildfile:src/Tao.Ode/Tao.Ode.build clean 
+nant -t:mono-2.0 -buildfile:src/Tao.OpenGl/Tao.OpenGl.build clean 
+nant -t:mono-2.0 -buildfile:src/Tao.PhysFs/Tao.PhysFs.build clean 
+nant -t:mono-2.0 -buildfile:src/Tao.Sdl/Tao.Sdl.build clean 
+nant -t:mono-2.0 -buildfile:src/Tao.Lua/Tao.Lua.build clean 
+nant -t:mono-2.0 -buildfile:src/Tao.FFmpeg/Tao.FFmpeg.build clean 
+nant -t:mono-2.0 -buildfile:src/Tao.FreeType/Tao.FreeType.build clean 

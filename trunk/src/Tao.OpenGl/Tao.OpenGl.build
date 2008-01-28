@@ -97,20 +97,20 @@
     <target name="doc" depends="build-release">
         <echo message="Generating all documentation from all builds" />
         <nant buildfile="../Tao.OpenAl/Tao.OpenAl.dll.build" target="doc" />
-        <nant buildfile="../../examples/Redbook/Redbook.exe.build" target="doc" />
+	<!-- <nant buildfile="../../examples/Redbook/Redbook.exe.build" target="doc" /> -->
         <nant buildfile="../Tao.Glfw/Tao.Glfw.dll.build" target="doc" />
         <nant buildfile="../Tao.Cg/Tao.Cg.dll.build" target="doc" />
-        <nant buildfile="../../examples/OpenAlExamples/OpenAlExamples.exe.build" target="doc" />
-        <nant buildfile="../../examples/FreeGlutExamples/One/FreeGlutExamples.One.exe.build" target="doc" />
+        <!-- <nant buildfile="../../examples/OpenAlExamples/OpenAlExamples.exe.build" target="doc" /> -->
+        <!-- <nant buildfile="../../examples/FreeGlutExamples/One/FreeGlutExamples.One.exe.build" target="doc" /> -->
         <nant buildfile="../Tao.Platform.Windows/Tao.Platform.Windows.dll.build" target="doc" />
-        <nant buildfile="../../examples/NateRobins/NateRobins.exe.build" target="doc" />
+        <!-- <nant buildfile="../../examples/NateRobins/NateRobins.exe.build" target="doc" /> -->
         <nant buildfile="../Tao.FreeGlut/Tao.FreeGlut.dll.build" target="doc" />
-        <nant buildfile="../../examples/GlfwExamples/GlfwExamples.exe.build" target="doc" />
-        <nant buildfile="../../examples/CgExamples/CgExamples.exe.build" target="doc" />
+        <!-- <nant buildfile="../../examples/GlfwExamples/GlfwExamples.exe.build" target="doc" /> -->
+        <!-- <nant buildfile="../../examples/CgExamples/CgExamples.exe.build" target="doc" /> -->
         <nant buildfile="../Tao.Platform.X11/Tao.Platform.X11.dll.build" target="doc" />
-        <nant buildfile="../../examples/NeHe/NeHe.exe.build" target="doc" />
-        <nant buildfile="./Tao.OpenGl.dll.build" target="doc" />
-        <nant buildfile="../../examples/GeWangExamples/GeWangExamples.exe.build" target="doc" />
+        <!-- <nant buildfile="../../examples/NeHe/NeHe.exe.build" target="doc" /> -->
+        <!-- <nant buildfile="./Tao.OpenGl.dll.build" target="doc" /> -->
+        <!-- <nant buildfile="../../examples/GeWangExamples/GeWangExamples.exe.build" target="doc" /> -->
     </target>
 
 </project>

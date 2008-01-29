@@ -144,7 +144,15 @@ namespace Tao.Cg
 		/// CG_GL_FRAGMENT = 9
 		public const int CG_GL_FRAGMENT = 9;
 		#endregion
-		#endregion Enums
+
+        #region CG_GL_GEOMETRY
+        /// <summary>
+        /// Geometry profile (returned by cgGLGetLatestProfile)
+        /// </summary>
+        /// CG_GL_GEOMETRY = 9
+        public const int CG_GL_GEOMETRY = 10;
+        #endregion
+        #endregion Enums
 
 		#endregion Public Constants
 

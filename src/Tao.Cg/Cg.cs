@@ -4338,10 +4338,24 @@ namespace Tao.Cg
 		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern int cgGetProgramProfile(IntPtr prog);
 		#endregion int cgGetProgramProfile(IntPtr prog)
-		#endregion Program Functions
 
-		#region Parameter functions
-		/// <summary>
+        #region IntPtr cgCombinePrograms(int n, IntPtr[] progs)
+        /// <summary>
+        ///     Gets the profile enumeration of the program.
+        /// </summary>
+        /// <param name="prog">
+        ///     Specifies the program.
+        /// </param>
+        /// <returns>
+        ///     The profile enumeration or CG_PROFILE_UNKNOWN if compilation failed.
+        /// </returns>
+        [DllImport(CG_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern IntPtr cgCombinePrograms(int n, IntPtr[] progs);
+        #endregion IntPtr cgCombinePrograms(int n, IntPtr[] progs)
+        #endregion Program Functions
+
+        #region Parameter functions
+        /// <summary>
 		/// 
 		/// </summary>
 		/// <param name="ctx"></param>

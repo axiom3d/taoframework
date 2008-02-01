@@ -4343,9 +4343,10 @@ namespace Tao.Cg
         /// <summary>
         ///     Gets the profile enumeration of the program.
         /// </summary>
-        /// <param name="prog">
+        /// <param name="progs">
         ///     Specifies the program.
         /// </param>
+        /// <param name="n"></param>
         /// <returns>
         ///     The profile enumeration or CG_PROFILE_UNKNOWN if compilation failed.
         /// </returns>

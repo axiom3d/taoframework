@@ -7,6 +7,9 @@ Tao.Cg is a Cg API binding for .NET, implementing Cg 1.2.1.
 
 
 Change Log:
+2.0.0.0 - January 2008
+    Updated DLL's to 2.0
+
 1.4.1.0 - June 2006:
     Updated to Cg 1.4.1 by David Hudson
 

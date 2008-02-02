@@ -48,7 +48,7 @@ namespace Tao.Ode
     #region Class Documentation
     /// <summary>
     ///     Open Dynamics Engine (ODE - http://ode.org) bindings for .NET
-    /// 	ODE Version: 0.8
+    /// 	ODE Version: 0.9
     /// </summary>
     #endregion Class Documentation
     public static class Ode
@@ -7200,7 +7200,7 @@ namespace Tao.Ode
 
 
         // NOT IMPLEMENTED
-        // This region contains functions in the ODE 0.8 source that are part of the
+        // This region contains functions in the ODE 0.9 source that are part of the
         // ODE public API (labeled ODE_API in the ODE source), but aren't implemented in
         // Tao.Ode.  In a few cases they may be awaiting implementation, but most of the
         // functions here are deliberately not implemented.

@@ -7,6 +7,8 @@ Tao.Ode is an ODE API binding for .NET, implementing ODE 0.8.
 
 
 Change Log:
+0.9.0.0 - Feb 1, 2008:
+	Update to ODE 0.8 by David Hudson (jendave@yahoo.com)
 0.8.0.0 - Nov 10, 2007:
 	Update to ODE 0.8 by David Hudson (jendave@yahoo.com)
 0.6.0.0 - July 25, 2006:

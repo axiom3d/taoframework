@@ -1,7 +1,8 @@
 prefix=/usr
-libdir=${prefix}/lib
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
 
 Name: @Name@
 Description: @Description@
 Version: @Version@
-Libs: -r:${libdir}/mono/@Name@/@Name@.dll 
+Libs: -r:${libdir}/mono/@Name@/@Name@.dll

@@ -22,7 +22,7 @@
     <property name="dmg.dir" value="TaoFramework" />
     <property name="is-osx" value="false"/>
     <property name="gacdir" value="" overwrite="false" />
-    <property name="pkgconfig" value="" overwrite="false" />
+    <property name="pkgconfig" value="/usr/lib/pkgconfig" overwrite="false" />
 
     <target name="net-2.0" description="Sets framework to .NET 2.0">
 	<property name="nant.settings.currentframework" value="net-2.0" />

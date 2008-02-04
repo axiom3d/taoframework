@@ -163,7 +163,7 @@ namespace Tao.Platform.Windows
         /// <summary>
         /// Tries to reload the given OpenGL function (core or extension).
         /// </summary>
-        /// <param name="name">The name of the OpenGL function (i.e. glShaderSource)</param>
+        /// <param name="function">The name of the OpenGL function (i.e. glShaderSource)</param>
         /// <returns>True if the function was found and reloaded, false otherwise.</returns>
         /// <remarks>
         /// <para>
@@ -266,7 +266,7 @@ namespace Tao.Platform.Windows
             {
                 extension_string = wglGetExtensionsStringARB(wglGetCurrentDC());
             }
-            catch (NullReferenceException nre)
+            catch (NullReferenceException)
             { }
 
             if (String.IsNullOrEmpty(extension_string))

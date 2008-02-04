@@ -370,7 +370,7 @@ namespace Tao.Platform.Windows {
         ///         Indicates whether a device can swap individual layer planes with pixel
         ///         formats that include double-buffered overlay or underlay planes.
         ///         Otherwise all layer planes are swapped together as a group.  When this
-        ///         flag is set, <see cref="Wgl.wglSwapLayerBuffers" /> is supported.
+        ///         flag is set, <see cref="Wgl.wglSwapLayerBuffers(IntPtr, int)" /> is supported.
         ///     </para>
         /// </summary>
         // #define PFD_SWAP_LAYER_BUFFERS      0x00000800
@@ -732,7 +732,7 @@ namespace Tao.Platform.Windows {
         /// </summary>
         /// <remarks>The values of <b>GLYPHMETRICSFLOAT</b> are specified as notional units.</remarks>
         /// <seealso cref="POINTFLOAT" />
-        /// <seealso cref="Wgl.wglUseFontOutlines" />
+        /// <seealso cref="Wgl.wglUseFontOutlinesA(IntPtr, int, int, int, float, float, int, Gdi.GLYPHMETRICSFLOAT[])" />
         [StructLayout(LayoutKind.Sequential)]
         public struct GLYPHMETRICSFLOAT {
             /// <summary>
@@ -1106,32 +1106,107 @@ namespace Tao.Platform.Windows {
         #endregion POINTFLOAT Struct
 
         #region LAYERPLANEDESCRIPTOR Struct
+        /// <summary>
+        /// 
+        /// </summary>
         [StructLayout(LayoutKind.Sequential)]
         public struct LAYERPLANEDESCRIPTOR
         {
+            /// <summary>
+            /// 
+            /// </summary>
             public short nSize;
+            /// <summary>
+            /// 
+            /// </summary>
             public short nVersion;
+            /// <summary>
+            /// 
+            /// </summary>
             public int dwFlags;
+            /// <summary>
+            /// 
+            /// </summary>
             public byte iPixelType;
+            /// <summary>
+            /// 
+            /// </summary>
             public byte cColorBits;
+            /// <summary>
+            /// 
+            /// </summary>
             public byte cRedBits;
+            /// <summary>
+            /// 
+            /// </summary>
             public byte cRedShift;
+            /// <summary>
+            /// 
+            /// </summary>
             public byte cGreenBits;
+            /// <summary>
+            /// 
+            /// </summary>
             public byte cGreenShift;
+            /// <summary>
+            /// 
+            /// </summary>
             public byte cBlueBits;
+            /// <summary>
+            /// 
+            /// </summary>
             public byte cBlueShift;
+            /// <summary>
+            /// 
+            /// </summary>
             public byte cAlphaBits;
+            /// <summary>
+            /// 
+            /// </summary>
             public byte cAlphaShift;
+            /// <summary>
+            /// 
+            /// </summary>
             public byte cAccumBits;
+            /// <summary>
+            /// 
+            /// </summary>
             public byte cAccumRedBits;
+            /// <summary>
+            /// 
+            /// </summary>
             public byte cAccumGreenBits;
+            /// <summary>
+            /// 
+            /// </summary>
             public byte cAccumBlueBits;
+            /// <summary>
+            /// 
+            /// </summary>
             public byte cAccumAlphaBits;
+            /// <summary>
+            /// 
+            /// </summary>
             public byte cDepthBits;
+            /// <summary>
+            /// 
+            /// </summary>
             public byte cStencilBits;
+            /// <summary>
+            /// 
+            /// </summary>
             public byte cAuxBuffers;
+            /// <summary>
+            /// 
+            /// </summary>
             public byte iLayerPlane;
+            /// <summary>
+            /// 
+            /// </summary>
             public byte bReserved;
+            /// <summary>
+            /// 
+            /// </summary>
             public int crTransparent;
         };
         #endregion

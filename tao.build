@@ -181,18 +181,11 @@
 		<exclude name="**/*Bind*"/>
 	    </fileset>
 	</copy>
-	<if test="${platform::is-unix() and not is-osx}">
+	<if test="${platform::is-unix()">
 	    <copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${bin.dir}/assemblies" flatten="true">
 		<fileset basedir="${src.dir}">
 		    <include name="**/*.config"/>
 		    <exclude name="**/app.config"/>
-		</fileset>
-	    </copy>
-	</if>
-	<if test="${is-osx}">
-	    <copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${bin.dir}/assemblies" flatten="true">
-		<fileset basedir="${src.dir}">
-		    <include name="**/*.config.osx"/>
 		</fileset>
 	    </copy>
 	</if>
@@ -213,18 +206,11 @@
 		<exclude name="**/*Bind*"/>
 	    </fileset>
 	</copy>
-	<if test="${platform::is-unix() and not is-osx}">
+	<if test="${platform::is-unix()}">
 	    <copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${bin.dir}/${examples.dir}" flatten="true">
 		<fileset basedir="${src.dir}">
 		    <include name="**/*.config"/>
 		    <exclude name="**/app.config"/>
-		</fileset>
-	    </copy>
-	</if>
-	<if test="${is-osx}">
-	    <copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${bin.dir}/${examples.dir}" flatten="true">
-		<fileset basedir="other/config/osx">
-		    <include name="**/*.config"/>
 		</fileset>
 	    </copy>
 	</if>

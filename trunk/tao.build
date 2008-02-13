@@ -181,7 +181,7 @@
 		<exclude name="**/*Bind*"/>
 	    </fileset>
 	</copy>
-	<if test="${platform::is-unix()">
+	<if test="${platform::is-unix()}">
 	    <copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${bin.dir}/assemblies" flatten="true">
 		<fileset basedir="${src.dir}">
 		    <include name="**/*.config"/>

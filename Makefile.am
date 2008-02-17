@@ -1,4 +1,7 @@
 
 AUTOMAKE_OPTIONS = dist-bzip2
 SUBDIRS = src tests examples
+DIST_SUBDIRS = $(SUBDIRS) m4
+
+ACLOCAL_AMFLAGS = -I m4
 

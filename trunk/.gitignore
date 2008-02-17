@@ -5,3 +5,6 @@ config.log
 config.status
 Makefile.in
 Makefile
+*.pc
+*.dll
+*.xml

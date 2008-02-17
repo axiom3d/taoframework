@@ -1,0 +1,9 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+
+Name: Tao.FFmpeg
+Description: FFmpeg portion of the Tao framework
+Version: @TAOFFMPEG_VERSION@
+Requires:
+Libs: -r:${libdir}/cli/tao-ffmpeg-@TAOFFMPEG_MAJOR@/Tao.FFmpeg.dll

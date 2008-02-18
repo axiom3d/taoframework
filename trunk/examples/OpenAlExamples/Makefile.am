@@ -1,5 +1,5 @@
 
-ASSEMBLY = OpenAlExamples
+PROGRAM = OpenAlExamples
 PACKAGES =
 BINARY_LIBS = \
         Tao.OpenAl.dll \
@@ -10,10 +10,8 @@ SYSTEM_LIBS = \
         System.Windows.Forms \
         System.Data \
         System.Drawing
-RESX = \
-        OpenAlExamples.resx
-RESOURCES = \
-        $(ASSEMBLY).OpenAlExamples.resources
+RESX = OpenAlExamples.resx
+RESOURCES = $(PROGRAM).OpenAlExamples.resources
 SOURCES = \
         OpenAlExamples.cs \
         Boxes.cs \
@@ -26,30 +24,10 @@ SOURCES = \
         Sound.cs \
         Waterfall.cs \
         Properties/AssemblyInfo.cs
+KEYFILE = ../../src/Tao.OpenAl/Tao.OpenAl.snk
 
-pkgconfigdir = $(prefix)/lib/pkgconfig
-
-noinst_DATA = $(ASSEMBLY).exe
-
-EXTRA_DIST = $(SOURCES) $(RESX) $(ASSEMBLY).csproj $(ASSEMBLY).sh
-CLEANFILES = $(ASSEMBLY).exe $(RESOURCES)
-
-$(ASSEMBLY).OpenAlExamples.resources: OpenAlExamples.resx
+$(PROGRAM).OpenAlExamples.resources: OpenAlExamples.resx
 	$(RESGEN) $< $@
 
-$(ASSEMBLY).exe: $(RESOURCES) $(SOURCES)
-	for lib in $(BINARY_LIBS); do \
-	  ln -sf ../../src/$${lib%.dll}/$${lib}; \
-	  ln -sf ../../src/$${lib%.dll}/$${lib}.config; \
-	done
-	$(CSC) /out:$@ /target:winexe \
-	  $(addprefix /r:$(srcdir)/, $(BINARY_LIBS)) \
-	  $(addprefix /r:, $(SYSTEM_LIBS)) \
-	  $(addprefix /resource:, $(RESOURCES)) \
-	  $(addprefix $(srcdir)/, $(SOURCES)) \
-	  /keyfile:$(srcdir)/../../src/Tao.OpenAl/Tao.OpenAl.snk
-
-clean-local:
-	rm -f $(BINARY_LIBS)
-	rm -f $(addsuffix .config, $(BINARY_LIBS))
+include $(top_srcdir)/Program.am
 

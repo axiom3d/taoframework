@@ -2,4 +2,5 @@
 
 - Generate .config files at configure time (sam)
 - Check the .dll installation directory
+- Build documentation from the generated .xml files
 

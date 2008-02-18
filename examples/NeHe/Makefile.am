@@ -1,5 +1,5 @@
 
-ASSEMBLY = NeHe
+PROGRAM = NeHe
 PACKAGES =
 BINARY_LIBS = \
         Tao.FreeGlut.dll \
@@ -10,10 +10,8 @@ SYSTEM_LIBS = \
         System.Windows.Forms \
         System.Data \
         System.Drawing
-RESX = \
-        NeHe.resx
-RESOURCES = \
-        $(ASSEMBLY).NeHe.resources
+RESX = NeHe.resx
+RESOURCES = $(PROGRAM).NeHe.resources
 SOURCES = \
         NeHe.cs \
         Lesson01.cs \
@@ -44,30 +42,10 @@ SOURCES = \
         NeHe.Designer.cs \
         Program.cs \
         Properties/AssemblyInfo.cs
+KEYFILE = ../../src/Tao.FreeGlut/Tao.FreeGlut.snk
 
-pkgconfigdir = $(prefix)/lib/pkgconfig
-
-noinst_DATA = $(ASSEMBLY).exe
-
-EXTRA_DIST = $(SOURCES) $(RESX) $(ASSEMBLY).csproj $(ASSEMBLY).sh
-CLEANFILES = $(ASSEMBLY).exe $(RESOURCES)
-
-$(ASSEMBLY).NeHe.resources: NeHe.resx
+$(PROGRAM).NeHe.resources: NeHe.resx
 	$(RESGEN) $< $@
 
-$(ASSEMBLY).exe: $(RESOURCES) $(SOURCES)
-	for lib in $(BINARY_LIBS); do \
-	  ln -sf ../../src/$${lib%.dll}/$${lib}; \
-	  ln -sf ../../src/$${lib%.dll}/$${lib}.config; \
-	done
-	$(CSC) /out:$@ /target:winexe \
-	  $(addprefix /r:$(srcdir)/, $(BINARY_LIBS)) \
-	  $(addprefix /r:, $(SYSTEM_LIBS)) \
-	  $(addprefix /resource:, $(RESOURCES)) \
-	  $(addprefix $(srcdir)/, $(SOURCES)) \
-	  /keyfile:$(srcdir)/../../src/Tao.FreeGlut/Tao.FreeGlut.snk
-
-clean-local:
-	rm -f $(BINARY_LIBS)
-	rm -f $(addsuffix .config, $(BINARY_LIBS))
+include $(top_srcdir)/Program.am
 

@@ -1,5 +1,5 @@
 
-ASSEMBLY = SdlExamples
+PROGRAM = SdlExamples
 PACKAGES =
 BINARY_LIBS = \
         Tao.Sdl.dll
@@ -8,10 +8,8 @@ SYSTEM_LIBS = \
         System.Windows.Forms \
         System.Data \
         System.Drawing
-RESX = \
-        SdlExamples.resx
-RESOURCES = \
-        $(ASSEMBLY).SdlExamples.resources
+RESX = SdlExamples.resx
+RESOURCES = $(PROGRAM).SdlExamples.resources
 SOURCES = \
         SdlExamples.cs \
         GfxPrimitives.cs \
@@ -20,30 +18,10 @@ SOURCES = \
         SdlExamples.Designer.cs \
         SmpegPlayer.cs \
         Properties/AssemblyInfo.cs
+KEYFILE = ../../src/Tao.Sdl/Tao.Sdl.snk
 
-pkgconfigdir = $(prefix)/lib/pkgconfig
-
-noinst_DATA = $(ASSEMBLY).exe
-
-EXTRA_DIST = $(SOURCES) $(RESX) $(ASSEMBLY).csproj $(ASSEMBLY).sh
-CLEANFILES = $(ASSEMBLY).exe $(RESOURCES)
-
-$(ASSEMBLY).SdlExamples.resources: SdlExamples.resx
+$(PROGRAM).SdlExamples.resources: SdlExamples.resx
 	$(RESGEN) $< $@
 
-$(ASSEMBLY).exe: $(RESOURCES) $(SOURCES)
-	for lib in $(BINARY_LIBS); do \
-	  ln -sf ../../src/$${lib%.dll}/$${lib}; \
-	  ln -sf ../../src/$${lib%.dll}/$${lib}.config; \
-	done
-	$(CSC) /out:$@ /target:winexe \
-	  $(addprefix /r:$(srcdir)/, $(BINARY_LIBS)) \
-	  $(addprefix /r:, $(SYSTEM_LIBS)) \
-	  $(addprefix /resource:, $(RESOURCES)) \
-	  $(addprefix $(srcdir)/, $(SOURCES)) \
-	  /keyfile:$(srcdir)/../../src/Tao.Sdl/Tao.Sdl.snk
-
-clean-local:
-	rm -f $(BINARY_LIBS)
-	rm -f $(addsuffix .config, $(BINARY_LIBS))
+include $(top_srcdir)/Program.am
 

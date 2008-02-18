@@ -1,11 +1,6 @@
-dnl Process this file with autoconf to produce a configure script.
-AC_INIT(src/Tao.OpenGl/Gl.cs)
+AC_INIT(taoframework, 2.0.0.svn20080217)
 AC_CONFIG_AUX_DIR(.auto)
-
-PACKAGE=taoframework
-VERSION=2.0.0.svn20080217
-
-AM_INIT_AUTOMAKE($PACKAGE, $VERSION, no-define)
+AM_INIT_AUTOMAKE([no-define tar-ustar])
 AM_MAINTAINER_MODE
 
 AC_SUBST(VERSION)
@@ -60,13 +55,17 @@ if test "x$GACUTIL" = "xno" ; then
   AC_MSG_ERROR([No gacutil tool found])
 fi
 GACUTIL_FLAGS='/gacdir $(DESTDIR)$(prefix)/lib'
-
 AC_SUBST(GACUTIL)
 AC_SUBST(GACUTIL_FLAGS)
 
+AC_PATH_PROG(RESGEN, resgen)
+if test "x$RESGEN" = "xno" ; then
+  AC_MSG_ERROR([No resgen tool found])
+fi
+AC_SUBST(RESGEN)
+
 MONODOC_REQUIRED_VERSION=1.0
 AC_SUBST(MONODOC_REQUIRED_VERSION)
-
 PKG_CHECK_MODULES(MONODOC_DEPENDENCY, monodoc >= $MONODOC_REQUIRED_VERSION,
                   enable_monodoc=yes, enable_monodoc=no)
 if test "x$enable_monodoc" = "xyes"; then
@@ -77,7 +76,6 @@ if test "x$enable_monodoc" = "xyes"; then
 else
   MONODOC=
 fi
-
 AC_SUBST(MONODOC)
 AM_CONDITIONAL(ENABLE_MONODOC, test "x$enable_monodoc" = "xyes")
 
@@ -152,6 +150,8 @@ AC_CONFIG_FILES(
   src/Tao.Platform.X11/tao-platform-x11.pc
   src/Tao.PhysFs/tao-physfs.pc
   src/Tao.Sdl/tao-sdl.pc
+  tests/Ode/tao-ode-tests.pc
+  tests/Sdl/tao-sdl-tests.pc
 )
 
 AC_OUTPUT

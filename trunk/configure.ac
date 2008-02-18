@@ -97,26 +97,42 @@ AC_CONFIG_FILES(
 )
 AC_CONFIG_FILES(
   src/Makefile
-  src/Tao.OpenGl/Makefile
-  src/Tao.Platform.X11/Makefile
-  src/Tao.OpenAl/Makefile
-  src/Tao.Ode/Makefile
-  src/Tao.Sdl/Makefile
-  src/Tao.FreeType/Makefile
-  src/Tao.FreeGlut/Makefile
-  src/Tao.DevIl/Makefile
-  src/Tao.Platform.Windows/Makefile
-  src/Tao.Glfw/Makefile
   src/Tao.Cg/Makefile
-  src/Tao.Lua/Makefile
+  src/Tao.Cg/tao-cg.pc
+  src/Tao.DevIl/Makefile
+  src/Tao.DevIl/tao-devil.pc
   src/Tao.FFmpeg/Makefile
-  src/Tao.PhysFs/Makefile
+  src/Tao.FFmpeg/tao-ffmpeg.pc
+  src/Tao.FreeGlut/Makefile
+  src/Tao.FreeGlut/tao-freeglut.pc
+  src/Tao.FreeType/Makefile
+  src/Tao.FreeType/tao-freetype.pc
   src/Tao.GlBindGen/Makefile
+  src/Tao.Glfw/Makefile
+  src/Tao.Glfw/tao-glfw.pc
+  src/Tao.Lua/Makefile
+  src/Tao.Lua/tao-lua.pc
+  src/Tao.Ode/Makefile
+  src/Tao.Ode/tao-ode.pc
+  src/Tao.OpenAl/Makefile
+  src/Tao.OpenAl/tao-openal.pc
+  src/Tao.OpenGl/Makefile
+  src/Tao.OpenGl/tao-opengl.pc
+  src/Tao.PhysFs/Makefile
+  src/Tao.PhysFs/tao-physfs.pc
+  src/Tao.Platform.Windows/Makefile
+  src/Tao.Platform.Windows/tao-platform-windows.pc
+  src/Tao.Platform.X11/Makefile
+  src/Tao.Platform.X11/tao-platform-x11.pc
+  src/Tao.Sdl/Makefile
+  src/Tao.Sdl/tao-sdl.pc
 )
 AC_CONFIG_FILES(
   tests/Makefile
   tests/Ode/Makefile
+  tests/Ode/tao-ode-tests.pc
   tests/Sdl/Makefile
+  tests/Sdl/tao-sdl-tests.pc
 )
 AC_CONFIG_FILES(
   examples/Makefile
@@ -136,22 +152,6 @@ AC_CONFIG_FILES(
   examples/OdeExamples/Makefile
 )
 AC_CONFIG_FILES(
-  src/Tao.Cg/tao-cg.pc
-  src/Tao.DevIl/tao-devil.pc
-  src/Tao.FFmpeg/tao-ffmpeg.pc
-  src/Tao.FreeGlut/tao-freeglut.pc
-  src/Tao.FreeType/tao-freetype.pc
-  src/Tao.Glfw/tao-glfw.pc
-  src/Tao.Lua/tao-lua.pc
-  src/Tao.Ode/tao-ode.pc
-  src/Tao.OpenAl/tao-openal.pc
-  src/Tao.OpenGl/tao-opengl.pc
-  src/Tao.Platform.Windows/tao-platform-windows.pc
-  src/Tao.Platform.X11/tao-platform-x11.pc
-  src/Tao.PhysFs/tao-physfs.pc
-  src/Tao.Sdl/tao-sdl.pc
-  tests/Ode/tao-ode-tests.pc
-  tests/Sdl/tao-sdl-tests.pc
 )
 
 AC_OUTPUT

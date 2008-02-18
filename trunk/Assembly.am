@@ -1,0 +1,37 @@
+# Generic assembly building automake rules
+
+pkgconfigdir = $(prefix)/lib/pkgconfig
+
+clidir = $(prefix)/lib/cli/$(SHORTNAME)-$(MAJOR)
+cli_DATA = $(CONFIGFILE)
+
+noinst_DATA = $(ASSEMBLY).dll $(SHORTNAME).pc
+
+EXTRA_DIST = $(SOURCES) $(ASSEMBLY).csproj $(CONFIGFILE) $(KEYFILE)
+CLEANFILES = $(ASSEMBLY).dll $(ASSEMBLY).xml
+DISTCLEANFILES = $(SHORTNAME).pc
+
+# FIXME: doc generation is disabled for Tao.OpenGl because of a gmcs bug
+$(ASSEMBLY).dll: $(RESOURCES) $(SOURCES) $(BINARY_LIBS) $(KEYFILE)
+	$(CSC) /out:$@ /target:library /unsafe \
+	  $(addprefix /pkg:, $(PACKAGES)) \
+	  $(addprefix /r:$(srcdir)/, $(BINARY_LIBS)) \
+	  $(addprefix /r:, $(SYSTEM_LIBS)) \
+	  $(addprefix $(srcdir)/, $(SOURCES)) \
+	  $$([ $(ASSEMBLY) = Tao.OpenGl ] || echo /doc:$(ASSEMBLY).xml) \
+	  $(addprefix /keyfile:$(srcdir)/, $(KEYFILE))
+
+install-data-local: $(ASSEMBLY).dll
+	$(GACUTIL) /i $(ASSEMBLY).dll /f /package $(ASSEMBLY) $(GACUTIL_FLAGS)
+	$(INSTALL) -d $(DESTDIR)$(pkgconfigdir)
+	$(INSTALL) $(SHORTNAME).pc \
+	  $(DESTDIR)$(pkgconfigdir)/$(SHORTNAME)-$(MAJOR).pc
+	ln -sf $(SHORTNAME)-$(MAJOR).pc \
+	  $(DESTDIR)$(pkgconfigdir)/$(SHORTNAME).pc
+
+uninstall-local:
+	$(GACUTIL) /u $(ASSEMBLY), Version=$(VERSION) \
+	  /package $(ASSEMBLY) $(GACUTIL_FLAGS) || true
+	rm -f $(DESTDIR)$(pkgconfigdir)/$(SHORTNAME)-$(MAJOR).pc
+	rm -f $(DESTDIR)$(pkgconfigdir)/$(SHORTNAME).pc
+

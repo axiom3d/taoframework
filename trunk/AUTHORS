@@ -8,7 +8,7 @@ Randy Ridge - Tao.Glfw
 Rob Loach - Tao.Lua
 Rob Loach - Tao.PhysFs
 Randy Ridge, 'cody', Terry Triplett and David Hudson - Tao.Ode
-C.J. Adams-Collier and David Hudson- Autotools, build
+C.J. Adams-Collier, David Hudson and Sam Hocevar - autotools and build system
 Chris McGuirk and David Hudson - Tao.Cg
 Chris McGuirk and Randy Ridge - Tao.DevIl
 tzehaw huang - Tao.FFmpeg

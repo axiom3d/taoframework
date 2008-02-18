@@ -2,114 +2,64 @@
 ** For the latest information, please visit http://taoframework.com
 
 There are two ways of building Tao; one requiring NAnt and one using the 
-Prebuild and autotools tools. 
+autotools tools. 
 
 1. Using NAnt
-=============================
+=============
 Building the Tao Framework with NAnt is rather easy. Just go to your favorite
 shell and issue (in Tao's main directory):
 
-$nant build-release
+$ nant build-release
 
-to build all binaries for the current framework. In order to install Tao into
-the Global Assembly Cache and create pkg-config files on unix, this should be 
-followed by:
+to build all binaries for the current framework. In order to install Tao into  
+the Global Assembly Cache and create pkg-config files on unix, this should be  
+followed by:                                                                   
 
-#nant install
+# nant install
 
-On Windows you probably need to do this on the Visual Studio or .NET SDK command prompt.
+On Windows you probably need to do this on the Visual Studio or .NET SDK
+command prompt.
 You can change the location for the GAC by adding -D:gacdir=/yourdir
 You can change the location of pkg-config files by adding -D:pkgconfig=/yourdir
 
-Alternatively you can also build a full zip package with documentation and source 
-using:
+Alternatively you can also build a full zip package with documentation and     
+source using:                                                                  
 
-$nant package
+$ nant package
 
-2. Using Prebuild & Autotools
-=============================
-Several scripts in the root directory of the code use the Prebuild tool to 
-create project files for several IDE such as Visual Studio 2003, 2005, 
-MonoDevelop, SharpDevelop, SharpDevelop2 and NAnt. These scripts are not
-meant to do complete builds of the project like the make and batch script. 
-Notably, the Prebuild builds will not do the post-processing step that properly
-sets up P/Invoking callbacks.
-They are meant to help you build parts of the Tao project. 
-When you run a Prebuild script, you can find the main project file 
-(*.sln, *.cmbx, *.build) in the src/Tao.<project> directory
+2. Using Autotools
+==================
+To generate the autotools build scripts, you need to bootstrap the package:
 
-Tao.Sdl - Builds Tao.Sdl and Sdl Examples
-Tao.PhysFs - Builds Tao.PhysFs and PhysFs Examples
-Tao.Lua - Build Tao.Lua and Lua Examples
-Tao.Ode -  Builds Tao.Ode and Ode Examples
-Tao.Cg - Builds Tao.Cg
-Tao.DevIl - Builds Tao.DevIl and DevIl Examples
-Tao.OpenGl - Due to the fact that Tao.OpenGl is used in many subprojects,
-I had to put them altogether so they would build properly.
-Tao.OpenGl builds Tao.OpenGl, Tao.OpenGl.Glu, Tao.OpenGl.ExtensionLoader,
-Tao.OpenAl, OpenAl Examples, Tao.Glfw, Glfw Examples, 
-Tao.Platform.Windows and Tao.GlPostProcess
----------------------------------------------------------------------------
+$ ./bootstrap
 
+Once done, just run configure and make to build the Tao Framework:
 
-To build an autotools tarball of, for instance Tao.OpenGL, you
-currently need either the (bleeding edge) Prebuild-cjac branch of dnpb
-or the Prebuild.exe from said branch.  To get the whole package, do
-the following:
+$ ./configure
+$ make
 
-svn co https://dnpb.svn.sourceforge.net/svnroot/dnpb/branches/Prebuild-cjac &&
-cd Prebuild-cjac                 &&
-./Prebuild.exe /target autotools &&
-cd autotools/Prebuild/Prebuild   &&
-sh autogen.sh                    &&
-make                             &&
-sudo make install
+To install the assemblies and register them in the GAC, run as root:
 
-This will put a script called 'prebuild' in /usr/local/bin, which is
-probably in your PATH.  The 'prebuild' script takes the same arguments
-as Prebuild.exe.  To see the usage docs, run the following:
-
-prebuild /usage
-
-Now that you have the bleeding edge prebuild, prebuild /target
-autotools will create an autotools/ directory which contains the files
-needed to create autotools distributions of prebuild packages.
-
-Let's try this on Tao.OpenGL:
-
-svn co http://anonsvn.mono-project.com/source/trunk/tao &&
-cd tao/src/Tao.OpenGL &&
-prebuild /target autotools &&
-cd autotools/Tao.OpenGL &&
-sh autogen.sh &&
-make
-
-You should now have all of the .dll files required to use Tao.OpenGL.
-To install a given package, cd to its directory and run 'sudo make install':
-
-cd Tao.OpenGL && sudo make install
+# make install
 
 You should now have:
-* Tao.OpenGl.pc in /usr/local/lib/pkgconfig/
-* Tao.OpenGl.dll in /usr/local/lib/mono/Tao.OpenGl/
-* Tao.OpenGl in your GAC
+ * tao-opengl.pc in /usr/local/lib/pkgconfig/
+ * Tao.OpenGl.dll in /usr/local/lib/cli/tao-opengl-<version>/
+ * Tao.OpenGl in your GAC
 
 You can now run something like this:
 
-$ pkg-config --modversion Tao.OpenGl
+$ pkg-config --modversion tao-opengl
 2.1.0.4
 
-You can now add a dependence on Tao.OpenGl into your application by
-adding something like the following to your configure.ac (or
-configure.in, if you like using deprecated filenames):
+You can now add a dependence on Tao.OpenGl into your application by adding     
+something like the following to your configure.ac:                             
 
 TAO_OPENGL_REQUIRED_VERSION=2.1.0
-
 PKG_CHECK_MODULES(TAO_OPENGL_DEPENDENCIES,
-                  Tao.OpenGl >= $TAO_OPENGL_REQUIRED_VERSION,
-		  has_tao_opengl=yes,
-		  has_tao_opengl=no
-		  )
+                  tao-opengl >= $TAO_OPENGL_REQUIRED_VERSION,
+                  has_tao_opengl=yes,
+                  has_tao_opengl=no)
 
 if test "x$has_tao_opengl" = "xno"; then
   AC_MSG_WARN([Tao.OpenGl not detected; examples will not be built])
@@ -118,3 +68,4 @@ else
 fi
 
 AM_CONDITIONAL(HAS_TAO_OPENGL, test x$has_tao_opengl = xyes)
+

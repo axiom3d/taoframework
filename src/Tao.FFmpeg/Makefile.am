@@ -19,8 +19,9 @@ tao_ffmpeg_DATA = $(ASSEMBLY).dll.config
 
 noinst_DATA = $(ASSEMBLY).dll tao-ffmpeg.pc
 
-EXTRA_DIST = $(SOURCES) $(BINARY_LIBS) $(ASSEMBLY).dll.config $(ASSEMBLY).snk
-CLEANFILES = $(ASSEMBLY).dll
+EXTRA_DIST = $(SOURCES) $(ASSEMBLY).csproj \
+             $(ASSEMBLY).dll.config $(ASSEMBLY).snk
+CLEANFILES = $(ASSEMBLY).dll $(ASSEMBLY).xml
 DISTCLEANFILES = tao-ffmpeg.pc
 
 $(ASSEMBLY).dll: $(RESOURCES) $(SOURCES) $(BINARY_LIBS) $(ASSEMBLY).snk

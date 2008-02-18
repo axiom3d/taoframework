@@ -22,8 +22,9 @@ tao_platform_x11_DATA = $(ASSEMBLY).dll.config
 
 noinst_DATA = $(ASSEMBLY).dll tao-platform-x11.pc
 
-EXTRA_DIST = $(SOURCES) $(BINARY_LIBS) $(ASSEMBLY).dll.config $(ASSEMBLY).snk
-CLEANFILES = $(ASSEMBLY).dll
+EXTRA_DIST = $(SOURCES) $(ASSEMBLY).csproj \
+             $(ASSEMBLY).dll.config $(ASSEMBLY).snk
+CLEANFILES = $(ASSEMBLY).dll $(ASSEMBLY).xml
 DISTCLEANFILES = tao-platform-x11.pc
 
 $(ASSEMBLY).dll: $(RESOURCES) $(SOURCES) $(BINARY_LIBS) $(ASSEMBLY).snk

@@ -12,6 +12,7 @@ CLEANFILES = $(ASSEMBLY).dll $(ASSEMBLY).xml
 DISTCLEANFILES = $(SHORTNAME).pc
 
 # FIXME: doc generation is disabled for Tao.OpenGl because of a gmcs bug
+# (see also src/Makefile.am)
 $(ASSEMBLY).dll: $(RESOURCES) $(SOURCES) $(BINARY_LIBS) $(KEYFILE)
 	$(CSC) /out:$@ /target:library /unsafe \
 	  $(addprefix /pkg:, $(PACKAGES)) \

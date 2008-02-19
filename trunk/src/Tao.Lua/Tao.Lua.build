@@ -37,7 +37,7 @@
 
     <target name="init" description="">
         <call target="${project.config}" />
-        <sysinfo />
+        <sysinfo failonerror="false" />
         <echo message="Platform ${sys.os.platform}" />
         <property name="build.dir" value="${bin.dir}/${project.config}" />
     </target>

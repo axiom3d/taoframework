@@ -22,7 +22,8 @@ $(ASSEMBLY).dll: $(RESOURCES) $(SOURCES) $(BINARY_LIBS) $(KEYFILE)
 	  $(addprefix /keyfile:$(srcdir)/, $(KEYFILE))
 
 install-data-local: $(ASSEMBLY).dll
-	$(GACUTIL) /i $(ASSEMBLY).dll /f /package $(ASSEMBLY) $(GACUTIL_FLAGS)
+	$(GACUTIL) /i $(ASSEMBLY).dll /f \
+	  /package ../cli/$(SHORTNAME)-$(MAJOR) $(GACUTIL_FLAGS)
 	$(INSTALL) -d $(DESTDIR)$(pkgconfigdir)
 	$(INSTALL) $(SHORTNAME).pc \
 	  $(DESTDIR)$(pkgconfigdir)/$(SHORTNAME)-$(MAJOR).pc
@@ -31,7 +32,7 @@ install-data-local: $(ASSEMBLY).dll
 
 uninstall-local:
 	$(GACUTIL) /u $(ASSEMBLY), Version=$(VERSION) \
-	  /package $(ASSEMBLY) $(GACUTIL_FLAGS) || true
+	  /package ../cli/$(SHORTNAME)-$(MAJOR) $(GACUTIL_FLAGS) || true
 	rm -f $(DESTDIR)$(pkgconfigdir)/$(SHORTNAME)-$(MAJOR).pc
 	rm -f $(DESTDIR)$(pkgconfigdir)/$(SHORTNAME).pc
 

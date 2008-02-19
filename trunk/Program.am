@@ -1,4 +1,4 @@
-pkgconfigdir = $(prefix)/lib/pkgconfig
+# Generic program building automake rules
 
 noinst_DATA = $(PROGRAM).exe
 

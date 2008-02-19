@@ -6,8 +6,11 @@ config.status
 Makefile.in
 Makefile
 *.pc
-*.dll
 *.exe
-*.xml
+Tao.*.dll
+Tao.*.xml
+src/doc
+src/Tao.tree
+src/Tao.zip
 examples/*/*.config
 examples/*/*.resources

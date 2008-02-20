@@ -125,12 +125,9 @@
 		    <exclude name="**/*.cmbx" />
 		    <exclude name="**/*.old" />
 		    <exclude name="**/*.prjx" />
-		    <exclude name="**/*.am" />
 		    <exclude name="**/Makefile" />
 		    <exclude name="**/configure" />
 		    <exclude name="**/configure.ac" />
-		    <exclude name="**/*.in" />
-		    <exclude name="**/*.pc" />
 		    <exclude name="**/*.stackdump" />
 		    <exclude name="**/*.lnk" />
 		    <exclude name="**/config.status" />

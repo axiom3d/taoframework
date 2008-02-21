@@ -12,7 +12,7 @@
                 <include name="Data/LuaExamples.Simple.lua" />
             </fileset>
         </copy>
-        <csc target="exe" debug="${build.debug}" keyfile="../../../src/Tao.Lua/Tao.Lua.snk" unsafe="False" define="DEBUG;TRACE;WIN32" main="LuaExamples.Simple" output="${project::get-base-directory()}/${build.dir}/${project::get-name()}.exe" win32icon="App.ico">
+        <csc target="exe" debug="${build.debug}" keyfile="../../src/Tao.Lua/Tao.Lua.snk" unsafe="False" define="DEBUG;TRACE;WIN32" main="LuaExamples.Simple" output="${project::get-base-directory()}/${build.dir}/${project::get-name()}.exe" win32icon="App.ico">
             <resources prefix="LuaExamples.Simple" dynamicprefix="true" >
             </resources>
             <sources failonempty="true">
@@ -25,7 +25,7 @@
                     <include name="${project::get-base-directory()}/${build.dir}" />
                 </lib>
                 <include name="System.dll" />
-                <include name="../../../src/Tao.Lua/${build.dir}/Tao.Lua.dll" />
+                <include name="../../src/Tao.Lua/${build.dir}/Tao.Lua.dll" />
             </references>
         </csc>
     </target>

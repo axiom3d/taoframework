@@ -11,7 +11,7 @@
             <fileset basedir=".">
             </fileset>
         </copy>
-        <csc target="exe" debug="${build.debug}" keyfile="../../../src/Tao.DevIl/Tao.DevIl.snk" unsafe="False" define="DEBUG;TRACE;WIN32" main="DevIlExamples.SimpleExample" output="${project::get-base-directory()}/${build.dir}/${project::get-name()}.exe" win32icon="App.ico">
+        <csc target="exe" debug="${build.debug}" keyfile="../../src/Tao.DevIl/Tao.DevIl.snk" unsafe="False" define="DEBUG;TRACE;WIN32" main="DevIlExamples.SimpleExample" output="${project::get-base-directory()}/${build.dir}/${project::get-name()}.exe" win32icon="App.ico">
             <resources prefix="DevIlExamples.SimpleExample" dynamicprefix="true" >
             </resources>
             <sources failonempty="true">
@@ -24,7 +24,7 @@
                     <include name="${project::get-base-directory()}/${build.dir}" />
                 </lib>
                 <include name="System.dll" />
-                <include name="../../../src/Tao.DevIl/${build.dir}/Tao.DevIl.dll" />
+                <include name="../../src/Tao.DevIl/${build.dir}/Tao.DevIl.dll" />
             </references>
         </csc>
     </target>

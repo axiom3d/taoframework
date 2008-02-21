@@ -127,7 +127,6 @@
 		    <exclude name="**/*.prjx" />
 		    <exclude name="**/Makefile" />
 		    <exclude name="**/configure" />
-		    <exclude name="**/configure.ac" />
 		    <exclude name="**/*.stackdump" />
 		    <exclude name="**/*.lnk" />
 		    <exclude name="**/config.status" />

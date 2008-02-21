@@ -1,4 +1,4 @@
-AC_INIT(taoframework, 2.0.0.svn20080219)
+AC_INIT(taoframework, 2.0.0.svn20080221)
 AC_CONFIG_AUX_DIR(.auto)
 AM_INIT_AUTOMAKE([no-define tar-ustar])
 AM_MAINTAINER_MODE
@@ -54,9 +54,7 @@ AC_PATH_PROG(GACUTIL, gacutil)
 if test "x$GACUTIL" = "xno" ; then
   AC_MSG_ERROR([No gacutil tool found])
 fi
-GACUTIL_FLAGS='/gacdir $(DESTDIR)$(prefix)/lib'
 AC_SUBST(GACUTIL)
-AC_SUBST(GACUTIL_FLAGS)
 
 AC_PATH_PROG(RESGEN, resgen)
 if test "x$RESGEN" = "xno" ; then

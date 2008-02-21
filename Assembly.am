@@ -2,8 +2,10 @@
 
 pkgconfigdir = $(prefix)/lib/pkgconfig
 
-clidir = $(prefix)/lib/cli/$(SHORTNAME)-$(MAJOR)
-cli_DATA = $(CONFIGFILE)
+# We need to install the .config file ourselves because of a gacutil
+# bug (https://bugzilla.novell.com/show_bug.cgi?id=363341)
+monodir = $(prefix)/lib/mono/$(SHORTNAME)-$(MAJOR)
+mono_DATA = $(CONFIGFILE)
 
 noinst_DATA = $(ASSEMBLY).dll $(SHORTNAME).pc
 
@@ -14,17 +16,19 @@ DISTCLEANFILES = $(SHORTNAME).pc
 # FIXME: doc generation is disabled for Tao.OpenGl because of a gmcs bug
 # (see also src/Makefile.am)
 $(ASSEMBLY).dll: $(RESOURCES) $(SOURCES) $(BINARY_LIBS) $(KEYFILE)
-	$(CSC) /out:$@ /target:library /unsafe \
-	  $(addprefix /pkg:, $(PACKAGES)) \
-	  $(addprefix /r:$(srcdir)/, $(BINARY_LIBS)) \
-	  $(addprefix /r:, $(SYSTEM_LIBS)) \
+	$(CSC) -out:$@ -target:library -unsafe \
+	  $(addprefix -pkg:, $(PACKAGES)) \
+	  $(addprefix -r:$(srcdir)/, $(BINARY_LIBS)) \
+	  $(addprefix -r:, $(SYSTEM_LIBS)) \
 	  $(addprefix $(srcdir)/, $(SOURCES)) \
-	  $$([ $(ASSEMBLY) = Tao.OpenGl ] || echo /doc:$(ASSEMBLY).xml) \
-	  $(addprefix /keyfile:$(srcdir)/, $(KEYFILE))
+	  $$([ $(ASSEMBLY) = Tao.OpenGl ] || echo -doc:$(ASSEMBLY).xml) \
+	  $(addprefix -keyfile:$(srcdir)/, $(KEYFILE))
 
+# FIXME: gacutil's -package flag is broken and messes the symlink path so
+# we do not use it yet
 install-data-local: $(ASSEMBLY).dll
-	$(GACUTIL) /i $(ASSEMBLY).dll /f \
-	  /package ../cli/$(SHORTNAME)-$(MAJOR) $(GACUTIL_FLAGS)
+	$(GACUTIL) -i $(ASSEMBLY).dll -package $(SHORTNAME)-$(MAJOR) \
+	  -f -root $(DESTDIR)$(prefix)/lib
 	$(INSTALL) -d $(DESTDIR)$(pkgconfigdir)
 	$(INSTALL) $(SHORTNAME).pc \
 	  $(DESTDIR)$(pkgconfigdir)/$(SHORTNAME)-$(MAJOR).pc
@@ -32,8 +36,8 @@ install-data-local: $(ASSEMBLY).dll
 	  $(DESTDIR)$(pkgconfigdir)/$(SHORTNAME).pc
 
 uninstall-local:
-	$(GACUTIL) /u $(ASSEMBLY), Version=$(VERSION) \
-	  /package ../cli/$(SHORTNAME)-$(MAJOR) $(GACUTIL_FLAGS) || true
+	$(GACUTIL) -u $(ASSEMBLY), Version=$(VERSION) \
+	  -package $(SHORTNAME)-$(MAJOR) || true
 	rm -f $(DESTDIR)$(pkgconfigdir)/$(SHORTNAME)-$(MAJOR).pc
 	rm -f $(DESTDIR)$(pkgconfigdir)/$(SHORTNAME).pc
 

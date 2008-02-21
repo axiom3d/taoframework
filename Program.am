@@ -10,12 +10,12 @@ $(PROGRAM).exe: $(RESOURCES) $(SOURCES)
 	  ln -sf ../../src/$${lib%.dll}/$${lib}; \
 	  ln -sf ../../src/$${lib%.dll}/$${lib}.config; \
 	done
-	$(CSC) /out:$@ /target:winexe \
-	  $(addprefix /r:$(srcdir)/, $(BINARY_LIBS)) \
-	  $(addprefix /r:, $(SYSTEM_LIBS)) \
-	  $(addprefix /resource:, $(RESOURCES)) \
+	$(CSC) -out:$@ -target:winexe \
+	  $(addprefix -r:$(srcdir)/, $(BINARY_LIBS)) \
+	  $(addprefix -r:, $(SYSTEM_LIBS)) \
+	  $(addprefix -resource:, $(RESOURCES)) \
 	  $(addprefix $(srcdir)/, $(SOURCES)) \
-	  $(addprefix /keyfile:$(srcdir)/, $(KEYFILE))
+	  $(addprefix -keyfile:$(srcdir)/, $(KEYFILE))
 
 clean-local:
 	rm -f $(BINARY_LIBS)

@@ -47,14 +47,14 @@
         <delete dir="${bin.dir}" failonerror="false" />
         <delete dir="${obj.dir}" failonerror="false" />
         <nant buildfile="./Tao.Lua.dll.build" target="clean" />
-        <nant buildfile="../../examples/LuaExamples/Simple/LuaExamples.Simple.exe.build" target="clean" />
-        <nant buildfile="../../examples/LuaExamples/Functions/LuaExamples.Functions.exe.build" target="clean" />
+        <nant buildfile="../../examples/LuaSimple/LuaSimple.exe.build" target="clean" />
+        <nant buildfile="../../examples/LuaFunctions/LuaFunctions.exe.build" target="clean" />
     </target>
 
     <target name="build" depends="init" description="">
         <nant buildfile="./Tao.Lua.dll.build" target="build" />
-        <nant buildfile="../../examples/LuaExamples/Simple/LuaExamples.Simple.exe.build" target="build" />
-        <nant buildfile="../../examples/LuaExamples/Functions/LuaExamples.Functions.exe.build" target="build" />
+        <nant buildfile="../../examples/LuaSimple/LuaSimple.exe.build" target="build" />
+        <nant buildfile="../../examples/LuaFunctions/LuaFunctions.exe.build" target="build" />
     </target>
 
     <target name="build-release" depends="Release, init, build" description="Builds in Release mode" />
@@ -70,8 +70,8 @@
     <target name="doc" depends="build-release">
         <echo message="Generating all documentation from all builds" />
         <nant buildfile="./Tao.Lua.dll.build" target="doc" />
-        <nant buildfile="../../examples/LuaExamples/Simple/LuaExamples.Simple.exe.build" target="doc" />
-        <nant buildfile="../../examples/LuaExamples/Functions/LuaExamples.Functions.exe.build" target="doc" />
+        <nant buildfile="../../examples/LuaSimple/LuaSimple.exe.build" target="doc" />
+        <nant buildfile="../../examples/LuaFunctions/LuaFunctions.exe.build" target="doc" />
     </target>
 
 </project>

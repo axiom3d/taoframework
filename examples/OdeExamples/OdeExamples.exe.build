@@ -11,7 +11,7 @@
             <fileset basedir=".">
             </fileset>
         </copy>
-        <csc target="exe" debug="${build.debug}" keyfile="../../../src/Tao.Ode/Tao.Ode.snk" unsafe="False" define="DEBUG;TRACE;WIN32" main="OdeExamples.Basic" output="${project::get-base-directory()}/${build.dir}/${project::get-name()}.exe" win32icon="App.ico">
+        <csc target="exe" debug="${build.debug}" keyfile="../../src/Tao.Ode/Tao.Ode.snk" unsafe="False" define="DEBUG;TRACE;WIN32" main="OdeExamples.Basic" output="${project::get-base-directory()}/${build.dir}/${project::get-name()}.exe" win32icon="App.ico">
             <resources prefix="OdeExamples.Basic" dynamicprefix="true" >
             </resources>
             <sources failonempty="true">
@@ -24,7 +24,7 @@
                     <include name="${project::get-base-directory()}/${build.dir}" />
                 </lib>
                 <include name="System.dll" />
-                <include name="../../../src/Tao.Ode/${build.dir}/Tao.Ode.dll" />
+                <include name="../../src/Tao.Ode/${build.dir}/Tao.Ode.dll" />
             </references>
         </csc>
     </target>

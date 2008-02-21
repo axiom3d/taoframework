@@ -51,7 +51,7 @@
         <nant buildfile="../Tao.Glfw/Tao.Glfw.dll.build" target="clean" />
         <nant buildfile="../Tao.Cg/Tao.Cg.dll.build" target="clean" />
         <nant buildfile="../../examples/OpenAlExamples/OpenAlExamples.exe.build" target="clean" />
-        <nant buildfile="../../examples/FreeGlutExamples/One/FreeGlutExamples.One.exe.build" target="clean" />
+        <nant buildfile="../../examples/FreeGlutExamples/FreeGlutExamples.exe.build" target="clean" />
         <nant buildfile="../Tao.Platform.Windows/Tao.Platform.Windows.dll.build" target="clean" />
         <nant buildfile="../../examples/NateRobins/NateRobins.exe.build" target="clean" />
         <nant buildfile="../Tao.FreeGlut/Tao.FreeGlut.dll.build" target="clean" />
@@ -71,7 +71,7 @@
         <nant buildfile="../Tao.Glfw/Tao.Glfw.dll.build" target="build" />
         <nant buildfile="../Tao.Platform.Windows/Tao.Platform.Windows.dll.build" target="build" />
         <nant buildfile="../Tao.Platform.X11/Tao.Platform.X11.dll.build" target="build" />
-        <nant buildfile="../../examples/FreeGlutExamples/One/FreeGlutExamples.One.exe.build" target="build" />
+        <nant buildfile="../../examples/FreeGlutExamples/FreeGlutExamples.exe.build" target="build" />
         <nant buildfile="../../examples/GeWangExamples/GeWangExamples.exe.build" target="build" />
         <nant buildfile="../../examples/GlfwExamples/GlfwExamples.exe.build" target="build" />
         <nant buildfile="../../examples/NateRobins/NateRobins.exe.build" target="build" />
@@ -101,7 +101,7 @@
         <nant buildfile="../Tao.Glfw/Tao.Glfw.dll.build" target="doc" />
         <nant buildfile="../Tao.Cg/Tao.Cg.dll.build" target="doc" />
         <!-- <nant buildfile="../../examples/OpenAlExamples/OpenAlExamples.exe.build" target="doc" /> -->
-        <!-- <nant buildfile="../../examples/FreeGlutExamples/One/FreeGlutExamples.One.exe.build" target="doc" /> -->
+        <!-- <nant buildfile="../../examples/FreeGlutExamples/FreeGlutExamples.exe.build" target="doc" /> -->
         <nant buildfile="../Tao.Platform.Windows/Tao.Platform.Windows.dll.build" target="doc" />
         <!-- <nant buildfile="../../examples/NateRobins/NateRobins.exe.build" target="doc" /> -->
         <nant buildfile="../Tao.FreeGlut/Tao.FreeGlut.dll.build" target="doc" />

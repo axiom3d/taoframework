@@ -5,7 +5,8 @@ SUBDIRS = CgExamples \
           FreeGlutExamples \
           GeWangExamples \
           GlfwExamples \
-          LuaExamples \
+          LuaFunctions \
+          LuaSimple \
           NateRobins \
           NeHe \
           OdeExamples \

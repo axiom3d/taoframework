@@ -29,7 +29,7 @@ using System;
 using System.IO;
 using Tao.Lua;
 
-namespace LuaExamples
+namespace LuaFunctions
 {
     /// <summary>
     ///     Simple execution of calling a C# function from Lua.

@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<project name="OdeExamples.Basic" default="build">
+<project name="OdeExamples" default="build">
     <target name="build">
         <echo message="Build Directory is ${project::get-base-directory()}/${build.dir}" />
         <mkdir dir="${project::get-base-directory()}/${build.dir}" />

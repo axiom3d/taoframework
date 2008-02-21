@@ -9,7 +9,7 @@
     <ApplicationIcon>App.ico</ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
-    <AssemblyName>OdeExamples.Basic</AssemblyName>
+    <AssemblyName>OdeExamples</AssemblyName>
     <AssemblyOriginatorKeyFile>Tao.Ode.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
     <DefaultClientScript>JScript</DefaultClientScript>
@@ -18,7 +18,7 @@
     <DelaySign>false</DelaySign>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OdeExamples.Basic</RootNamespace>
+    <RootNamespace>OdeExamples</RootNamespace>
     <StartupObject>OdeExamples.Basic</StartupObject>
     <FileUpgradeFlags>
     </FileUpgradeFlags>

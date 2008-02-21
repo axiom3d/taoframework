@@ -9,7 +9,7 @@
     <ApplicationIcon>App.ico</ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
-    <AssemblyName>FreeGlutExamples.One</AssemblyName>
+    <AssemblyName>FreeGlutExamples</AssemblyName>
     <AssemblyOriginatorKeyFile>Tao.OpenGl.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
     <DefaultClientScript>JScript</DefaultClientScript>
@@ -18,7 +18,7 @@
     <DelaySign>false</DelaySign>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FreeGlutExamples.One</RootNamespace>
+    <RootNamespace>FreeGlutExamples</RootNamespace>
     <StartupObject>FreeGlutExamples.One</StartupObject>
     <FileUpgradeFlags>
     </FileUpgradeFlags>

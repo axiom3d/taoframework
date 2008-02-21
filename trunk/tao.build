@@ -169,7 +169,7 @@
 		</do>
 	    </foreach>
 	</if>
-	<copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${bin.dir}/assemblies" flatten="true">
+	<copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/assemblies" flatten="true">
 	    <fileset basedir="${src.dir}">
 		<include name="**/*.dll"/>
 		<include name="**/*.xml"/>
@@ -179,7 +179,7 @@
 	    </fileset>
 	</copy>
 	<if test="${platform::is-unix()}">
-	    <copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${bin.dir}/assemblies" flatten="true">
+	    <copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/assemblies" flatten="true">
 		<fileset basedir="${src.dir}">
 		    <include name="**/*.config"/>
 		    <exclude name="**/app.config"/>
@@ -187,13 +187,13 @@
 	    </copy>
 	</if>
 	<if test="${platform::is-win32()}">
-	    <copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${bin.dir}/win32deps">
+	    <copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/win32deps">
 		<fileset basedir="${project::get-base-directory()}/${lib.dir}/win32deps">
 		    <include name="**"/>
 		</fileset>
 	    </copy>
 	</if>
-	<copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${bin.dir}/${examples.dir}" flatten="true">
+	<copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${examples.dir}" flatten="true">
 	    <fileset>
 		<include name="${examples.dir}/**/*.sh" />
 		<include name="${examples.dir}/**/*.exe" />
@@ -204,14 +204,14 @@
 	    </fileset>
 	</copy>
 	<if test="${platform::is-unix()}">
-	    <copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${bin.dir}/${examples.dir}" flatten="true">
+	    <copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${examples.dir}" flatten="true">
 		<fileset basedir="${src.dir}">
 		    <include name="**/*.config"/>
 		    <exclude name="**/app.config"/>
 		</fileset>
 	    </copy>
 	</if>
-	<copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${bin.dir}/${examples.dir}/Data" flatten="true">
+	<copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${examples.dir}/Data" flatten="true">
 	    <fileset>
 		<include name="${examples.dir}/**/Data/**" />
 	    </fileset>

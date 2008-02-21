@@ -30,7 +30,7 @@ install-data-local: $(ASSEMBLY).dll
 	$(GACUTIL) -i $(ASSEMBLY).dll -package $(SHORTNAME)-$(MAJOR) \
 	  -f -root $(DESTDIR)$(prefix)/lib
 	$(INSTALL) -d $(DESTDIR)$(pkgconfigdir)
-	$(INSTALL) $(SHORTNAME).pc \
+	$(INSTALL) -m 644 $(SHORTNAME).pc \
 	  $(DESTDIR)$(pkgconfigdir)/$(SHORTNAME)-$(MAJOR).pc
 	ln -sf $(SHORTNAME)-$(MAJOR).pc \
 	  $(DESTDIR)$(pkgconfigdir)/$(SHORTNAME).pc

@@ -10,8 +10,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tao.Cg", "..\Tao.Cg\Tao.Cg.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenAlExamples", "..\..\examples\OpenAlExamples\OpenAlExamples.csproj", "{15DF8877-A758-4D78-BAE8-1E3290548D1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeGlutExamples.One", "..\..\examples\FreeGlutExamples\One\FreeGlutExamples.One.csproj", "{3B6C7425-AA18-4890-ADF1-56F21095E94E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tao.Platform.Windows", "..\Tao.Platform.Windows\Tao.Platform.Windows.csproj", "{228201EB-1A36-4E25-B59F-52255CBBE270}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NateRobins", "..\..\examples\NateRobins\NateRobins.csproj", "{07F2FB99-129A-482E-8ECC-8AC494F2C0D0}"
@@ -34,6 +32,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		..\Tao.Platform.Windows\TaoButton.jpg = ..\Tao.Platform.Windows\TaoButton.jpg
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeGlutExamples", "..\..\examples\FreeGlutExamples\FreeGlutExamples.csproj", "{3B6C7425-AA18-4890-ADF1-56F21095E94E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,10 +61,6 @@ Global
 		{15DF8877-A758-4D78-BAE8-1E3290548D1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15DF8877-A758-4D78-BAE8-1E3290548D1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15DF8877-A758-4D78-BAE8-1E3290548D1D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3B6C7425-AA18-4890-ADF1-56F21095E94E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3B6C7425-AA18-4890-ADF1-56F21095E94E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3B6C7425-AA18-4890-ADF1-56F21095E94E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3B6C7425-AA18-4890-ADF1-56F21095E94E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{228201EB-1A36-4E25-B59F-52255CBBE270}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{228201EB-1A36-4E25-B59F-52255CBBE270}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{228201EB-1A36-4E25-B59F-52255CBBE270}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -101,6 +97,10 @@ Global
 		{78748E63-B733-4B50-BE65-05E711E33D4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78748E63-B733-4B50-BE65-05E711E33D4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78748E63-B733-4B50-BE65-05E711E33D4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B6C7425-AA18-4890-ADF1-56F21095E94E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B6C7425-AA18-4890-ADF1-56F21095E94E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B6C7425-AA18-4890-ADF1-56F21095E94E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B6C7425-AA18-4890-ADF1-56F21095E94E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

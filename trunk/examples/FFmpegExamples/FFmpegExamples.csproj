@@ -10,7 +10,7 @@
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
     <AssemblyName>FFmpegExamples</AssemblyName>
-    <AssemblyOriginatorKeyFile>../../../src/Tao.FFmpeg/Tao.FFmpeg.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>Tao.FFmpeg.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
     <DefaultClientScript>JScript</DefaultClientScript>
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
@@ -82,7 +82,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Tao.FFmpeg\Tao.FFmpeg.csproj">
+    <ProjectReference Include="..\..\src\Tao.FFmpeg\Tao.FFmpeg.csproj">
       <Name>Tao.FFmpeg</Name>
       <Project>{ABF4DD1F-C5CE-40E1-86B2-AA82127B1927}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
@@ -122,6 +122,9 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tao.FFmpeg.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
   <PropertyGroup>

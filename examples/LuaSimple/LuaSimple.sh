@@ -1,2 +1,2 @@
 #!/bin/sh
-exec mono ./LuaExamples.Simple.exe "$@"
+exec mono ./LuaSimple.exe "$@"

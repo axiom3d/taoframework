@@ -9,7 +9,7 @@
     <ApplicationIcon>App.ico</ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
-    <AssemblyName>PhysFsExamples.Simple</AssemblyName>
+    <AssemblyName>PhysFsExamples</AssemblyName>
     <AssemblyOriginatorKeyFile>Tao.PhysFs.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
     <DefaultClientScript>JScript</DefaultClientScript>
@@ -18,7 +18,7 @@
     <DelaySign>false</DelaySign>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PhysFsExamples.Simple</RootNamespace>
+    <RootNamespace>PhysFsExamples</RootNamespace>
     <StartupObject>PhysFsExamples.Simple</StartupObject>
     <FileUpgradeFlags>
     </FileUpgradeFlags>

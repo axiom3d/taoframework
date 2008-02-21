@@ -9,7 +9,7 @@
     <ApplicationIcon>App.ico</ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
-    <AssemblyName>LuaExamples.Simple</AssemblyName>
+    <AssemblyName>LuaSimple</AssemblyName>
     <AssemblyOriginatorKeyFile>Tao.Lua.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
     <DefaultClientScript>JScript</DefaultClientScript>
@@ -18,8 +18,8 @@
     <DelaySign>false</DelaySign>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LuaExamples.Simple</RootNamespace>
-    <StartupObject>LuaExamples.Simple</StartupObject>
+    <RootNamespace>LuaSimple</RootNamespace>
+    <StartupObject>LuaSimple.Simple</StartupObject>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
   </PropertyGroup>
@@ -77,7 +77,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Data\LuaExamples.Simple.lua">
+    <Content Include="Data\LuaSimple.lua">
       <SubType>Code</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

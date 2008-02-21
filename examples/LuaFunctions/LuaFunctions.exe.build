@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<project name="LuaExamples.Functions" default="build">
+<project name="LuaFunctions" default="build">
     <target name="build">
         <echo message="Build Directory is ${project::get-base-directory()}/${build.dir}" />
         <mkdir dir="${project::get-base-directory()}/${build.dir}" />
@@ -9,10 +9,10 @@
         </copy>
         <copy todir="${project::get-base-directory()}/${build.dir}">
             <fileset basedir=".">
-                <include name="Data/LuaExamples.Functions.lua" />
+                <include name="Data/LuaFunctions.lua" />
             </fileset>
         </copy>
-        <csc target="exe" debug="${build.debug}" keyfile="../../src/Tao.Lua/Tao.Lua.snk" unsafe="False" define="DEBUG;TRACE;WIN32" main="LuaExamples.Functions" output="${project::get-base-directory()}/${build.dir}/${project::get-name()}.exe" win32icon="App.ico">
+        <csc target="exe" debug="${build.debug}" keyfile="../../src/Tao.Lua/Tao.Lua.snk" unsafe="False" define="DEBUG;TRACE;WIN32" main="LuaFunctions.Functions" output="${project::get-base-directory()}/${build.dir}/${project::get-name()}.exe" win32icon="App.ico">
             <resources prefix="LuaExamples.Functions" dynamicprefix="true" >
             </resources>
             <sources failonempty="true">

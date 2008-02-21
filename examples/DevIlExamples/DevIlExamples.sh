@@ -1,2 +1,2 @@
 #!/bin/sh
-exec mono ./DevIlExamples.SimpleExample.exe "$@"
+exec mono ./DevIlExamples.exe "$@"

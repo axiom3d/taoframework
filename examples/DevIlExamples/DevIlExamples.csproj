@@ -9,7 +9,7 @@
     <ApplicationIcon>App.ico</ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
-    <AssemblyName>DevIlExamples.SimpleExample</AssemblyName>
+    <AssemblyName>DevIlExamples</AssemblyName>
     <AssemblyOriginatorKeyFile>Tao.DevIl.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
     <DefaultClientScript>JScript</DefaultClientScript>
@@ -18,7 +18,7 @@
     <DelaySign>false</DelaySign>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DevIlExamples.SimpleExample</RootNamespace>
+    <RootNamespace>DevIlExamples</RootNamespace>
     <StartupObject>DevIlExamples.SimpleExample</StartupObject>
     <FileUpgradeFlags>
     </FileUpgradeFlags>

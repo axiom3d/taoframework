@@ -1,2 +1,2 @@
 #!/bin/sh
-exec mono ./PhysFsExamples.Simple.exe "$@"
+exec mono ./PhysFsExamples.exe "$@"

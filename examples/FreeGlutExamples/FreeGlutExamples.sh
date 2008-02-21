@@ -1,2 +1,2 @@
 #!/bin/sh
-exec mono ./FreeGlutExamples.One.exe "$@"
+exec mono ./FreeGlutExamples.exe "$@"

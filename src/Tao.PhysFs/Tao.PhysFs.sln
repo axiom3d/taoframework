@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 9.00
 # Visual Studio 2005
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tao.PhysFs", "Tao.PhysFs.csproj", "{6B39535D-B2C1-414C-94A4-BBB70EF8EB0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhysFsExamples.Simple", "..\..\examples\PhysFsExamples\Simple\PhysFsExamples.Simple.csproj", "{8937F640-29DA-43B3-887E-88F5A855F01B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhysFsExamples", "..\..\examples\PhysFsExamples\PhysFsExamples.csproj", "{8937F640-29DA-43B3-887E-88F5A855F01B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

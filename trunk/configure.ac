@@ -135,21 +135,20 @@ AC_CONFIG_FILES(
 AC_CONFIG_FILES(
   examples/Makefile
   examples/CgExamples/Makefile
-  examples/Redbook/Makefile
-  examples/GlfwExamples/Makefile
-  examples/OpenAlExamples/Makefile
-  examples/GeWangExamples/Makefile
-  examples/SdlExamples/Makefile
-  examples/PhysFsExamples/Makefile
-  examples/NateRobins/Makefile
-  examples/LuaExamples/Makefile
-  examples/FreeGlutExamples/Makefile
   examples/DevIlExamples/Makefile
-  examples/NeHe/Makefile
   examples/FFmpegExamples/Makefile
+  examples/FreeGlutExamples/Makefile
+  examples/GeWangExamples/Makefile
+  examples/GlfwExamples/Makefile
+  examples/LuaFunctions/Makefile
+  examples/LuaSimple/Makefile
+  examples/NateRobins/Makefile
+  examples/NeHe/Makefile
   examples/OdeExamples/Makefile
-)
-AC_CONFIG_FILES(
+  examples/OpenAlExamples/Makefile
+  examples/PhysFsExamples/Makefile
+  examples/Redbook/Makefile
+  examples/SdlExamples/Makefile
 )
 
 AC_OUTPUT

@@ -9,8 +9,11 @@ Makefile
 *.exe
 Tao.*.dll
 Tao.*.xml
+dist
 src/doc
 src/Tao.tree
 src/Tao.zip
+src/*/bin
 examples/*/*.config
 examples/*/*.resources
+examples/*/bin

@@ -1,12 +1,12 @@
 
-PROGRAM = LuaExamples.Functions
+PROGRAM = LuaExamples.Simple
 PACKAGES =
 BINARY_LIBS = Tao.Lua.dll
 SYSTEM_LIBS = System
 RESX =
 RESOURCES =
 SOURCES = \
-        Functions.cs \
+        Simple.cs \
         Properties/AssemblyInfo.cs
 KEYFILE = ../../src/Tao.Lua/Tao.Lua.snk
 

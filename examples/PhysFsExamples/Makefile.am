@@ -1,36 +1,14 @@
 
-ASSEMBLY = PhysFsExamples.Simple
+PROGRAM = PhysFsExamples.Simple
 PACKAGES =
-BINARY_LIBS = \
-        Tao.PhysFs.dll
-SYSTEM_LIBS = \
-        System
+BINARY_LIBS = Tao.PhysFs.dll
+SYSTEM_LIBS = System
 RESX =
 RESOURCES =
 SOURCES = \
-        Simple/Simple.cs \
-        Simple/Properties/AssemblyInfo.cs
+        Simple.cs \
+        Properties/AssemblyInfo.cs
+KEYFILE = ../../src/Tao.PhysFs/Tao.PhysFs.snk
 
-pkgconfigdir = $(prefix)/lib/pkgconfig
-
-noinst_DATA = $(ASSEMBLY).exe
-
-EXTRA_DIST = $(SOURCES) $(RESX) Simple/$(ASSEMBLY).csproj Simple/$(ASSEMBLY).sh
-CLEANFILES = $(ASSEMBLY).exe $(RESOURCES)
-
-$(ASSEMBLY).exe: $(RESOURCES) $(SOURCES)
-	for lib in $(BINARY_LIBS); do \
-	  ln -sf ../../src/$${lib%.dll}/$${lib}; \
-	  ln -sf ../../src/$${lib%.dll}/$${lib}.config; \
-	done
-	$(CSC) /out:$@ /target:winexe \
-	  $(addprefix /r:$(srcdir)/, $(BINARY_LIBS)) \
-	  $(addprefix /r:, $(SYSTEM_LIBS)) \
-	  $(addprefix /resource:, $(RESOURCES)) \
-	  $(addprefix $(srcdir)/, $(SOURCES)) \
-	  /keyfile:$(srcdir)/../../src/Tao.PhysFs/Tao.PhysFs.snk
-
-clean-local:
-	rm -f $(BINARY_LIBS)
-	rm -f $(addsuffix .config, $(BINARY_LIBS))
+include $(top_srcdir)/Program.am
 

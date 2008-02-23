@@ -140,7 +140,7 @@
 		    <exclude name="**.swp" />
 		    <exclude name="**.bak" />
 		    <exclude name="**.project" />
-		    <exclude name="**/autotools/**" />
+		    <exclude name="**/.auto/**" />
 		</fileset>
 	    </copy>
 	</if>

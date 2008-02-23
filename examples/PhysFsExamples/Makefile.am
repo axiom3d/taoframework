@@ -1,5 +1,5 @@
 
-PROGRAM = PhysFsExamples.Simple
+PROGRAM = PhysFsExamples
 PACKAGES =
 BINARY_LIBS = Tao.PhysFs.dll
 SYSTEM_LIBS = System

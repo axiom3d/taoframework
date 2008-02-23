@@ -5,6 +5,9 @@ config.log
 config.status
 Makefile.in
 Makefile
+*.pidb
+*.userprefs
+*.usertasks
 *.pc
 *.exe
 Tao.*.dll

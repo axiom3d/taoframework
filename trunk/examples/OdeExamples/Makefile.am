@@ -1,5 +1,5 @@
 
-PROGRAM = OdeExamples.Basic
+PROGRAM = OdeExamples
 PACKAGES =
 BINARY_LIBS = Tao.Ode.dll
 SYSTEM_LIBS = \

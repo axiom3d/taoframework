@@ -1,5 +1,5 @@
 
-PROGRAM = FreeGlutExamples.One
+PROGRAM = FreeGlutExamples
 PACKAGES =
 BINARY_LIBS = \
         Tao.FreeGlut.dll \

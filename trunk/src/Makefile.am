@@ -18,6 +18,7 @@ SUBDIRS = Tao.DevIl \
 monodocdir = $(prefix)/lib/monodoc/sources/
 monodoc_DATA = Tao.source Tao.zip Tao.tree
 
+EXTRA_DIST = Tao.source
 CLEANFILES = Tao.zip Tao.tree
 
 # FIXME: doc generation is disabled for Tao.OpenGl because of a gmcs bug

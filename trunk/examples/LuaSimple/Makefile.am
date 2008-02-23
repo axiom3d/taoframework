@@ -1,5 +1,5 @@
 
-PROGRAM = LuaExamples.Simple
+PROGRAM = LuaSimple
 PACKAGES =
 BINARY_LIBS = Tao.Lua.dll
 SYSTEM_LIBS = System

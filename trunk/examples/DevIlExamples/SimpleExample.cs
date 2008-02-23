@@ -91,7 +91,7 @@ namespace DevIlExamples
             string inputFile = Path.Combine(Path.Combine(filePath, fileDirectory), fileName);
             string outputFile = Path.Combine(Path.Combine(filePath, fileDirectory), "yinyangblue.jpg");
 
-            Console.WriteLine("DevIlExamples.SimpleExample - DevIL simple command line application.");
+            Console.WriteLine("DevIlExamples - DevIL simple command line application.");
 
             if (args.Length == 2)
             {
@@ -101,7 +101,7 @@ namespace DevIlExamples
             }
             else
             {
-                Console.WriteLine("Usage - DevIlExamples.SimpleExample <inputfile> <outputfile>");
+                Console.WriteLine("Usage - DevIlExamples <inputfile> <outputfile>");
                 Console.WriteLine("Converting example files - {0} -> {1}", inputFile, outputFile);
             }
 

@@ -1,5 +1,5 @@
 
-PROGRAM = DevIlExamples.SimpleExample
+PROGRAM = DevIlExamples
 PACKAGES =
 BINARY_LIBS = Tao.DevIl.dll
 SYSTEM_LIBS = System

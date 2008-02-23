@@ -5,6 +5,6 @@ libdir=${exec_prefix}/lib
 Name: Tao.OpenGl
 Description: OpenGL section of the Tao framework
 Version: @TAOOPENGL_VERSION@
-Requires: tao-platform-x11-@TAOX11_VERSION@
+Requires: tao-platform-x11-@TAOX11_MAJOR@
 Libs: -r:${libdir}/cli/tao-opengl-@TAOOPENGL_MAJOR@/Tao.OpenGl.dll
 

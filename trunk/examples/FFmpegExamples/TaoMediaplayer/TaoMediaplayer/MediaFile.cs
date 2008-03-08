@@ -274,8 +274,7 @@ namespace TaoMediaplayer
                 {
                     case FFmpeg.CodecType.CODEC_TYPE_AUDIO:
                         // We only need 1 audio stream
-                        //if (hasAudio)
-                        if(true)
+                        if (hasAudio)
                             break;
 
                         // Get stream information
@@ -350,14 +349,10 @@ namespace TaoMediaplayer
             FFmpeg.av_seek_frame(pFormatContext, videoStream.id, 0, 0);
         }
 
-        public bool NextVideoFrame(IntPtr target, FFmpeg.PixelFormat desiredFormat)
+        public bool NextVideoFrame(IntPtr target, FFmpeg.PixelFormat desiredFormat, ref double time)
         {
-            // Check timing
-            if(videoTimer.IsRunning && ((double)videoTimer.ElapsedMilliseconds / 1000.0) < (1.0/25.0))
-                // No new frame yet, so do nothing
-                return true;
-
             int got_picture = 0;
+            long pts = -1;
             
             // Allocate video frame
             vFrame = FFmpeg.avcodec_alloc_frame();
@@ -380,6 +375,18 @@ namespace TaoMediaplayer
                             return false;
 
                     vPacket = videoPacketQueue.Dequeue();
+                }
+
+                // Do nothing if timing is too early
+                if (pts == -1)
+                {
+                    pts = vPacket.pts;
+                    if (pts * videoTimebase > time)
+                    {
+                        time = pts*videoTimebase - time;
+                        return true;
+                    }
+                    time = 0;
                 }
 
                 // Decode packet

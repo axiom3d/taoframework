@@ -125,8 +125,18 @@ namespace Tao.FFmpeg
         ///
         /// </summary>
         /// <param name="pAVPacket"></param>
-        [DllImport(AVFORMAT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern void av_free_packet(IntPtr pAVPacket);
+        // av_free_packet is internal, so reimplemented in managed code
+        public static void av_free_packet(IntPtr pAVPacket)
+        {
+            if(pAVPacket == IntPtr.Zero)
+                return;
+
+            AVPacket packet = (AVPacket) Marshal.PtrToStructure(pAVPacket, typeof (AVPacket));
+            if (packet.destruct == null)
+                return;
+
+            packet.destruct(pAVPacket);
+        }
 
         /// <summary>
         ///

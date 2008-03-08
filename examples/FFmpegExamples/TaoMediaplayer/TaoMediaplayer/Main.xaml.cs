@@ -21,6 +21,7 @@ THE SOFTWARE.
  */
 
 using System;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows;
@@ -36,6 +37,7 @@ namespace TaoMediaplayer
 
         bool paused = false;
         bool playing = false;
+        Stopwatch timer = new Stopwatch();
 
         private delegate void VoidDelegate();
 
@@ -46,10 +48,12 @@ namespace TaoMediaplayer
 
         private void openButton_Click(object sender, RoutedEventArgs e)
         {
+            // File dialog
             OpenFileDialog opendialog = new OpenFileDialog();
             opendialog.CheckFileExists = true;
             opendialog.Multiselect = false;
 
+            // Open media file
             if (opendialog.ShowDialog(this) == true)
                 media = new MediaFile(opendialog.FileName);
             else
@@ -60,17 +64,23 @@ namespace TaoMediaplayer
         {
             if (!playing)
             {
+                // Start playing
                 playing = true;
+                timer.Start();
                 ThreadPool.QueueUserWorkItem(videoUpdater);
                 playButton.Content = "Pause";
             }
             else if (playing && !paused)
             {
+                // Pause
+                timer.Stop();
                 paused = true;
                 playButton.Content = "Play";
             }
             else if (playing && paused)
             {
+                // Resume
+                timer.Start();
                 paused = false;
                 playButton.Content = "Pause";
             }
@@ -78,42 +88,60 @@ namespace TaoMediaplayer
 
         private void stopButton_Click(object sender, RoutedEventArgs e)
         {
+            // Stop and rewind
+            timer.Reset();
             playing = false;
             paused = false;
             playButton.Content = "Play";
             media.Rewind();
         }        
         
-        private AutoResetEvent waitHandle = new AutoResetEvent(true);
-
         private void videoUpdater(object state)
         {
+            // Allocate framebuffer
             IntPtr buffer = Marshal.AllocHGlobal(media.Width*media.Height*3);
+
             try
             {
                 while (playing)
                 {
-                    playing = media.NextVideoFrame(buffer, Tao.FFmpeg.FFmpeg.PixelFormat.PIX_FMT_RGB24);
+                    // Load next frame, or stop playing if eof
+                    double time = (double)timer.ElapsedMilliseconds/1000.0;
+                    playing = media.NextVideoFrame(buffer, Tao.FFmpeg.FFmpeg.PixelFormat.PIX_FMT_RGB24, ref time);
 
-                    videoImage.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal,
-                          (VoidDelegate)delegate
-                                             {
-                                                 videoImage.Source =
-                                                     BitmapSource.Create(media.Width, media.Height, 96, 96,
-                                                                         PixelFormats.Rgb24, null, buffer,
-                                                                         media.Width * media.Height * 3, (media.Width * 3 + 3) & ~3);
-                                             });
+                    if (time == 0)
+                    {
+                        // Load frame in image
+                        videoImage.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal,
+                                                     (VoidDelegate) delegate
+                                                                        {
+                                                                            videoImage.Source =
+                                                                                BitmapSource.Create(media.Width,
+                                                                                                    media.Height, 96, 96,
+                                                                                                    PixelFormats.Rgb24,
+                                                                                                    null, buffer,
+                                                                                                    media.Width*
+                                                                                                    media.Height*3,
+                                                                                                    (media.Width*3 + 3) &
+                                                                                                    ~3);
+                                                                        });
+                    } else if (playing && time > 0.005)
+                    {
+                        // Wait for next frame
+                        Thread.Sleep((int)(time * 1000.0));
+                    }
 
-                    Thread.Sleep((int)((1.0 / 25.0) * 1000));
-
+                    // Wait while we're paused
                     while (paused)
                         Thread.Sleep((int)((1.0 / 25.0) * 1000));
                 }
 
+                // Rewind to start when video ended
                 media.Rewind();
             }
             finally
             {
+                // Free framebuffer, reset UI
                 Marshal.FreeHGlobal(buffer);
                 playButton.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal,
                                                   (VoidDelegate) delegate

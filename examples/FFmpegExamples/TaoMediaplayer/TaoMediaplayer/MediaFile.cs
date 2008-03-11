@@ -207,7 +207,7 @@ namespace TaoMediaplayer
         FFmpeg.AVStream videoStream;
         double videoTimebase;
         FFmpeg.PixelFormat originalVideoFormat;
-        System.Diagnostics.Stopwatch videoTimer = new System.Diagnostics.Stopwatch();
+        object locker = new object();
         #endregion
 
         #region Properties
@@ -346,11 +346,90 @@ namespace TaoMediaplayer
 
         public void Rewind()
         {
-            FFmpeg.av_seek_frame(pFormatContext, videoStream.id, 0, 0);
+            lock (locker)
+            {
+                if (hasVideo)
+                    FFmpeg.av_seek_frame(pFormatContext, videoStream.index, -1, 0);
+
+                if (hasAudio)
+                    FFmpeg.av_seek_frame(pFormatContext, audioStream.index, -1, 0);
+            }
+        }
+
+        public bool NextAudioFrame(IntPtr target, ref int targetsize, int minbuffer)
+        {
+            if (!hasAudio)
+                return false;
+
+            int byteswritten = 0;
+
+            // Decode packets until we're satisfied
+            while (true)
+            {
+                // If we need a new packet, get it
+                if (aPacket.size == 0)
+                {
+                    if(aPacket.data != IntPtr.Zero)
+                    {
+                        FFmpeg.av_free_packet(aPacket.priv);
+                        Marshal.FreeHGlobal(aPacket.priv);
+                    }
+                }
+
+                lock (locker)
+                {
+                    // If there are no more packets in the queue, read them from stream
+                    while (audioPacketQueue.Count < 1)
+                        if (!ReadPacket())
+                        {
+                            targetsize = byteswritten;
+                            return false;
+                        }
+                    aPacket = audioPacketQueue.Dequeue();
+                }
+
+                // Decode packet
+                int datasize = targetsize - byteswritten;
+                int length =
+                    FFmpeg.avcodec_decode_audio(audioStream.codec, target, ref datasize, aPacket.data, aPacket.size);
+
+                if(length < 0)
+                {
+                    // Error, skip packet
+                    aPacket.size = 0;
+                    continue;
+                }
+
+                // Move forward in packet
+                aPacket.size -= length;
+                aPacket.data = new IntPtr(aPacket.data.ToInt64() + length);
+
+                // Frame not finished yet
+                if(datasize <= 0)
+                    continue;
+
+                // Move forward in target buffer
+                target = new IntPtr(target.ToInt64() + datasize);
+                byteswritten += datasize;
+
+                // Load next frame when minimum buffer size is not reached
+                if(byteswritten < minbuffer)
+                    continue;
+
+                break;
+            }
+
+            // Output buffer size
+            targetsize = byteswritten;
+
+            return true;
         }
 
         public bool NextVideoFrame(IntPtr target, FFmpeg.PixelFormat desiredFormat, ref double time)
         {
+            if (!hasVideo)
+                return false;
+
             int got_picture = 0;
             long pts = -1;
             
@@ -369,12 +448,15 @@ namespace TaoMediaplayer
                         Marshal.FreeHGlobal(vPacket.priv);
                     }
 
-                    // If there are no more packets in the queue, read them from stream
-                    while (videoPacketQueue.Count < 1)
-                        if (!ReadPacket())
-                            return false;
+                    lock (locker)
+                    {
+                        // If there are no more packets in the queue, read them from stream
+                        while (videoPacketQueue.Count < 1)
+                            if (!ReadPacket())
+                                return false;
 
-                    vPacket = videoPacketQueue.Dequeue();
+                        vPacket = videoPacketQueue.Dequeue();
+                    }
                 }
 
                 // Do nothing if timing is too early
@@ -432,9 +514,9 @@ namespace TaoMediaplayer
             packet.priv = pPacket;
 
             // If packet belongs to our video or audio stream, enqueue it
-            if (videoStream.codec != IntPtr.Zero && packet.stream_index == videoStream.index)
+            if (hasVideo && packet.stream_index == videoStream.index)
                 videoPacketQueue.Enqueue(packet);
-            if (audioStream.codec != IntPtr.Zero && packet.stream_index == audioStream.index)
+            if (hasAudio && packet.stream_index == audioStream.index)
                 audioPacketQueue.Enqueue(packet);
 
             return true;

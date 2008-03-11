@@ -53,6 +53,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="TaoMediaplayer\AudioSource.cs" />
     <Compile Include="TaoMediaplayer\Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -85,6 +86,10 @@
     <ProjectReference Include="..\..\..\src\Tao.FFmpeg\Tao.FFmpeg.csproj">
       <Project>{ABF4DD1F-C5CE-40E1-86B2-AA82127B1927}</Project>
       <Name>Tao.FFmpeg</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\src\Tao.OpenAl\Tao.OpenAl.csproj">
+      <Project>{7B619BB0-3AB4-4DC9-BA37-BC5B461BEF17}</Project>
+      <Name>Tao.OpenAl</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />

@@ -28,6 +28,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Microsoft.Win32;
+using Tao.OpenAl;
 
 namespace TaoMediaplayer
 {
@@ -38,6 +39,9 @@ namespace TaoMediaplayer
         bool paused = false;
         bool playing = false;
         Stopwatch timer = new Stopwatch();
+        private AudioSource audio = new AudioSource();
+        private int audioformat;
+        ManualResetEvent audiosync = new ManualResetEvent(false);
 
         private delegate void VoidDelegate();
 
@@ -58,6 +62,28 @@ namespace TaoMediaplayer
                 media = new MediaFile(opendialog.FileName);
             else
                 return;
+
+            // Translate audioformat
+            if(media.NumChannels == 1)
+            {
+                if (media.AudioDepth == 8)
+                    audioformat = Al.AL_FORMAT_MONO8;
+                else if (media.AudioDepth == 16)
+                    audioformat = Al.AL_FORMAT_MONO16;
+                else 
+                    throw new Exception("Unsupported audio bit depth");
+            } else if(media.NumChannels == 2)
+            {
+                if (media.AudioDepth == 8)
+                    audioformat = Al.AL_FORMAT_STEREO8;
+                else if (media.AudioDepth == 16)
+                    audioformat = Al.AL_FORMAT_STEREO16;
+                else
+                    throw new Exception("Unsupported audio bit depth");               
+            } else
+            {
+                throw new Exception("Unsupported amount of channels");
+            }
         }
 
         private void playButton_Click(object sender, RoutedEventArgs e)
@@ -66,13 +92,26 @@ namespace TaoMediaplayer
             {
                 // Start playing
                 playing = true;
+
+                if(media.HasVideo)
+                    ThreadPool.QueueUserWorkItem(videoUpdater);
+                if (media.HasAudio)
+                {
+                    ThreadPool.QueueUserWorkItem(audioUpdater);
+
+                    // Wait until audio is buffered
+                    audiosync.WaitOne();
+                    audio.Play();
+                }
                 timer.Start();
-                ThreadPool.QueueUserWorkItem(videoUpdater);
                 playButton.Content = "Pause";
             }
             else if (playing && !paused)
             {
                 // Pause
+                if(media.HasAudio)
+                    audio.Pause();
+
                 timer.Stop();
                 paused = true;
                 playButton.Content = "Play";
@@ -80,6 +119,9 @@ namespace TaoMediaplayer
             else if (playing && paused)
             {
                 // Resume
+                if(media.HasAudio)
+                    audio.Play();
+
                 timer.Start();
                 paused = false;
                 playButton.Content = "Pause";
@@ -89,18 +131,77 @@ namespace TaoMediaplayer
         private void stopButton_Click(object sender, RoutedEventArgs e)
         {
             // Stop and rewind
+            if(media.HasAudio)
+                audio.Stop();
+
             timer.Reset();
             playing = false;
             paused = false;
             playButton.Content = "Play";
             media.Rewind();
-        }        
+        }     
+   
+        private void audioUpdater(object state)
+        {
+            // Notify audio api of the update thread
+            audio.RegisterThread();
+
+            // Allocate buffer
+            IntPtr buffer = Marshal.AllocHGlobal(192000);
+
+            try
+            {
+                while(playing)
+                {
+                    // Check if we have free audio buffers
+                    if (audio.BufferFinished())
+                    {
+                        // Decode next audio frame
+                        int buffersize = 192000;
+                        bool rv = media.NextAudioFrame(buffer, ref buffersize, 20000);
+                        if(!media.HasVideo)
+                            playing = rv;
+
+                        // Send audio frame to audio buffer
+                        if (buffersize != 0)
+                            audio.BufferData(buffer, buffersize, audioformat, media.Frequency);
+
+                        audiosync.Set();
+
+                        if (!rv)
+                            break;
+                    }
+
+                    if(!audio.HasFreeBuffers())
+                        Thread.Sleep(10);
+                }
+
+                audiosync.Reset();
+
+                // Rewind when stopped
+                if(!media.HasVideo)
+                    media.Rewind();
+
+            } finally
+            {
+                // Free buffer
+                Marshal.FreeHGlobal(buffer);
+
+                if(!media.HasVideo)
+                    playButton.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal,
+                                      (VoidDelegate)delegate
+                                                         {
+                                                             playButton.Content = "Play";
+                                                         });
+
+            }
+        }
         
         private void videoUpdater(object state)
         {
             // Allocate framebuffer
             IntPtr buffer = Marshal.AllocHGlobal(media.Width*media.Height*3);
-
+            
             try
             {
                 while (playing)
@@ -143,6 +244,7 @@ namespace TaoMediaplayer
             {
                 // Free framebuffer, reset UI
                 Marshal.FreeHGlobal(buffer);
+
                 playButton.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal,
                                                   (VoidDelegate) delegate
                                                                      {

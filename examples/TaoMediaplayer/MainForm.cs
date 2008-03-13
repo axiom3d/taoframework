@@ -1,4 +1,4 @@
-﻿/*
+/*
 Copyright (c) 2008 Tao Framework
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,19 +22,24 @@ THE SOFTWARE.
 
 using System;
 using System.Diagnostics;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 using System.Threading;
-using System.Windows;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using Microsoft.Win32;
+using System.Windows.Forms;
 using Tao.OpenAl;
 
 namespace TaoMediaplayer
 {
-    public partial class Main : Window
+    public partial class MainForm : Form
     {
+        public static void Main (string[] args)
+        {
+            Application.Run(new MainForm());
+        }
+
         MediaFile media;
+        private delegate void VoidDelegate();
 
         bool paused = false;
         bool playing = false;
@@ -43,57 +48,67 @@ namespace TaoMediaplayer
         private int audioformat;
         ManualResetEvent audiosync = new ManualResetEvent(false);
 
-        private delegate void VoidDelegate();
-
-        public Main()
+        public MainForm()
         {
             InitializeComponent();
         }
 
-        private void openButton_Click(object sender, RoutedEventArgs e)
+        private void openbutton_Click(object sender, System.EventArgs e)
         {
-            // File dialog
-            OpenFileDialog opendialog = new OpenFileDialog();
-            opendialog.CheckFileExists = true;
-            opendialog.Multiselect = false;
+            // Create file dialog
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.CheckFileExists = true;
+            ofd.Multiselect = false;
 
-            // Open media file
-            if (opendialog.ShowDialog(this) == true)
-                media = new MediaFile(opendialog.FileName);
-            else
+            // Open file
+            if(ofd.ShowDialog() != System.Windows.Forms.DialogResult.OK)
                 return;
 
+            try
+            {
+                media = new MediaFile(ofd.FileName);
+            }
+            catch (TypeInitializationException tie)
+            {
+                throw new Exception("Unable to open mediafile, are the ffmpeg libraries available?", tie);
+            }
+
             // Translate audioformat
-            if(media.NumChannels == 1)
+            if (media.NumChannels == 1)
             {
                 if (media.AudioDepth == 8)
                     audioformat = Al.AL_FORMAT_MONO8;
                 else if (media.AudioDepth == 16)
                     audioformat = Al.AL_FORMAT_MONO16;
-                else 
+                else
                     throw new Exception("Unsupported audio bit depth");
-            } else if(media.NumChannels == 2)
+            }
+            else if (media.NumChannels == 2)
             {
                 if (media.AudioDepth == 8)
                     audioformat = Al.AL_FORMAT_STEREO8;
                 else if (media.AudioDepth == 16)
                     audioformat = Al.AL_FORMAT_STEREO16;
                 else
-                    throw new Exception("Unsupported audio bit depth");               
-            } else
+                    throw new Exception("Unsupported audio bit depth");
+            }
+            else
             {
                 throw new Exception("Unsupported amount of channels");
             }
+
+            // Set frame size
+            Size = new Size(media.Width, media.Height);
         }
 
-        private void playButton_Click(object sender, RoutedEventArgs e)
+        private void playbutton_Click(object sender, EventArgs e)
         {
             if (!playing)
             {
                 // Start playing
                 playing = true;
 
-                if(media.HasVideo)
+                if (media.HasVideo)
                     ThreadPool.QueueUserWorkItem(videoUpdater);
                 if (media.HasAudio)
                 {
@@ -104,43 +119,43 @@ namespace TaoMediaplayer
                     audio.Play();
                 }
                 timer.Start();
-                playButton.Content = "Pause";
+                playbutton.Text = "Pause";
             }
             else if (playing && !paused)
             {
                 // Pause
-                if(media.HasAudio)
+                if (media.HasAudio)
                     audio.Pause();
 
                 timer.Stop();
                 paused = true;
-                playButton.Content = "Play";
+                playbutton.Text = "Play";
             }
             else if (playing && paused)
             {
                 // Resume
-                if(media.HasAudio)
+                if (media.HasAudio)
                     audio.Play();
 
                 timer.Start();
                 paused = false;
-                playButton.Content = "Pause";
+                playbutton.Text = "Pause";
             }
         }
 
-        private void stopButton_Click(object sender, RoutedEventArgs e)
+        private void stopbutton_Click(object sender, EventArgs e)
         {
             // Stop and rewind
-            if(media.HasAudio)
+            if (media != null & media.HasAudio)
                 audio.Stop();
 
             timer.Reset();
             playing = false;
             paused = false;
-            playButton.Content = "Play";
+            playbutton.Text = "Play";
             media.Rewind();
-        }     
-   
+        }
+
         private void audioUpdater(object state)
         {
             // Notify audio api of the update thread
@@ -151,7 +166,7 @@ namespace TaoMediaplayer
 
             try
             {
-                while(playing)
+                while (playing)
                 {
                     // Check if we have free audio buffers
                     if (audio.BufferFinished())
@@ -159,7 +174,7 @@ namespace TaoMediaplayer
                         // Decode next audio frame
                         int buffersize = 192000;
                         bool rv = media.NextAudioFrame(buffer, ref buffersize, 20000);
-                        if(!media.HasVideo)
+                        if (!media.HasVideo)
                             playing = rv;
 
                         // Send audio frame to audio buffer
@@ -172,61 +187,65 @@ namespace TaoMediaplayer
                             break;
                     }
 
-                    if(!audio.HasFreeBuffers())
+                    if (!audio.HasFreeBuffers())
                         Thread.Sleep(10);
                 }
 
                 audiosync.Reset();
 
                 // Rewind when stopped
-                if(!media.HasVideo)
+                if (!media.HasVideo)
                     media.Rewind();
 
-            } finally
+            }
+            finally
             {
                 // Free buffer
                 Marshal.FreeHGlobal(buffer);
 
-                if(!media.HasVideo)
-                    playButton.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal,
-                                      (VoidDelegate)delegate
-                                                         {
-                                                             playButton.Content = "Play";
-                                                         });
+                if (!media.HasVideo)
+                    pictureBox.Invoke(
+                        (VoidDelegate)delegate
+                                           {
+                                               playbutton.Text = "Play";
+                                           });
 
             }
         }
-        
+
         private void videoUpdater(object state)
         {
-            // Allocate framebuffer
-            IntPtr buffer = Marshal.AllocHGlobal(media.Width*media.Height*3);
-            
+            // Create Bitmaps (double buffering)
+            Bitmap[] bmp = new Bitmap[]
+                {
+                    new Bitmap(media.Width, media.Height, PixelFormat.Format24bppRgb),
+                    new Bitmap(media.Width, media.Height, PixelFormat.Format24bppRgb)
+                };
+            int target = 0;
+
             try
             {
                 while (playing)
                 {
                     // Load next frame, or stop playing if eof
-                    double time = (double)timer.ElapsedMilliseconds/1000.0;
-                    playing = media.NextVideoFrame(buffer, Tao.FFmpeg.FFmpeg.PixelFormat.PIX_FMT_RGB24, ref time);
+                    double time = (double)timer.ElapsedMilliseconds / 1000.0;
+                    // Write to bitmap buffer
+                    BitmapData bd =
+                        bmp[target].LockBits(new Rectangle(0, 0, bmp[target].Width, bmp[target].Height), ImageLockMode.WriteOnly,
+                                     PixelFormat.Format24bppRgb);
+                    playing = media.NextVideoFrame(bd.Scan0, Tao.FFmpeg.FFmpeg.PixelFormat.PIX_FMT_BGR24, ref time);
+                    bmp[target].UnlockBits(bd);
 
-                    if (time == 0)
+                    if(time == 0)
                     {
-                        // Load frame in image
-                        videoImage.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal,
-                                                     (VoidDelegate) delegate
-                                                                        {
-                                                                            videoImage.Source =
-                                                                                BitmapSource.Create(media.Width,
-                                                                                                    media.Height, 96, 96,
-                                                                                                    PixelFormats.Rgb24,
-                                                                                                    null, buffer,
-                                                                                                    media.Width*
-                                                                                                    media.Height*3,
-                                                                                                    (media.Width*3 + 3) &
-                                                                                                    ~3);
-                                                                        });
-                    } else if (playing && time > 0.005)
+                        pictureBox.Invoke(
+                            (VoidDelegate) delegate
+                                               {
+                                                   pictureBox.Image = bmp[target];
+                                                   target = (target == 0) ? 1 : 0;
+                                               });
+                    }
+                    if (playing && time > 0.005)
                     {
                         // Wait for next frame
                         Thread.Sleep((int)(time * 1000.0));
@@ -243,17 +262,14 @@ namespace TaoMediaplayer
             finally
             {
                 // Free framebuffer, reset UI
-                Marshal.FreeHGlobal(buffer);
-
-                playButton.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal,
-                                                  (VoidDelegate) delegate
-                                                                     {
-                                                                         videoImage.Source = null;
-                                                                         playButton.Content = "Play";
-                                                                     });
+                bmp[target].Dispose();
+                pictureBox.Invoke(
+                    (VoidDelegate) delegate
+                                       {
+                                           playbutton.Text = "Play";
+                                       });
             }
         }
-
 
     }
 }

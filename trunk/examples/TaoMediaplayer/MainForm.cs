@@ -149,11 +149,13 @@ namespace TaoMediaplayer
             if (media != null & media.HasAudio)
                 audio.Stop();
 
-            timer.Reset();
             playing = false;
             paused = false;
-            playbutton.Text = "Play";
+
+            timer.Reset();
             media.Rewind();
+
+            playbutton.Text = "Play";
         }
 
         private void audioUpdater(object state)
@@ -195,8 +197,10 @@ namespace TaoMediaplayer
 
                 // Rewind when stopped
                 if (!media.HasVideo)
+                {
                     media.Rewind();
-
+                    timer.Reset();
+                }
             }
             finally
             {
@@ -253,11 +257,12 @@ namespace TaoMediaplayer
 
                     // Wait while we're paused
                     while (paused)
-                        Thread.Sleep((int)((1.0 / 25.0) * 1000));
+                        Thread.Sleep((int)((1.0 / 20.0) * 1000));
                 }
 
                 // Rewind to start when video ended
                 media.Rewind();
+                timer.Reset();
             }
             finally
             {

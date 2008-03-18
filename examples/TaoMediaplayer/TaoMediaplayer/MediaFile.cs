@@ -328,15 +328,9 @@ namespace TaoMediaplayer
             FFmpeg.av_free(vFrame);
 
             foreach (FFmpeg.AVPacket packet in videoPacketQueue)
-            {
                 FFmpeg.av_free_packet(packet.priv);
-                Marshal.FreeHGlobal(packet.priv);
-            }
             foreach (FFmpeg.AVPacket packet in audioPacketQueue)
-            {
                 FFmpeg.av_free_packet(packet.priv);
-                Marshal.FreeHGlobal(packet.priv);
-            }
 
             if (videoStream.codec != IntPtr.Zero)
                 FFmpeg.avcodec_close(videoStream.codec);
@@ -349,10 +343,23 @@ namespace TaoMediaplayer
             lock (locker)
             {
                 if (hasVideo)
-                    FFmpeg.av_seek_frame(pFormatContext, videoStream.index, -1, 0);
+                {
+                    FFmpeg.av_seek_frame(pFormatContext, videoStream.index, 0, 0);
+                    FFmpeg.avcodec_flush_buffers(videoStream.codec);
+                }
 
                 if (hasAudio)
-                    FFmpeg.av_seek_frame(pFormatContext, audioStream.index, -1, 0);
+                {
+                    FFmpeg.av_seek_frame(pFormatContext, audioStream.index, 0, 0);
+                    FFmpeg.avcodec_flush_buffers(audioStream.codec);
+                }
+
+                videoPacketQueue.Clear();
+                audioPacketQueue.Clear();
+
+                vPacket = new FFmpeg.AVPacket();
+                aPacket = new FFmpeg.AVPacket();
+
             }
         }
 
@@ -370,10 +377,7 @@ namespace TaoMediaplayer
                 if (aPacket.size == 0)
                 {
                     if(aPacket.data != IntPtr.Zero)
-                    {
                         FFmpeg.av_free_packet(aPacket.priv);
-                        Marshal.FreeHGlobal(aPacket.priv);
-                    }
                 }
 
                 lock (locker)
@@ -440,13 +444,10 @@ namespace TaoMediaplayer
             while (got_picture == 0)
             {
                 // If we need a new packet, get it
-                if (vPacket.size == 0)
+                if (vPacket.size <= 0)
                 {
                     if (vPacket.data != IntPtr.Zero)
-                    {
                         FFmpeg.av_free_packet(vPacket.priv);
-                        Marshal.FreeHGlobal(vPacket.priv);
-                    }
 
                     lock (locker)
                     {
@@ -506,7 +507,7 @@ namespace TaoMediaplayer
             IntPtr pPacket = Allocate<FFmpeg.AVPacket>();
 
             // Read next frame into packet
-            if (FFmpeg.av_read_packet(pFormatContext, pPacket) < 0)
+            if (FFmpeg.av_read_frame(pFormatContext, pPacket) < 0)
                 return false;
 
             // Get packet from pointer

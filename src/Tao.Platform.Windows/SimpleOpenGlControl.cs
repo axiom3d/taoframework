@@ -58,9 +58,40 @@ namespace Tao.Platform.Windows {
         private byte depthBits = 16;                                        // Depth buffer bits
         private byte stencilBits = 0;                                       // Stencil buffer bits
         private int errorCode = Gl.GL_NO_ERROR;                             // The GL error code
+
+        private int logScaleX = 96;                                         // DPI Resolution in X dir
+        private int logScaleY = 96;                                         // DPI Resolution in Y dir
         #endregion Private Fields
 
         #region Public Properties
+        #region LogScaleX
+        /// <summary>
+        /// Gets the number of logical pixels or dots per inch (dpi) in X-direction
+        /// </summary>
+        [Category("OpenGL Properties"), Description("Logical pixels per inch in X-direction.")]
+        public int LogScaleX
+        {
+            get
+            {
+                return logScaleX;
+            }
+        }
+        #endregion
+
+        #region LogScaleY
+        /// <summary>
+        /// Gets the number of logical pixels or dots per inch (dpi) in Y-direction
+        /// </summary>
+        [Category("OpenGL Properties"), Description("Logical pixels per inch in Y-direction.")]
+        public int LogScaleY
+        {
+            get
+            {
+                return logScaleY;
+            }
+        }
+        #endregion
+
         #region AccumBits
         /// <summary>
         ///     Gets and sets the OpenGL control's accumulation buffer depth.
@@ -368,6 +399,9 @@ namespace Tao.Platform.Windows {
                 MessageBox.Show("Can not set the chosen PixelFormat.  Chosen PixelFormat was " + pixelFormat + ".", "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Environment.Exit(-1);
             }
+
+            logScaleX = Gdi.GetDeviceCaps(deviceContext, (int)Gdi.DevCaps.LOGPIXELSX); // Attempt to retrieve DPI-Setting 
+            logScaleY = Gdi.GetDeviceCaps(deviceContext, (int)Gdi.DevCaps.LOGPIXELSY); // Attempt to retrieve DPI-Setting 
 
             renderingContext = Wgl.wglCreateContext(deviceContext);         // Attempt to get the rendering context
             if(renderingContext == IntPtr.Zero) {                           // Are we not able to get a rendering context?

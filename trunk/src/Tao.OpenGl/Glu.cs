@@ -32484,8 +32484,12 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluQuadricCallback" />
         /// <seealso cref="gluTessCallback(Tao.OpenGl.Glu.GLUtesselator, int, Tao.OpenGl.Glu.TessBeginCallback)" />
         // const GLubyte* APIENTRY gluErrorString(GLenum errCode);
-        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern string gluErrorString(int errorCode);
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="gluErrorString"), SuppressUnmanagedCodeSecurity]
+        private static extern IntPtr gluErrorStringUnsafe(int errorCode);
+
+        public static string gluErrorString(int errorCode) {
+            return Marshal.PtrToStringAnsi(gluErrorStringUnsafe(errorCode));
+        }
         #endregion string gluErrorString(int errorCode)
 
         #region string gluErrorStringWIN(int errorCode)
@@ -32567,8 +32571,12 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluQuadricCallback" />
         /// <seealso cref="gluTessCallback(Tao.OpenGl.Glu.GLUtesselator, int, Tao.OpenGl.Glu.TessBeginCallback)" />
         // const wchar_t* APIENTRY gluErrorUnicodeStringEXT(GLenum errCode);
-        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern string gluErrorUnicodeStringEXT(int errorCode);
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="gluErrorUnicodeStringEXT"), SuppressUnmanagedCodeSecurity]
+        private static extern IntPtr gluErrorUnicodeStringEXTUnsafe(int errorCode);
+
+        public static string gluErrorUnicodeStringEXT(int errorCode) {
+            return Marshal.PtrToStringAnsi(gluErrorUnicodeStringEXTUnsafe(errorCode));
+        }
         #endregion string gluErrorUnicodeStringEXT(int errorCode)
 
         #region gluGetNurbsProperty([In] GLUnurbs nurb, int property, [Out] float[] data)
@@ -32735,8 +32743,12 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glGetString" />
         // const GLubyte* APIENTRY gluGetString(GLenum name);
-        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern string gluGetString(int name);
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="gluGetString"), SuppressUnmanagedCodeSecurity]
+        private static extern IntPtr gluGetStringUnsafe(int name);
+
+        public static string gluGetString(int name) {
+            return Marshal.PtrToStringAnsi(gluGetStringUnsafe(name));
+        }
         #endregion string gluGetString(int name)
 
         #region gluGetTessProperty([In] GLUtesselator tess, int which, [Out] double[] data)

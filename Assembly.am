@@ -1,10 +1,10 @@
 # Generic assembly building automake rules
 
-pkgconfigdir = $(prefix)/lib/pkgconfig
+pkgconfigdir = $(libdir)/pkgconfig
 
 # We need to install the .config file ourselves because of a gacutil
 # bug (https://bugzilla.novell.com/show_bug.cgi?id=363341)
-monodir = $(prefix)/lib/mono/$(SHORTNAME)-$(MAJOR)
+monodir = $(libdir)/mono/$(SHORTNAME)-$(MAJOR)
 mono_DATA = $(CONFIGFILE)
 
 noinst_DATA = $(ASSEMBLY).dll $(SHORTNAME).pc
@@ -28,7 +28,7 @@ $(ASSEMBLY).dll: $(RESOURCES) $(SOURCES) $(BINARY_LIBS) $(KEYFILE)
 # we do not use it yet
 install-data-local: $(ASSEMBLY).dll
 	$(GACUTIL) -i $(ASSEMBLY).dll -package $(SHORTNAME)-$(MAJOR) \
-	  -f -root $(DESTDIR)$(prefix)/lib
+	  -f -root $(DESTDIR)$(libdir)
 	$(INSTALL) -d $(DESTDIR)$(pkgconfigdir)
 	$(INSTALL) -m 644 $(SHORTNAME).pc \
 	  $(DESTDIR)$(pkgconfigdir)/$(SHORTNAME)-$(MAJOR).pc

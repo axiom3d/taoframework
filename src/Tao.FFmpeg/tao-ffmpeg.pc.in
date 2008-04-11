@@ -6,4 +6,4 @@ Name: Tao.FFmpeg
 Description: FFmpeg portion of the Tao framework
 Version: @TAOFFMPEG_VERSION@
 Requires:
-Libs: -r:${libdir}/cli/tao-ffmpeg-@TAOFFMPEG_MAJOR@/Tao.FFmpeg.dll
+Libs: -r:${libdir}/mono/tao-ffmpeg-@TAOFFMPEG_MAJOR@/Tao.FFmpeg.dll

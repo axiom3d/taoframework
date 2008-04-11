@@ -6,4 +6,4 @@ Name: Tao.PhysFs
 Description: PhysFs section of the Tao framework
 Version: @TAOPHYSFS_VERSION@
 Requires:
-Libs: -r:${libdir}/cli/tao-physfs-@TAOPHYSFS_MAJOR@/Tao.PhysFs.dll
+Libs: -r:${libdir}/mono/tao-physfs-@TAOPHYSFS_MAJOR@/Tao.PhysFs.dll

@@ -22,7 +22,7 @@
 
     <target name="install">
 	<property name="package.version" value="${assemblyname::get-version(assemblyname::get-assembly-name(project::get-base-directory()+'/'+build.dir+'/'+project::get-name()+'.dll'))}" />
-	<property name="package.name" value="${string::to-lower(string::replace($project::get-name(),'.','-'))}-${version::get-major()}.${version::get-minor()}" overwrite="true" />			
+	<property name="package.name" value="${string::to-lower(string::replace(project::get-name(),'.','-'))}-${version::get-major()}.${version::get-minor()}" overwrite="true" />			
 
       <copy if="${platform::is-unix() and not is-osx}" todir="${project::get-base-directory()}/${build.dir}" file="${project::get-base-directory()}/${project::get-name()}.dll.config" />
       <exec program="gacutil" workingdir="${project::get-base-directory()}/${build.dir}">

@@ -6,5 +6,5 @@ Name: Tao.Platform.Windows
 Description: Windows-specific section of the Tao framework
 Version: @TAOWINDOWS_VERSION@
 Requires:
-Libs: -r:${libdir}/cli/tao-platform-windows-@TAOWINDOWS_MAJOR@/Tao.Platform.Windows.dll
+Libs: -r:${libdir}/mono/tao-platform-windows-@TAOWINDOWS_MAJOR@/Tao.Platform.Windows.dll
 

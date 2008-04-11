@@ -6,4 +6,4 @@ Name: Tao.Glfw
 Description: Glfw section of the Tao framework
 Version: @TAOGLFW_VERSION@
 Requires: tao-opengl-@TAOOPENGL_MAJOR@
-Libs: -r:${libdir}/cli/tao-glfw-@TAOGLFW_MAJOR@/Tao.Glfw.dll
+Libs: -r:${libdir}/mono/tao-glfw-@TAOGLFW_MAJOR@/Tao.Glfw.dll

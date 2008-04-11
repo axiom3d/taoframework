@@ -6,4 +6,4 @@ Name: Tao.Lua
 Description: Lua portion of the Tao framework
 Version: @TAOLUA_VERSION@
 Requires:
-Libs: -r:${libdir}/cli/tao-lua-@TAOLUA_MAJOR@/Tao.Lua.dll
+Libs: -r:${libdir}/mono/tao-lua-@TAOLUA_MAJOR@/Tao.Lua.dll

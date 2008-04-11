@@ -6,5 +6,5 @@ Name: Tao.Sdl.Tests
 Description: Unit tests for the SDL portion of the Tao framework
 Version: @TAOSDL_VERSION@
 Requires:
-Libs: -r:${libdir}/cli/tao-sdl-tests-@TAOSDL_MAJOR@/Tao.Sdl.Tests.dll
+Libs: -r:${libdir}/mono/tao-sdl-tests-@TAOSDL_MAJOR@/Tao.Sdl.Tests.dll
 

@@ -6,5 +6,5 @@ Name: Tao.Sdl
 Description: SDL portion of the Tao framework
 Version: @TAOSDL_VERSION@
 Requires:
-Libs: -r:${libdir}/cli/tao-sdl-@TAOSDL_MAJOR@/Tao.Sdl.dll
+Libs: -r:${libdir}/mono/tao-sdl-@TAOSDL_MAJOR@/Tao.Sdl.dll
 

@@ -6,4 +6,4 @@ Name: Tao.DevIl
 Description: DevIl portion of the Tao framework
 Version: @TAODEVIL_VERSION@
 Requires:
-Libs: -r:${libdir}/cli/tao-devil-@TAODEVIL_MAJOR@/Tao.DevIl.dll
+Libs: -r:${libdir}/mono/tao-devil-@TAODEVIL_MAJOR@/Tao.DevIl.dll

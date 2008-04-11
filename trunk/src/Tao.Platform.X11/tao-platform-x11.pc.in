@@ -6,5 +6,5 @@ Name: Tao.Platform.X11
 Description: X11-specific section of the Tao framework
 Version: @TAOX11_VERSION@
 Requires:
-Libs: -r:${libdir}/cli/tao-platform-x11-@TAOX11_MAJOR@/Tao.Platform.X11.dll
+Libs: -r:${libdir}/mono/tao-platform-x11-@TAOX11_MAJOR@/Tao.Platform.X11.dll
 

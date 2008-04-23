@@ -1119,7 +1119,7 @@ namespace Tao.Sdl
         /// enum SDL_eventaction. 
         /// Various event types.
         /// </remarks>
-        /// <seealso cref="SDL_PeepEvents"/>
+        /// <seealso cref="SDL_PeepEvents(SDL_Event[], int, int, int)"/>
         public const int SDL_ADDEVENT = 0;
         /// <summary>
         /// If 'action' is SDL_PEEKEVENT, up to 'numevents' events at 
@@ -1130,7 +1130,7 @@ namespace Tao.Sdl
         /// enum SDL_eventaction. 
         /// Various event types.
         /// </remarks>
-        /// <seealso cref="SDL_PeepEvents"/>
+        /// <seealso cref="SDL_PeepEvents(SDL_Event[], int, int, int)"/>
         public const int SDL_PEEKEVENT = 1;
         /// <summary>
         /// If 'action' is SDL_GETEVENT, up to 'numevents' events at 
@@ -1141,7 +1141,7 @@ namespace Tao.Sdl
         /// enum SDL_eventaction. 
         /// Various event types.
         /// </remarks>
-        /// <seealso cref="SDL_PeepEvents"/>
+        /// <seealso cref="SDL_PeepEvents(SDL_Event[], int, int, int)"/>
         public const int SDL_GETEVENT = 2;
         #endregion SDL_eventaction
         #endregion SDL_events.h
@@ -2541,7 +2541,7 @@ namespace Tao.Sdl
         /// audio data. This structure is used by SDL_OpenAudio and SDL_LoadWAV.
         ///  While all fields are used by <see cref="SDL_OpenAudio"/> only 
         ///  freq, format, samples
-        ///   and channels are used by <see cref="SDL_LoadWAV"/>. 
+        ///   and channels are used by <see cref="SDL_LoadWAV(string, out IntPtr, out IntPtr, out int)"/>. 
         ///   We will detail these common members here.
         ///   <p>Marshals C-struct in SDL_audio.h:
         ///   <code>
@@ -2558,7 +2558,7 @@ namespace Tao.Sdl
         ///   </code></p>
         /// </remarks>
         /// <seealso cref="SDL_OpenAudio"/>
-        /// <seealso cref="SDL_LoadWAV"/>
+        /// <seealso cref="SDL_LoadWAV(string, out IntPtr, out IntPtr, out int)"/>
         [StructLayout(LayoutKind.Sequential, Pack = 4)]
         public struct SDL_AudioSpec
         {
@@ -2636,7 +2636,7 @@ namespace Tao.Sdl
             /// audio buffer in samples. A sample a chunk of audio data
             ///  of the size specified in format mulitplied by the number
             ///   of channels. When the SDL_AudioSpec is used with 
-            ///   <see cref="SDL_LoadWAV"/> samples is set to 4096.
+            ///   <see cref="SDL_LoadWAV(string, out IntPtr, out IntPtr, out int)"/> samples is set to 4096.
             /// </remarks>
             public short samples;
             /// <summary>
@@ -2670,7 +2670,7 @@ namespace Tao.Sdl
         /// <remarks>
         /// The SDL_AudioCVT is used to convert audio data between different 
         /// formats. A SDL_AudioCVT structure is created with the 
-        /// <see cref="SDL_BuildAudioCVT"/> function, while the actual
+        /// <see cref="SDL_BuildAudioCVT(IntPtr, short, byte, int, short, byte, int)"/> function, while the actual
         ///  conversion is done by the SDL_ConvertAudio function.
         /// <p>Many of the fields in the <see cref="SDL_AudioCVT"/> 
         /// structure should be considered private and their function
@@ -2692,7 +2692,7 @@ namespace Tao.Sdl
         ///							} SDL_AudioCVT;
         ///  </code></p>
         /// </remarks>
-        /// <seealso cref="SDL_BuildAudioCVT"/>
+        /// <seealso cref="SDL_BuildAudioCVT(IntPtr, short, byte, int, short, byte, int)"/>
         /// <seealso cref="SDL_ConvertAudio"/>
         /// <seealso cref="SDL_AudioSpec"/>
         public struct SDL_AudioCVT
@@ -3075,7 +3075,7 @@ namespace Tao.Sdl
         /// used when an event of type SDL_MOUSEMOTION is reported.
         /// <p>Simply put, a SDL_MOUSEMOTION type event occurs when a user
         /// moves the mouse within the application window or when 
-        /// <see cref="SDL_WarpMouse"/>
+        /// <see cref="SDL_WarpMouse(short, short)"/>
         ///  is called. Both the absolute (x and y) and relative (xrel and yrel
         ///  ) coordinates are reported along with the current button states 
         ///  (state). The button state can be interpreted using the SDL_BUTTON 
@@ -3411,12 +3411,12 @@ namespace Tao.Sdl
         /// SDL_ResizeEvent is a member of the <see cref="SDL_Event"/> union 
         /// and is used when an event of type SDL_VIDEORESIZE is reported.
         /// <p>When SDL_RESIZABLE is passed as a flag to 
-        /// <see cref="SDL_SetVideoMode"/> the user is allowed to resize the
+        /// <see cref="SDL_SetVideoMode(int, int, int, int)"/> the user is allowed to resize the
         ///  applications window. When the window is resized an 
         ///  SDL_VIDEORESIZE is report, with the new window width and height
         ///   values stored in w and h, respectively. When an SDL_VIDEORESIZE
         ///    is recieved the window should be resized to the new dimensions
-        ///     using <see cref="SDL_SetVideoMode"/>.</p>
+        ///     using <see cref="SDL_SetVideoMode(int, int, int, int)"/>.</p>
         /// <p>Struct in SDL_events.h
         /// <code>
         /// typedef struct{
@@ -3425,7 +3425,7 @@ namespace Tao.Sdl
         ///	} SDL_ResizeEvent;
         /// </code></p></remarks>
         /// <seealso cref="SDL_Event"/>
-        /// <seealso cref="SDL_SetVideoMode"/>
+        /// <seealso cref="SDL_SetVideoMode(int, int, int, int)"/>
         [StructLayout(LayoutKind.Sequential, Pack = 4)]
         public struct SDL_ResizeEvent
         {
@@ -3695,7 +3695,7 @@ namespace Tao.Sdl
         /// <p>Reading events on the event queue</p>
         /// <p>Placing events on the event queue</p>
         /// <p>Reading events from the event queue is done with either
-        ///  <see cref="SDL_PollEvent"/> or <see cref="SDL_PeepEvents"/>.
+        ///  <see cref="SDL_PollEvent"/> or <see cref="SDL_PeepEvents(SDL_Event[], int, int, int)"/>.
         ///   We'll use SDL_PollEvent and step through an example.</p>
         /// <p>First off, we create an empty SDL_Event structure.</p> 
         /// <p><code>SDL_Event test_event;</code></p>
@@ -3736,7 +3736,7 @@ namespace Tao.Sdl
         /// printf("Event queue empty.\n");</code>
         /// <p>It is also possible to push events onto the event queue 
         /// and so use it as a two-way communication path. Both 
-        /// <see cref="SDL_PushEvent"/> and <see cref="SDL_PeepEvents"/>
+        /// <see cref="SDL_PushEvent"/> and <see cref="SDL_PeepEvents(SDL_Event[], int, int, int)"/>
         ///  allow you to place events onto the event queue. This is 
         ///  usually used to place a SDL_USEREVENT on the event queue,
         ///   however you could use it to post fake input events if you 
@@ -3775,7 +3775,7 @@ namespace Tao.Sdl
         /// </code></p></p></remarks>
         /// <seealso cref="SDL_PollEvent"/>
         /// <seealso cref="SDL_PushEvent"/>
-        /// <seealso cref="SDL_PeepEvents"/>
+        /// <seealso cref="SDL_PeepEvents(SDL_Event[], int, int, int)"/>
         [StructLayout(LayoutKind.Explicit)]
         public struct SDL_Event
         {
@@ -4569,7 +4569,7 @@ namespace Tao.Sdl
         /// regions and by several other video functions.
         /// </remarks>
         /// <see cref="SDL_BlitSurface"/>
-        /// <see cref="SDL_UpdateRect"/>
+        /// <see cref="SDL_UpdateRect(System.IntPtr, int, int, int, int)"/>
         [StructLayout(LayoutKind.Sequential, Pack = 4)]
         public struct SDL_Rect
         {
@@ -5061,7 +5061,7 @@ namespace Tao.Sdl
         /// <remarks>
         /// This (read-only) structure is returned by <see cref="SDL_GetVideoInfo"/>. 
         /// It contains information on either the 'best' available mode 
-        /// (if called before <see cref="SDL_SetVideoMode"/>) or the current video mode.
+        /// (if called before <see cref="SDL_SetVideoMode(int, int, int, int)"/>) or the current video mode.
         /// </remarks>
         /// <see cref="SDL_GetVideoInfo"/>
         /// <see cref="SDL_PixelFormat"/>
@@ -5219,7 +5219,7 @@ namespace Tao.Sdl
         /// More information on YUV formats can be found at 
         /// http://www.webartz.com/fourcc/indexyuv.htm.
         /// </remarks>
-        /// <see cref="SDL_CreateYUVOverlay"/>
+        /// <see cref="SDL_CreateYUVOverlay(int, int, int, IntPtr)"/>
         /// <see cref="SDL_LockYUVOverlay"/>
         /// <see cref="SDL_UnlockYUVOverlay"/>
         /// <see cref="SDL_FreeYUVOverlay"/>
@@ -5365,7 +5365,7 @@ namespace Tao.Sdl
         ///     <code>typedef Uint32 (SDLCALL *SDL_TimerCallback)(Uint32 interval, void *param)</code>
         ///     </p>
         /// </remarks>
-        /// <seealso cref="SDL_SetTimer" />
+        /// <seealso cref="SDL_SetTimer(int, SDL_TimerCallback)" />
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate int SDL_TimerCallback(int interval);
         #endregion int SDL_TimerCallback(int interval)
@@ -5394,11 +5394,12 @@ namespace Tao.Sdl
         ///     <code>typedef Uint32 (SDLCALL *SDL_NewTimerCallback)(Uint32 interval, void *param)</code>
         ///     </p>
         /// </remarks>
-        /// <seealso cref="SDL_AddTimer" />
+        /// <seealso cref="SDL_AddTimer(int, SDL_NewTimerCallback)" />
         /// <seealso cref="SDL_RemoveTimer" />
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate int SDL_NewTimerCallback(int interval);
         #endregion int SDL_NewTimerCallback(int interval)
+
         #endregion SDL_timer.h
         #endregion Public Delegates
 
@@ -5471,7 +5472,7 @@ namespace Tao.Sdl
         ///     <code>extern DECLSPEC int SDLCALL SDL_Init(Uint32 flags)</code>
         ///     </p>
         /// </remarks>
-        /// <seealso cref="SDL_InitSubSystem" />
+        /// <seealso cref="SDL_InitSubSystem(int)" />
         /// <seealso cref="SDL_Quit" />
         public static int SDL_Init(int flags)
         {
@@ -5492,6 +5493,96 @@ namespace Tao.Sdl
             return __SDL_Init(flags);
         }
         #endregion int SDL_Init(int flags)
+
+        #region int SDL_Init(uint flags)
+        // Called from SDL_Init
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION, EntryPoint = "SDL_Init"), SuppressUnmanagedCodeSecurity]
+        private static extern int __SDL_Init(uint flags);
+
+        /// <summary>
+        ///     Initializes SDL and the specified subsystems.
+        /// </summary>
+        /// <param name="flags">
+        ///     <para>
+        ///         Specifies what part(s) of SDL to initialize:
+        ///     </para>
+        ///     <para>
+        ///         <list type="table">
+        ///             <listheader>
+        ///                 <term>Flag</term>
+        ///                 <description>Description</description>
+        ///             </listheader>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_TIMER" /></term>
+        ///                 <description>Initializes the timer subsystem.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_AUDIO" /></term>
+        ///                 <description>Initializes the audio subsystem.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_VIDEO" /></term>
+        ///                 <description>Initializes the video subsystem.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_CDROM" /></term>
+        ///                 <description>Initializes the CD-ROM subsystem.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_JOYSTICK" /></term>
+        ///                 <description>Initializes the joystick subsystem.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_EVERYTHING" /></term>
+        ///                 <description>Initializes all subsystems.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_NOPARACHUTE" /></term>
+        ///                 <description>Prevents SDL from catching fatal signals.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_EVENTTHREAD" /></term>
+        ///                 <description>Not supported on all OS's.</description>
+        ///             </item>
+        ///         </list>
+        ///     </para>
+        /// </param>
+        /// <returns>
+        ///     Returns -1 on an error or 0 on success.
+        /// </returns>
+        /// <remarks>
+        ///     <para>
+        ///         Unless the <see cref="SDL_INIT_NOPARACHUTE" /> flag is set, it will install
+        ///         cleanup signal handlers for some commonly ignored fatal signals (like
+        ///         SIGSEGV).
+        ///     </para>
+        ///     <p>
+        ///			Binds to C-function call in SDL.h:
+        ///     <code>extern DECLSPEC int SDLCALL SDL_Init(Uint32 flags)</code>
+        ///     </p>
+        /// </remarks>
+        /// <seealso cref="SDL_InitSubSystem(int)" />
+        /// <seealso cref="SDL_Quit" />
+        [CLSCompliant(false)]
+        public static int SDL_Init(uint flags)
+        {
+            try
+            {
+                ////Mac OSX code
+                if (File.Exists("/System/Library/Frameworks/Cocoa.framework/Cocoa"))
+                {
+                    int NSAutoreleasePool = objc_getClass("NSAutoreleasePool");
+                    objc_msgSend(NSAutoreleasePool, sel_registerName("new"));
+                    NSApplicationLoad();
+                }
+            }
+            catch
+            {
+            }
+
+            return __SDL_Init(flags);
+        }
+        #endregion int SDL_Init(uint flags)
 
         #region int SDL_InitSubSystem(int flags)
         // Called from SDL_InitSubSystem
@@ -5550,16 +5641,16 @@ namespace Tao.Sdl
         ///     Returns -1 on an error or 0 on success.
         /// </returns>
         /// <remarks>
-        ///     After SDL has been initialized with <see cref="SDL_Init" /> you may initialize
+        ///     After SDL has been initialized with <see cref="SDL_Init(int)" /> you may initialize
         ///     any uninitialized subsystems with <b>SDL_InitSubSystem</b>.
         ///      <p>
         ///     Binds to C-function call in SDL.h:
         ///     <code>extern DECLSPEC int SDLCALL SDL_InitSubSystem(Uint32 flags)</code>
         ///     </p>
         /// </remarks>
-        /// <seealso cref="SDL_Init" />
+        /// <seealso cref="SDL_Init(int)" />
         /// <seealso cref="SDL_Quit" />
-        /// <seealso cref="SDL_QuitSubSystem" />
+        /// <seealso cref="SDL_QuitSubSystem(int)" />
         /// 
         public static int SDL_InitSubSystem(int flags)
         {
@@ -5580,6 +5671,95 @@ namespace Tao.Sdl
             return __SDL_InitSubSystem(flags);
         }
         #endregion int SDL_InitSubSystem(int flags)
+
+        #region int SDL_InitSubSystem(uint flags)
+        // Called from SDL_InitSubSystem
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION, EntryPoint = "SDL_InitSubSystem"), SuppressUnmanagedCodeSecurity]
+        private static extern int __SDL_InitSubSystem(uint flags);
+
+        /// <summary>
+        ///     Initializes specified subsystems.
+        /// </summary>
+        /// <param name="flags">
+        ///     <para>
+        ///         Specifies what part(s) of SDL to initialize:
+        ///     </para>
+        ///     <para>
+        ///         <list type="table">
+        ///             <listheader>
+        ///                 <term>Flag</term>
+        ///                 <description>Description</description>
+        ///             </listheader>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_TIMER" /></term>
+        ///                 <description>Initializes the timer subsystem.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_AUDIO" /></term>
+        ///                 <description>Initializes the audio subsystem.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_VIDEO" /></term>
+        ///                 <description>Initializes the video subsystem.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_CDROM" /></term>
+        ///                 <description>Initializes the CD-ROM subsystem.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_JOYSTICK" /></term>
+        ///                 <description>Initializes the joystick subsystem.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_EVERYTHING" /></term>
+        ///                 <description>Initializes all subsystems.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_NOPARACHUTE" /></term>
+        ///                 <description>Prevents SDL from catching fatal signals.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_EVENTTHREAD" /></term>
+        ///                 <description>Not supported on all OS's.</description>
+        ///             </item>
+        ///         </list>
+        ///     </para>
+        /// </param>
+        /// <returns>
+        ///     Returns -1 on an error or 0 on success.
+        /// </returns>
+        /// <remarks>
+        ///     After SDL has been initialized with <see cref="SDL_Init(int)" /> you may initialize
+        ///     any uninitialized subsystems with <b>SDL_InitSubSystem</b>.
+        ///      <p>
+        ///     Binds to C-function call in SDL.h:
+        ///     <code>extern DECLSPEC int SDLCALL SDL_InitSubSystem(Uint32 flags)</code>
+        ///     </p>
+        /// </remarks>
+        /// <seealso cref="SDL_Init(int)" />
+        /// <seealso cref="SDL_Quit" />
+        /// <seealso cref="SDL_QuitSubSystem(int)" />
+        /// 
+        [CLSCompliant(false)]
+        public static int SDL_InitSubSystem(uint flags)
+        {
+            try
+            {
+                if (File.Exists("/System/Library/Frameworks/Cocoa.framework/Cocoa"))
+                {
+                    ////Mac OSX code
+                    int NSAutoreleasePool = objc_getClass("NSAutoreleasePool");
+                    objc_msgSend(NSAutoreleasePool, sel_registerName("new"));
+                    NSApplicationLoad();
+                }
+            }
+            catch
+            {
+            }
+
+            return __SDL_InitSubSystem(flags);
+        }
+        #endregion int SDL_InitSubSystem(uint flags)
 
         #region SDL_QuitSubSystem(int flags)
         /// <summary>
@@ -5632,19 +5812,85 @@ namespace Tao.Sdl
         /// </param>
         /// <remarks>
         ///     <b>SDL_QuitSubSystem</b> allows you to shut down a subsystem that has been
-        ///     previously initialized by <see cref="SDL_Init" /> or
-        ///     <see cref="SDL_InitSubSystem" />.
+        ///     previously initialized by <see cref="SDL_Init(int)" /> or
+        ///     <see cref="SDL_InitSubSystem(int)" />.
         ///     <p>
         ///     Binds to C-function call in SDL.h:
         ///     <code>extern DECLSPEC void SDLCALL SDL_QuitSubSystem(Uint32 flags)</code>
         ///     </p>
         /// </remarks>
-        /// <seealso cref="SDL_Init" />
-        /// <seealso cref="SDL_InitSubSystem" />
+        /// <seealso cref="SDL_Init(int)" />
+        /// <seealso cref="SDL_InitSubSystem(int)" />
         /// <seealso cref="SDL_Quit" />
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void SDL_QuitSubSystem(int flags);
         #endregion SDL_QuitSubSystem(int flags)
+
+        #region SDL_QuitSubSystem(uint flags)
+        /// <summary>
+        ///     Shuts down specified subsystems.
+        /// </summary>
+        /// <param name="flags">
+        ///     <para>
+        ///         Specifies what part(s) of SDL to shut down:
+        ///     </para>
+        ///     <para>
+        ///         <list type="table">
+        ///             <listheader>
+        ///                 <term>Flag</term>
+        ///                 <description>Description</description>
+        ///             </listheader>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_TIMER" /></term>
+        ///                 <description>Shuts down the timer subsystem.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_AUDIO" /></term>
+        ///                 <description>Shuts down the audio subsystem.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_VIDEO" /></term>
+        ///                 <description>Shuts down the video subsystem.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_CDROM" /></term>
+        ///                 <description>Shuts down the CD-ROM subsystem.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_JOYSTICK" /></term>
+        ///                 <description>Shuts down the joystick subsystem.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_EVERYTHING" /></term>
+        ///                 <description>Shuts down all subsystems.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_NOPARACHUTE" /></term>
+        ///                 <description>Prevents SDL from catching fatal signals.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_EVENTTHREAD" /></term>
+        ///                 <description>Not supported on all OS's.</description>
+        ///             </item>
+        ///         </list>
+        ///     </para>
+        /// </param>
+        /// <remarks>
+        ///     <b>SDL_QuitSubSystem</b> allows you to shut down a subsystem that has been
+        ///     previously initialized by <see cref="SDL_Init(int)" /> or
+        ///     <see cref="SDL_InitSubSystem(int)" />.
+        ///     <p>
+        ///     Binds to C-function call in SDL.h:
+        ///     <code>extern DECLSPEC void SDLCALL SDL_QuitSubSystem(Uint32 flags)</code>
+        ///     </p>
+        /// </remarks>
+        /// <seealso cref="SDL_Init(int)" />
+        /// <seealso cref="SDL_InitSubSystem(int)" />
+        /// <seealso cref="SDL_Quit" />
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [CLSCompliant(false)]
+        public static extern void SDL_QuitSubSystem(uint flags);
+        #endregion SDL_QuitSubSystem(uint flags)
 
         #region int SDL_WasInit(int flags)
         /// <summary>
@@ -5705,11 +5951,77 @@ namespace Tao.Sdl
         ///     <code>extern DECLSPEC Uint32 SDLCALL SDL_WasInit(Uint32 flags)</code>
         ///     </p>
         /// </remarks>
-        /// <seealso cref="SDL_Init" />
-        /// <seealso cref="SDL_InitSubSystem" />
+        /// <seealso cref="SDL_Init(int)" />
+        /// <seealso cref="SDL_InitSubSystem(int)" />
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int SDL_WasInit(int flags);
         #endregion int SDL_WasInit(int flags)
+
+        #region uint SDL_WasInit(uint flags)
+        /// <summary>
+        ///     Checks which SDL subsystems are initialized.
+        /// </summary>
+        /// <param name="flags">
+        ///     <para>
+        ///         Specifies the subsystems you wish to check:
+        ///     </para>
+        ///     <para>
+        ///         <list type="table">
+        ///             <listheader>
+        ///                 <term>Flag</term>
+        ///                 <description>Description</description>
+        ///             </listheader>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_TIMER" /></term>
+        ///                 <description>The timer subsystem.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_AUDIO" /></term>
+        ///                 <description>The audio subsystem.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_VIDEO" /></term>
+        ///                 <description>The video subsystem.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_CDROM" /></term>
+        ///                 <description>The CD-ROM subsystem.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_JOYSTICK" /></term>
+        ///                 <description>The joystick subsystem.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_EVERYTHING" /></term>
+        ///                 <description>All subsystems.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_NOPARACHUTE" /></term>
+        ///                 <description>Prevents SDL from catching fatal signals.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_INIT_EVENTTHREAD" /></term>
+        ///                 <description>Not supported on all OS's.</description>
+        ///             </item>
+        ///         </list>
+        ///     </para>
+        /// </param>
+        /// <returns>
+        ///     A bitwised OR'd combination of the initialized subsystems.
+        /// </returns>
+        /// <remarks>
+        ///     <b>SDL_WasInit</b> allows you to see which SDL subsytems have been initialized.
+        ///     <p>
+        ///     Binds to C-function call in SDL.h:
+        ///     <code>extern DECLSPEC Uint32 SDLCALL SDL_WasInit(Uint32 flags)</code>
+        ///     </p>
+        /// </remarks>
+        /// <seealso cref="SDL_Init(int)" />
+        /// <seealso cref="SDL_InitSubSystem(int)" />
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [CLSCompliant(false)]
+        public static extern uint SDL_WasInit(uint flags);
+        #endregion uint SDL_WasInit(uint flags)
 
         #region SDL_Quit()
         /// <summary>
@@ -5723,8 +6035,8 @@ namespace Tao.Sdl
         ///     <code>extern DECLSPEC void SDLCALL SDL_Quit(void)</code>
         ///     </p>
         /// </remarks>
-        /// <seealso cref="SDL_Init" />
-        /// <seealso cref="SDL_QuitSubSystem" />
+        /// <seealso cref="SDL_Init(int)" />
+        /// <seealso cref="SDL_QuitSubSystem(int)" />
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void SDL_Quit();
         #endregion SDL_Quit()
@@ -5825,7 +6137,7 @@ namespace Tao.Sdl
         /// and should not be used unless you
         /// have a specific need to specify the audio driver you want to use.
         /// You should normally use 
-        /// <see cref="SDL_Init"/> or <see cref="SDL_InitSubSystem"/>.
+        /// <see cref="SDL_Init(int)"/> or <see cref="SDL_InitSubSystem(int)"/>.
         /// </summary>
         /// <remarks>
         /// Binds to C-function call in SDL_audio.h:
@@ -6105,7 +6417,43 @@ namespace Tao.Sdl
             out IntPtr audio_buf, out int audio_len);
         #endregion IntPtr SDL_LoadWAV_RW(...)
 
-        #region IntPtr SDL_LoadWAV(string file, out IntPtr spec, out byte[] audio_buf, out IntPtr audio_len)
+        #region IntPtr SDL_LoadWAV_RW(...)
+        /// <summary>
+        /// This function loads a WAVE from the data source, 
+        /// automatically freeing
+        /// that source if 'freesrc' is non-zero.  
+        /// For example, to load a WAVE file,
+        /// you could do:
+        ///	SDL_LoadWAV_RW(SDL_RWFromFile("sample.wav", "rb"), 1, ...);
+        ///	</summary>
+        ///	<remarks>If this function succeeds, it returns the given SDL_AudioSpec,
+        /// filled with the audio data format of the wave data, and sets
+        /// 'audio_buf' to a malloc()'d buffer containing the audio data,
+        /// and sets 'audio_len' to the length of that audio buffer, in bytes.
+        /// You need to free the audio buffer with SDL_FreeWAV() when you are 
+        /// done with it.
+        /// <p>This function returns NULL and sets the SDL error message if the 
+        /// wave file cannot be opened, uses an unknown data format, or is 
+        /// corrupt.  Currently raw and MS-ADPCM WAVE files are supported.</p>
+        /// <p>Binds to C-function call in SDL_audio.h:
+        /// <code>SDL_AudioSpec * SDL_LoadWAV_RW(SDL_RWops *src, int freesrc, SDL_AudioSpec *spec, Uint8 **audio_buf, Uint32 *audio_len)
+        /// </code>
+        /// </p></remarks>
+        /// <param name="audio_buf"></param>
+        /// <param name="audio_len"></param>
+        /// <param name="freesrc"></param>
+        /// <param name="spec"></param>
+        /// <param name="src"></param>
+        /// <returns></returns>
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
+        SuppressUnmanagedCodeSecurity]
+        [CLSCompliant(false)]
+        public static extern IntPtr SDL_LoadWAV_RW(
+            IntPtr src, int freesrc, out IntPtr spec,
+            out IntPtr audio_buf, out uint audio_len);
+        #endregion IntPtr SDL_LoadWAV_RW(...)
+
+        #region IntPtr SDL_LoadWAV(string file, out IntPtr spec, out byte[] audio_buf, out int audio_len)
         /// <summary>
         /// Load a WAVE file.
         /// </summary>
@@ -6167,14 +6515,79 @@ namespace Tao.Sdl
             return result;
 
         }
-        #endregion IntPtr SDL_LoadWAV(string file, out  spec, out byte[] audio_buf, out IntPtr audio_len)
+        #endregion IntPtr SDL_LoadWAV(string file, out  spec, out byte[] audio_buf, out int audio_len)
+
+        #region IntPtr SDL_LoadWAV(string file, out IntPtr spec, out byte[] audio_buf, out uint audio_len)
+        /// <summary>
+        /// Load a WAVE file.
+        /// </summary>
+        /// <remarks>
+        /// SDL_LoadWAV This function loads a WAVE file into memory.
+        /// <p>If this function succeeds, it returns the given 
+        /// <see cref="SDL_AudioSpec"/>,
+        ///  filled with the audio data format of the wave data, and sets 
+        ///  audio_buf to a malloc'd buffer containing the audio data, and
+        ///   sets audio_len to the length of that audio buffer, in bytes.
+        ///    You need to free the audio buffer with 
+        ///    <see cref="SDL_FreeWAV"/> when you are done with it.</p>
+        /// <p>This function returns NULL and sets the SDL error message if the
+        ///  wave file cannot be opened, uses an unknown data format, or is 
+        ///  corrupt. Currently raw, MS-ADPCM and IMA-ADPCM WAVE files are 
+        ///  supported.</p>
+        /// <p>Binds to C-function call in SDL_audio.h:
+        /// <code>
+        /// #define SDL_LoadWAV(file, spec, audio_buf, audio_len) 
+        /// SDL_LoadWAV_RW(SDL_RWFromFile(file, "rb"),1, spec,audio_buf,audio_len)
+        /// 
+        /// SDL_AudioSpec *SDL_LoadWAV(const char *file, SDL_AudioSpec *spec, Uint8 **audio_buf, Uint32 *audio_len);
+        /// </code></p>
+        /// </remarks>
+        /// <example>
+        /// <code>
+        /// SDL_AudioSpec wav_spec;
+        ///		Uint32 wav_length;
+        ///		Uint8 *wav_buffer;
+        ///
+        ///		/* Load the WAV */
+        ///		if( SDL_LoadWAV("test.wav", wav_spec, wav_buffer, wav_length) == NULL )
+        ///																			{
+        ///		fprintf(stderr, "Could not open test.wav: %s\n", SDL_GetError());
+        ///		exit(-1);
+        ///	}
+        ///	.
+        ///	.
+        ///	.
+        ///	/* Do stuff with the WAV */
+        ///	.
+        ///	.
+        ///	/* Free It */
+        ///	SDL_FreeWAV(wav_buffer);
+        ///	</code>
+        /// </example>
+        /// <param name="file"></param>
+        /// <param name="spec"></param>
+        /// <param name="audio_buf"></param>
+        /// <param name="audio_len"></param>
+        /// <returns>IntPtr to SDL_AudioApec</returns>
+        /// <seealso cref="SDL_AudioSpec"/>
+        /// <seealso cref="SDL_OpenAudio"/>
+        /// <seealso cref="SDL_FreeWAV"/>
+        [CLSCompliant(false)]
+        public static IntPtr SDL_LoadWAV(string file, out IntPtr spec, out IntPtr audio_buf, out uint audio_len)
+        {
+            IntPtr result = SDL_LoadWAV_RW(SDL_RWFromFile(file, "rb"), 1, out spec, out audio_buf, out audio_len);
+            Console.WriteLine("audio_len: " + audio_len.ToString());
+            return result;
+
+        }
+        #endregion IntPtr SDL_LoadWAV(string file, out  spec, out byte[] audio_buf, out uint audio_len)
 
         #region void SDL_FreeWAV(ref IntPtr audio_buf)
         /// <summary>
         /// Frees previously opened WAV data.
         /// </summary>
         /// <remarks>
-        /// After a WAVE file has been opened with <see cref="SDL_LoadWAV"/>
+        /// After a WAVE file has been opened with <see cref="SDL_LoadWAV(string, out IntPtr, out IntPtr, out int)"/>
         ///  its data can eventually be freed with SDL_FreeWAV. audio_buf is 
         ///  a pointer to the buffer created by SDL_LoadWAV.
         ///  <p>
@@ -6183,7 +6596,7 @@ namespace Tao.Sdl
         /// </code></p>
         /// </remarks>
         /// <param name="audio_buf"></param>
-        /// <seealso cref="SDL_LoadWAV"/>
+        /// <seealso cref="SDL_LoadWAV(string, out IntPtr, out IntPtr, out int)"/>
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern void SDL_FreeWAV(ref IntPtr audio_buf);
@@ -6228,7 +6641,50 @@ namespace Tao.Sdl
         SuppressUnmanagedCodeSecurity]
         public static extern int SDL_BuildAudioCVT(IntPtr cvt,
             short src_format, byte src_channels, int src_rate,
-            byte dst_format, byte dst_channels, int dst_rate);
+            short dst_format, byte dst_channels, int dst_rate);
+        #endregion int SDL_BuildAudioCVT(...)
+
+        #region int SDL_BuildAudioCVT(...)
+        /// <summary>
+        /// Initializes a SDL_AudioCVT structure for conversion
+        /// </summary>
+        /// <remarks>
+        /// Before an <see cref="SDL_AudioCVT"/> structure can be used to 
+        /// convert audio data it must be initialized with source and 
+        /// destination information. 
+        /// <p>src_format and dst_format are the source and destination 
+        /// format of the conversion. (For information on audio formats 
+        /// see <see cref="SDL_AudioSpec"/>). src_channels and dst_channels
+        ///  are the number of channels in the source and destination formats.
+        ///   Finally, src_rate and dst_rate are the frequency or 
+        ///   samples-per-second of the source and destination formats.
+        ///    Once again, see <see cref="SDL_AudioSpec"/>.</p>
+        ///    <p>
+        /// <code>
+        /// int SDL_BuildAudioCVT(SDL_AudioCVT *cvt, Uint16 src_format, Uint8 src_channels, int src_rate, Uint16 dst_format, Uint8 dst_channels, int dst_rate)
+        /// </code></p>
+        /// </remarks>
+        /// <example>
+        /// See <see cref="SDL_ConvertAudio"/>.
+        /// </example>
+        /// <param name="cvt"></param>
+        /// <param name="src_format"></param>
+        /// <param name="src_channels"></param>
+        /// <param name="src_rate"></param>
+        /// <param name="dst_format"></param>
+        /// <param name="dst_channels"></param>
+        /// <param name="dst_rate"></param>
+        /// <returns>
+        /// Returns -1 if the filter could not be built or 1 if it could.
+        /// </returns>
+        /// <seealso cref="SDL_ConvertAudio"/>
+        /// <seealso cref="SDL_AudioCVT"/>
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
+        SuppressUnmanagedCodeSecurity]
+        [CLSCompliant(false)]
+        public static extern int SDL_BuildAudioCVT(IntPtr cvt,
+            ushort src_format, byte src_channels, int src_rate,
+            ushort dst_format, byte dst_channels, int dst_rate);
         #endregion int SDL_BuildAudioCVT(...)
 
         #region int SDL_ConvertAudio(IntPtr cvt)
@@ -6239,7 +6695,7 @@ namespace Tao.Sdl
         /// SDL_ConvertAudio takes one parameter, cvt, which was previously 
         /// initialized. Initilizing a <see cref="SDL_AudioCVT"/> is a two 
         /// step process. First of all, the structure must be passed to 
-        /// <see cref="SDL_BuildAudioCVT"/> along with source and destination 
+        /// <see cref="SDL_BuildAudioCVT(IntPtr, short, byte, int, short, byte, int)"/> along with source and destination 
         /// format parameters. Secondly, the cvt->buf and cvt->len fields must
         ///  be setup. cvt->buf should point to the audio data and cvt-&gt;len 
         ///  should be set to the length of the audio data in bytes. 
@@ -6338,7 +6794,7 @@ namespace Tao.Sdl
         /// was completed successfully, otherwise -1 is returned.
         /// </returns>
         /// <seealso cref="SDL_AudioCVT"/>
-        /// <seealso cref="SDL_BuildAudioCVT"/>
+        /// <seealso cref="SDL_BuildAudioCVT(IntPtr, short, byte, int, short, byte, int)"/>
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int SDL_ConvertAudio(IntPtr cvt);
@@ -6377,6 +6833,41 @@ namespace Tao.Sdl
         public static extern void SDL_MixAudio(
             IntPtr dst, IntPtr src, int len, int volume);
         #endregion void SDL_MixAudio(IntPtr dst, IntPtr src, int len, int volume)
+
+        #region void SDL_MixAudio(IntPtr dst, IntPtr src, uint len, int volume)
+        /// <summary>
+        /// Mix audio data.
+        /// </summary>	
+        /// <remarks>
+        /// This function takes two audio buffers of len bytes each of the 
+        /// playing audio format and mixes them, performing addition, 
+        /// volume adjustment, and overflow clipping. The volume ranges
+        ///  from 0 to SDL_MIX_MAXVOLUME and should be set to the maximum
+        ///   value for full audio volume. Note this does not change hardware
+        ///    volume. This is provided for convenience -- you can mix your 
+        ///    own audio data.
+        /// <p>Note: Do not use this function for mixing together more than two
+        ///  streams of sample data. The output from repeated application of 
+        ///  this function may be distorted by clipping, because there is no 
+        ///  accumulator with greater range than the input (not to mention this
+        ///   being an inefficient way of doing it). Use mixing functions from 
+        ///   SDL_mixer, OpenAL, or write your own mixer instead.</p>
+        /// <p>
+        /// <code>
+        /// void SDL_MixAudio(Uint8 *dst, Uint8 *src, Uint32 len, int volume)
+        /// </code></p>
+        /// </remarks>	
+        /// <param name="dst"></param>
+        /// <param name="src"></param>
+        /// <param name="len"></param>
+        /// <param name="volume"></param>
+        /// <seealso cref="SDL_OpenAudio"/>
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
+        SuppressUnmanagedCodeSecurity]
+        [CLSCompliant(false)]
+        public static extern void SDL_MixAudio(
+            IntPtr dst, IntPtr src, uint len, int volume);
+        #endregion void SDL_MixAudio(IntPtr dst, IntPtr src, uint len, int volume)
 
         #region void SDL_LockAudio()
         /// <summary>
@@ -7107,6 +7598,48 @@ namespace Tao.Sdl
             int action, int mask);
         #endregion int SDL_PeepEvents(...)
 
+        #region int SDL_PeepEvents(...)
+        /// <summary>
+        /// Checks the event queue for messages and optionally returns them.
+        /// </summary>
+        /// <remarks>
+        /// Checks the event queue for messages and optionally returns them.
+        /// <p>If action is SDL_ADDEVENT, up to numevents events will be added
+        ///  to the back of the event queue.</p>
+        /// <p>If action is SDL_PEEKEVENT, up to numevents events at the front
+        ///  of the event queue, matching mask, will be returned and 			
+        /// will not be removed from the queue.</p>
+        /// <p>If action is SDL_GETEVENT, up to numevents events at the front
+        ///  of the event queue, matching mask, will be returned and 			
+        /// will be removed from the queue.</p>
+        /// <p>
+        /// The mask parameter is an bitwise OR of SDL_EVENTMASK(event_type),
+        ///  for all event types you are interested in.
+        /// </p>
+        /// <p>This function is thread-safe.</p>
+        /// <p>Binds to C-function in SDL_events.h
+        /// <code>
+        /// int SDL_PeepEvents(SDL_Event *events, int numevents, SDL_eventaction action, Uint32 mask);
+        /// </code></p>
+        /// </remarks>
+        /// <param name="events"></param>
+        /// <param name="numevents"></param>
+        /// <param name="action">SDL_eventaction enum</param>
+        /// <param name="mask"></param>
+        /// <returns>
+        /// This function returns the number of events actually stored,
+        ///  or -1 if there was an error.
+        ///  </returns>
+        ///  <seealso cref="SDL_PollEvent"/>
+        ///  <seealso cref="SDL_Event"/>
+        ///  <seealso cref="SDL_PushEvent"/>
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
+        SuppressUnmanagedCodeSecurity]
+        [CLSCompliant(false)]
+        public static extern int SDL_PeepEvents([In, Out]SDL_Event[] events, int numevents,
+            int action, uint mask);
+        #endregion int SDL_PeepEvents(...)
+
         #region int SDL_PollEvent(out SDL_Event sdlEvent)
         /// <summary>
         /// Polls for currently pending events.
@@ -7153,7 +7686,7 @@ namespace Tao.Sdl
         /// are none available</returns>
         /// <seealso cref="SDL_WaitEvent"/>
         ///  <seealso cref="SDL_Event"/>
-        ///  <seealso cref="SDL_PeepEvents"/>
+        ///  <seealso cref="SDL_PeepEvents(SDL_Event[], int, int, int)"/>
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int SDL_PollEvent(out SDL_Event sdlEvent);
@@ -7204,7 +7737,7 @@ namespace Tao.Sdl
         /// </returns>
         /// <seealso cref="SDL_Event"/>
         ///  <seealso cref="SDL_PollEvent"/>
-        ///  <seealso cref="SDL_PeepEvents"/>
+        ///  <seealso cref="SDL_PeepEvents(SDL_Event[], int, int, int)"/>
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int SDL_PushEvent(out SDL_Event evt);
@@ -7233,7 +7766,7 @@ namespace Tao.Sdl
         ///   signal, it will bypass the internal queue and be delivered to the
         ///    application at the next event poll.</p>
         /// <p>Note: Events pushed onto the queue with 
-        /// <see cref="SDL_PushEvent"/> or <see cref="SDL_PeepEvents"/> 
+        /// <see cref="SDL_PushEvent"/> or <see cref="SDL_PeepEvents(SDL_Event[], int, int, int)"/> 
         /// do not get passed through the event filter.</p>
         /// <p>Note: Be Careful! The event filter function may run in a 
         /// different thread so be careful what you do within it.</p>
@@ -8105,6 +8638,28 @@ namespace Tao.Sdl
         public static extern void SDL_WarpMouse(short x, short y);
         #endregion void SDL_WarpMouse(short x, short y)
 
+        #region void SDL_WarpMouse(ushort x, ushort y)
+        /// <summary>
+        /// Set the position of the mouse cursor.
+        /// </summary>
+        /// <remarks>
+        /// Set the position of the mouse cursor (generates a mouse 
+        /// motion event).
+        /// <p>Binds to C-function call in SDL_mouse.h:
+        /// <code>
+        /// void SDL_WarpMouse(Uint16 x, Uint16 y);
+        /// </code>
+        /// </p>
+        /// </remarks>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <seealso cref="SDL_MouseMotionEvent"/>
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
+        SuppressUnmanagedCodeSecurity]
+        [CLSCompliant(false)]
+        public static extern void SDL_WarpMouse(ushort x, ushort y);
+        #endregion void SDL_WarpMouse(ushort x, ushort y)
+
         #region int SDL_CreateCursor(...)
         /// <summary>
         /// Creates a new mouse cursor.
@@ -8454,6 +9009,24 @@ namespace Tao.Sdl
         public static extern IntPtr SDL_CreateSemaphore(int initial_value);
         #endregion IntPtr SDL_CreateSemaphore(int initial_value)
 
+        #region IntPtr SDL_CreateSemaphore(uint initial_value)
+        /// <summary>
+        ///     Create a semaphore, initialized with value, returns NULL on failure.
+        /// </summary>
+        /// <returns>
+        /// Create a semaphore, initialized with value, returns NULL on failure.
+        /// </returns>
+        /// <remarks>
+        ///     <p>
+        ///     Binds to C-function call in SDL_mutex.h:
+        ///     <code>extern DECLSPEC SDL_sem * SDLCALL SDL_CreateSemaphore(Uint32 initial_value)</code>
+        ///     </p>
+        /// </remarks>
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [CLSCompliant(false)]
+        public static extern IntPtr SDL_CreateSemaphore(uint initial_value);
+        #endregion IntPtr SDL_CreateSemaphore(uint initial_value)
+
         #region void SDL_DestroySemaphore(IntPtr sem)
         /// <summary>
         /// Destroy a semaphore
@@ -8529,6 +9102,32 @@ namespace Tao.Sdl
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int SDL_SemWaitTimeout(IntPtr sem, int ms);
         #endregion int SDL_SemWaitTimeout(IntPtr sem, int ms)
+
+        #region int SDL_SemWaitTimeout(IntPtr sem, uint ms)
+        /// <summary>
+        /// Variant of SDL_SemWait() with a timeout in milliseconds, returns 0 if
+        /// the wait succeeds, SDL_MUTEX_TIMEDOUT if the wait does not succeed in
+        /// the allotted time, and -1 on error.
+        /// On some platforms this function is implemented by looping with a delay
+        /// of 1 ms, and so should be avoided if possible.
+        /// </summary>
+        /// <returns>
+        /// Variant of SDL_SemWait() with a timeout in milliseconds, returns 0 if
+        /// the wait succeeds, SDL_MUTEX_TIMEDOUT if the wait does not succeed in
+        /// the allotted time, and -1 on error.
+        /// On some platforms this function is implemented by looping with a delay
+        /// of 1 ms, and so should be avoided if possible.
+        /// </returns>
+        /// <remarks>
+        ///     <p>
+        ///     Binds to C-function call in SDL_mutex.h:
+        ///     <code>extern DECLSPEC int SDLCALL SDL_SemWaitTimeout(SDL_sem *sem, Uint32 ms)</code>
+        ///     </p>
+        /// </remarks>
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [CLSCompliant(false)]
+        public static extern int SDL_SemWaitTimeout(IntPtr sem, uint ms);
+        #endregion int SDL_SemWaitTimeout(IntPtr sem, uint ms)
 
         #region int SDL_SemPost(IntPtr sem)
         /// <summary>
@@ -8678,6 +9277,30 @@ namespace Tao.Sdl
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int SDL_CondWaitTimeout(IntPtr cond, IntPtr mutex, int ms);
         #endregion int SDL_CondWaitTimeout(IntPtr cond, IntPtr mutex, int ms)
+
+        #region int SDL_CondWaitTimeout(IntPtr cond, IntPtr mutex, uint ms)
+        /// <summary>
+        /// Waits for at most 'ms' milliseconds, and returns 0 if the condition 
+        /// variable is signaled, SDL_MUTEX_TIMEDOUT if the condition is not
+        /// signaled in the allotted time, and -1 on error.
+        /// On some platforms this function is implemented by looping with a delay
+        /// of 1 ms, and so should be avoided if possible.
+        /// </summary>
+        /// <returns>
+        /// returns 0 if the condition 
+        /// variable is signaled, SDL_MUTEX_TIMEDOUT if the condition is not
+        /// signaled in the allotted time, and -1 on error
+        /// </returns>
+        /// <remarks>
+        ///     <p>
+        ///     Binds to C-function call in SDL_mutex.h:
+        ///     <code>extern DECLSPEC int SDLCALL SDL_CondWaitTimeout(SDL_cond *cond, SDL_mutex *mutex, Uint32 ms)</code>
+        ///     </p>
+        /// </remarks>
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [CLSCompliant(false)]
+        public static extern int SDL_CondWaitTimeout(IntPtr cond, IntPtr mutex, uint ms);
+        #endregion int SDL_CondWaitTimeout(IntPtr cond, IntPtr mutex, uint ms)
 
         #endregion SDL_mutex.h
 
@@ -8984,6 +9607,25 @@ namespace Tao.Sdl
         public static extern int SDL_WriteLE16(IntPtr dst, short val);
         #endregion int SDL_WriteLE16(IntPtr dst, short val)
 
+        #region int SDL_WriteLE16(IntPtr dst, ushort val)
+        /// <summary>
+        /// Write an item of native format to the specified endianness
+        /// </summary>
+        /// <remarks>
+        /// <p>Binds to C-function in SDL_rwops.h
+        /// <code>
+        /// extern DECLSPEC int SDLCALL SDL_WriteLE16(SDL_RWops *dst, Uint16 value)
+        /// </code></p>
+        /// </remarks>
+        /// <param name="dst"></param>
+        /// <param name="val"></param>
+        /// <seealso cref="SDL_AllocRW"/>
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
+        SuppressUnmanagedCodeSecurity]
+        [CLSCompliant(false)]
+        public static extern int SDL_WriteLE16(IntPtr dst, ushort val);
+        #endregion int SDL_WriteLE16(IntPtr dst, ushort val)
+
         #region int SDL_WriteBE16(IntPtr dst, short val)
         /// <summary>
         /// Write an item of native format to the specified endianness
@@ -9001,6 +9643,25 @@ namespace Tao.Sdl
         SuppressUnmanagedCodeSecurity]
         public static extern int SDL_WriteBE16(IntPtr dst, short val);
         #endregion int SDL_WriteBE16(IntPtr dst, short val)
+
+        #region int SDL_WriteBE16(IntPtr dst, ushort val)
+        /// <summary>
+        /// Write an item of native format to the specified endianness
+        /// </summary>
+        /// <remarks>
+        /// <p>Binds to C-function in SDL_rwops.h
+        /// <code>
+        /// extern DECLSPEC int SDLCALL SDL_WriteBE16(SDL_RWops *dst, Uint16 value)
+        /// </code></p>
+        /// </remarks>
+        /// <param name="dst"></param>
+        /// <param name="val"></param>
+        /// <seealso cref="SDL_AllocRW"/>
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
+        SuppressUnmanagedCodeSecurity]
+        [CLSCompliant(false)]
+        public static extern int SDL_WriteBE16(IntPtr dst, ushort val);
+        #endregion int SDL_WriteBE16(IntPtr dst, ushort val)
 
         #region int SDL_WriteLE32(IntPtr dst, int val)
         /// <summary>
@@ -9020,6 +9681,25 @@ namespace Tao.Sdl
         public static extern int SDL_WriteLE32(IntPtr dst, int val);
         #endregion int SDL_WriteLE32(IntPtr dst, int val)
 
+        #region int SDL_WriteLE32(IntPtr dst, uint val)
+        /// <summary>
+        /// Write an item of native format to the specified endianness
+        /// </summary>
+        /// <remarks>
+        /// <p>Binds to C-function in SDL_rwops.h
+        /// <code>
+        /// extern DECLSPEC int SDLCALL SDL_WriteLE32(SDL_RWops *dst, Uint32 value)
+        /// </code></p>
+        /// </remarks>
+        /// <param name="dst"></param>
+        /// <param name="val"></param>
+        /// <seealso cref="SDL_AllocRW"/>
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
+        SuppressUnmanagedCodeSecurity]
+        [CLSCompliant(false)]
+        public static extern int SDL_WriteLE32(IntPtr dst, uint val);
+        #endregion int SDL_WriteLE32(IntPtr dst, uint val)
+
         #region int SDL_WriteBE32(IntPtr dst, int val)
         /// <summary>
         /// Write an item of native format to the specified endianness
@@ -9037,6 +9717,25 @@ namespace Tao.Sdl
         SuppressUnmanagedCodeSecurity]
         public static extern int SDL_WriteBE32(IntPtr dst, int val);
         #endregion int SDL_WriteBE32(IntPtr dst, int val)
+
+        #region int SDL_WriteBE32(IntPtr dst, uint val)
+        /// <summary>
+        /// Write an item of native format to the specified endianness
+        /// </summary>
+        /// <remarks>
+        /// <p>Binds to C-function in SDL_rwops.h
+        /// <code>
+        /// extern DECLSPEC int SDLCALL SDL_WriteBE32(SDL_RWops *dst, Uint32 value)
+        /// </code></p>
+        /// </remarks>
+        /// <param name="dst"></param>
+        /// <param name="val"></param>
+        /// <seealso cref="SDL_AllocRW"/>
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
+        SuppressUnmanagedCodeSecurity]
+        [CLSCompliant(false)]
+        public static extern int SDL_WriteBE32(IntPtr dst, uint val);
+        #endregion int SDL_WriteBE32(IntPtr dst, uint val)
 
         #region int SDL_WriteLE64(IntPtr dst, long val)
         /// <summary>
@@ -9356,7 +10055,7 @@ namespace Tao.Sdl
         ///     <code>extern DECLSPEC Uint32 SDLCALL SDL_GetTicks(void)</code>
         ///     </p>
         /// </remarks>
-        /// <seealso cref="SDL_Delay" />
+        /// <seealso cref="SDL_Delay(int)" />
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int SDL_GetTicks();
         #endregion int SDL_GetTicks()
@@ -9377,10 +10076,32 @@ namespace Tao.Sdl
         ///     <code>extern DECLSPEC void SDLCALL SDL_Delay(Uint32 ms)</code>
         ///     </p>
         /// </remarks>
-        /// <seealso cref="SDL_AddTimer" />
+        /// <seealso cref="SDL_AddTimer(int, SDL_NewTimerCallback)" />
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void SDL_Delay(int ms);
         #endregion SDL_Delay(int ms)
+
+        #region SDL_Delay(uint ms)
+        /// <summary>
+        ///     Wait a specified number of milliseconds before returning.
+        /// </summary>
+        /// <param name="ms">
+        ///     The number of milliseconds to wait.
+        /// </param>
+        /// <remarks>
+        ///     <b>SDL_Delay</b> will wait at least the specified time, but possible longer due
+        ///     to OS scheduling.  Count on a delay granularity of at least 10 ms.  Some
+        ///     platforms have shorter clock ticks but this is the most common.
+        ///     <p>
+        ///     Binds to C-function call in SDL_timer.h:
+        ///     <code>extern DECLSPEC void SDLCALL SDL_Delay(Uint32 ms)</code>
+        ///     </p>
+        /// </remarks>
+        /// <seealso cref="SDL_AddTimer(int, SDL_NewTimerCallback)" />
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [CLSCompliant(false)]
+        public static extern void SDL_Delay(uint ms);
+        #endregion SDL_Delay(uint ms)
 
         #region int SDL_SetTimer(int interval, SDL_TimerCallback callback)
         /// <summary>
@@ -9416,11 +10137,11 @@ namespace Tao.Sdl
         ///     </para>
         ///     <para>
         ///         If you use this function, you need to pass <see cref="SDL_INIT_TIMER" /> to
-        ///         <see cref="SDL_Init" />.
+        ///         <see cref="SDL_Init(int)" />.
         ///     </para>
         ///     <para>
         ///         This function is kept for compatibility but has been superseded by the new
-        ///         timer functions <see cref="SDL_AddTimer" /> and
+        ///         timer functions <see cref="SDL_AddTimer(int, SDL_NewTimerCallback)" /> and
         ///         <see cref="SDL_RemoveTimer" /> which support multiple timers.
         ///     </para>
         ///     <p>
@@ -9429,11 +10150,65 @@ namespace Tao.Sdl
         ///     SDL_TimerCallback callback)</code>
         ///     </p>
         /// </remarks>
-        /// <seealso cref="SDL_AddTimer" />
+        /// <seealso cref="SDL_AddTimer(int, SDL_NewTimerCallback)" />
         /// <seealso cref="SDL_TimerCallback" />
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int SDL_SetTimer(int interval, SDL_TimerCallback callback);
         #endregion int SDL_SetTimer(int interval, SDL_TimerCallback callback)
+
+        #region int SDL_SetTimer(uint interval, SDL_TimerCallback callback)
+        /// <summary>
+        ///     Set a callback to run after the specified number of milliseconds has elapsed.
+        /// </summary>
+        /// <param name="interval">
+        ///     The timer interval.
+        /// </param>
+        /// <param name="callback">
+        ///     The callback to run.
+        /// </param>
+        /// <returns>
+        ///     The next timer interval.
+        /// </returns>
+        /// <remarks>
+        ///     <para>
+        ///         The callback function is passed the current timer interval and returns the
+        ///         next timer interval.  If the returned value is the same as the one passed
+        ///         in, the periodic alarm continues, otherwise a new alarm is scheduled.
+        ///     </para>
+        ///     <para>
+        ///         To cancel a currently running timer, call <c>Sdl.SDL_SetTimer(0, null);</c>
+        ///     </para>
+        ///     <para>
+        ///         The timer callback function may run in a different thread than your main
+        ///         constant, and so shouldn't call any functions from within itself.
+        ///     </para>
+        ///     <para>
+        ///         The maximum resolution of this timer is 10 ms, which means that if you
+        ///         request a 16 ms timer, your callback will run approximately 20 ms later on
+        ///         an unloaded system.  If you wanted to set a flag signaling a frame update at
+        ///         30 frames per second (every 33 ms), you might set a timer for 30 ms.
+        ///     </para>
+        ///     <para>
+        ///         If you use this function, you need to pass <see cref="SDL_INIT_TIMER" /> to
+        ///         <see cref="SDL_Init(int)" />.
+        ///     </para>
+        ///     <para>
+        ///         This function is kept for compatibility but has been superseded by the new
+        ///         timer functions <see cref="SDL_AddTimer(int, SDL_NewTimerCallback)" /> and
+        ///         <see cref="SDL_RemoveTimer" /> which support multiple timers.
+        ///     </para>
+        ///     <p>
+        ///     Binds to C-function call in SDL_timer.h:
+        ///     <code>extern DECLSPEC int SDLCALL SDL_SetTimer(Uint32 interval, 
+        ///     SDL_TimerCallback callback)</code>
+        ///     </p>
+        /// </remarks>
+        /// <seealso cref="SDL_AddTimer(int, SDL_NewTimerCallback)" />
+        /// <seealso cref="SDL_TimerCallback" />
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [CLSCompliant(false)]
+        public static extern int SDL_SetTimer(uint interval, SDL_TimerCallback callback);
+        #endregion int SDL_SetTimer(uint interval, SDL_TimerCallback callback)
 
         #region SDL_TimerID SDL_AddTimer(int interval, SDL_NewTimerCallback callback)
         // TODO: Goddamn void* double whammy since it's a delegate
@@ -9479,7 +10254,7 @@ namespace Tao.Sdl
         ///  system. If you wanted to set a flag signaling a frame update at 
         ///  30 frames per second (every 33 ms), you might set a timer for 
         ///  30 ms (see example below). If you use this function, you need 
-        ///  to pass <see cref="SDL_INIT_TIMER" /> to <see cref="SDL_Init" />.
+        ///  to pass <see cref="SDL_INIT_TIMER" /> to <see cref="SDL_Init(int)" />.
         /// </para>
         /// <p>
         ///     Binds to C-function call in SDL_timer.h:
@@ -9492,10 +10267,68 @@ namespace Tao.Sdl
         public static extern SDL_TimerID SDL_AddTimer(int interval, SDL_NewTimerCallback callback);
         #endregion SDL_TimerID SDL_AddTimer(int interval, SDL_NewTimerCallback callback)
 
+        #region SDL_TimerID SDL_AddTimer(uint interval, SDL_NewTimerCallback callback)
+        // TODO: Goddamn void* double whammy since it's a delegate
+        // TODO write test
+        // extern DECLSPEC SDL_TimerID SDLCALL SDL_AddTimer(Uint32 interval, SDL_NewTimerCallback callback, void *param);
+        /// <summary>
+        ///     Add a timer which will call a callback after the 
+        ///     specified number of milliseconds has elapsed.
+        /// </summary>
+        /// <param name="callback">
+        /// The callback to run.
+        /// </param>
+        /// <param name="interval">
+        /// The timer interval.
+        /// </param>
+        /// <returns>
+        /// Returns an ID value for the added timer or NULL if 
+        /// there was an error.
+        /// </returns>
+        /// <remarks>
+        /// <para>
+        /// Adds a callback function to be run after the specified number of 
+        /// milliseconds has elapsed. The callback function is passed the current 
+        /// timer interval and the user supplied parameter from the SDL_AddTimer 
+        /// call and returns the next timer interval. If the returned value from 
+        /// the callback is the same as the one passed in, the periodic alarm 
+        /// continues, otherwise a new alarm is scheduled.
+        /// </para>
+        /// <para>
+        /// To cancel a currently running timer call <see cref="SDL_RemoveTimer" /> 
+        /// with the timer ID returned from SDL_AddTimer.
+        /// </para>
+        /// <para>
+        /// The timer callback function may run in a different thread than your main 
+        /// program, and so shouldn't call any functions from within itself.
+        /// You may always call SDL_PushEvent, however.
+        /// </para>
+        /// <para>
+        /// The granularity of the timer is platform-dependent, 
+        /// but you should count on it being at least 10 ms as this is the 
+        /// most common number. This means that if you request a 16 ms timer,
+        ///  your callback will run approximately 20 ms later on an unloaded 
+        ///  system. If you wanted to set a flag signaling a frame update at 
+        ///  30 frames per second (every 33 ms), you might set a timer for 
+        ///  30 ms (see example below). If you use this function, you need 
+        ///  to pass <see cref="SDL_INIT_TIMER" /> to <see cref="SDL_Init(int)" />.
+        /// </para>
+        /// <p>
+        ///     Binds to C-function call in SDL_timer.h:
+        ///     <code>extern DECLSPEC SDL_TimerID SDLCALL 
+        ///     SDL_AddTimer(Uint32 interval, 
+        ///     SDL_NewTimerCallback callback, void *param)</code>
+        ///     </p>
+        /// </remarks>
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [CLSCompliant(false)]
+        public static extern SDL_TimerID SDL_AddTimer(uint interval, SDL_NewTimerCallback callback);
+        #endregion SDL_TimerID SDL_AddTimer(uint interval, SDL_NewTimerCallback callback)
+
         #region SDL_bool SDL_RemoveTimer(SDL_TimerID t)
         //TODO Write Test
         /// <summary>
-        ///     Remove a timer which was added with <see cref="SDL_AddTimer" />.
+        ///     Remove a timer which was added with <see cref="SDL_AddTimer(int, SDL_NewTimerCallback)" />.
         /// </summary>
         /// <param name="t">
         ///     The timer ID to remove.
@@ -9509,7 +10342,7 @@ namespace Tao.Sdl
         ///     <code>extern DECLSPEC SDL_bool SDLCALL SDL_RemoveTimer(SDL_TimerID t)</code>
         ///     </p>
         /// </remarks>
-        /// <seealso cref="SDL_AddTimer" />
+        /// <seealso cref="SDL_AddTimer(int, SDL_NewTimerCallback)" />
         // 
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int SDL_RemoveTimer(SDL_TimerID t);
@@ -9718,7 +10551,7 @@ namespace Tao.Sdl
         /// about the video hardware. 
         /// </summary>
         /// <remarks>
-        /// If this is called before <see cref="SDL_SetVideoMode"/>, the 'vfmt'
+        /// If this is called before <see cref="SDL_SetVideoMode(int, int, int, int)"/>, the 'vfmt'
         /// member of the returned structure will contain the pixel 
         /// format of the "best" video mode.
         /// <p>Binds to C-function call in SDL_video.h:
@@ -9726,7 +10559,7 @@ namespace Tao.Sdl
         ///     </p>
         /// </remarks>
         /// <returns>IntPtr to SDL_VideoInfo struct</returns>
-        /// <see cref="SDL_SetVideoMode"/>
+        /// <see cref="SDL_SetVideoMode(int, int, int, int)"/>
         /// <see cref="SDL_VideoInfo"/>
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
@@ -9742,7 +10575,7 @@ namespace Tao.Sdl
         /// bit depth,
         /// or returns the bits-per-pixel of the closest available mode 
         /// with the
-        /// given width, height and requested <see cref="SDL_Surface"/> flags. See <see cref="SDL_SetVideoMode"/>.
+        /// given width, height and requested <see cref="SDL_Surface"/> flags. See <see cref="SDL_SetVideoMode(int, int, int, int)"/>.
         /// <p>The bits-per-pixel value returned is only a suggested mode. 
         /// You can usually request and bpp you want when setting the video mode 
         /// and SDL will emulate that color depth with a shadow video surface. 
@@ -9750,7 +10583,7 @@ namespace Tao.Sdl
         /// <p>
         /// The arguments to SDL_VideoModeOK() are the same ones you would 
         /// pass to
-        /// <see cref="SDL_SetVideoMode"/>
+        /// <see cref="SDL_SetVideoMode(int, int, int, int)"/>
         /// </p>
         /// <p>Binds to C-function call in SDL_video.h:
         ///     <code>extern DECLSPEC int SDLCALL SDL_VideoModeOK(int width, int height, int bpp, Uint32 flags)</code>
@@ -9767,6 +10600,41 @@ namespace Tao.Sdl
             int height, int bpp, int flags);
         #endregion int SDL_VideoModeOK(int width, int height, int bpp, int flags);
 
+        #region int SDL_VideoModeOK(int width, int height, int bpp, uint flags);
+        /// <summary>
+        /// Check to see if a particular video mode is supported.
+        /// </summary>
+        /// <remarks>
+        /// SDL_VideoModeOK returns 0 if the requested mode is not supported under any 
+        /// bit depth,
+        /// or returns the bits-per-pixel of the closest available mode 
+        /// with the
+        /// given width, height and requested <see cref="SDL_Surface"/> flags. See <see cref="SDL_SetVideoMode(int, int, int, int)"/>.
+        /// <p>The bits-per-pixel value returned is only a suggested mode. 
+        /// You can usually request and bpp you want when setting the video mode 
+        /// and SDL will emulate that color depth with a shadow video surface. 
+        /// </p>
+        /// <p>
+        /// The arguments to SDL_VideoModeOK() are the same ones you would 
+        /// pass to
+        /// <see cref="SDL_SetVideoMode(int, int, int, int)"/>
+        /// </p>
+        /// <p>Binds to C-function call in SDL_video.h:
+        ///     <code>extern DECLSPEC int SDLCALL SDL_VideoModeOK(int width, int height, int bpp, Uint32 flags)</code>
+        ///     </p>
+        /// </remarks>
+        /// <param name="width">Width of mode</param>
+        /// <param name="height">Height of mode</param>
+        /// <param name="bpp">bit depth of Mode</param>
+        /// <param name="flags"></param>
+        /// <returns></returns>
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
+        SuppressUnmanagedCodeSecurity]
+        [CLSCompliant(false)]
+        public static extern int SDL_VideoModeOK(int width,
+            int height, int bpp, uint flags);
+        #endregion int SDL_VideoModeOK(int width, int height, int bpp, uint flags);
+
         #region SDL_Rect[] SDL_ListModes(IntPtr format, int flags)
         /// <summary> 
         /// Return a pointer to an array of available screen dimensions for the 
@@ -9779,7 +10647,7 @@ namespace Tao.Sdl
         /// If 'format' is NULL, the mode list will be for the format given 
         /// by <see cref="SDL_GetVideoInfo"/>()->vfmt. 
         /// The flag parameter is an OR'd combination of <see cref="SDL_Surface">surface</see> flags. 
-        /// The flags are the same as those used <see cref="SDL_SetVideoMode"/> and they 
+        /// The flags are the same as those used <see cref="SDL_SetVideoMode(int, int, int, int)"/> and they 
         /// play a strong role in deciding what modes are valid. 
         /// For instance, if you pass SDL_HWSURFACE as a flag only modes that 
         /// support hardware video surfaces will be returned.
@@ -9790,7 +10658,7 @@ namespace Tao.Sdl
         /// <param name="format"></param> 
         /// <param name="flags"></param> 
         /// <returns>Returns null if no modes are available. If all modes are available returns an empty array.</returns> 
-        /// <seealso cref="SDL_SetVideoMode">SDL_SetVideoMode</seealso>
+        /// <seealso cref="SDL_SetVideoMode(int, int, int, int)">SDL_SetVideoMode</seealso>
         /// <seealso cref="SDL_GetVideoInfo">SDL_GetVideoInfo</seealso>
         /// <seealso cref="SDL_Rect">SDL_Rect</seealso>
         /// <seealso cref="SDL_PixelFormat">SDL_PixelFormat</seealso>
@@ -9829,12 +10697,81 @@ namespace Tao.Sdl
         }
         #endregion SDL_Rect[] SDL_ListModes(IntPtr format, int flags)
 
+        #region SDL_Rect[] SDL_ListModes(IntPtr format, uint flags)
+        /// <summary> 
+        /// Return a pointer to an array of available screen dimensions for the 
+        /// given format and video flags, sorted largest to smallest.  
+        /// Returns 
+        /// NULL if there are no dimensions available for a particular format, 
+        /// or (SDL_Rect **)-1 if any dimension is okay for the given format. 
+        /// </summary> 
+        /// <remarks> 
+        /// If 'format' is NULL, the mode list will be for the format given 
+        /// by <see cref="SDL_GetVideoInfo"/>()->vfmt. 
+        /// The flag parameter is an OR'd combination of <see cref="SDL_Surface">surface</see> flags. 
+        /// The flags are the same as those used <see cref="SDL_SetVideoMode(int, int, int, int)"/> and they 
+        /// play a strong role in deciding what modes are valid. 
+        /// For instance, if you pass SDL_HWSURFACE as a flag only modes that 
+        /// support hardware video surfaces will be returned.
+        /// <p>Binds to C-function call in SDL_video.h:
+        /// <code>extern DECLSPEC SDL_Rect ** SDLCALL SDL_ListModes(SDL_PixelFormat *format, Uint32 flags)</code>
+        ///     </p>
+        /// </remarks> 
+        /// <param name="format"></param> 
+        /// <param name="flags"></param> 
+        /// <returns>Returns null if no modes are available. If all modes are available returns an empty array.</returns> 
+        /// <seealso cref="SDL_SetVideoMode(int, int, int, int)">SDL_SetVideoMode</seealso>
+        /// <seealso cref="SDL_GetVideoInfo">SDL_GetVideoInfo</seealso>
+        /// <seealso cref="SDL_Rect">SDL_Rect</seealso>
+        /// <seealso cref="SDL_PixelFormat">SDL_PixelFormat</seealso>
+        [CLSCompliant(false)]
+        public unsafe static SDL_Rect[] SDL_ListModes(IntPtr format, uint flags)
+        {
+            IntPtr rectPtr = SDL_ListModesInternal(format, flags);
+
+            if (rectPtr == IntPtr.Zero)
+            {
+                return null;
+            }
+
+            if (rectPtr == new IntPtr(-1))
+            {
+                return new SDL_Rect[0];
+            }
+
+            Sdl.SDL_Rect** rects = (Sdl.SDL_Rect**)rectPtr.ToPointer();
+
+            int i = 0;
+
+            ArrayList modes = new ArrayList();
+
+            while (rects[i] != null)
+            {
+                Sdl.SDL_Rect rect =
+                    (Sdl.SDL_Rect)Marshal.PtrToStructure(new IntPtr(rects[i]), typeof(Sdl.SDL_Rect));
+
+                modes.Insert(0, rect);
+
+                i++;
+            }
+
+            return (Sdl.SDL_Rect[])modes.ToArray(typeof(Sdl.SDL_Rect));
+        }
+        #endregion SDL_Rect[] SDL_ListModes(IntPtr format, uint flags)
+
         #region IntPtr SDL_ListModesInternal(IntPtr format, int flags)
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION,
              EntryPoint = "SDL_ListModes"), SuppressUnmanagedCodeSecurity]
         private static extern IntPtr SDL_ListModesInternal(
             IntPtr format, int flags);
         #endregion IntPtr SDL_ListModesInternal(IntPtr format, int flags)
+
+        #region IntPtr SDL_ListModesInternal(IntPtr format, uint flags)
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION,
+             EntryPoint = "SDL_ListModes"), SuppressUnmanagedCodeSecurity]
+        private static extern IntPtr SDL_ListModesInternal(
+            IntPtr format, uint flags);
+        #endregion IntPtr SDL_ListModesInternal(IntPtr format, uint flags)
 
         #region IntPtr SDL_SetVideoMode(int width, int height, int bpp, int flags)
         /// <summary>
@@ -9906,7 +10843,7 @@ namespace Tao.Sdl
         ///                 All drawing will take place on the surface that 
         ///                 is not displayed at the moment. If double buffering 
         ///                 could not be enabled then SDL_Flip will just 
-        ///                 perform a <see cref="SDL_UpdateRect"/> 
+        ///                 perform a <see cref="SDL_UpdateRect(System.IntPtr, int, int, int, int)"/> 
         ///                 on the entire screen. This is usually slower than the normal 
         /// single-buffering
         /// scheme, but prevents "tearing" artifacts caused by modifying video 
@@ -9999,6 +10936,170 @@ namespace Tao.Sdl
             int bpp, int flags);
         #endregion IntPtr SDL_SetVideoMode(int width, int height, int bpp, int flags)
 
+        #region IntPtr SDL_SetVideoMode(int width, int height, int bpp, uint flags)
+        /// <summary>
+        /// Set up a video mode with the specified width, height 
+        /// and bits-per-pixel.
+        /// </summary>
+        /// <remarks>
+        /// If 'bpp' is 0, it is treated as the current display bits per pixel.
+        /// <p>
+        /// The flags parameter is the same as the flags field of the SDL_Surface 
+        /// structure. OR'd combinations of the following values are valid.
+        /// </p>
+        /// <list type="table">
+        ///		<listheader>
+        ///                 <term>Flag</term>
+        ///                 <description>Description</description>
+        ///             </listheader>
+        ///             <item>
+        ///                 <term><see cref="SDL_SWSURFACE" /></term>
+        ///                 <description>Create the video surface in system memory.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_HWSURFACE" /></term>
+        ///                 <description>Create the video surface in video memory ,if possible, 
+        ///                 and you may have to call SDL_LockSurface()
+        /// in order to access the raw framebuffer.  Otherwise, the video
+        ///  surface
+        /// will be created in system memory.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_ASYNCBLIT" /></term>
+        ///                 <description>Enables the use of asynchronous updates 
+        ///                 of the display surface, but you must always lock before 
+        /// accessing pixels.
+        /// SDL will wait for updates to complete before returning from the
+        ///  lock. This will usually slow down 
+        ///                 blitting on single CPU machines, but may provide a 
+        ///                 speed increase on SMP systems.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_ANYFORMAT" /></term>
+        ///                 <description>Normally, if a video surface of the 
+        ///                 requested bits-per-pixel (bpp) is not available, 
+        ///                 SDL will emulate one with a shadow surface. 
+        ///                 Passing SDL_ANYFORMAT prevents this and causes 
+        ///                 SDL to use the video surface, regardless of its 
+        ///                 pixel depth.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_HWPALETTE" /></term>
+        ///                 <description>Give SDL exclusive palette access. 
+        ///                 Without this flag you may not always get the the 
+        ///                 colors you request with <see cref="SDL_SetColors"/> 
+        ///                 or <see cref="SDL_SetPalette"/>. You should
+        ///  look
+        /// at the video surface structure to determine the actual palette.
+        /// If SDL cannot guarantee that the colors you request can be set, 
+        /// i.e. if the colormap is shared, then the video surface may be
+        ///  created
+        /// under emulation in system memory, overriding the SDL_HWSURFACE
+        ///  flag.
+        ///                 </description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_DOUBLEBUF" /></term>
+        ///                 <description>Enable hardware double buffering; 
+        ///                 only valid with SDL_HWSURFACE. Calling <see cref="SDL_Flip"/> 
+        ///                 will flip the buffers and update the screen. 
+        ///                 All drawing will take place on the surface that 
+        ///                 is not displayed at the moment. If double buffering 
+        ///                 could not be enabled then SDL_Flip will just 
+        ///                 perform a <see cref="SDL_UpdateRect(System.IntPtr, int, int, int, int)"/> 
+        ///                 on the entire screen. This is usually slower than the normal 
+        /// single-buffering
+        /// scheme, but prevents "tearing" artifacts caused by modifying video 
+        /// memory while the monitor is refreshing.  It should only be used by 
+        /// applications that redraw the entire screen on every update.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_FULLSCREEN" /></term>
+        ///                 <description>SDL will attempt to use a fullscreen mode. 
+        ///                 If a hardware resolution change is not possible 
+        ///                 (for whatever reason), the next higher resolution 
+        ///                 will be used and the display window centered 
+        ///                 on a black background. The default is to create a windowed mode
+        /// if the current graphics system has a window manager.
+        /// If the SDL library is able to set a fullscreen video mode, this
+        ///  flag 
+        /// will be set in the surface that is returned.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_OPENGL" /></term>
+        ///                 <description>Create an OpenGL rendering context. 
+        ///                 You should have previously set OpenGL 
+        ///                 video attributes with <see cref="SDL_GL_SetAttribute"/>.
+        ///                 </description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_OPENGLBLIT" /></term>
+        ///                 <description>Create an OpenGL rendering context, 
+        ///                 like above, but allow normal blitting operations. 
+        ///                 The screen (2D) surface may have an alpha channel,
+        ///                 and <see cref="SDL_UpdateRects"/> must be used for updating changes 
+        ///                 to the screen surface. NOTE: This option is kept for 
+        ///                 compatibility only, and is not recommended for new code.
+        ///                 </description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_RESIZABLE" /></term>
+        ///                 <description>Create a resizable window. 
+        ///                 When the window is resized by the user a 
+        ///                 <see cref="SDL_VIDEORESIZE"/> event is generated and 
+        ///                 SDL_SetVideoMode can be called again with the new size.
+        ///                 </description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_NOFRAME" /></term>
+        ///                 <description>If possible, SDL_NOFRAME causes 
+        ///                 SDL to create a window with no title bar or 
+        ///                 frame decoration. Fullscreen modes automatically 
+        ///                 have this flag set.
+        ///                 </description>
+        ///             </item>
+        ///         </list>
+        /// 
+        /// If you rely on functionality provided by certain video flags, 
+        /// check the
+        /// flags of the returned surface to make sure that functionality 
+        /// is available.
+        /// SDL will fall back to reduced functionality if the exact flags 
+        /// you wanted
+        /// are not available.
+        /// <p>Whatever flags SDL_SetVideoMode could satisfy are set 
+        /// in the flags member of the returned surface.</p>
+        /// <p>
+        ///  The bpp parameter is the number of bits per pixel, 
+        ///  so a bpp of 24 uses the packed representation of 3 bytes/pixel. 
+        ///  For the more common 4 bytes/pixel mode, use a bpp of 32. 
+        ///  Somewhat oddly, both 15 and 16 will request a 2 bytes/pixel mode, 
+        ///  but different pixel formats.
+        /// </p>
+        /// <p>Binds to C-function call in SDL_video.h:
+        /// <code>extern DECLSPEC SDL_Surface * SDLCALL SDL_SetVideoMode
+        /// (int width, int height, int bpp, Uint32 flags);</code>
+        /// </p>
+        /// </remarks>
+        /// <seealso cref="SDL_LockSurface">SDL_LockSurface</seealso>
+        /// <seealso cref="SDL_SetColors">SDL_SetColors</seealso>
+        /// <seealso cref="SDL_Flip">SDL_Flip</seealso>
+        /// <seealso cref="SDL_Surface">SDL_Surface</seealso>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <param name="bpp"></param>
+        /// <param name="flags"></param>
+        /// <returns>The framebuffer surface, or NULL if it fails. 
+        /// The surface returned is freed by SDL_Quit() and should not be 
+        /// freed by the caller.
+        /// </returns>
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
+        SuppressUnmanagedCodeSecurity]
+        [CLSCompliant(false)]
+        public static extern IntPtr SDL_SetVideoMode(int width, int height,
+            int bpp, uint flags);
+        #endregion IntPtr SDL_SetVideoMode(int width, int height, int bpp, uint flags)
+
         #region void SDL_UpdateRects(IntPtr screen, int numrects, [In, Out] SDL_Rect[] rects)
         /// <summary>
         /// Makes sure the given list of rectangles is updated on the given 
@@ -10022,7 +11123,7 @@ namespace Tao.Sdl
         /// <code>extern DECLSPEC void SDLCALL SDL_UpdateRects (SDL_Surface *screen, int numrects, SDL_Rect *rects)</code>
         /// </p>
         /// </remarks>
-        /// <seealso cref="SDL_UpdateRect">SDL_UpdateRect</seealso>
+        /// <seealso cref="SDL_UpdateRect(System.IntPtr, int, int, int, int)">SDL_UpdateRect</seealso>
         /// <seealso cref="SDL_Rect">SDL_Rect</seealso>
         /// <seealso cref="SDL_Surface">SDL_Surface</seealso>
         /// <seealso cref="SDL_LockSurface">SDL_LockSurface</seealso>
@@ -10062,6 +11163,34 @@ namespace Tao.Sdl
             int y, int w, int h);
         #endregion void SDL_UpdateRect(IntPtr screen, int x, int y, int w, int h)
 
+        #region void SDL_UpdateRect(IntPtr screen, int x, int y, uint w, uint h)
+        /// <summary>
+        /// Makes sure the given area is updated on the given screen. 
+        /// </summary>
+        /// <remarks>
+        /// <p>The rectangle must be confined within the screen boundaries (no 
+        /// clipping is done).
+        /// </p>
+        /// <p>If 'x', 'y', 'w' and 'h' are all 0, SDL_UpdateRect will update the 
+        /// entire screen.</p>
+        /// <p>These functions should not be called while 'screen' is 
+        /// <see cref="SDL_LockSurface">locked</see>.</p>
+        /// <p>Binds to C-function call in SDL_video.h:
+        /// <code>extern DECLSPEC void SDLCALL SDL_UpdateRect (SDL_Surface *screen, Sint32 x, Sint32 y, Uint32 w, Uint32 h)</code>
+        /// </p>
+        /// </remarks>
+        /// <param name="screen"></param>
+        /// <param name="w"></param>
+        /// <param name="h"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
+        SuppressUnmanagedCodeSecurity]
+        [CLSCompliant(false)]
+        public static extern void SDL_UpdateRect(IntPtr screen, int x,
+            int y, uint w, uint h);
+        #endregion void SDL_UpdateRect(IntPtr screen, int x, int y, uint w, uint h)
+
         #region int SDL_Flip(IntPtr screen)
         /// <summary>
         /// Swaps screen buffers
@@ -10075,9 +11204,9 @@ namespace Tao.Sdl
         ///  return.
         /// On hardware that does not support double-buffering, this is 
         /// equivalent
-        /// to calling <see cref="SDL_UpdateRect"/>(screen, 0, 0, 0, 0)
+        /// to calling <see cref="SDL_UpdateRect(System.IntPtr, int, int, int, int)"/>(screen, 0, 0, 0, 0)
         /// <p>
-        /// The SDL_DOUBLEBUF flag must have been passed to <see cref="SDL_SetVideoMode"/>
+        /// The SDL_DOUBLEBUF flag must have been passed to <see cref="SDL_SetVideoMode(int, int, int, int)"/>
         ///  when
         /// setting the video mode for this function to perform hardware 
         /// flipping.</p>
@@ -10087,8 +11216,8 @@ namespace Tao.Sdl
         /// This function returns 0 if successful, or -1 if there was an 
         /// error.
         /// </returns>
-        /// <seealso cref="SDL_SetVideoMode">SDL_SetVideoMode</seealso>
-        /// <seealso cref="SDL_UpdateRect">SDL_UpdateRect</seealso>
+        /// <seealso cref="SDL_SetVideoMode(int, int, int, int)">SDL_SetVideoMode</seealso>
+        /// <seealso cref="SDL_UpdateRect(System.IntPtr, int, int, int, int)">SDL_UpdateRect</seealso>
         /// <seealso cref="SDL_Surface">SDL_Surface</seealso>
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION, EntryPoint = "SDL_Flip"),
         SuppressUnmanagedCodeSecurity]
@@ -10123,7 +11252,7 @@ namespace Tao.Sdl
         /// If successful, this
         /// function returns 0, otherwise it returns -1.
         /// </returns>
-        /// <seealso cref="SDL_GetGammaRamp">SDL_GetGammaRamp</seealso>
+        /// <seealso cref="SDL_GetGammaRamp(short[], short[], short[])">SDL_GetGammaRamp</seealso>
         /// <seealso cref="SDL_SetGammaRamp">SDL_SetGammaRamp</seealso>
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
@@ -10155,7 +11284,7 @@ namespace Tao.Sdl
         /// <param name="green"></param>
         /// <param name="red"></param>
         /// <seealso cref="SDL_SetGamma">SDL_SetGamma</seealso>
-        /// <seealso cref="SDL_GetGammaRamp">SDL_GetGammaRamp</seealso>
+        /// <seealso cref="SDL_GetGammaRamp(short[], short[], short[])">SDL_GetGammaRamp</seealso>
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int SDL_SetGammaRamp([In, Out] short[] red,
@@ -10194,6 +11323,38 @@ namespace Tao.Sdl
             [In, Out] short[] blue);
         #endregion int SDL_GetGammaRamp(...)
 
+        #region int SDL_GetGammaRamp(...)
+        /// <summary>
+        /// Gets the color gamma lookup tables for the display.
+        /// </summary>
+        /// <remarks>
+        /// Gets the gamma translation lookup tables currently used by the display. 
+        /// Each table is an array of 256 <see cref="short"/> values.
+        /// <p>
+        /// You must pass in valid pointers to arrays of 256 16-bit quantities.
+        /// Any of the pointers may be NULL to ignore that channel.
+        /// </p>
+        /// <p>Not all display hardware is able to change gamma.
+        /// </p>
+        /// <p>Binds to C-function call in SDL_video.h:
+        /// <code>int SDLCALL SDL_GetGammaRamp(Uint16 *red, Uint16 *green, Uint16 *blue)</code>
+        /// </p>
+        /// </remarks>
+        /// <returns>
+        /// If the call succeeds, it will return 0.  If the display driver or
+        /// hardware does not support gamma translation, or otherwise fails,
+        /// this function will return -1.
+        /// </returns>
+        /// <seealso cref="SDL_SetGamma">SDL_SetGamma</seealso>
+        /// <seealso cref="SDL_SetGammaRamp">SDL_SetGammaRamp</seealso>
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
+        SuppressUnmanagedCodeSecurity]
+        [CLSCompliant(false)]
+        public static extern int SDL_GetGammaRamp([In, Out] ushort[] red,
+            [In, Out] ushort[] green,
+            [In, Out] ushort[] blue);
+        #endregion int SDL_GetGammaRamp(...)
+
         #region int SDL_SetColors(...)
         /// <summary>
         /// Sets a portion of the colormap for the given 8-bit surface.  		
@@ -10201,7 +11362,7 @@ namespace Tao.Sdl
         /// <remarks>
         /// <p>When surface is the surface associated with the current display,
         ///  the display colormap will be updated with the requested colors.
-        ///   If SDL_HWPALETTE was set in <see cref="SDL_SetVideoMode"/> flags, SDL_SetColors
+        ///   If SDL_HWPALETTE was set in <see cref="SDL_SetVideoMode(int, int, int, int)"/> flags, SDL_SetColors
         ///    will always return 1, and the palette is guaranteed to be set 
         ///    the way you desire, even if the window colormap has to be warped
         ///     or run under emulation.</p>
@@ -10274,7 +11435,7 @@ namespace Tao.Sdl
         /// <seealso cref="SDL_Color">SDL_Color</seealso>
         /// <seealso cref="SDL_Surface">SDL_Surface</seealso>
         /// <seealso cref="SDL_SetPalette">SDL_SetPalette</seealso>
-        /// <seealso cref="SDL_SetVideoMode">SDL_SetVideoMode</seealso>
+        /// <seealso cref="SDL_SetVideoMode(int, int, int, int)">SDL_SetVideoMode</seealso>
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int SDL_SetColors(IntPtr surface, [In, Out] SDL_Color[] colors,
@@ -10395,7 +11556,7 @@ namespace Tao.Sdl
         ///  can safely be ignored (e.g., with a 16-bpp format the return value 
         ///  can be assigned to a Uint16, and similarly a Uint8 for an 8-bpp 
         ///  format).</returns>
-        ///  <seealso cref="SDL_GetRGB">SDL_GetRGB</seealso>
+        ///  <seealso cref="SDL_GetRGB(int, IntPtr, out byte, out byte, out byte)">SDL_GetRGB</seealso>
         ///  <seealso cref="SDL_GetRGBA">SDL_GetRGBA</seealso>
         ///  <seealso cref="SDL_MapRGBA">SDL_MapRGBA</seealso>
         ///  <seealso cref="SDL_PixelFormat">SDL_PixelFormat</seealso>
@@ -10431,7 +11592,7 @@ namespace Tao.Sdl
         /// bits of the return value can safely be ignored (e.g., with a 
         /// 16-bpp format the return value can be assigned to a Uint16, 
         /// and similarly a Uint8 for an 8-bpp format).</returns>
-        /// <seealso cref="SDL_GetRGB">SDL_GetRGB</seealso>
+        /// <seealso cref="SDL_GetRGB(int, IntPtr, out byte, out byte, out byte)">SDL_GetRGB</seealso>
         /// <seealso cref="SDL_GetRGBA">SDL_GetRGBA</seealso>
         /// <seealso cref="SDL_MapRGB">SDL_MapRGB</seealso>
         /// <seealso cref="SDL_PixelFormat">SDL_PixelFormat</seealso> 
@@ -10470,6 +11631,36 @@ namespace Tao.Sdl
             out byte r, out byte g, out byte b);
         #endregion void SDL_GetRGB(int pixel, IntPtr fmt, out byte r, out byte g, out byte b)
 
+        #region void SDL_GetRGB(uint pixel, IntPtr fmt, out byte r, out byte g, out byte b)
+        /// <summary>
+        /// Get RGB values from a pixel in the specified pixel format.
+        /// </summary>
+        /// <remarks>
+        /// Get RGB component values from a pixel stored in the specified pixel format.
+        /// <p>This function uses the entire 8-bit [0..255] range when converting 
+        /// color components from pixel formats with less than 8-bits per RGB component
+        ///  (e.g., a completely white pixel in 16-bit RGB565 format would return 
+        ///  [0xff, 0xff, 0xff] not [0xf8, 0xfc, 0xf8]).</p>
+        ///  <p>Binds to C-function call in SDL_video.h:
+        /// <code>void SDL_GetRGB(Uint32 pixel, SDL_PixelFormat *fmt, Uint8 *r, Uint8 *g, Uint8 *b);</code>
+        /// </p>
+        ///  </remarks>
+        /// <param name="pixel"></param>
+        /// <param name="fmt"></param>
+        /// <param name="r"></param>
+        /// <param name="g"></param>
+        /// <param name="b"></param>
+        /// <seealso cref="SDL_GetRGBA">SDL_GetRGBA</seealso>
+        /// <seealso cref="SDL_MapRGB">SDL_MapRGB</seealso>
+        /// <seealso cref="SDL_MapRGBA">SDL_MapRGBA</seealso>
+        /// <seealso cref="SDL_PixelFormat">SDL_PixelFormat</seealso>
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
+        SuppressUnmanagedCodeSecurity]
+        [CLSCompliant(false)]
+        public static extern void SDL_GetRGB(uint pixel, IntPtr fmt,
+            out byte r, out byte g, out byte b);
+        #endregion void SDL_GetRGB(uint pixel, IntPtr fmt, out byte r, out byte g, out byte b)
+
         #region void SDL_GetRGBA(...)
         /// <summary>
         /// Get RGBA values from a pixel in the specified pixel format.
@@ -10493,7 +11684,7 @@ namespace Tao.Sdl
         /// <param name="g"></param>
         /// <param name="b"></param>
         /// <param name="a"></param>
-        /// <seealso cref="SDL_GetRGB">SDL_GetRGB</seealso>
+        /// <seealso cref="SDL_GetRGB(int, IntPtr, out byte, out byte, out byte)">SDL_GetRGB</seealso>
         /// <seealso cref="SDL_MapRGB">SDL_MapRGB</seealso>
         /// <seealso cref="SDL_MapRGBA">SDL_MapRGBA</seealso>
         /// <seealso cref="SDL_PixelFormat">SDL_PixelFormat</seealso>
@@ -10508,7 +11699,7 @@ namespace Tao.Sdl
         /// Create an empty SDL_Surface
         /// </summary>
         /// <remarks>
-        /// Allocate an empty surface (must be called after <see cref="SDL_SetVideoMode"/>).
+        /// Allocate an empty surface (must be called after <see cref="SDL_SetVideoMode(int, int, int, int)"/>).
         /// <p>If depth is 8 bits an empty palette is allocated for the surface, 
         /// otherwise a 'packed-pixel' <see cref="SDL_PixelFormat"/> is created using the 
         /// [RGBA]mask's provided (see SDL_PixelFormat). The flags specifies 
@@ -10539,7 +11730,7 @@ namespace Tao.Sdl
         ///                 blits from this surface. If SDL_HWSURFACE is also 
         ///                 specified and colourkeyed blits are hardware-accelerated,
         ///                  then SDL will attempt to place the surface in video 
-        ///                  memory. Use <see cref="SDL_SetColorKey"/> 
+        ///                  memory. Use <see cref="SDL_SetColorKey(IntPtr, int, int)"/> 
         ///                  to set or clear this flag
         ///                   after surface creation.
         ///                   </description>
@@ -10552,7 +11743,7 @@ namespace Tao.Sdl
         ///                 specified and alpha-blending blits are 
         ///                 hardware-accelerated, then the surface will be placed 
         ///                 in video memory if possible. Use 
-        ///                 <see cref="SDL_SetAlpha"/> to set 
+        ///                 <see cref="SDL_SetAlpha(IntPtr, int, byte)"/> to set 
         ///                 or clear this flag after surface creation.
         ///                 </description>
         ///             </item>
@@ -10560,7 +11751,7 @@ namespace Tao.Sdl
         ///         <p><b>Note:</b> If an alpha-channel is specified (that is, 
         ///         if Amask is nonzero), then the SDL_SRCALPHA flag is 
         ///         automatically set. You may remove this flag by 
-        ///         calling <see cref="SDL_SetAlpha"/> after surface creation.</p>
+        ///         calling <see cref="SDL_SetAlpha(IntPtr, int, byte)"/> after surface creation.</p>
         /// <p>Binds to C-function call in SDL_video.h:
         /// <code>SDL_Surface *SDL_CreateRGBSurface(Uint32 flags, int width, int height, int depth, Uint32 Rmask, Uint32 Gmask, Uint32 Bmask, Uint32 Amask)</code>
         /// </p>
@@ -10602,14 +11793,14 @@ namespace Tao.Sdl
         /// <param name="Bmask"></param>
         /// <param name="Amask"></param>
         /// <returns>IntPtr to <see cref="SDL_Surface"/>, or NULL upon error.</returns>
-        /// <seealso cref="SDL_CreateRGBSurfaceFrom">SDL_CreateRGBSurfaceFrom</seealso>
+        /// <seealso cref="SDL_CreateRGBSurfaceFrom(System.IntPtr, int, int, int, int, int, int, int, int)">SDL_CreateRGBSurfaceFrom</seealso>
         /// <seealso cref="SDL_FreeSurface">SDL_FreeSurface</seealso>
-        /// <seealso cref="SDL_SetVideoMode">SDL_SetVideoMode</seealso>
+        /// <seealso cref="SDL_SetVideoMode(int, int, int, int)">SDL_SetVideoMode</seealso>
         /// <seealso cref="SDL_LockSurface">SDL_LockSurface</seealso>
         /// <seealso cref="SDL_PixelFormat">SDL_PixelFormat</seealso>
         /// <seealso cref="SDL_Surface">SDL_Surface</seealso>
-        /// <seealso cref="SDL_SetAlpha">SDL_SetAlpha</seealso>
-        /// <seealso cref="SDL_SetColorKey">SDL_SetColorKey</seealso>
+        /// <seealso cref="SDL_SetAlpha(IntPtr, int, byte)">SDL_SetAlpha</seealso>
+        /// <seealso cref="SDL_SetColorKey(IntPtr, int, int)">SDL_SetColorKey</seealso>
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr SDL_CreateRGBSurface(int flags,
@@ -10617,9 +11808,124 @@ namespace Tao.Sdl
             int Rmask, int Gmask, int Bmask, int Amask);
         #endregion IntPtr SDL_CreateRGBSurface(...)
 
+        #region IntPtr SDL_CreateRGBSurface(...)
+        /// <summary>
+        /// Create an empty SDL_Surface
+        /// </summary>
+        /// <remarks>
+        /// Allocate an empty surface (must be called after <see cref="SDL_SetVideoMode(int, int, int, int)"/>).
+        /// <p>If depth is 8 bits an empty palette is allocated for the surface, 
+        /// otherwise a 'packed-pixel' <see cref="SDL_PixelFormat"/> is created using the 
+        /// [RGBA]mask's provided (see SDL_PixelFormat). The flags specifies 
+        /// the type of surface that should be created, it is an OR'd combination
+        ///  of the following possible values.</p>
+        /// <list type="table">
+        ///             <item>
+        ///                 <term><see cref="SDL_SWSURFACE" /></term>
+        ///                 <description>
+        ///                 SDL will create the surface in system memory. 
+        ///                 This improves the performance of pixel level access, 
+        ///                 however you may not be able to take advantage of 
+        ///                 some types of hardware blitting.
+        ///                 </description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_HWSURFACE" /></term>
+        ///                 <description>
+        ///                 SDL will attempt to create the surface in
+        ///                  video memory. This will allow SDL to take advantage 
+        ///                  of Video->Video blits (which are often accelerated).
+        ///                  </description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_SRCCOLORKEY" /></term>
+        ///                 <description>
+        ///                 This flag turns on colourkeying for 
+        ///                 blits from this surface. If SDL_HWSURFACE is also 
+        ///                 specified and colourkeyed blits are hardware-accelerated,
+        ///                  then SDL will attempt to place the surface in video 
+        ///                  memory. Use <see cref="SDL_SetColorKey(IntPtr, int, int)"/> 
+        ///                  to set or clear this flag
+        ///                   after surface creation.
+        ///                   </description>
+        ///             </item>
+        ///             <item>
+        ///                 <term><see cref="SDL_SRCALPHA" /></term>
+        ///                 <description>
+        ///                 This flag turns on alpha-blending for 
+        ///                 blits from this surface. If SDL_HWSURFACE is also 
+        ///                 specified and alpha-blending blits are 
+        ///                 hardware-accelerated, then the surface will be placed 
+        ///                 in video memory if possible. Use 
+        ///                 <see cref="SDL_SetAlpha(IntPtr, int, byte)"/> to set 
+        ///                 or clear this flag after surface creation.
+        ///                 </description>
+        ///             </item>
+        ///         </list>
+        ///         <p><b>Note:</b> If an alpha-channel is specified (that is, 
+        ///         if Amask is nonzero), then the SDL_SRCALPHA flag is 
+        ///         automatically set. You may remove this flag by 
+        ///         calling <see cref="SDL_SetAlpha(IntPtr, int, byte)"/> after surface creation.</p>
+        /// <p>Binds to C-function call in SDL_video.h:
+        /// <code>SDL_Surface *SDL_CreateRGBSurface(Uint32 flags, int width, int height, int depth, Uint32 Rmask, Uint32 Gmask, Uint32 Bmask, Uint32 Amask)</code>
+        /// </p>
+        /// </remarks>
+        /// <example>
+        /// /* Create a 32-bit surface with the bytes of each pixel in R,G,B,A order,
+        /// as expected by OpenGL for textures */
+        /// SDL_Surface *surface;
+        /// Uint32 rmask, gmask, bmask, amask;
+        ///
+        /// /* SDL interprets each pixel as a 32-bit number, so our masks must depend
+        ///   on the endianness (byte order) of the machine */
+        ///#if SDL_BYTEORDER == SDL_BIG_ENDIAN
+        ///		rmask = 0xff000000;
+        ///		gmask = 0x00ff0000;
+        ///		bmask = 0x0000ff00;
+        ///		amask = 0x000000ff;
+        ///#else
+        ///    rmask = 0x000000ff;
+        ///    gmask = 0x0000ff00;
+        ///    bmask = 0x00ff0000;
+        ///    amask = 0xff000000;
+        ///#endif
+        ///
+        ///		surface = SDL_CreateRGBSurface(SDL_SWSURFACE, width, height, 32,
+        ///		rmask, gmask, bmask, amask);
+        ///		if(surface == NULL) 
+        ///	{
+        ///		fprintf(stderr, "CreateRGBSurface failed: %s\n", SDL_GetError());
+        ///		exit(1);
+        ///	}
+        /// </example>
+        /// <param name="flags"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <param name="depth"></param>
+        /// <param name="Rmask"></param>
+        /// <param name="Gmask"></param>
+        /// <param name="Bmask"></param>
+        /// <param name="Amask"></param>
+        /// <returns>IntPtr to <see cref="SDL_Surface"/>, or NULL upon error.</returns>
+        /// <seealso cref="SDL_CreateRGBSurfaceFrom(System.IntPtr, int, int, int, int, int, int, int, int)">SDL_CreateRGBSurfaceFrom</seealso>
+        /// <seealso cref="SDL_FreeSurface">SDL_FreeSurface</seealso>
+        /// <seealso cref="SDL_SetVideoMode(int, int, int, int)">SDL_SetVideoMode</seealso>
+        /// <seealso cref="SDL_LockSurface">SDL_LockSurface</seealso>
+        /// <seealso cref="SDL_PixelFormat">SDL_PixelFormat</seealso>
+        /// <seealso cref="SDL_Surface">SDL_Surface</seealso>
+        /// <seealso cref="SDL_SetAlpha(IntPtr, int, byte)">SDL_SetAlpha</seealso>
+        /// <seealso cref="SDL_SetColorKey(IntPtr, int, int)">SDL_SetColorKey</seealso>
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
+        SuppressUnmanagedCodeSecurity]
+        [CLSCompliant(false)]
+        public static extern IntPtr SDL_CreateRGBSurface(uint flags,
+            int width, int height, int depth,
+            uint Rmask, uint Gmask, uint Bmask, uint Amask);
+        #endregion IntPtr SDL_CreateRGBSurface(...)
+
         #region IntPtr SDL_AllocSurface(...)
         /// <summary>
-        /// Same as <see cref="SDL_CreateRGBSurface"/>
+        /// Same as <see cref="SDL_CreateRGBSurface(int, int, int, int, int, int, int, int)"/>
         /// </summary>
         /// <param name="flags"></param>
         /// <param name="width"></param>
@@ -10637,6 +11943,27 @@ namespace Tao.Sdl
             int Rmask, int Gmask, int Bmask, int Amask);
         #endregion IntPtr SDL_AllocSurface(...)
 
+        #region IntPtr SDL_AllocSurface(...)
+        /// <summary>
+        /// Same as <see cref="SDL_CreateRGBSurface(int, int, int, int, int, int, int, int)"/>
+        /// </summary>
+        /// <param name="flags"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <param name="depth"></param>
+        /// <param name="Rmask"></param>
+        /// <param name="Gmask"></param>
+        /// <param name="Bmask"></param>
+        /// <param name="Amask"></param>
+        /// <returns></returns>
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION, EntryPoint = "SDL_CreateRGBSurface"),
+        SuppressUnmanagedCodeSecurity]
+        [CLSCompliant(false)]
+        public static extern IntPtr SDL_AllocSurface(uint flags,
+            int width, int height, int depth,
+            uint Rmask, uint Gmask, uint Bmask, uint Amask);
+        #endregion IntPtr SDL_AllocSurface(...)
+
         #region IntPtr SDL_CreateRGBSurfaceFrom(...)
         /// <summary>
         /// Create an SDL_Surface from pixel data
@@ -10650,7 +11977,7 @@ namespace Tao.Sdl
         ///  with a called to <see cref="SDL_FreeSurface"/>. pitch is the length of each scanline
         ///   in bytes. </p>
         ///   <p>
-        /// See <see cref="SDL_CreateRGBSurface"/> for a more detailed description of the other 
+        /// See <see cref="SDL_CreateRGBSurface(int, int, int, int, int, int, int, int)"/> for a more detailed description of the other 
         /// parameters.</p>
         /// <p>Binds to C-function call in SDL_video.h:
         /// <code>SDL_Surface *SDL_CreateRGBSurfaceFrom(void *pixels, int width, int height, int depth, int pitch, Uint32 Rmask, Uint32 Gmask, Uint32 Bmask, Uint32 Amask)</code>
@@ -10667,7 +11994,7 @@ namespace Tao.Sdl
         /// <param name="Amask"></param>
         /// <returns>Returns the created surface, or NULL upon error.
         /// </returns>
-        /// <seealso cref="SDL_CreateRGBSurface"/>
+        /// <seealso cref="SDL_CreateRGBSurface(int, int, int, int, int, int, int, int)"/>
         /// <seealso cref="SDL_FreeSurface"/>
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
@@ -10676,21 +12003,61 @@ namespace Tao.Sdl
             int Gmask, int Bmask, int Amask);
         #endregion IntPtr SDL_CreateRGBSurfaceFrom(...)
 
+        #region IntPtr SDL_CreateRGBSurfaceFrom(...)
+        /// <summary>
+        /// Create an SDL_Surface from pixel data
+        /// </summary>
+        /// <remarks>
+        /// Creates an SDL_Surface from the provided pixel data.
+        /// <p>
+        /// The data stored in pixels is assumed to be of the depth specified 
+        /// in the parameter list. The pixel data is not copied into the SDL_Surface
+        ///  structure so it should not be freed until the surface has been freed 
+        ///  with a called to <see cref="SDL_FreeSurface"/>. pitch is the length of each scanline
+        ///   in bytes. </p>
+        ///   <p>
+        /// See <see cref="SDL_CreateRGBSurface(int, int, int, int, int, int, int, int)"/> for a more detailed description of the other 
+        /// parameters.</p>
+        /// <p>Binds to C-function call in SDL_video.h:
+        /// <code>SDL_Surface *SDL_CreateRGBSurfaceFrom(void *pixels, int width, int height, int depth, int pitch, Uint32 Rmask, Uint32 Gmask, Uint32 Bmask, Uint32 Amask)</code>
+        /// </p>
+        /// </remarks>
+        /// <param name="pixels"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <param name="depth"></param>
+        /// <param name="pitch">length of each scanline in bytes.</param>
+        /// <param name="Rmask"></param>
+        /// <param name="Gmask"></param>
+        /// <param name="Bmask"></param>
+        /// <param name="Amask"></param>
+        /// <returns>Returns the created surface, or NULL upon error.
+        /// </returns>
+        /// <seealso cref="SDL_CreateRGBSurface(int, int, int, int, int, int, int, int)"/>
+        /// <seealso cref="SDL_FreeSurface"/>
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
+        SuppressUnmanagedCodeSecurity]
+        [CLSCompliant(false)]
+        public static extern IntPtr SDL_CreateRGBSurfaceFrom(IntPtr pixels,
+            int width, int height, int depth, int pitch, uint Rmask,
+            uint Gmask, uint Bmask, uint Amask);
+        #endregion IntPtr SDL_CreateRGBSurfaceFrom(...)
+
         #region void SDL_FreeSurface(IntPtr surface)
         /// <summary>
         /// Frees (deletes) a SDL_Surface
         /// </summary>
         /// <remarks>
         /// Frees the resources used by a previously created <see cref="SDL_Surface"/>.
-        /// If the surface was created using <see cref="SDL_CreateRGBSurfaceFrom"/> 
+        /// If the surface was created using <see cref="SDL_CreateRGBSurfaceFrom(System.IntPtr, int, int, int, int, int, int, int, int)"/> 
         /// then the pixel data is not freed.
         /// <p>Binds to C-function call in SDL_video.h:
         /// <code>void SDL_FreeSurface(SDL_Surface *surface)</code>
         /// </p>
         /// </remarks>
         /// <param name="surface"></param>
-        /// <seealso cref="SDL_CreateRGBSurface">SDL_CreateRGBSurface</seealso>
-        /// <seealso cref="SDL_CreateRGBSurfaceFrom">SDL_CreateRGBSurfaceFrom</seealso>
+        /// <seealso cref="SDL_CreateRGBSurface(int, int, int, int, int, int, int, int)">SDL_CreateRGBSurface</seealso>
+        /// <seealso cref="SDL_CreateRGBSurfaceFrom(System.IntPtr, int, int, int, int, int, int, int, int)">SDL_CreateRGBSurfaceFrom</seealso>
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern void SDL_FreeSurface(IntPtr surface);
@@ -10887,12 +12254,52 @@ namespace Tao.Sdl
         /// <seealso cref="SDL_BlitSurface">SDL_BlitSurface</seealso>
         /// <seealso cref="SDL_DisplayFormat">SDL_DisplayFormat</seealso>
         /// <seealso cref="SDL_MapRGB">SDL_MapRGB</seealso>
-        /// <seealso cref="SDL_SetAlpha">SDL_SetAlpha</seealso>
+        /// <seealso cref="SDL_SetAlpha(IntPtr, int, byte)">SDL_SetAlpha</seealso>
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int SDL_SetColorKey(IntPtr surface, int flag,
             int key);
         #endregion int SDL_SetColorKey(IntPtr surface, int flag, int key)
+
+        #region int SDL_SetColorKey(IntPtr surface, uint flag, int ukey)
+        /// <summary>
+        /// Sets the color key (transparent pixel) in a blittable surface and RLE acceleration.
+        /// </summary>
+        /// <remarks>
+        /// Sets the color key (transparent pixel) in a blittable surface and 
+        /// enables or disables RLE blit acceleration.
+        /// <p>RLE acceleration can substantially speed up blitting of images 
+        /// with large horizontal runs of transparent pixels (i.e., pixels that
+        ///  match the key value). The key must be of the same pixel format as 
+        ///  the surface, <see cref="SDL_MapRGB"/> is often useful for obtaining an acceptable 
+        ///  value.</p>
+        /// <p>If flag is SDL_SRCCOLORKEY then key is the transparent pixel value 
+        /// in the source image of a blit.</p>		
+        /// <p>If flag is OR'd with SDL_RLEACCEL then the surface will be draw 
+        /// using RLE acceleration when drawn with <see cref="SDL_BlitSurface"/>. The surface 
+        /// will actually be encoded for RLE acceleration the first time 
+        /// <see cref="SDL_BlitSurface"/> or <see cref="SDL_DisplayFormat"/> is called on the surface.</p>
+        /// <p>If flag is 0, this function clears any current color key.</p>
+        /// <p>Binds to C-function call in SDL_video.h:
+        /// <code>int SDL_SetColorKey(SDL_Surface *surface, Uint32 flag, Uint32 key);
+        /// </code></p>
+        /// </remarks>
+        /// <param name="surface"></param>
+        /// <param name="flag"></param>
+        /// <param name="key"></param>
+        /// <returns>
+        /// This function returns 0, or -1 if there was an error.
+        /// </returns>
+        /// <seealso cref="SDL_BlitSurface">SDL_BlitSurface</seealso>
+        /// <seealso cref="SDL_DisplayFormat">SDL_DisplayFormat</seealso>
+        /// <seealso cref="SDL_MapRGB">SDL_MapRGB</seealso>
+        /// <seealso cref="SDL_SetAlpha(IntPtr, int, byte)">SDL_SetAlpha</seealso>
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
+        SuppressUnmanagedCodeSecurity]
+        [CLSCompliant(false)]
+        public static extern int SDL_SetColorKey(IntPtr surface, uint flag,
+            uint key);
+        #endregion int SDL_SetColorKey(IntPtr surface, uint flag, uint key)
 
         #region int SDL_SetAlpha(IntPtr surface, int flag, byte alpha);
         /// <summary>
@@ -11003,6 +12410,116 @@ namespace Tao.Sdl
             byte alpha);
         #endregion int SDL_SetAlpha(IntPtr surface, int flag, byte alpha);
 
+        #region int SDL_SetAlpha(IntPtr surface, uint flag, byte alpha);
+        /// <summary>
+        /// Adjust the alpha properties of a surface.
+        /// </summary>
+        /// <remarks>
+        /// SDL_SetAlpha is used for setting the per-surface alpha value and/or
+        /// enabling and disabling alpha blending.
+        /// <p>The surface parameter specifies which surface whose alpha 
+        /// attributes you wish to adjust. flags is used to specify whether
+        ///  alpha blending should be used (SDL_SRCALPHA) and whether the 
+        ///  surface should use RLE acceleration for blitting (SDL_RLEACCEL).
+        ///   flags can be an OR'd combination of these two options, one of 
+        ///   these options or 0. If SDL_SRCALPHA is not passed as a flag then 
+        ///   all alpha information is ignored when blitting the surface. The
+        ///    alpha parameter is the per-surface alpha value; a surface 
+        ///    need not have an alpha channel to use per-surface alpha and 
+        ///    blitting can still be accelerated with SDL_RLEACCEL.</p>
+        /// <p>Note: The per-surface alpha value of 128 is considered a 
+        /// special case and is optimised, so it's much faster than other 
+        /// per-surface values.</p>
+        /// Alpha effects surface blitting in the following ways:
+        /// <list type="table">
+        ///             <item>
+        ///                 <term>RGBA-&gt;RGB with SDL_SRCALPHA</term>
+        ///                 <description>The source is alpha-blended with 
+        ///                 the destination, using the alpha channel. 
+        ///                 SDL_SRCCOLORKEY and the per-surface alpha 
+        ///                 are ignored.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term>RGBA-&gt;RGB without SDL_SRCALPHA</term>
+        ///                 <description>The RGB data is copied from the source.
+        ///                  The source alpha channel and the per-surface
+        ///                   alpha value are ignored.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term>RGB-&gt;RGBA with SDL_SRCALPHA</term>
+        ///                 <description>The source is alpha-blended with the 
+        ///                 destination using the per-surface alpha value. 
+        ///                 If SDL_SRCCOLORKEY is set, only the pixels not 
+        ///                 matching the colorkey value are copied. The alpha 
+        ///                 channel of the copied pixels is set to opaque.
+        ///                 </description>
+        ///             </item>
+        ///             <item>
+        ///                 <term>RGB-&gt;RGBA without SDL_SRCALPHA</term>
+        ///                 <description>The RGB data is copied from the 
+        ///                 source and the alpha value of the copied pixels
+        ///                  is set to opaque. If SDL_SRCCOLORKEY is set, 
+        ///                  only the pixels not matching the colorkey value
+        ///                   are copied.</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term>RGBA-&gt;RGBA with SDL_SRCALPHA</term>
+        ///                 <description>The source is alpha-blended with
+        ///                  the destination using the source alpha channel.
+        ///                   The alpha channel in the destination surface 
+        ///                   is left untouched. SDL_SRCCOLORKEY is ignored.
+        ///                   </description>
+        ///             </item>
+        ///             <item>
+        ///                 <term>RGBA-&gt;RGBA without SDL_SRCALPHA</term>
+        ///                 <description>The RGBA data is copied to the destination
+        ///                  surface. If SDL_SRCCOLORKEY is set, only the pixels 
+        ///                  not matching the colorkey value are copied.
+        ///                  </description>
+        ///             </item>
+        ///             <item>
+        ///                 <term>RGB-&gt;RGB with SDL_SRCALPHA</term>
+        ///                 <description>The source is alpha-blended with the 
+        ///                 destination using the per-surface alpha value. 
+        ///                 If SDL_SRCCOLORKEY is set, only the pixels not 
+        ///                 matching the colorkey value are copied.
+        ///                 </description>
+        ///             </item>
+        ///             <item>
+        ///                 <term>RGB-&gt;RGB without SDL_SRCALPHA</term>
+        ///                 <description>The RGB data is copied from the source.
+        ///                  If SDL_SRCCOLORKEY is set, only the pixels not 
+        ///                  matching the colorkey value are copied.
+        ///                  </description>
+        ///             </item>
+        ///         </list>
+        /// <p>Note: Note that RGBA-&gt;RGBA blits (with SDL_SRCALPHA set) keep 
+        /// the alpha of the destination surface. This means that you cannot 
+        /// compose two arbitrary RGBA surfaces this way and get the result 
+        /// you would expect from "overlaying" them; the destination alpha 
+        /// will work as a mask.</p>
+        /// <p>Also note that per-pixel and per-surface alpha cannot be
+        ///  combined; the per-pixel alpha is always used if available.</p>
+        /// <p>Binds to C-function call in SDL_video.h:
+        /// <code>int SDL_SetAlpha(SDL_Surface *surface, Uint32 flag, Uint8 alpha);
+        /// </code></p>
+        /// </remarks>
+        /// <param name="surface"></param>
+        /// <param name="flag"></param>
+        /// <param name="alpha"></param>
+        /// <returns>This function returns 0, or -1 if there was an error.
+        /// </returns>
+        /// <seealso cref="SDL_MapRGBA">SDL_MapRGBA</seealso>
+        /// <seealso cref="SDL_GetRGBA">SDL_GetRGBA</seealso>
+        /// <seealso cref="SDL_DisplayFormatAlpha">SDL_DisplayFormatAlpha</seealso>
+        /// <seealso cref="SDL_BlitSurface">SDL_BlitSurface</seealso>
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
+        SuppressUnmanagedCodeSecurity]
+        [CLSCompliant(false)]
+        public static extern int SDL_SetAlpha(IntPtr surface, uint flag,
+            byte alpha);
+        #endregion int SDL_SetAlpha(IntPtr surface, uint flag, byte alpha);
+
         #region void SDL_SetClipRect(IntPtr surface, ref Sdl_Rect rect)
         /// <summary>
         /// Sets the clipping rectangle for a surface.
@@ -11065,7 +12582,7 @@ namespace Tao.Sdl
         /// and then copies and maps the given surface to it. 
         /// If this function fails, it returns NULL.
         /// <p>The flags parameter is passed to 
-        /// <see cref="SDL_CreateRGBSurface"/> and has those semantics.</p>
+        /// <see cref="SDL_CreateRGBSurface(int, int, int, int, int, int, int, int)"/> and has those semantics.</p>
         /// <p>This function is used internally by <see cref="SDL_DisplayFormat"/>.</p>
         /// <p>This function can only be called after SDL_Init.</p>
         /// <p>Binds to C-function call in SDL_video.h:
@@ -11079,7 +12596,7 @@ namespace Tao.Sdl
         /// <returns>
         /// Returns either a pointer to the new surface, or NULL on error.
         /// </returns>
-        /// <seealso cref="SDL_CreateRGBSurface">SDL_CreateRGBSurface</seealso>
+        /// <seealso cref="SDL_CreateRGBSurface(int, int, int, int, int, int, int, int)">SDL_CreateRGBSurface</seealso>
         /// <seealso cref="SDL_DisplayFormat">SDL_DisplayFormat</seealso>
         /// <seealso cref="SDL_PixelFormat">SDL_PixelFormat</seealso>
         /// <seealso cref="SDL_Surface">SDL_Surface</seealso>
@@ -11088,6 +12605,40 @@ namespace Tao.Sdl
         public static extern IntPtr SDL_ConvertSurface(IntPtr src, IntPtr fmt,
             int flags);
         #endregion IntPtr SDL_ConvertSurface(IntPtr src, IntPtr fmt, int flags)
+
+        #region IntPtr SDL_ConvertSurface(IntPtr src, IntPtr fmt, uint flags)
+        /// <summary>
+        /// Converts a surface to the same format as another surface.
+        /// </summary>
+        /// <remarks>
+        /// Creates a new surface of the specified format, 
+        /// and then copies and maps the given surface to it. 
+        /// If this function fails, it returns NULL.
+        /// <p>The flags parameter is passed to 
+        /// <see cref="SDL_CreateRGBSurface(int, int, int, int, int, int, int, int)"/> and has those semantics.</p>
+        /// <p>This function is used internally by <see cref="SDL_DisplayFormat"/>.</p>
+        /// <p>This function can only be called after SDL_Init.</p>
+        /// <p>Binds to C-function call in SDL_video.h:
+        /// <code>
+        /// SDL_Surface *SDL_ConvertSurface(SDL_Surface *src, SDL_PixelFormat *fmt, Uint32 flags)
+        /// </code></p>
+        /// </remarks>
+        /// <param name="src">IntPtr to SDL_Surface</param>
+        /// <param name="fmt">IntPTr to SDL_PixelFormat</param>
+        /// <param name="flags"></param>
+        /// <returns>
+        /// Returns either a pointer to the new surface, or NULL on error.
+        /// </returns>
+        /// <seealso cref="SDL_CreateRGBSurface(int, int, int, int, int, int, int, int)">SDL_CreateRGBSurface</seealso>
+        /// <seealso cref="SDL_DisplayFormat">SDL_DisplayFormat</seealso>
+        /// <seealso cref="SDL_PixelFormat">SDL_PixelFormat</seealso>
+        /// <seealso cref="SDL_Surface">SDL_Surface</seealso>
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
+        SuppressUnmanagedCodeSecurity]
+        [CLSCompliant(false)]
+        public static extern IntPtr SDL_ConvertSurface(IntPtr src, IntPtr fmt,
+            uint flags);
+        #endregion IntPtr SDL_ConvertSurface(IntPtr src, IntPtr fmt, uint flags)
 
         #region int SDL_BlitSurface(IntPtr src, IntPtr srcrect, IntPtr dst, IntPtr dstrect)
         /// <summary>
@@ -11156,7 +12707,7 @@ namespace Tao.Sdl
         /// have access to the video memory again.</p>	
         /// </returns>	
         /// <seealso cref="SDL_LockSurface"/>
-        /// <seealso cref="SDL_FillRect"/>
+        /// <seealso cref="SDL_FillRect(IntPtr, ref SDL_Rect, int)"/>
         /// <seealso cref="SDL_Surface"/>
         /// <seealso cref="SDL_Rect"/>
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION,
@@ -11209,6 +12760,47 @@ namespace Tao.Sdl
             int color);
         #endregion int SDL_FillRect(IntPtr surface, ref SDL_Rect rect, int color)
 
+        #region int SDL_FillRect(IntPtr surface, ref SDL_Rect rect, uint color)
+        /// <summary>
+        /// This function performs a fast fill of the given rectangle with some color.
+        /// </summary>
+        /// <remarks>
+        /// This function performs a fast fill of the given rectangle with color. 
+        /// If dstrect is NULL, the whole surface will be filled with color.
+        /// <p>The color should be a pixel of the format used by the surface,
+        ///  and can be generated by the <see cref="SDL_MapRGB"/> or 
+        ///  <see cref="SDL_MapRGBA"/> functions.
+        ///   If the color value contains an alpha value then the destination
+        ///    is simply "filled" with that alpha information, no blending 
+        ///    takes place.</p>
+        /// <p>If there is a clip rectangle set on the destination (set via
+        ///  <see cref="SDL_SetClipRect"/>) then this function will clip based on the 
+        ///  intersection of the clip rectangle and the dstrect rectangle 
+        ///  and the dstrect rectangle will be modified to represent the 
+        ///  area actually filled.</p>
+        /// <p>Binds to C-function call in SDL_video.h:
+        /// <code>
+        /// int SDL_FillRect(SDL_Surface *dst, SDL_Rect *dstrect, Uint32 color);
+        /// </code>
+        /// </p>
+        /// </remarks>
+        /// <param name="surface">IntPtr to SDL_Surface</param>
+        /// <param name="rect">IntPtr to SDL_Rect</param>
+        /// <param name="color"></param>
+        /// <returns>
+        /// This function returns 0 on success, or -1 on error.
+        /// </returns>
+        /// <seealso cref="SDL_MapRGB"/>
+        /// <seealso cref="SDL_MapRGBA"/>
+        /// <seealso cref="SDL_BlitSurface"/>
+        /// <seealso cref="SDL_Rect"/>
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
+        SuppressUnmanagedCodeSecurity]
+        [CLSCompliant(false)]
+        public static extern int SDL_FillRect(IntPtr surface, ref SDL_Rect rect,
+            uint color);
+        #endregion int SDL_FillRect(IntPtr surface, ref SDL_Rect rect, uint color)
+
         #region IntPtr SDL_DisplayFormat(IntPtr surface)
         /// <summary>
         /// Convert a surface to the display format.
@@ -11217,7 +12809,7 @@ namespace Tao.Sdl
         /// This function takes a surface and copies it to a new surface of the 
         /// pixel format and colors of the video framebuffer, suitable for fast
         ///  blitting onto the display surface. It calls 
-        ///  <see cref="SDL_ConvertSurface"/>.
+        ///  <see cref="SDL_ConvertSurface(IntPtr, IntPtr, int)"/>.
         /// <p>If you want to take advantage of hardware colorkey or alpha blit
         ///  acceleration, you should set the colorkey and alpha value before 
         ///  calling this function.</p>
@@ -11245,7 +12837,7 @@ namespace Tao.Sdl
         /// This function takes a surface and copies it to a new surface of the 
         /// pixel format and colors of the video framebuffer plus an alpha channel,
         ///  suitable for fast blitting onto the display surface. 
-        ///  It calls <see cref="SDL_ConvertSurface"/>.
+        ///  It calls <see cref="SDL_ConvertSurface(IntPtr, IntPtr, int)"/>.
         /// <p>If you want to take advantage of hardware colorkey or alpha blit
         ///  acceleration, you should set the colorkey and alpha value before 
         ///  calling this function.</p>
@@ -11260,9 +12852,9 @@ namespace Tao.Sdl
         /// <returns>IntPtr to SDL_Surface. 
         /// If the conversion fails or runs out of memory, 
         /// it returns NULL</returns>
-        /// <seealso cref="SDL_ConvertSurface"/>
-        /// <seealso cref="SDL_SetAlpha"/>
-        /// <seealso cref="SDL_SetColorKey"/>
+        /// <seealso cref="SDL_ConvertSurface(IntPtr, IntPtr, int)"/>
+        /// <seealso cref="SDL_SetAlpha(IntPtr, int, byte)"/>
+        /// <seealso cref="SDL_SetColorKey(IntPtr, int, int)"/>
         /// <seealso cref="SDL_DisplayFormat"/>
         /// <seealso cref="SDL_Surface"/>
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
@@ -11300,6 +12892,37 @@ namespace Tao.Sdl
         public static extern IntPtr SDL_CreateYUVOverlay(int width, int height, int format, IntPtr display);
         #endregion IntPtr SDL_CreateYUVOverlay(...);
 
+        #region IntPtr SDL_CreateYUVOverlay(...);
+        /// <summary>
+        /// Create a YUV video overlay.
+        /// </summary>
+        /// <remarks>
+        /// SDL_CreateYUVOverlay creates a YUV overlay of the specified width, 
+        /// height and format (see <see cref="SDL_Overlay"/> for a list of 
+        /// available formats),
+        ///  for the provided display. A <see cref="SDL_Overlay"/> 
+        ///  structure is returned.
+        /// <p>The term 'overlay' is a misnomer since, unless the overlay is 
+        /// created in hardware, the contents for the display surface underneath
+        ///  the area where the overlay is shown will be overwritten when the 
+        ///  overlay is displayed.</p>
+        /// <p>Binds to C-function call in SDL_video.h:
+        /// <code>SDL_Overlay *SDL_CreateYUVOverlay(int width, int height, Uint32 format, SDL_Surface *display)
+        /// </code></p></remarks>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <param name="format"></param>
+        /// <param name="display">IntPtr to SDL_Surface</param>
+        /// <returns>IntPtr to SDL_Overlay</returns>
+        /// <seealso cref="SDL_Overlay"/>
+        /// <seealso cref="SDL_DisplayYUVOverlay"/>
+        /// <seealso cref="SDL_FreeYUVOverlay"/>
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
+        SuppressUnmanagedCodeSecurity]
+        [CLSCompliant(false)]
+        public static extern IntPtr SDL_CreateYUVOverlay(int width, int height, uint format, IntPtr display);
+        #endregion IntPtr SDL_CreateYUVOverlay(...);
+
         #region int SDL_LockYUVOverlay(IntPtr overlay)
         /// <summary>
         /// Lock an overlay
@@ -11313,7 +12936,7 @@ namespace Tao.Sdl
         /// <param name="overlay"></param>
         /// <returns>Returns 0 on success, or -1 on an error</returns>
         /// <seealso cref="SDL_UnlockYUVOverlay"/>
-        /// <seealso cref="SDL_CreateYUVOverlay"/>
+        /// <seealso cref="SDL_CreateYUVOverlay(int, int, int, IntPtr)"/>
         /// <seealso cref="SDL_Overlay"/>
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
@@ -11333,7 +12956,7 @@ namespace Tao.Sdl
         /// </code></p></remarks>
         /// <param name="overlay">IntPtr to SDL_Overlay</param>
         /// <seealso cref="SDL_UnlockYUVOverlay"/>
-        /// <seealso cref="SDL_CreateYUVOverlay"/>
+        /// <seealso cref="SDL_CreateYUVOverlay(int, int, int, IntPtr)"/>
         /// <seealso cref="SDL_Overlay"/>
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
@@ -11345,7 +12968,7 @@ namespace Tao.Sdl
         /// Blit the overlay to the display.
         /// </summary>
         /// <remarks>
-        /// Blit the overlay to the surface specified when it was <see cref="SDL_CreateYUVOverlay">created</see>. 
+        /// Blit the overlay to the surface specified when it was <see cref="SDL_CreateYUVOverlay(int, int, int, IntPtr)">created</see>. 
         /// The <see cref="SDL_Rect"/> structure, dstrect, specifies the position and size of the 
         /// destination. If the dstrect is a larger or smaller than the overlay then
         ///  the overlay will be scaled, this is optimized for 2x scaling.
@@ -11356,7 +12979,7 @@ namespace Tao.Sdl
         /// <param name="dstrect">SDL_Rect</param>
         /// <returns>Returns 0 on success.</returns>
         /// <seealso cref="SDL_Overlay"/>
-        /// <seealso cref="SDL_CreateYUVOverlay"/>
+        /// <seealso cref="SDL_CreateYUVOverlay(int, int, int, IntPtr)"/>
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int SDL_DisplayYUVOverlay(IntPtr overlay, ref SDL_Rect dstrect);
@@ -11367,14 +12990,14 @@ namespace Tao.Sdl
         /// Free a YUV video overlay.
         /// </summary>
         /// <remarks>
-        /// Frees an <see cref="SDL_Overlay">overlay</see> created by <see cref="SDL_CreateYUVOverlay"/>
+        /// Frees an <see cref="SDL_Overlay">overlay</see> created by <see cref="SDL_CreateYUVOverlay(int, int, int, IntPtr)"/>
         /// <p>Binds to C-function call in SDL_video.h:
         /// <code>SDL_FreeYUVOverlay(SDL_Overlay *overlay)
         /// </code></p></remarks>
         /// <param name="overlay"></param>
         /// <seealso cref="SDL_Overlay"/>
         /// <seealso cref="SDL_DisplayYUVOverlay"/>
-        /// <seealso cref="SDL_CreateYUVOverlay"/>
+        /// <seealso cref="SDL_CreateYUVOverlay(int, int, int, IntPtr)"/>
         /// SDL_Overlay, SDL_DisplayYUVOverlay, SDL_FreeYUVOverlay
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
@@ -11387,7 +13010,7 @@ namespace Tao.Sdl
         /// </summary>
         /// <remarks>
         /// If you wish, you may load the OpenGL library at runtime, this must 
-        /// be done before <see cref="SDL_SetVideoMode"/> is called. 
+        /// be done before <see cref="SDL_SetVideoMode(int, int, int, int)"/> is called. 
         /// The path of the GL 
         /// library is passed to SDL_GL_LoadLibrary and it returns 0 on 
         /// success, or -1 on 
@@ -11470,7 +13093,7 @@ namespace Tao.Sdl
         /// <p>Binds to C-function call in SDL_video.h:
         /// <code>void SDL_GL_SwapBuffers(void )
         /// </code></p></remarks>
-        /// <seealso cref="SDL_SetVideoMode"/>
+        /// <seealso cref="SDL_SetVideoMode(int, int, int, int)"/>
         /// <seealso cref="SDL_GL_SetAttribute"/>
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
@@ -11484,7 +13107,7 @@ namespace Tao.Sdl
         /// <remarks>
         /// Sets the OpenGL attribute attr to value. 
         /// The attributes you set don't 
-        /// take effect until after a call to <see cref="SDL_SetVideoMode"/>.
+        /// take effect until after a call to <see cref="SDL_SetVideoMode(int, int, int, int)"/>.
         ///  You should use 
         /// <see cref="SDL_GL_GetAttribute"/> to check the values after a 
         /// SDL_SetVideoMode call.
@@ -11508,7 +13131,7 @@ namespace Tao.Sdl
         /// <remarks>
         /// Places the value of the SDL/OpenGL 
         /// attribute attr into value. This is 
-        /// useful after a call to <see cref="SDL_SetVideoMode"/> to check 
+        /// useful after a call to <see cref="SDL_SetVideoMode(int, int, int, int)"/> to check 
         /// whether your attributes have been 
         /// <see cref="SDL_GL_SetAttribute">set</see> as you expected.
         /// <p>Binds to C-function call in SDL_video.h:
@@ -11573,7 +13196,7 @@ namespace Tao.Sdl
         /// <remarks>
         /// Sets the icon for the display window. Win32 icons must be 32x32.
         /// <p>This function must be called before the first call to 
-        /// <see cref="SDL_SetVideoMode"/>.</p>
+        /// <see cref="SDL_SetVideoMode(int, int, int, int)"/>.</p>
         /// <p>The mask is a bitmask that describes the shape of the icon.
         ///  If mask is NULL, then the shape is determined by the colorkey 
         ///  of icon, if any, or makes the icon rectangular (no transparency)
@@ -11592,7 +13215,7 @@ namespace Tao.Sdl
         /// </code></example>
         /// <param name="icon">Pointer to an SDL_Surface</param>
         /// <param name="mask"></param>
-        /// <seealso cref="SDL_SetVideoMode"/>
+        /// <seealso cref="SDL_SetVideoMode(int, int, int, int)"/>
         /// <seealso cref="SDL_WM_SetCaption"/>
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]

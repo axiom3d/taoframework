@@ -169,7 +169,7 @@
 		</do>
 	    </foreach>
 	</if>
-	<copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/assemblies" flatten="true">
+	<copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/bin" flatten="true">
 	    <fileset basedir="${src.dir}">
 		<include name="**/*.dll"/>
 		<include name="**/*.xml"/>
@@ -179,7 +179,7 @@
 	    </fileset>
 	</copy>
 	<if test="${platform::is-unix()}">
-	    <copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/assemblies" flatten="true">
+	    <copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/bin" flatten="true">
 		<fileset basedir="${src.dir}">
 		    <include name="**/*.config"/>
 		    <exclude name="**/app.config"/>
@@ -187,7 +187,7 @@
 	    </copy>
 	</if>
 	<if test="${platform::is-win32()}">
-	    <copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/win32deps">
+	    <copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/lib">
 		<fileset basedir="${project::get-base-directory()}/${lib.dir}/win32deps">
 		    <include name="**"/>
 		</fileset>
@@ -236,5 +236,15 @@
 	    </zip>
 	</if>
 	<echo message="Created '${project::get-name()}' packages at ${project.zip-path}" />
+    </target>
+
+    <target name="create-installer" depends="package" description="Create Installer file">
+	<if test="${platform::is-unix() and not is-osx}">
+	</if>
+	<if test="${platform::is-win32()}">
+	    <exec program="C:\Program Files\NSIS\makensis.exe" commandline="other/win32installer/TaoFramework.nsi" />
+	</if>
+	<if test="${is-osx}">
+	</if>
     </target>
 </project>

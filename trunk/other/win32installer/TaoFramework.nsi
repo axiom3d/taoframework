@@ -1,8 +1,8 @@
 !verbose 3
 
-!define PRODUCT_NAME "Tao"
-!define PRODUCT_PACKAGE "tao"
-!define PRODUCT_VERSION "2.0.0"
+!define PRODUCT_NAME "TaoFramework"
+!define PRODUCT_PACKAGE "taoframework"
+!define PRODUCT_VERSION "2.1.0"
 !define PRODUCT_BUILD "1"
 !define PRODUCT_PUBLISHER "Tao"
 !define PRODUCT_WEB_SITE "http://www.taoframework.com"
@@ -14,13 +14,15 @@
 !define PRODUCT_SOURCE "${PRODUCT_PATH}\source"
 !define PRODUCT_BIN "${PRODUCT_PATH}\bin"
 !define PRODUCT_DOC "${PRODUCT_PATH}\doc"
+!define PRODUCT_EXAMPLES "${PRODUCT_PATH}\examples"
+!define PRODUCT_DEPS "${PRODUCT_PATH}\lib"
 
 ;!define MUI_WELCOMEFINISHPAGE_BITMAP "TaoLogo.bmp"
 ;!define MUI_WELCOMEFINISHPAGE_BITMAP_NOSTRETCH
 ;!define MUI_UNWELCOMEFINISHPAGE_BITMAP "TaoLogo.bmp"
 ;!define MUI_UNWELCOMEFINISHPAGE_BITMAP_NOSTRETCH
 
-BrandingText "© 2003-2007 Tao Framework Team, http://www.taoframework.com"
+BrandingText "© 2003-2008 Tao Framework Team, http://www.taoframework.com"
 SetCompressor lzma
 CRCCheck on
 
@@ -57,7 +59,7 @@ Var filename
 
 ;Start Menu Folder Page Configuration
 !define MUI_STARTMENUPAGE_REGISTRY_ROOT "HKCU" 
-!define MUI_STARTMENUPAGE_REGISTRY_KEY "Software\Tao" 
+!define MUI_STARTMENUPAGE_REGISTRY_KEY "Software\TaoFramework" 
 !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME "Start Menu Folder"
   
 !insertmacro MUI_PAGE_STARTMENU Application $STARTMENU_FOLDER
@@ -90,7 +92,7 @@ ReserveFile "runtime.ini"
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
 OutFile "${PRODUCT_DIR}\${PRODUCT_PACKAGE}-${PRODUCT_VERSION}-setup.exe"
-InstallDir "$PROGRAMFILES\Tao"
+InstallDir "$PROGRAMFILES\TaoFramework"
 InstallDirRegKey HKLM "${PRODUCT_DIR_REGKEY}" ""
 ShowInstDetails show
 ShowUnInstDetails show
@@ -125,22 +127,28 @@ Section "Source" SecSrc
   SetOverwrite ifnewer
   
   SetOutPath "$INSTDIR\source\m4"
-  File /r /x .svn ${PRODUCT_SOURCE}\m4\*.*
+  File /r /x .svn ${PRODUCT_SOURCE}\m4\*
 
   SetOutPath "$INSTDIR\source\tests"
-  File /r /x obj /x .svn ${PRODUCT_SOURCE}\tests\*.*
+  File /r /x obj /x .svn ${PRODUCT_SOURCE}\tests\*
 
   SetOutPath "$INSTDIR\source\src"
-  File /r /x obj /x bin /x doc /x .svn ${PRODUCT_SOURCE}\src\*.*
+  File /r /x obj /x bin /x doc /x .svn ${PRODUCT_SOURCE}\src\*
 
   SetOutPath "$INSTDIR\source\other"
-  File /r /x .svn /x *.swp ${PRODUCT_SOURCE}\other\*.*
+  File /r /x .svn /x *.swp ${PRODUCT_SOURCE}\other\*
 
   SetOutPath "$INSTDIR\source\gpg"
-  File /r /x .svn /x *.swp ${PRODUCT_SOURCE}\gpg\*.*
+  File /r /x .svn /x *.swp ${PRODUCT_SOURCE}\gpg\*
+
+  SetOutPath "$INSTDIR\source\lib"
+  File /r /x .svn /x *.swp ${PRODUCT_SOURCE}\lib\*
+
+  SetOutPath "$INSTDIR\source\examples"
+  File /r /x .svn /x *.swp ${PRODUCT_SOURCE}\examples\*
 
   SetOutPath "$INSTDIR\source"
-  File /x .svn ${PRODUCT_SOURCE}\*.*
+  File /x .svn /x .auto /x autom4te.cache ${PRODUCT_SOURCE}\*
 
   ;Store installation folder
   WriteRegStr HKCU "Software\Tao" "" $INSTDIR
@@ -150,10 +158,13 @@ SectionEnd
 Section "Runtime" SecRuntime
   SetOverwrite ifnewer
   SetOutPath "$INSTDIR\bin"
-  File /r /x .svn /x *.config ${PRODUCT_BIN}\assemblies\*.*
+  File /r /x .svn /x *.config ${PRODUCT_BIN}\*
   
-  SetOutPath "$INSTDIR\lib\win32deps"
-  File /r /x .svn ${PRODUCT_SOURCE}\lib\win32deps\*.*
+  SetOutPath "$INSTDIR\lib"
+  File /r /x .svn ${PRODUCT_DEPS}\*
+
+  SetOutPath "$INSTDIR\other\Prebuild"
+  File "${PRODUCT_SOURCE}\other\Prebuild\*"
 
   ;Store installation folder
   WriteRegStr HKCU "Software\Tao" "" $INSTDIR
@@ -162,7 +173,7 @@ Section "Runtime" SecRuntime
   !insertmacro MUI_INSTALLOPTIONS_READ $INI_VALUE "runtime.ini" "Field 3" "State"
   StrCmp $INI_VALUE "1" "" +3
   SetOutPath "$SYSDIR"
-  File /r /x .svn ${PRODUCT_SOURCE}\lib\win32deps\*.*
+  File /r /x .svn ${PRODUCT_SOURCE}\lib\*
   
   !insertmacro MUI_INSTALLOPTIONS_READ $INI_VALUE "runtime.ini" "Field 2" "State"
   StrCmp $INI_VALUE "1" "" +4
@@ -174,12 +185,8 @@ SectionEnd
 Section "Examples" SecExamples
   SetOverwrite ifnewer
 
-  SetOutPath "$INSTDIR\source\examples"
-  File /r /x obj /x bin /x .svn ${PRODUCT_SOURCE}\examples\*.*
-  
   SetOutPath "$INSTDIR\examples"
-  File /r /x obj ${PRODUCT_BIN}\examples\*.*
-  File /r /x .svn ${PRODUCT_BIN}\assemblies\*.dll
+  File /r /x obj ${PRODUCT_EXAMPLES}\*
 
   CreateDirectory "$SMPROGRAMS\Tao"
   CreateDirectory "$SMPROGRAMS\Tao\Examples"
@@ -222,7 +229,7 @@ Function AddManagedDLL
   call GACInstall
   WriteRegStr HKLM "SOFTWARE\Microsoft\.NETFramework\AssemblyFolders\$R1" "" "$R0"
   WriteRegStr HKCU "SOFTWARE\Microsoft\.NETFramework\AssemblyFolders\$R1" "" "$R0"
-  WriteRegStr HKLM "SOFTWARE\Microsoft\VisualStudio\7.1\AssemblyFolders\$R1" "" "$R0"
+  WriteRegStr HKLM "SOFTWARE\Microsoft\VisualStudio\8.0\AssemblyFolders\$R1" "" "$R0"
  
   Pop $R1
   Pop $R0
@@ -233,11 +240,9 @@ Function un.DeleteManagedDLLKey
   Exch
   Exch $R1
   
-  Call un.GACUnInstall
-  
   DeleteRegKey HKLM "SOFTWARE\Microsoft\.NETFramework\AssemblyFolders\$R1" 
   DeleteRegKey HKCU "SOFTWARE\Microsoft\.NETFramework\AssemblyFolders\$R1" 
-  DeleteRegKey HKLM "SOFTWARE\Microsoft\VisualStudio\7.1\AssemblyFolders\$R1"
+  DeleteRegKey HKLM "SOFTWARE\Microsoft\VisualStudio\8.0\AssemblyFolders\$R1"
  
   Pop $R1
   Pop $R0
@@ -276,6 +281,7 @@ Section -Post
 SectionEnd
 
 Section Uninstall
+  Call un.GACUnInstall
   Delete "$SMPROGRAMS\Tao\*.*"
 
   ; set OutPath to somewhere else because the current working directory cannot be deleted!
@@ -287,7 +293,7 @@ Section Uninstall
   DeleteRegKey HKLM "${PRODUCT_DIR_REGKEY}"
 
   Push "Tao"
-  Push $INSTDIR\bin\assemblies
+  Push $INSTDIR\bin
   Call un.DeleteManagedDLLKey
   
   RMDir /r "$INSTDIR"
@@ -408,7 +414,7 @@ Function GACInstall
   FindFirst $file_handle $filename $INSTDIR\bin\*.dll
   loop:
 	StrCmp $filename "" done
-	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /i "$INSTDIR\bin\$filename" /f'
+	nsExec::Exec '"$INSTDIR/other/Prebuild/prebuild.exe" /install "$INSTDIR/bin/$filename"'
 	FindNext $file_handle $filename
   	Goto loop
   done:
@@ -416,16 +422,12 @@ Function GACInstall
 FunctionEnd
 
 Function un.GACUnInstall
-	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /u "Tao.Cg"'
-	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /u "Tao.DevIl"'
-	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /u "Tao.FreeGlut"'
-	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /u "Tao.Glfw"'
-	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /u "Tao.Lua"'
-	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /u "Tao.Ode"'
-	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /u "Tao.OpenAl"'
-	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /u "Tao.OpenGl"'
-	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /u "Tao.PhysFs"'
-	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /u "Tao.Platform.Windows"'
-	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /u "Tao.Sdl"'
+  FindFirst $file_handle $filename $INSTDIR\bin\*.dll
+  loop:
+	StrCmp $filename "" done
+	nsExec::Exec '"$INSTDIR/other/Prebuild/prebuild.exe" /remove "$INSTDIR/bin/$filename"'
+	FindNext $file_handle $filename
+  	Goto loop
+  done:
 FunctionEnd
 

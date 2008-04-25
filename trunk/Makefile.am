@@ -12,10 +12,8 @@ EXTRA_DIST = \
     build-debug.sh \
     buildmono.bat \
     buildmono-debug.bat \
-    checkbuild.sh.in \
     clean.bat \
     clean.sh \
-    gpg/cjcollier.pub \
     other/win32installer/runtime.ini \
     other/win32installer/Tao.nsi \
     other/Tao_Logos/TaoButton.jpg \

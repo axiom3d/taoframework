@@ -138,9 +138,6 @@ Section "Source" SecSrc
   SetOutPath "$INSTDIR\source\other"
   File /r /x .svn /x *.swp ${PRODUCT_SOURCE}\other\*
 
-  SetOutPath "$INSTDIR\source\gpg"
-  File /r /x .svn /x *.swp ${PRODUCT_SOURCE}\gpg\*
-
   SetOutPath "$INSTDIR\source\lib"
   File /r /x .svn /x *.swp ${PRODUCT_SOURCE}\lib\*
 

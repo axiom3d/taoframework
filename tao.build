@@ -213,6 +213,19 @@
 		<include name="${examples.dir}/**/Data/**" />
 	    </fileset>
 	</copy>
+	<if test="${is-osx}">
+	    <property name="examples.path" value="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${examples.dir}"/>
+	    <exec program="macpack" commandline="-m:2 -o:${examples.path}  -m cocoa -r:${examples.path}/Tao.Sdl.dll -r:${examples.path}/Tao.Sdl.dll.config -r:${examples.path}/Data -i:tools/logos/tao.icns  -n:SdlExamples -a:${examples.path}/SdlExamples.exe" />
+	    <exec program="macpack" commandline="-m:2 -o:${examples.path}  -m cocoa -r:${examples.path}/Tao.OpenGl.dll -r:${examples.path}/Tao.OpenGl.dll.config -r:${examples.path}/Tao.Cg.dll -r:${examples.path}/Tao.Cg.dll.config -r:${examples.path}/Tao.FreeGlut.dll -r:${examples.path}/Tao.FreeGlut.dll.config -r:${examples.path}/Data -i:tools/logos/tao.icns  -n:CgExamples -a:${examples.path}/CgExamples.exe" />
+	    <exec program="macpack" commandline="-m:2 -o:${examples.path}  -m cocoa -r:${examples.path}/Tao.OpenGl.dll -r:${examples.path}/Tao.OpenGl.dll.config -r:${examples.path}/Tao.Platform.Windows.dll -r:${examples.path}/Tao.Platform.Windows.dll.config -r:${examples.path}/Tao.FreeGlut.dll -r:${examples.path}/Tao.FreeGlut.dll.config -r:${examples.path}/Data -i:tools/logos/tao.icns  -n:NeHe -a:${examples.path}/NeHe.exe" />
+	    <move todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/">
+		<fileset basedir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${examples.dir}">
+		    <include name="SdlDotNetExamples.app/**"/>
+		    <include name="SdlDotNetCDPlayer.app/**"/>
+		</fileset>
+	    </move>
+	    <delete dir="${examples.path}"/>
+	</if>
     </target>
 
     <!-- create zip file -->

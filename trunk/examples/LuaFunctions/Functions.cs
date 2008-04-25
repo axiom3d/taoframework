@@ -71,7 +71,7 @@ namespace LuaFunctions
         [STAThread]
         static void Main(string[] args)
         {
-            string file = Path.Combine("Data", "LuaExamples.Functions.lua");
+            string file = Path.Combine("Data", "LuaFunctions.lua");
 
             IntPtr L = Lua.luaL_newstate();
 

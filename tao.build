@@ -19,7 +19,7 @@
     <property name="obj.dir" value="obj" />
     <property name="lib.dir" value="lib" />
     <property name="doc.dir" value="doc" />
-    <property name="dmg.dir" value="TaoFramework" />
+    <property name="dmg.dir" value="TaoFramework-${project.version}" />
     <property name="is-osx" value="false"/>
     <property name="gacdir" value="" overwrite="false" />
     <property name="gacutil-package" value="" overwrite="false" />
@@ -109,9 +109,6 @@
 
     <!-- copy project files -->
     <target name="copyfiles">
-	<if test="${is-osx}">
-	    <property name="dist.dir" value="${dist.dir}/${dmg.dir}" />
-	</if>
 	<if test="${project.config=='Release'}">
 	    <copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${source.dir}">
 		<fileset>
@@ -245,6 +242,7 @@
 	    <exec program="C:\Program Files\NSIS\makensis.exe" commandline="other/win32installer/TaoFramework.nsi" />
 	</if>
 	<if test="${is-osx}">
+	    <exec program="hdiutil" commandline="create -srcfolder ${dist.dir}/${string::to-lower(project::get-name())}-${project.version} ${dist.dir}/${dmg.dir}" />
 	</if>
     </target>
 </project>

@@ -60,7 +60,7 @@ namespace LuaSimple
 		[STAThread]
 		static void Main(string[] args)
 		{
-            string file = Path.Combine("Data", "LuaExamples.Simple.lua");
+            string file = Path.Combine("Data", "LuaSimple.lua");
 
 			IntPtr L = Lua.luaL_newstate();
 

@@ -10,7 +10,7 @@
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
     <AssemblyName>FreeGlutExamples</AssemblyName>
-    <AssemblyOriginatorKeyFile>Tao.OpenGl.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>Tao.FreeGlut.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
     <DefaultClientScript>JScript</DefaultClientScript>
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
@@ -90,7 +90,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Tao.OpenGl.snk" />
+    <None Include="Tao.FreeGlut.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
   <PropertyGroup>

@@ -33,6 +33,7 @@ namespace TaoMediaplayer
 {
     public partial class MainForm : Form
     {
+        [STAThread]
         public static void Main (string[] args)
         {
             Application.Run(new MainForm());

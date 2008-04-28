@@ -5365,7 +5365,7 @@ namespace Tao.Sdl
         ///     <code>typedef Uint32 (SDLCALL *SDL_TimerCallback)(Uint32 interval, void *param)</code>
         ///     </p>
         /// </remarks>
-        /// <seealso cref="SDL_SetTimer(int, SDL_TimerCallback)" />
+        // FIXME: <seealso cref="SDL_SetTimer(int, SDL_TimerCallback)" />
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate int SDL_TimerCallback(int interval);
         #endregion int SDL_TimerCallback(int interval)
@@ -5394,7 +5394,7 @@ namespace Tao.Sdl
         ///     <code>typedef Uint32 (SDLCALL *SDL_NewTimerCallback)(Uint32 interval, void *param)</code>
         ///     </p>
         /// </remarks>
-        /// <seealso cref="SDL_AddTimer(int, SDL_NewTimerCallback)" />
+        // FIXME: <seealso cref="SDL_AddTimer(int, SDL_NewTimerCallback)" />
         /// <seealso cref="SDL_RemoveTimer" />
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate int SDL_NewTimerCallback(int interval);
@@ -10203,7 +10203,7 @@ namespace Tao.Sdl
         ///     SDL_TimerCallback callback)</code>
         ///     </p>
         /// </remarks>
-        /// <seealso cref="SDL_AddTimer(int, SDL_NewTimerCallback)" />
+        // FIXME: <seealso cref="SDL_AddTimer(int, SDL_NewTimerCallback)" />
         /// <seealso cref="SDL_TimerCallback" />
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         [CLSCompliant(false)]

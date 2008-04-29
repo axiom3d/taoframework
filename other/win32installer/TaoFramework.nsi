@@ -4,10 +4,10 @@
 !define PRODUCT_PACKAGE "taoframework"
 !define PRODUCT_VERSION "2.1.0"
 !define PRODUCT_BUILD "1"
-!define PRODUCT_PUBLISHER "Tao"
+!define PRODUCT_PUBLISHER "TaoFramework"
 !define PRODUCT_WEB_SITE "http://www.taoframework.com"
-!define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\Tao"
-!define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\Tao"
+!define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\TaoFramework"
+!define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\TaoFramework"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
 !define PRODUCT_DIR "..\..\dist"
 !define PRODUCT_PATH "${PRODUCT_DIR}\${PRODUCT_PACKAGE}-${PRODUCT_VERSION}"
@@ -110,14 +110,14 @@ Function .onInit
   CheckPreviousVersion:
 	ReadRegStr $R0 ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayName"
 	StrCmp $R0 "" CheckOSVersion 0
-	MessageBox MB_OK "An old version of Tao is installed on this computer, please uninstall first.$\r$\n$\r$\nUnable to continue this installation."
+	MessageBox MB_OK "An old version of TaoFramework is installed on this computer, please uninstall first.$\r$\n$\r$\nUnable to continue this installation."
 	Abort
 	
   CheckOSVersion:
         Call IsSupportedWindowsVersion
         Pop $R0
         StrCmp $R0 "False" NoAbort 0
-	MessageBox MB_OK "The operating system you are using is not supported by Tao (95/98/ME/NT3.x/NT4.x)."
+	MessageBox MB_OK "The operating system you are using is not supported by TaoFramework (95/98/ME/NT3.x/NT4.x)."
         Abort
 
   NoAbort:
@@ -148,7 +148,7 @@ Section "Source" SecSrc
   File /x .svn /x .auto /x autom4te.cache ${PRODUCT_SOURCE}\*
 
   ;Store installation folder
-  WriteRegStr HKCU "Software\Tao" "" $INSTDIR
+  WriteRegStr HKCU "Software\TaoFramework" "" $INSTDIR
   
 SectionEnd
 
@@ -164,7 +164,7 @@ Section "Runtime" SecRuntime
   File "${PRODUCT_SOURCE}\other\Prebuild\*"
 
   ;Store installation folder
-  WriteRegStr HKCU "Software\Tao" "" $INSTDIR
+  WriteRegStr HKCU "Software\TaoFramework" "" $INSTDIR
   
   ;Read a value from an InstallOptions INI file
   !insertmacro MUI_INSTALLOPTIONS_READ $INI_VALUE "runtime.ini" "Field 3" "State"
@@ -174,7 +174,7 @@ Section "Runtime" SecRuntime
   
   !insertmacro MUI_INSTALLOPTIONS_READ $INI_VALUE "runtime.ini" "Field 2" "State"
   StrCmp $INI_VALUE "1" "" +4
-  Push "Tao"
+  Push "TaoFramework"
   Push $INSTDIR\bin
   Call AddManagedDLL
 SectionEnd
@@ -185,12 +185,12 @@ Section "Examples" SecExamples
   SetOutPath "$INSTDIR\examples"
   File /r /x obj ${PRODUCT_EXAMPLES}\*
 
-  CreateDirectory "$SMPROGRAMS\Tao"
-  CreateDirectory "$SMPROGRAMS\Tao\Examples"
+  CreateDirectory "$SMPROGRAMS\TaoFramework"
+  CreateDirectory "$SMPROGRAMS\TaoFramework\Examples"
   call CreateExampleShortcuts
 
   ;Store installation folder
-  WriteRegStr HKCU "Software\Tao" "" $INSTDIR
+  WriteRegStr HKCU "Software\TaoFramework" "" $INSTDIR
   
 SectionEnd
 
@@ -199,11 +199,11 @@ Section "Documentation" SecDocs
   SetOutPath "$INSTDIR\doc"
   File /r ${PRODUCT_DOC}\*.chm
   
-  CreateDirectory "$SMPROGRAMS\Tao\Documentation"
+  CreateDirectory "$SMPROGRAMS\TaoFramework\Documentation"
   call CreateDocShortcuts
 
   ;Store installation folder
-  WriteRegStr HKCU "Software\Tao" "" $INSTDIR
+  WriteRegStr HKCU "Software\TaoFramework" "" $INSTDIR
 SectionEnd
 
 Function CustomPageC
@@ -247,11 +247,11 @@ FunctionEnd
 
 ;Language strings
 LangString TEXT_IO_TITLE ${LANG_ENGLISH} "Installation Options"
-LangString TEXT_IO_SUBTITLE ${LANG_ENGLISH} "Tao Installation Options."
-LangString DESC_SecExamples ${LANG_ENGLISH} "Installs examples using various features of Tao."
+LangString TEXT_IO_SUBTITLE ${LANG_ENGLISH} "TaoFramework Installation Options."
+LangString DESC_SecExamples ${LANG_ENGLISH} "Installs examples using various features of TaoFramework."
 LangString DESC_SecSrc ${LANG_ENGLISH} "Installs the source code."
 LangString DESC_SecDocs ${LANG_ENGLISH} "Installs documentation"
-LangString DESC_SecRuntime ${LANG_ENGLISH} "Copies the runtime libaries to the Tao directory. It does not install them into the GAC."
+LangString DESC_SecRuntime ${LANG_ENGLISH} "Copies the runtime libaries to the TaoFramework directory. It does not install them into the GAC."
 
 ;Assign language strings to sections
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
@@ -264,8 +264,8 @@ LangString DESC_SecRuntime ${LANG_ENGLISH} "Copies the runtime libaries to the T
 
 Section -AdditionalIcons
   WriteIniStr "$INSTDIR\${PRODUCT_NAME}.url" "InternetShortcut" "URL" "${PRODUCT_WEB_SITE}"
-  CreateShortCut "$SMPROGRAMS\Tao\Website.lnk" "$INSTDIR\${PRODUCT_NAME}.url"
-  CreateShortCut "$SMPROGRAMS\Tao\Uninstall.lnk" "$INSTDIR\uninst.exe"
+  CreateShortCut "$SMPROGRAMS\TaoFramework\Website.lnk" "$INSTDIR\${PRODUCT_NAME}.url"
+  CreateShortCut "$SMPROGRAMS\TaoFramework\Uninstall.lnk" "$INSTDIR\uninst.exe"
 SectionEnd
 
 Section -Post
@@ -279,17 +279,17 @@ SectionEnd
 
 Section Uninstall
   Call un.GACUnInstall
-  Delete "$SMPROGRAMS\Tao\*.*"
+  Delete "$SMPROGRAMS\TaoFramework\*.*"
 
   ; set OutPath to somewhere else because the current working directory cannot be deleted!
   SetOutPath "$DESKTOP"
   
-  RMDir /r "$SMPROGRAMS\Tao"
+  RMDir /r "$SMPROGRAMS\TaoFramework"
   
   DeleteRegKey ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}"
   DeleteRegKey HKLM "${PRODUCT_DIR_REGKEY}"
 
-  Push "Tao"
+  Push "TaoFramework"
   Push $INSTDIR\bin
   Call un.DeleteManagedDLLKey
   
@@ -372,7 +372,7 @@ FunctionEnd
 Function AddExampleToStartMenu
     Pop $0 ; link
     IfFileExists $INSTDIR\examples\$0 0 +2
-      CreateShortCut $SMPROGRAMS\Tao\Examples\$0.lnk $INSTDIR\examples\$0
+      CreateShortCut $SMPROGRAMS\TaoFramework\Examples\$0.lnk $INSTDIR\examples\$0
 FunctionEnd
 
 Function CreateExampleShortcuts
@@ -404,7 +404,7 @@ Function AddDocToStartMenu
     Pop $0 ; link
     Pop $1 ; file
     IfFileExists $INSTDIR\doc\$1 0 +2
-      CreateShortCut $SMPROGRAMS\Tao\Documentation\$0.lnk $INSTDIR\doc\$1
+      CreateShortCut $SMPROGRAMS\TaoFramework\Documentation\$0.lnk $INSTDIR\doc\$1
 FunctionEnd
 
 Function GACInstall

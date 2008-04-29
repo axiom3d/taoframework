@@ -11,8 +11,8 @@
             <fileset basedir=".">
             </fileset>
         </copy>
-        <csc target="winexe" debug="${build.debug}" keyfile="../../src/Tao.FFmpeg/Tao.FFmpeg.snk" unsafe="False" define="DEBUG;TRACE;WIN32" main="FFmpegExamples.Program" output="${project::get-base-directory()}/${build.dir}/${project::get-name()}.exe" win32icon="App.ico">
-            <resources prefix="FFmpegExamples" dynamicprefix="true" >
+        <csc target="winexe" debug="${build.debug}" keyfile="../../src/Tao.FFmpeg/Tao.FFmpeg.snk" unsafe="False" define="DEBUG;TRACE;WIN32" main="TaoMediaPlayer.MainForm" output="${project::get-base-directory()}/${build.dir}/${project::get-name()}.exe" win32icon="App.ico">
+            <resources prefix="TaoMediaPlayer" dynamicprefix="true" >
                 <include name="MainForm.resx" />
             </resources>
             <sources failonempty="true">
@@ -27,6 +27,7 @@
                 <include name="System.Windows.Forms.dll" />
                 <include name="System.Data.dll" />
                 <include name="System.Drawing.dll" />
+                <include name="Tao.OpenAl.dll" />
                 <include name="../../src/Tao.FFmpeg/${build.dir}/Tao.FFmpeg.dll" />
             </references>
         </csc>

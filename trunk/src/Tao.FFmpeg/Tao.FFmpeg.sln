@@ -4,7 +4,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tao.FFmpeg", "Tao.FFmpeg.cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpegExamples", "..\..\examples\FFmpegExamples\FFmpegExamples.csproj", "{6A86C66C-2A58-4BBF-BA13-B54515052BAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaoMediaplayer", "..\..\examples\TaoMediaplayer\TaoMediaplayer.csproj", "{2AFB6ECD-5664-4291-A252-6C471687F7D7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaoMediaPlayer", "..\..\examples\TaoMediaPlayer\TaoMediaPlayer.csproj", "{2AFB6ECD-5664-4291-A252-6C471687F7D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

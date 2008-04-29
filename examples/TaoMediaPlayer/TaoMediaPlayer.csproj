@@ -9,7 +9,7 @@
     <RootNamespace>TaoMediaPlayer</RootNamespace>
     <MinFrameworkVersionRequired>2.0</MinFrameworkVersionRequired>
     <ApplicationIcon>tao.ico</ApplicationIcon>
-    <StartupObject>TaoMediaplayer.MainForm</StartupObject>
+    <StartupObject>TaoMediaPlayer.MainForm</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

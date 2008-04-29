@@ -25,7 +25,7 @@ using System.Collections.Generic;
 using System.Threading;
 using Tao.OpenAl;
 
-namespace TaoMediaplayer
+namespace TaoMediaPlayer
 {
     class AudioSource
     {

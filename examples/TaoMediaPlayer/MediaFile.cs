@@ -26,7 +26,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using Tao.FFmpeg;
 
-namespace TaoMediaplayer
+namespace TaoMediaPlayer
 {
     class MediaFile
     {

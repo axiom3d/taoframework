@@ -7,11 +7,11 @@ using System.Windows;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TaoMediaplayer")]
+[assembly: AssemblyTitle("TaoMediaPlayer")]
 [assembly: AssemblyDescription("Tao.FFmpeg Example Application")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TaoMediaplayer")]
+[assembly: AssemblyProduct("TaoMediaPlayer")]
 [assembly: AssemblyCopyright("Copyright © Tao Framework 2008")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

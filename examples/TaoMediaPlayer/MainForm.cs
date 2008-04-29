@@ -29,7 +29,7 @@ using System.Threading;
 using System.Windows.Forms;
 using Tao.OpenAl;
 
-namespace TaoMediaplayer
+namespace TaoMediaPlayer
 {
     public partial class MainForm : Form
     {

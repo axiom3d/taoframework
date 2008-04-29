@@ -54,6 +54,7 @@
     <target name="build" depends="init" description="">
         <nant buildfile="./Tao.FFmpeg.dll.build" target="build" />
         <nant buildfile="../../examples/FFmpegExamples/FFmpegExamples.exe.build" target="build" />
+        <nant buildfile="../../examples/TaoMediaPlayer/TaoMediaPlayer.exe.build" target="build" />
     </target>
 
     <target name="build-release" depends="Release, init, build" description="Builds in Release mode" />
@@ -69,6 +70,7 @@
     <target name="doc" depends="build-release">
         <echo message="Generating all documentation from all builds" />
         <nant buildfile="../../examples/FFmpegExamples/FFmpegExamples.exe.build" target="doc" />
+        <nant buildfile="../../examples/TaoMediaPlayer/TaoMediaPlayer.exe.build" target="doc" />
         <nant buildfile="./Tao.FFmpeg.dll.build" target="doc" />
     </target>
 

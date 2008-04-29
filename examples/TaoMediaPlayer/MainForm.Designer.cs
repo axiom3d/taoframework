@@ -1,4 +1,4 @@
-namespace TaoMediaplayer
+namespace TaoMediaPlayer
 {
     partial class MainForm
     {

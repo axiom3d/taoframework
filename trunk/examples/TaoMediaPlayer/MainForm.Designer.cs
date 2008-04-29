@@ -94,7 +94,7 @@ namespace TaoMediaPlayer
             this.Controls.Add(this.pictureBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "Tao Mediaplayer";
+            this.Text = "TaoMediaPlayer";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
 

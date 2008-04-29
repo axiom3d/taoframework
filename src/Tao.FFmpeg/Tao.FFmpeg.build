@@ -47,6 +47,7 @@
         <delete dir="${bin.dir}" failonerror="false" />
         <delete dir="${obj.dir}" failonerror="false" />
         <nant buildfile="../../examples/FFmpegExamples/FFmpegExamples.exe.build" target="clean" />
+        <nant buildfile="../../examples/TaoMediaPlayer/TaoMediaPlayer.exe.build" target="clean" />
         <nant buildfile="./Tao.FFmpeg.dll.build" target="clean" />
     </target>
 
@@ -68,7 +69,6 @@
     <target name="doc" depends="build-release">
         <echo message="Generating all documentation from all builds" />
         <nant buildfile="../../examples/FFmpegExamples/FFmpegExamples.exe.build" target="doc" />
-        <nant buildfile="../../examples/TaoMediaPlayer/TaoMediaPlayer.exe.build" target="doc" />
         <nant buildfile="./Tao.FFmpeg.dll.build" target="doc" />
     </target>
 

@@ -16,13 +16,7 @@
                 <include name="MainForm.resx" />
             </resources>
             <sources failonempty="true">
-                <include name="Player.cs" />
-                <include name="AudioStream.cs" />
-                <include name="Decoder.cs" />
-                <include name="Player.Designer.cs" />
-                <include name="Program.cs" />
-                <include name="Properties/AssemblyInfo.cs" />
-                <include name="Properties/Resources.Designer.cs" />
+		<include name="**/*.cs" />
             </sources>
             <references basedir="${project::get-base-directory()}">
                 <lib>

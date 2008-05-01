@@ -1,24 +1,34 @@
-2.1
+2.1.0
 Tao Library versions
 Tao.OpenGl 2.1.0.12, Tao.Platform.Windows 1.0.0.5,
 Tao.FreeGlut 2.4.0.2, Tao.OpenAl 1.1.0.1, Tao.Cg 2.0.0.0, Tao.DevIl 1.6.8.3,
 Tao.Lua 5.1.3.0, Tao.Sdl 1.2.13.0, Tao.PhysFs 1.0.1.2, Tao.Ode 0.9.0.0,
 Tao.Glfw 2.6.0.0, Tao.FFmpeg 0.4.9.0, Tao.FreeType 2.3.5.0, Tao.Platform.X11 1.0.0.0
 
-Tao.Sdl - fixed SDL_overlay struct.
-Tao.Sdl - Added non-CLS compliant methods
-Tao.Sdl - updated to SDL 1.2.13
-Tao.Cg - Updated to Cg 2.0
-Added Tao.FFmpeg, Tao.FreeType, Tao.Platform.X11
-Fixed uninstall issues with the Windows Installer.
-Added make build system.
-Removed prebuild from the build system (still used for GAC functionality).
-Examples are now OSX bundles.
-Sdl, OpenGl, Cg, FreeGlut (GLUT actually) work on OSX but the others do not have installers. OpenAl has partial support.
-Tao.Lua - Updated to 5.1.3
-Added TaoMediaPlayer as an example for Tao.FFmpeg.
-Tao.Ode - updated to 0.9.
-
+- Tao.Sdl - fixed SDL_overlay struct.
+- Tao.Sdl - Added non-CLS compliant methods
+- Tao.Sdl - updated to SDL 1.2.13
+- Tao.Cg - Updated to Cg 2.0
+- Added Tao.FFmpeg, Tao.FreeType, Tao.Platform.X11
+- Fixed uninstall issues with the Windows Installer.
+- Added make build system.
+- Removed prebuild from the build system (still used for GAC functionality).
+- Examples are now OSX bundles.
+- Sdl, OpenGl, Cg, FreeGlut (GLUT actually) work on OSX but the others do not have installers. OpenAl has partial support.
+- Tao.Lua - Updated to 5.1.3
+- Added TaoMediaPlayer as an example for Tao.FFmpeg.
+- Tao.Ode - updated to 0.9.
+- Tao.OpenGl - Optimized cold boot time, by using reflection to reduce jitted LOC. 
+- Tao.OpenGl - Simplified and optimized extension loading (now works on OSX, too). 
+- Tao.OpenGl - Improved call speed for functions that take typed arrays as parameters (e.g. int[], short[], etc.) 
+- Tao.OpenGl - Added ref/out overloads for functions taking pointers. 
+- Tao.OpenGl - Added non-CLS compliant overloads for functions with unsigned parameters (e.g. uint, ushort etc.) 
+- Tao.OpenGl - Reduced the total number of overloads by simplifying the generation process. 
+- Tao.OpenGl - Fixed several bugs in the typemaps (GLbool -> bool, void* (return) -> IntPtr). 
+- NAnt build extended with install function (previously just for package building)
+- pkg-config files (important for distro's! since for example OpenSUSE uses Tao.OpenGL.pc, while Debian uses tao-opengl.pc, hopefully everyone will now start using the later one)
+- OpenAL EFX support
+- WGl extensions repaired
 
 2.0
 Tao library versions

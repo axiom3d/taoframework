@@ -13,6 +13,7 @@ ACX_ASSEMBLY_VERSION(Tao.FreeGlut, TAOFREEGLUT_MAJOR, TAOFREEGLUT_VERSION)
 ACX_ASSEMBLY_VERSION(Tao.FreeType, TAOFREETYPE_MAJOR, TAOFREETYPE_VERSION)
 ACX_ASSEMBLY_VERSION(Tao.Glfw, TAOGLFW_MAJOR, TAOGLFW_VERSION)
 ACX_ASSEMBLY_VERSION(Tao.Lua, TAOLUA_MAJOR, TAOLUA_VERSION)
+ACX_ASSEMBLY_VERSION(Tao.FtGl, TAOFTGL_MAJOR, TAOFTGL_VERSION)
 ACX_ASSEMBLY_VERSION(Tao.Ode, TAOODE_MAJOR, TAOODE_VERSION)
 ACX_ASSEMBLY_VERSION(Tao.OpenAl, TAOOPENAL_MAJOR, TAOOPENAL_VERSION)
 ACX_ASSEMBLY_VERSION(Tao.OpenGl, TAOOPENGL_MAJOR, TAOOPENGL_VERSION)
@@ -110,6 +111,8 @@ AC_CONFIG_FILES(
   src/Tao.Glfw/tao-glfw.pc
   src/Tao.Lua/Makefile
   src/Tao.Lua/tao-lua.pc
+  src/Tao.FtGl/Makefile
+  src/Tao.FtGl/tao-ftgl.pc
   src/Tao.Ode/Makefile
   src/Tao.Ode/tao-ode.pc
   src/Tao.OpenAl/Makefile
@@ -142,6 +145,8 @@ AC_CONFIG_FILES(
   examples/GlfwExamples/Makefile
   examples/LuaFunctions/Makefile
   examples/LuaSimple/Makefile
+  examples/FtGlSimple/Makefile
+  examples/FtGlScrolling/Makefile
   examples/NateRobins/Makefile
   examples/NeHe/Makefile
   examples/OdeExamples/Makefile

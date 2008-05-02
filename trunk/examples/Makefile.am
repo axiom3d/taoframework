@@ -7,6 +7,8 @@ SUBDIRS = CgExamples \
           GlfwExamples \
           LuaFunctions \
           LuaSimple \
+          FtGlSimple \
+          FtGlScrolling \
           NateRobins \
           NeHe \
           OdeExamples \

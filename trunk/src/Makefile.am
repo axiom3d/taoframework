@@ -4,6 +4,7 @@ SUBDIRS = Tao.DevIl \
           Tao.FreeType \
           Tao.GlBindGen \
           Tao.Lua \
+          Tao.FtGl \
           Tao.Ode \
           Tao.OpenAl \
           Tao.OpenGl \

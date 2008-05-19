@@ -63,6 +63,7 @@
 	<nant buildfile="${src.dir}/Tao.Sdl/Tao.Sdl.build" target="install" />
 	<nant buildfile="${src.dir}/Tao.Lua/Tao.Lua.build" target="install" />
 	<nant buildfile="${src.dir}/Tao.FFmpeg/Tao.FFmpeg.build" target="install" />
+	<nant buildfile="${src.dir}/Tao.FreeType/Tao.FreeType.build" target="install" />
     </target>
 
     <target name="package-no-doc" depends="build-release" description="Package without docs">

@@ -943,7 +943,7 @@ namespace Tao.Cg
 
 		#region Arrays
 		#region cgGLSetParameterArrayNf
-		#region void cgGLSetParameterArray1f(IntPtr param, long offset, long nelements, [In] float* values)
+		#region void cgGLSetParameterArray1f(IntPtr param, int offset, int nelements, [In] float* values)
 		/// <summary>
 		/// Sets the float values to the specific parameter.
 		/// </summary>
@@ -952,9 +952,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to set.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
-		public unsafe static extern void cgGLSetParameterArray1f(IntPtr param, long offset, long nelements, [In] float* values);
-		#endregion void cgGLSetParameterArray1f(IntPtr param, long offset, long nelements, [In] float* values)
-		#region void cgGLSetParameterArray1f(IntPtr param, long offset, long nelements, [In] float[] values)
+		public unsafe static extern void cgGLSetParameterArray1f(IntPtr param, int offset, int nelements, [In] float* values);
+		#endregion void cgGLSetParameterArray1f(IntPtr param, int offset, int nelements, [In] float* values)
+		#region void cgGLSetParameterArray1f(IntPtr param, int offset, int nelements, [In] float[] values)
 		/// <summary>
 		/// Sets the float values to the specific parameter.
 		/// </summary>
@@ -963,9 +963,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to set.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLSetParameterArray1f(IntPtr param, long offset, long nelements, [In] float[] values);
-		#endregion void cgGLSetParameterArray1f(IntPtr param, long offset, long nelements, [In] float[] values)
-		#region void cgGLSetParameterArray1f(IntPtr param, long offset, long nelements, [In] IntPtr values)
+		public static extern void cgGLSetParameterArray1f(IntPtr param, int offset, int nelements, [In] float[] values);
+		#endregion void cgGLSetParameterArray1f(IntPtr param, int offset, int nelements, [In] float[] values)
+		#region void cgGLSetParameterArray1f(IntPtr param, int offset, int nelements, [In] IntPtr values)
 		/// <summary>
 		/// Sets the float values to the specific parameter.
 		/// </summary>
@@ -974,10 +974,10 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to set.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLSetParameterArray1f(IntPtr param, long offset, long nelements, [In] IntPtr values);
-		#endregion void cgGLSetParameterArray1f(IntPtr param, long offset, long nelements, [In] IntPtr values)
+		public static extern void cgGLSetParameterArray1f(IntPtr param, int offset, int nelements, [In] IntPtr values);
+		#endregion void cgGLSetParameterArray1f(IntPtr param, int offset, int nelements, [In] IntPtr values)
 
-		#region void cgGLSetParameterArray2f(IntPtr param, long offset, long nelements, [In] float* values)
+		#region void cgGLSetParameterArray2f(IntPtr param, int offset, int nelements, [In] float* values)
 		/// <summary>
 		/// Sets the float values to the specific parameter.
 		/// </summary>
@@ -986,9 +986,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to set.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
-		public unsafe static extern void cgGLSetParameterArray2f(IntPtr param, long offset, long nelements, [In] float* values);
-		#endregion void cgGLSetParameterArray2f(IntPtr param, long offset, long nelements, [In] float* values)
-		#region void cgGLSetParameterArray2f(IntPtr param, long offset, long nelements, [In] float[] values)
+		public unsafe static extern void cgGLSetParameterArray2f(IntPtr param, int offset, int nelements, [In] float* values);
+		#endregion void cgGLSetParameterArray2f(IntPtr param, int offset, int nelements, [In] float* values)
+		#region void cgGLSetParameterArray2f(IntPtr param, int offset, int nelements, [In] float[] values)
 		/// <summary>
 		/// Sets the float values to the specific parameter.
 		/// </summary>
@@ -997,9 +997,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to set.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLSetParameterArray2f(IntPtr param, long offset, long nelements, [In] float[] values);
-		#endregion void cgGLSetParameterArray2f(IntPtr param, long offset, long nelements, [In] float[] values)
-		#region void cgGLSetParameterArray2f(IntPtr param, long offset, long nelements, [In] IntPtr values)
+		public static extern void cgGLSetParameterArray2f(IntPtr param, int offset, int nelements, [In] float[] values);
+		#endregion void cgGLSetParameterArray2f(IntPtr param, int offset, int nelements, [In] float[] values)
+		#region void cgGLSetParameterArray2f(IntPtr param, int offset, int nelements, [In] IntPtr values)
 		/// <summary>
 		/// Sets the float values to the specific parameter.
 		/// </summary>
@@ -1008,10 +1008,10 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to set.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLSetParameterArray2f(IntPtr param, long offset, long nelements, [In] IntPtr values);
-		#endregion void cgGLSetParameterArray2f(IntPtr param, long offset, long nelements, [In] IntPtr values)
+		public static extern void cgGLSetParameterArray2f(IntPtr param, int offset, int nelements, [In] IntPtr values);
+		#endregion void cgGLSetParameterArray2f(IntPtr param, int offset, int nelements, [In] IntPtr values)
 
-		#region void cgGLSetParameterArray3f(IntPtr param, long offset, long nelements, [In] float* values)
+		#region void cgGLSetParameterArray3f(IntPtr param, int offset, int nelements, [In] float* values)
 		/// <summary>
 		/// Sets the float values to the specific parameter.
 		/// </summary>
@@ -1020,9 +1020,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to set.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
-		public unsafe static extern void cgGLSetParameterArray3f(IntPtr param, long offset, long nelements, [In] float* values);
-		#endregion void cgGLSetParameterArray3f(IntPtr param, long offset, long nelements, [In] float* values)
-		#region void cgGLSetParameterArray3f(IntPtr param, long offset, long nelements, [In] float[] values)
+		public unsafe static extern void cgGLSetParameterArray3f(IntPtr param, int offset, int nelements, [In] float* values);
+		#endregion void cgGLSetParameterArray3f(IntPtr param, int offset, int nelements, [In] float* values)
+		#region void cgGLSetParameterArray3f(IntPtr param, int offset, int nelements, [In] float[] values)
 		/// <summary>
 		/// Sets the float values to the specific parameter.
 		/// </summary>
@@ -1031,9 +1031,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to set.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLSetParameterArray3f(IntPtr param, long offset, long nelements, [In] float[] values);
-		#endregion void cgGLSetParameterArray3f(IntPtr param, long offset, long nelements, [In] float[] values)
-		#region void cgGLSetParameterArray3f(IntPtr param, long offset, long nelements, [In] IntPtr values)
+		public static extern void cgGLSetParameterArray3f(IntPtr param, int offset, int nelements, [In] float[] values);
+		#endregion void cgGLSetParameterArray3f(IntPtr param, int offset, int nelements, [In] float[] values)
+		#region void cgGLSetParameterArray3f(IntPtr param, int offset, int nelements, [In] IntPtr values)
 		/// <summary>
 		/// Sets the float values to the specific parameter.
 		/// </summary>
@@ -1042,10 +1042,10 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to set.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLSetParameterArray3f(IntPtr param, long offset, long nelements, [In] IntPtr values);
-		#endregion void cgGLSetParameterArray3f(IntPtr param, long offset, long nelements, [In] IntPtr values)
+		public static extern void cgGLSetParameterArray3f(IntPtr param, int offset, int nelements, [In] IntPtr values);
+		#endregion void cgGLSetParameterArray3f(IntPtr param, int offset, int nelements, [In] IntPtr values)
 
-		#region void cgGLSetParameterArray4f(IntPtr param, long offset, long nelements, [In] float* values)
+		#region void cgGLSetParameterArray4f(IntPtr param, int offset, int nelements, [In] float* values)
 		/// <summary>
 		/// Sets the float values to the specific parameter.
 		/// </summary>
@@ -1054,9 +1054,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to set.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
-		public unsafe static extern void cgGLSetParameterArray4f(IntPtr param, long offset, long nelements, [In] float* values);
-		#endregion void cgGLSetParameterArray4f(IntPtr param, long offset, long nelements, [In] float* values)
-		#region void cgGLSetParameterArray4f(IntPtr param, long offset, long nelements, [In] float[] values)
+		public unsafe static extern void cgGLSetParameterArray4f(IntPtr param, int offset, int nelements, [In] float* values);
+		#endregion void cgGLSetParameterArray4f(IntPtr param, int offset, int nelements, [In] float* values)
+		#region void cgGLSetParameterArray4f(IntPtr param, int offset, int nelements, [In] float[] values)
 		/// <summary>
 		/// Sets the float values to the specific parameter.
 		/// </summary>
@@ -1065,9 +1065,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to set.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLSetParameterArray4f(IntPtr param, long offset, long nelements, [In] float[] values);
-		#endregion void cgGLSetParameterArray4f(IntPtr param, long offset, long nelements, [In] float[] values)
-		#region void cgGLSetParameterArray4f(IntPtr param, long offset, long nelements, [In] IntPtr values)
+		public static extern void cgGLSetParameterArray4f(IntPtr param, int offset, int nelements, [In] float[] values);
+		#endregion void cgGLSetParameterArray4f(IntPtr param, int offset, int nelements, [In] float[] values)
+		#region void cgGLSetParameterArray4f(IntPtr param, int offset, int nelements, [In] IntPtr values)
 		/// <summary>
 		/// Sets the float values to the specific parameter.
 		/// </summary>
@@ -1076,11 +1076,11 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to set.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLSetParameterArray4f(IntPtr param, long offset, long nelements, [In] IntPtr values);
-		#endregion void cgGLSetParameterArray4f(IntPtr param, long offset, long nelements, [In] IntPtr values)
+		public static extern void cgGLSetParameterArray4f(IntPtr param, int offset, int nelements, [In] IntPtr values);
+		#endregion void cgGLSetParameterArray4f(IntPtr param, int offset, int nelements, [In] IntPtr values)
 		#endregion
 		#region cgGLSetParameterArrayNd
-		#region void cgGLSetParameterArray1d(IntPtr param, long offset, long nelements, [In] double* values)
+		#region void cgGLSetParameterArray1d(IntPtr param, int offset, int nelements, [In] double* values)
 		/// <summary>
 		/// Sets the double values to the specific parameter.
 		/// </summary>
@@ -1089,9 +1089,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to set.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
-		public unsafe static extern void cgGLSetParameterArray1d(IntPtr param, long offset, long nelements, [In] double* values);
-		#endregion void cgGLSetParameterArray1d(IntPtr param, long offset, long nelements, [In] double* values)
-		#region void cgGLSetParameterArray1d(IntPtr param, long offset, long nelements, [In] double[] values)
+		public unsafe static extern void cgGLSetParameterArray1d(IntPtr param, int offset, int nelements, [In] double* values);
+		#endregion void cgGLSetParameterArray1d(IntPtr param, int offset, int nelements, [In] double* values)
+		#region void cgGLSetParameterArray1d(IntPtr param, int offset, int nelements, [In] double[] values)
 		/// <summary>
 		/// Sets the double values to the specific parameter.
 		/// </summary>
@@ -1100,9 +1100,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to set.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLSetParameterArray1d(IntPtr param, long offset, long nelements, [In] double[] values);
-		#endregion void cgGLSetParameterArray1d(IntPtr param, long offset, long nelements, [In] double[] values)
-		#region void cgGLSetParameterArray1d(IntPtr param, long offset, long nelements, [In] IntPtr values)
+		public static extern void cgGLSetParameterArray1d(IntPtr param, int offset, int nelements, [In] double[] values);
+		#endregion void cgGLSetParameterArray1d(IntPtr param, int offset, int nelements, [In] double[] values)
+		#region void cgGLSetParameterArray1d(IntPtr param, int offset, int nelements, [In] IntPtr values)
 		/// <summary>
 		/// Sets the double values to the specific parameter.
 		/// </summary>
@@ -1111,10 +1111,10 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to set.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLSetParameterArray1d(IntPtr param, long offset, long nelements, [In] IntPtr values);
-		#endregion void cgGLSetParameterArray1d(IntPtr param, long offset, long nelements, [In] IntPtr values)
+		public static extern void cgGLSetParameterArray1d(IntPtr param, int offset, int nelements, [In] IntPtr values);
+		#endregion void cgGLSetParameterArray1d(IntPtr param, int offset, int nelements, [In] IntPtr values)
 
-		#region void cgGLSetParameterArray2d(IntPtr param, long offset, long nelements, [In] double* values)
+		#region void cgGLSetParameterArray2d(IntPtr param, int offset, int nelements, [In] double* values)
 		/// <summary>
 		/// Sets the double values to the specific parameter.
 		/// </summary>
@@ -1123,9 +1123,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to set.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
-		public unsafe static extern void cgGLSetParameterArray2d(IntPtr param, long offset, long nelements, [In] double* values);
-		#endregion void cgGLSetParameterArray2d(IntPtr param, long offset, long nelements, [In] double* values)
-		#region void cgGLSetParameterArray2d(IntPtr param, long offset, long nelements, [In] double[] values)
+		public unsafe static extern void cgGLSetParameterArray2d(IntPtr param, int offset, int nelements, [In] double* values);
+		#endregion void cgGLSetParameterArray2d(IntPtr param, int offset, int nelements, [In] double* values)
+		#region void cgGLSetParameterArray2d(IntPtr param, int offset, int nelements, [In] double[] values)
 		/// <summary>
 		/// Sets the double values to the specific parameter.
 		/// </summary>
@@ -1134,9 +1134,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to set.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLSetParameterArray2d(IntPtr param, long offset, long nelements, [In] double[] values);
-		#endregion void cgGLSetParameterArray2d(IntPtr param, long offset, long nelements, [In] double[] values)
-		#region void cgGLSetParameterArray2d(IntPtr param, long offset, long nelements, [In] IntPtr values)
+		public static extern void cgGLSetParameterArray2d(IntPtr param, int offset, int nelements, [In] double[] values);
+		#endregion void cgGLSetParameterArray2d(IntPtr param, int offset, int nelements, [In] double[] values)
+		#region void cgGLSetParameterArray2d(IntPtr param, int offset, int nelements, [In] IntPtr values)
 		/// <summary>
 		/// Sets the double values to the specific parameter.
 		/// </summary>
@@ -1145,10 +1145,10 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to set.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLSetParameterArray2d(IntPtr param, long offset, long nelements, [In] IntPtr values);
-		#endregion void cgGLSetParameterArray2d(IntPtr param, long offset, long nelements, [In] IntPtr values)
+		public static extern void cgGLSetParameterArray2d(IntPtr param, int offset, int nelements, [In] IntPtr values);
+		#endregion void cgGLSetParameterArray2d(IntPtr param, int offset, int nelements, [In] IntPtr values)
 
-		#region void cgGLSetParameterArray3d(IntPtr param, long offset, long nelements, [In] double* values)
+		#region void cgGLSetParameterArray3d(IntPtr param, int offset, int nelements, [In] double* values)
 		/// <summary>
 		/// Sets the double values to the specific parameter.
 		/// </summary>
@@ -1157,9 +1157,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to set.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
-		public unsafe static extern void cgGLSetParameterArray3d(IntPtr param, long offset, long nelements, [In] double* values);
-		#endregion void cgGLSetParameterArray3d(IntPtr param, long offset, long nelements, [In] double* values)
-		#region void cgGLSetParameterArray3d(IntPtr param, long offset, long nelements, [In] double[] values)
+		public unsafe static extern void cgGLSetParameterArray3d(IntPtr param, int offset, int nelements, [In] double* values);
+		#endregion void cgGLSetParameterArray3d(IntPtr param, int offset, int nelements, [In] double* values)
+		#region void cgGLSetParameterArray3d(IntPtr param, int offset, int nelements, [In] double[] values)
 		/// <summary>
 		/// Sets the double values to the specific parameter.
 		/// </summary>
@@ -1168,9 +1168,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to set.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLSetParameterArray3d(IntPtr param, long offset, long nelements, [In] double[] values);
-		#endregion void cgGLSetParameterArray3d(IntPtr param, long offset, long nelements, [In] double[] values)
-		#region void cgGLSetParameterArray3d(IntPtr param, long offset, long nelements, [In] IntPtr values)
+		public static extern void cgGLSetParameterArray3d(IntPtr param, int offset, int nelements, [In] double[] values);
+		#endregion void cgGLSetParameterArray3d(IntPtr param, int offset, int nelements, [In] double[] values)
+		#region void cgGLSetParameterArray3d(IntPtr param, int offset, int nelements, [In] IntPtr values)
 		/// <summary>
 		/// Sets the double values to the specific parameter.
 		/// </summary>
@@ -1179,10 +1179,10 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to set.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLSetParameterArray3d(IntPtr param, long offset, long nelements, [In] IntPtr values);
-		#endregion void cgGLSetParameterArray3d(IntPtr param, long offset, long nelements, [In] IntPtr values)
+		public static extern void cgGLSetParameterArray3d(IntPtr param, int offset, int nelements, [In] IntPtr values);
+		#endregion void cgGLSetParameterArray3d(IntPtr param, int offset, int nelements, [In] IntPtr values)
 
-		#region void cgGLSetParameterArray4d(IntPtr param, long offset, long nelements, [In] double* values)
+		#region void cgGLSetParameterArray4d(IntPtr param, int offset, int nelements, [In] double* values)
 		/// <summary>
 		/// Sets the double values to the specific parameter.
 		/// </summary>
@@ -1191,9 +1191,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to set.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
-		public unsafe static extern void cgGLSetParameterArray4d(IntPtr param, long offset, long nelements, [In] double* values);
-		#endregion void cgGLSetParameterArray4d(IntPtr param, long offset, long nelements, [In] double* values)
-		#region void cgGLSetParameterArray4d(IntPtr param, long offset, long nelements, [In] double[] values)
+		public unsafe static extern void cgGLSetParameterArray4d(IntPtr param, int offset, int nelements, [In] double* values);
+		#endregion void cgGLSetParameterArray4d(IntPtr param, int offset, int nelements, [In] double* values)
+		#region void cgGLSetParameterArray4d(IntPtr param, int offset, int nelements, [In] double[] values)
 		/// <summary>
 		/// Sets the double values to the specific parameter.
 		/// </summary>
@@ -1202,9 +1202,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to set.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLSetParameterArray4d(IntPtr param, long offset, long nelements, [In] double[] values);
-		#endregion void cgGLSetParameterArray4d(IntPtr param, long offset, long nelements, [In] double[] values)
-		#region void cgGLSetParameterArray4d(IntPtr param, long offset, long nelements, [In] IntPtr values)
+		public static extern void cgGLSetParameterArray4d(IntPtr param, int offset, int nelements, [In] double[] values);
+		#endregion void cgGLSetParameterArray4d(IntPtr param, int offset, int nelements, [In] double[] values)
+		#region void cgGLSetParameterArray4d(IntPtr param, int offset, int nelements, [In] IntPtr values)
 		/// <summary>
 		/// Sets the double values to the specific parameter.
 		/// </summary>
@@ -1213,12 +1213,12 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to set.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLSetParameterArray4d(IntPtr param, long offset, long nelements, [In] IntPtr values);
-		#endregion void cgGLSetParameterArray4d(IntPtr param, long offset, long nelements, [In] IntPtr values)
+		public static extern void cgGLSetParameterArray4d(IntPtr param, int offset, int nelements, [In] IntPtr values);
+		#endregion void cgGLSetParameterArray4d(IntPtr param, int offset, int nelements, [In] IntPtr values)
 		#endregion
 
 		#region cgGLGetParameterArrayNf
-		#region void cgGLGetParameterArray1f(IntPtr param, long offset, long nelements, [Out] float* values)
+		#region void cgGLGetParameterArray1f(IntPtr param, int offset, int nelements, [Out] float* values)
 		/// <summary>
 		/// Gets the float values from the specific parameter.
 		/// </summary>
@@ -1227,9 +1227,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to get.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
-		public unsafe static extern void cgGLGetParameterArray1f(IntPtr param, long offset, long nelements, [Out] float* values);
-		#endregion void cgGLGetParameterArray1f(IntPtr param, long offset, long nelements, [Out] float* values)
-		#region void cgGLGetParameterArray1f(IntPtr param, long offset, long nelements, [Out] float[] values)
+		public unsafe static extern void cgGLGetParameterArray1f(IntPtr param, int offset, int nelements, [Out] float* values);
+		#endregion void cgGLGetParameterArray1f(IntPtr param, int offset, int nelements, [Out] float* values)
+		#region void cgGLGetParameterArray1f(IntPtr param, int offset, int nelements, [Out] float[] values)
 		/// <summary>
 		/// Gets the float values from the specific parameter.
 		/// </summary>
@@ -1238,9 +1238,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to get.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLGetParameterArray1f(IntPtr param, long offset, long nelements, [Out] float[] values);
-		#endregion void cgGLGetParameterArray1f(IntPtr param, long offset, long nelements, [Out] float[] values)
-		#region void cgGLGetParameterArray1f(IntPtr param, long offset, long nelements, [Out] IntPtr values)
+		public static extern void cgGLGetParameterArray1f(IntPtr param, int offset, int nelements, [Out] float[] values);
+		#endregion void cgGLGetParameterArray1f(IntPtr param, int offset, int nelements, [Out] float[] values)
+		#region void cgGLGetParameterArray1f(IntPtr param, int offset, int nelements, [Out] IntPtr values)
 		/// <summary>
 		/// Gets the float values from the specific parameter.
 		/// </summary>
@@ -1249,10 +1249,10 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to get.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLGetParameterArray1f(IntPtr param, long offset, long nelements, [Out] IntPtr values);
-		#endregion void cgGLGetParameterArray1f(IntPtr param, long offset, long nelements, [Out] IntPtr values)
+		public static extern void cgGLGetParameterArray1f(IntPtr param, int offset, int nelements, [Out] IntPtr values);
+		#endregion void cgGLGetParameterArray1f(IntPtr param, int offset, int nelements, [Out] IntPtr values)
 
-		#region void cgGLGetParameterArray2f(IntPtr param, long offset, long nelements, [Out] float* values)
+		#region void cgGLGetParameterArray2f(IntPtr param, int offset, int nelements, [Out] float* values)
 		/// <summary>
 		/// Gets the float values from the specific parameter.
 		/// </summary>
@@ -1261,9 +1261,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to get.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
-		public unsafe static extern void cgGLGetParameterArray2f(IntPtr param, long offset, long nelements, [Out] float* values);
-		#endregion void cgGLGetParameterArray2f(IntPtr param, long offset, long nelements, [Out] float* values)
-		#region void cgGLGetParameterArray2f(IntPtr param, long offset, long nelements, [Out] float[] values)
+		public unsafe static extern void cgGLGetParameterArray2f(IntPtr param, int offset, int nelements, [Out] float* values);
+		#endregion void cgGLGetParameterArray2f(IntPtr param, int offset, int nelements, [Out] float* values)
+		#region void cgGLGetParameterArray2f(IntPtr param, int offset, int nelements, [Out] float[] values)
 		/// <summary>
 		/// Gets the float values from the specific parameter.
 		/// </summary>
@@ -1272,9 +1272,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to get.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLGetParameterArray2f(IntPtr param, long offset, long nelements, [Out] float[] values);
-		#endregion void cgGLGetParameterArray2f(IntPtr param, long offset, long nelements, [Out] float[] values)
-		#region void cgGLGetParameterArray2f(IntPtr param, long offset, long nelements, [Out] IntPtr values)
+		public static extern void cgGLGetParameterArray2f(IntPtr param, int offset, int nelements, [Out] float[] values);
+		#endregion void cgGLGetParameterArray2f(IntPtr param, int offset, int nelements, [Out] float[] values)
+		#region void cgGLGetParameterArray2f(IntPtr param, int offset, int nelements, [Out] IntPtr values)
 		/// <summary>
 		/// Gets the float values from the specific parameter.
 		/// </summary>
@@ -1283,10 +1283,10 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to get.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLGetParameterArray2f(IntPtr param, long offset, long nelements, [Out] IntPtr values);
-		#endregion void cgGLGetParameterArray2f(IntPtr param, long offset, long nelements, [Out] IntPtr values)
+		public static extern void cgGLGetParameterArray2f(IntPtr param, int offset, int nelements, [Out] IntPtr values);
+		#endregion void cgGLGetParameterArray2f(IntPtr param, int offset, int nelements, [Out] IntPtr values)
 
-		#region void cgGLGetParameterArray3f(IntPtr param, long offset, long nelements, [Out] float* values)
+		#region void cgGLGetParameterArray3f(IntPtr param, int offset, int nelements, [Out] float* values)
 		/// <summary>
 		/// Gets the float values from the specific parameter.
 		/// </summary>
@@ -1295,9 +1295,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to get.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
-		public unsafe static extern void cgGLGetParameterArray3f(IntPtr param, long offset, long nelements, [Out] float* values);
-		#endregion void cgGLGetParameterArray3f(IntPtr param, long offset, long nelements, [Out] float* values)
-		#region void cgGLGetParameterArray3f(IntPtr param, long offset, long nelements, [Out] float[] values)
+		public unsafe static extern void cgGLGetParameterArray3f(IntPtr param, int offset, int nelements, [Out] float* values);
+		#endregion void cgGLGetParameterArray3f(IntPtr param, int offset, int nelements, [Out] float* values)
+		#region void cgGLGetParameterArray3f(IntPtr param, int offset, int nelements, [Out] float[] values)
 		/// <summary>
 		/// Gets the float values from the specific parameter.
 		/// </summary>
@@ -1306,9 +1306,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to get.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLGetParameterArray3f(IntPtr param, long offset, long nelements, [Out] float[] values);
-		#endregion void cgGLGetParameterArray3f(IntPtr param, long offset, long nelements, [Out] float[] values)
-		#region void cgGLGetParameterArray3f(IntPtr param, long offset, long nelements, [Out] IntPtr values)
+		public static extern void cgGLGetParameterArray3f(IntPtr param, int offset, int nelements, [Out] float[] values);
+		#endregion void cgGLGetParameterArray3f(IntPtr param, int offset, int nelements, [Out] float[] values)
+		#region void cgGLGetParameterArray3f(IntPtr param, int offset, int nelements, [Out] IntPtr values)
 		/// <summary>
 		/// Gets the float values from the specific parameter.
 		/// </summary>
@@ -1317,10 +1317,10 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to get.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLGetParameterArray3f(IntPtr param, long offset, long nelements, [Out] IntPtr values);
-		#endregion void cgGLGetParameterArray3f(IntPtr param, long offset, long nelements, [Out] IntPtr values)
+		public static extern void cgGLGetParameterArray3f(IntPtr param, int offset, int nelements, [Out] IntPtr values);
+		#endregion void cgGLGetParameterArray3f(IntPtr param, int offset, int nelements, [Out] IntPtr values)
 
-		#region void cgGLGetParameterArray4f(IntPtr param, long offset, long nelements, [Out] float* values)
+		#region void cgGLGetParameterArray4f(IntPtr param, int offset, int nelements, [Out] float* values)
 		/// <summary>
 		/// Gets the float values from the specific parameter.
 		/// </summary>
@@ -1329,9 +1329,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to get.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
-		public unsafe static extern void cgGLGetParameterArray4f(IntPtr param, long offset, long nelements, [Out] float* values);
-		#endregion void cgGLGetParameterArray4f(IntPtr param, long offset, long nelements, [Out] float* values)
-		#region void cgGLGetParameterArray4f(IntPtr param, long offset, long nelements, [Out] float[] values)
+		public unsafe static extern void cgGLGetParameterArray4f(IntPtr param, int offset, int nelements, [Out] float* values);
+		#endregion void cgGLGetParameterArray4f(IntPtr param, int offset, int nelements, [Out] float* values)
+		#region void cgGLGetParameterArray4f(IntPtr param, int offset, int nelements, [Out] float[] values)
 		/// <summary>
 		/// Gets the float values from the specific parameter.
 		/// </summary>
@@ -1340,9 +1340,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to get.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLGetParameterArray4f(IntPtr param, long offset, long nelements, [Out] float[] values);
-		#endregion void cgGLGetParameterArray4f(IntPtr param, long offset, long nelements, [Out] float[] values)
-		#region void cgGLGetParameterArray4f(IntPtr param, long offset, long nelements, [Out] IntPtr values)
+		public static extern void cgGLGetParameterArray4f(IntPtr param, int offset, int nelements, [Out] float[] values);
+		#endregion void cgGLGetParameterArray4f(IntPtr param, int offset, int nelements, [Out] float[] values)
+		#region void cgGLGetParameterArray4f(IntPtr param, int offset, int nelements, [Out] IntPtr values)
 		/// <summary>
 		/// Gets the float values from the specific parameter.
 		/// </summary>
@@ -1351,11 +1351,11 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to get.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLGetParameterArray4f(IntPtr param, long offset, long nelements, [Out] IntPtr values);
-		#endregion void cgGLGetParameterArray4f(IntPtr param, long offset, long nelements, [Out] IntPtr values)
+		public static extern void cgGLGetParameterArray4f(IntPtr param, int offset, int nelements, [Out] IntPtr values);
+		#endregion void cgGLGetParameterArray4f(IntPtr param, int offset, int nelements, [Out] IntPtr values)
 		#endregion
 		#region cgGLGetParameterArrayNd
-		#region void cgGLGetParameterArray1d(IntPtr param, long offset, long nelements, [Out] double* values)
+		#region void cgGLGetParameterArray1d(IntPtr param, int offset, int nelements, [Out] double* values)
 		/// <summary>
 		/// Gets the double values from the specific parameter.
 		/// </summary>
@@ -1364,9 +1364,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to get.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
-		public unsafe static extern void cgGLGetParameterArray1d(IntPtr param, long offset, long nelements, [Out] double* values);
-		#endregion void cgGLGetParameterArray1d(IntPtr param, long offset, long nelements, [Out] double* values)
-		#region void cgGLGetParameterArray1d(IntPtr param, long offset, long nelements, [Out] double[] values)
+		public unsafe static extern void cgGLGetParameterArray1d(IntPtr param, int offset, int nelements, [Out] double* values);
+		#endregion void cgGLGetParameterArray1d(IntPtr param, int offset, int nelements, [Out] double* values)
+		#region void cgGLGetParameterArray1d(IntPtr param, int offset, int nelements, [Out] double[] values)
 		/// <summary>
 		/// Gets the double values from the specific parameter.
 		/// </summary>
@@ -1375,9 +1375,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to get.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLGetParameterArray1d(IntPtr param, long offset, long nelements, [Out] double[] values);
-		#endregion void cgGLGetParameterArray1d(IntPtr param, long offset, long nelements, [Out] double[] values)
-		#region void cgGLGetParameterArray1d(IntPtr param, long offset, long nelements, [Out] IntPtr values)
+		public static extern void cgGLGetParameterArray1d(IntPtr param, int offset, int nelements, [Out] double[] values);
+		#endregion void cgGLGetParameterArray1d(IntPtr param, int offset, int nelements, [Out] double[] values)
+		#region void cgGLGetParameterArray1d(IntPtr param, int offset, int nelements, [Out] IntPtr values)
 		/// <summary>
 		/// Gets the double values from the specific parameter.
 		/// </summary>
@@ -1386,10 +1386,10 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to get.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLGetParameterArray1d(IntPtr param, long offset, long nelements, [Out] IntPtr values);
-		#endregion void cgGLGetParameterArray1d(IntPtr param, long offset, long nelements, [Out] IntPtr values)
+		public static extern void cgGLGetParameterArray1d(IntPtr param, int offset, int nelements, [Out] IntPtr values);
+		#endregion void cgGLGetParameterArray1d(IntPtr param, int offset, int nelements, [Out] IntPtr values)
 
-		#region void cgGLGetParameterArray2d(IntPtr param, long offset, long nelements, [Out] double* values)
+		#region void cgGLGetParameterArray2d(IntPtr param, int offset, int nelements, [Out] double* values)
 		/// <summary>
 		/// Gets the double values from the specific parameter.
 		/// </summary>
@@ -1398,9 +1398,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to get.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
-		public unsafe static extern void cgGLGetParameterArray2d(IntPtr param, long offset, long nelements, [Out] double* values);
-		#endregion void cgGLGetParameterArray2d(IntPtr param, long offset, long nelements, [Out] double* values)
-		#region void cgGLGetParameterArray2d(IntPtr param, long offset, long nelements, [Out] double[] values)
+		public unsafe static extern void cgGLGetParameterArray2d(IntPtr param, int offset, int nelements, [Out] double* values);
+		#endregion void cgGLGetParameterArray2d(IntPtr param, int offset, int nelements, [Out] double* values)
+		#region void cgGLGetParameterArray2d(IntPtr param, int offset, int nelements, [Out] double[] values)
 		/// <summary>
 		/// Gets the double values from the specific parameter.
 		/// </summary>
@@ -1409,9 +1409,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to get.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLGetParameterArray2d(IntPtr param, long offset, long nelements, [Out] double[] values);
-		#endregion void cgGLGetParameterArray2d(IntPtr param, long offset, long nelements, [Out] double[] values)
-		#region void cgGLGetParameterArray2d(IntPtr param, long offset, long nelements, [Out] IntPtr values)
+		public static extern void cgGLGetParameterArray2d(IntPtr param, int offset, int nelements, [Out] double[] values);
+		#endregion void cgGLGetParameterArray2d(IntPtr param, int offset, int nelements, [Out] double[] values)
+		#region void cgGLGetParameterArray2d(IntPtr param, int offset, int nelements, [Out] IntPtr values)
 		/// <summary>
 		/// Gets the double values from the specific parameter.
 		/// </summary>
@@ -1420,10 +1420,10 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to get.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLGetParameterArray2d(IntPtr param, long offset, long nelements, [Out] IntPtr values);
-		#endregion void cgGLGetParameterArray2d(IntPtr param, long offset, long nelements, [Out] IntPtr values)
+		public static extern void cgGLGetParameterArray2d(IntPtr param, int offset, int nelements, [Out] IntPtr values);
+		#endregion void cgGLGetParameterArray2d(IntPtr param, int offset, int nelements, [Out] IntPtr values)
 
-		#region void cgGLGetParameterArray3d(IntPtr param, long offset, long nelements, [Out] double* values)
+		#region void cgGLGetParameterArray3d(IntPtr param, int offset, int nelements, [Out] double* values)
 		/// <summary>
 		/// Gets the double values from the specific parameter.
 		/// </summary>
@@ -1432,9 +1432,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to get.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
-		public unsafe static extern void cgGLGetParameterArray3d(IntPtr param, long offset, long nelements, [Out] double* values);
-		#endregion void cgGLGetParameterArray3d(IntPtr param, long offset, long nelements, [Out] double* values)
-		#region void cgGLGetParameterArray3d(IntPtr param, long offset, long nelements, [Out] double[] values)
+		public unsafe static extern void cgGLGetParameterArray3d(IntPtr param, int offset, int nelements, [Out] double* values);
+		#endregion void cgGLGetParameterArray3d(IntPtr param, int offset, int nelements, [Out] double* values)
+		#region void cgGLGetParameterArray3d(IntPtr param, int offset, int nelements, [Out] double[] values)
 		/// <summary>
 		/// Gets the double values from the specific parameter.
 		/// </summary>
@@ -1443,9 +1443,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to get.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLGetParameterArray3d(IntPtr param, long offset, long nelements, [Out] double[] values);
-		#endregion void cgGLGetParameterArray3d(IntPtr param, long offset, long nelements, [Out] double[] values)
-		#region void cgGLGetParameterArray3d(IntPtr param, long offset, long nelements, [Out] IntPtr values)
+		public static extern void cgGLGetParameterArray3d(IntPtr param, int offset, int nelements, [Out] double[] values);
+		#endregion void cgGLGetParameterArray3d(IntPtr param, int offset, int nelements, [Out] double[] values)
+		#region void cgGLGetParameterArray3d(IntPtr param, int offset, int nelements, [Out] IntPtr values)
 		/// <summary>
 		/// Gets the double values from the specific parameter.
 		/// </summary>
@@ -1454,10 +1454,10 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to get.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLGetParameterArray3d(IntPtr param, long offset, long nelements, [Out] IntPtr values);
-		#endregion void cgGLGetParameterArray3d(IntPtr param, long offset, long nelements, [Out] IntPtr values)
+		public static extern void cgGLGetParameterArray3d(IntPtr param, int offset, int nelements, [Out] IntPtr values);
+		#endregion void cgGLGetParameterArray3d(IntPtr param, int offset, int nelements, [Out] IntPtr values)
 
-		#region void cgGLGetParameterArray4d(IntPtr param, long offset, long nelements, [Out] double* values)
+		#region void cgGLGetParameterArray4d(IntPtr param, int offset, int nelements, [Out] double* values)
 		/// <summary>
 		/// Gets the double values from the specific parameter.
 		/// </summary>
@@ -1466,9 +1466,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to get.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
-		public unsafe static extern void cgGLGetParameterArray4d(IntPtr param, long offset, long nelements, [Out] double* values);
-		#endregion void cgGLGetParameterArray4d(IntPtr param, long offset, long nelements, [Out] double* values)
-		#region void cgGLGetParameterArray4d(IntPtr param, long offset, long nelements, [Out] double[] values)
+		public unsafe static extern void cgGLGetParameterArray4d(IntPtr param, int offset, int nelements, [Out] double* values);
+		#endregion void cgGLGetParameterArray4d(IntPtr param, int offset, int nelements, [Out] double* values)
+		#region void cgGLGetParameterArray4d(IntPtr param, int offset, int nelements, [Out] double[] values)
 		/// <summary>
 		/// Gets the double values from the specific parameter.
 		/// </summary>
@@ -1477,9 +1477,9 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to get.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLGetParameterArray4d(IntPtr param, long offset, long nelements, [Out] double[] values);
-		#endregion void cgGLGetParameterArray4d(IntPtr param, long offset, long nelements, [Out] double[] values)
-		#region void cgGLGetParameterArray4d(IntPtr param, long offset, long nelements, [Out] IntPtr values)
+		public static extern void cgGLGetParameterArray4d(IntPtr param, int offset, int nelements, [Out] double[] values);
+		#endregion void cgGLGetParameterArray4d(IntPtr param, int offset, int nelements, [Out] double[] values)
+		#region void cgGLGetParameterArray4d(IntPtr param, int offset, int nelements, [Out] IntPtr values)
 		/// <summary>
 		/// Gets the double values from the specific parameter.
 		/// </summary>
@@ -1488,8 +1488,8 @@ namespace Tao.Cg
 		/// <param name="nelements">Number of values to get.</param>
 		/// <param name="values">Array of values.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLGetParameterArray4d(IntPtr param, long offset, long nelements, [Out] IntPtr values);
-		#endregion void cgGLGetParameterArray4d(IntPtr param, long offset, long nelements, [Out] IntPtr values)
+		public static extern void cgGLGetParameterArray4d(IntPtr param, int offset, int nelements, [Out] IntPtr values);
+		#endregion void cgGLGetParameterArray4d(IntPtr param, int offset, int nelements, [Out] IntPtr values)
 		#endregion
 		#endregion
 		#endregion
@@ -1727,7 +1727,7 @@ namespace Tao.Cg
 
 		#region cgGLSetMatrixParameterArray
 		#region cgGLSetMatrixParameterArrayfc
-		#region void cgGLSetMatrixParameterArrayfc(IntPtr param, long offset, long nelements, [In] float* matrices)
+		#region void cgGLSetMatrixParameterArrayfc(IntPtr param, int offset, int nelements, [In] float* matrices)
 		/// <summary>
 		/// Sets an array matrix parameters (float) in column order.
 		/// </summary>
@@ -1736,10 +1736,10 @@ namespace Tao.Cg
 		/// <param name="nelements">The number of elements to set. A value of 0 will default to the number of elements in the array minus the offset value.</param>
 		/// <param name="matrices">The array of values to set the parameter to. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
-		public unsafe static extern void cgGLSetMatrixParameterArrayfc(IntPtr param, long offset, long nelements, [In] float* matrices);
-		#endregion void cgGLSetMatrixParameterArrayfc(IntPtr param, long offset, long nelements, const float* matrices)
+		public unsafe static extern void cgGLSetMatrixParameterArrayfc(IntPtr param, int offset, int nelements, [In] float* matrices);
+		#endregion void cgGLSetMatrixParameterArrayfc(IntPtr param, int offset, int nelements, const float* matrices)
 
-		#region void cgGLSetMatrixParameterArrayfc(IntPtr param, long offset, long nelements, [In] float[] matrices)
+		#region void cgGLSetMatrixParameterArrayfc(IntPtr param, int offset, int nelements, [In] float[] matrices)
 		/// <summary>
 		/// Sets an array matrix parameters (float) in column order.
 		/// </summary>
@@ -1748,10 +1748,10 @@ namespace Tao.Cg
 		/// <param name="nelements">The number of elements to set. A value of 0 will default to the number of elements in the array minus the offset value.</param>
 		/// <param name="matrices">The array of values to set the parameter to. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLSetMatrixParameterArrayfc(IntPtr param, long offset, long nelements, [In] float[] matrices);
-		#endregion void cgGLSetMatrixParameterArrayfc(IntPtr param, long offset, long nelements, const float[] matrices)
+		public static extern void cgGLSetMatrixParameterArrayfc(IntPtr param, int offset, int nelements, [In] float[] matrices);
+		#endregion void cgGLSetMatrixParameterArrayfc(IntPtr param, int offset, int nelements, const float[] matrices)
 
-		#region void cgGLSetMatrixParameterArrayfc(IntPtr param, long offset, long nelements, [In] IntPtr matrices)
+		#region void cgGLSetMatrixParameterArrayfc(IntPtr param, int offset, int nelements, [In] IntPtr matrices)
 		/// <summary>
 		/// Sets an array matrix parameters (float) in column order.
 		/// </summary>
@@ -1760,12 +1760,12 @@ namespace Tao.Cg
 		/// <param name="nelements">The number of elements to set. A value of 0 will default to the number of elements in the array minus the offset value.</param>
 		/// <param name="matrices">The array of values to set the parameter to. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLSetMatrixParameterArrayfc(IntPtr param, long offset, long nelements, [In] IntPtr matrices);
-		#endregion void cgGLSetMatrixParameterArrayfc(IntPtr param, long offset, long nelements, const IntPtr matrices)
+		public static extern void cgGLSetMatrixParameterArrayfc(IntPtr param, int offset, int nelements, [In] IntPtr matrices);
+		#endregion void cgGLSetMatrixParameterArrayfc(IntPtr param, int offset, int nelements, const IntPtr matrices)
 		#endregion cgGLSetMatrixParameterArrayfc
 
 		#region cgGLSetMatrixParameterArraydc
-		#region void cgGLSetMatrixParameterArraydc(IntPtr param, long offset, long nelements, [In] double* matrices)
+		#region void cgGLSetMatrixParameterArraydc(IntPtr param, int offset, int nelements, [In] double* matrices)
 		/// <summary>
 		/// Sets an array matrix parameters (double) in column order.
 		/// </summary>
@@ -1774,10 +1774,10 @@ namespace Tao.Cg
 		/// <param name="nelements">The number of elements to set. A value of 0 will default to the number of elements in the array minus the offset value.</param>
 		/// <param name="matrices">The array of values to set the parameter to. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
-		public unsafe static extern void cgGLSetMatrixParameterArraydc(IntPtr param, long offset, long nelements, [In] double* matrices);
-		#endregion void cgGLSetMatrixParameterArraydc(IntPtr param, long offset, long nelements, const double* matrices)
+		public unsafe static extern void cgGLSetMatrixParameterArraydc(IntPtr param, int offset, int nelements, [In] double* matrices);
+		#endregion void cgGLSetMatrixParameterArraydc(IntPtr param, int offset, int nelements, const double* matrices)
 
-		#region void cgGLSetMatrixParameterArraydc(IntPtr param, long offset, long nelements, [In] double[] matrices)
+		#region void cgGLSetMatrixParameterArraydc(IntPtr param, int offset, int nelements, [In] double[] matrices)
 		/// <summary>
 		/// Sets an array matrix parameters (double) in column order.
 		/// </summary>
@@ -1786,10 +1786,10 @@ namespace Tao.Cg
 		/// <param name="nelements">The number of elements to set. A value of 0 will default to the number of elements in the array minus the offset value.</param>
 		/// <param name="matrices">The array of values to set the parameter to. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLSetMatrixParameterArraydc(IntPtr param, long offset, long nelements, [In] double[] matrices);
-		#endregion void cgGLSetMatrixParameterArraydc(IntPtr param, long offset, long nelements, const double[] matrices)
+		public static extern void cgGLSetMatrixParameterArraydc(IntPtr param, int offset, int nelements, [In] double[] matrices);
+		#endregion void cgGLSetMatrixParameterArraydc(IntPtr param, int offset, int nelements, const double[] matrices)
 
-		#region void cgGLSetMatrixParameterArraydc(IntPtr param, long offset, long nelements, [In] IntPtr matrices)
+		#region void cgGLSetMatrixParameterArraydc(IntPtr param, int offset, int nelements, [In] IntPtr matrices)
 		/// <summary>
 		/// Sets an array matrix parameters (double) in column order.
 		/// </summary>
@@ -1798,13 +1798,13 @@ namespace Tao.Cg
 		/// <param name="nelements">The number of elements to set. A value of 0 will default to the number of elements in the array minus the offset value.</param>
 		/// <param name="matrices">The array of values to set the parameter to. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLSetMatrixParameterArraydc(IntPtr param, long offset, long nelements, [In] IntPtr matrices);
-		#endregion void cgGLSetMatrixParameterArraydc(IntPtr param, long offset, long nelements, const IntPtr matrices)
+		public static extern void cgGLSetMatrixParameterArraydc(IntPtr param, int offset, int nelements, [In] IntPtr matrices);
+		#endregion void cgGLSetMatrixParameterArraydc(IntPtr param, int offset, int nelements, const IntPtr matrices)
 		#endregion cgGLSetMatrixParameterArraydc
 
 
 		#region cgGLSetMatrixParameterArrayfr
-		#region void cgGLSetMatrixParameterArrayfr(IntPtr param, long offset, long nelements, [In] float* matrices)
+		#region void cgGLSetMatrixParameterArrayfr(IntPtr param, int offset, int nelements, [In] float* matrices)
 		/// <summary>
 		/// Sets an array matrix parameters (float) in row order.
 		/// </summary>
@@ -1813,10 +1813,10 @@ namespace Tao.Cg
 		/// <param name="nelements">The number of elements to set. A value of 0 will default to the number of elements in the array minus the offset value.</param>
 		/// <param name="matrices">The array of values to set the parameter to. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
-		public unsafe static extern void cgGLSetMatrixParameterArrayfr(IntPtr param, long offset, long nelements, [In] float* matrices);
-		#endregion void cgGLSetMatrixParameterArrayfr(IntPtr param, long offset, long nelements, const float* matrices)
+		public unsafe static extern void cgGLSetMatrixParameterArrayfr(IntPtr param, int offset, int nelements, [In] float* matrices);
+		#endregion void cgGLSetMatrixParameterArrayfr(IntPtr param, int offset, int nelements, const float* matrices)
 
-		#region void cgGLSetMatrixParameterArrayfr(IntPtr param, long offset, long nelements, [In] float[] matrices)
+		#region void cgGLSetMatrixParameterArrayfr(IntPtr param, int offset, int nelements, [In] float[] matrices)
 		/// <summary>
 		/// Sets an array matrix parameters (float) in row order.
 		/// </summary>
@@ -1825,10 +1825,10 @@ namespace Tao.Cg
 		/// <param name="nelements">The number of elements to set. A value of 0 will default to the number of elements in the array minus the offset value.</param>
 		/// <param name="matrices">The array of values to set the parameter to. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLSetMatrixParameterArrayfr(IntPtr param, long offset, long nelements, [In] float[] matrices);
-		#endregion void cgGLSetMatrixParameterArrayfr(IntPtr param, long offset, long nelements, const float[] matrices)
+		public static extern void cgGLSetMatrixParameterArrayfr(IntPtr param, int offset, int nelements, [In] float[] matrices);
+		#endregion void cgGLSetMatrixParameterArrayfr(IntPtr param, int offset, int nelements, const float[] matrices)
 
-		#region void cgGLSetMatrixParameterArrayfr(IntPtr param, long offset, long nelements, [In] IntPtr matrices)
+		#region void cgGLSetMatrixParameterArrayfr(IntPtr param, int offset, int nelements, [In] IntPtr matrices)
 		/// <summary>
 		/// Sets an array matrix parameters (float) in row order.
 		/// </summary>
@@ -1837,12 +1837,12 @@ namespace Tao.Cg
 		/// <param name="nelements">The number of elements to set. A value of 0 will default to the number of elements in the array minus the offset value.</param>
 		/// <param name="matrices">The array of values to set the parameter to. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLSetMatrixParameterArrayfr(IntPtr param, long offset, long nelements, [In] IntPtr matrices);
-		#endregion void cgGLSetMatrixParameterArrayfr(IntPtr param, long offset, long nelements, const IntPtr matrices)
+		public static extern void cgGLSetMatrixParameterArrayfr(IntPtr param, int offset, int nelements, [In] IntPtr matrices);
+		#endregion void cgGLSetMatrixParameterArrayfr(IntPtr param, int offset, int nelements, const IntPtr matrices)
 		#endregion cgGLSetMatrixParameterArrayfr
 
 		#region cgGLSetMatrixParameterArraydr
-		#region void cgGLSetMatrixParameterArraydr(IntPtr param, long offset, long nelements, [In] double* matrices)
+		#region void cgGLSetMatrixParameterArraydr(IntPtr param, int offset, int nelements, [In] double* matrices)
 		/// <summary>
 		/// Sets an array matrix parameters (double) in row order.
 		/// </summary>
@@ -1851,10 +1851,10 @@ namespace Tao.Cg
 		/// <param name="nelements">The number of elements to set. A value of 0 will default to the number of elements in the array minus the offset value.</param>
 		/// <param name="matrices">The array of values to set the parameter to. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
-		public unsafe static extern void cgGLSetMatrixParameterArraydr(IntPtr param, long offset, long nelements, [In] double* matrices);
-		#endregion void cgGLSetMatrixParameterArraydr(IntPtr param, long offset, long nelements, const double* matrices)
+		public unsafe static extern void cgGLSetMatrixParameterArraydr(IntPtr param, int offset, int nelements, [In] double* matrices);
+		#endregion void cgGLSetMatrixParameterArraydr(IntPtr param, int offset, int nelements, const double* matrices)
 
-		#region void cgGLSetMatrixParameterArraydr(IntPtr param, long offset, long nelements, [In] double[] matrices)
+		#region void cgGLSetMatrixParameterArraydr(IntPtr param, int offset, int nelements, [In] double[] matrices)
 		/// <summary>
 		/// Sets an array matrix parameters (double) in row order.
 		/// </summary>
@@ -1863,10 +1863,10 @@ namespace Tao.Cg
 		/// <param name="nelements">The number of elements to set. A value of 0 will default to the number of elements in the array minus the offset value.</param>
 		/// <param name="matrices">The array of values to set the parameter to. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLSetMatrixParameterArraydr(IntPtr param, long offset, long nelements, [In] double[] matrices);
-		#endregion void cgGLSetMatrixParameterArraydr(IntPtr param, long offset, long nelements, const double[] matrices)
+		public static extern void cgGLSetMatrixParameterArraydr(IntPtr param, int offset, int nelements, [In] double[] matrices);
+		#endregion void cgGLSetMatrixParameterArraydr(IntPtr param, int offset, int nelements, const double[] matrices)
 
-		#region void cgGLSetMatrixParameterArraydr(IntPtr param, long offset, long nelements, [In] IntPtr matrices)
+		#region void cgGLSetMatrixParameterArraydr(IntPtr param, int offset, int nelements, [In] IntPtr matrices)
 		/// <summary>
 		/// Sets an array matrix parameters (double) in row order.
 		/// </summary>
@@ -1875,14 +1875,14 @@ namespace Tao.Cg
 		/// <param name="nelements">The number of elements to set. A value of 0 will default to the number of elements in the array minus the offset value.</param>
 		/// <param name="matrices">The array of values to set the parameter to. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLSetMatrixParameterArraydr(IntPtr param, long offset, long nelements, [In] IntPtr matrices);
-		#endregion void cgGLSetMatrixParameterArraydr(IntPtr param, long offset, long nelements, const IntPtr matrices)
+		public static extern void cgGLSetMatrixParameterArraydr(IntPtr param, int offset, int nelements, [In] IntPtr matrices);
+		#endregion void cgGLSetMatrixParameterArraydr(IntPtr param, int offset, int nelements, const IntPtr matrices)
 		#endregion cgGLSetMatrixParameterArraydr
 		#endregion
 
 		#region cgGLGetMatrixParameterArray
 		#region cgGLGetMatrixParameterArrayfc
-		#region void cgGLGetMatrixParameterArrayfc(IntPtr param, long offset, long nelements, [Out] float* matrices)
+		#region void cgGLGetMatrixParameterArrayfc(IntPtr param, int offset, int nelements, [Out] float* matrices)
 		/// <summary>
 		/// Gets an array matrix parameters (float) in column order.
 		/// </summary>
@@ -1891,10 +1891,10 @@ namespace Tao.Cg
 		/// <param name="nelements">The number of elements to get. A value of 0 will default to the number of elements in the array minus the offset value.</param>
 		/// <param name="matrices">The array of values retreived from parameter.. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
-		public unsafe static extern void cgGLGetMatrixParameterArrayfc(IntPtr param, long offset, long nelements, [Out] float* matrices);
-		#endregion void cgGLGetMatrixParameterArrayfc(IntPtr param, long offset, long nelements, const float* matrices)
+		public unsafe static extern void cgGLGetMatrixParameterArrayfc(IntPtr param, int offset, int nelements, [Out] float* matrices);
+		#endregion void cgGLGetMatrixParameterArrayfc(IntPtr param, int offset, int nelements, const float* matrices)
 
-		#region void cgGLGetMatrixParameterArrayfc(IntPtr param, long offset, long nelements, [Out] float[] matrices)
+		#region void cgGLGetMatrixParameterArrayfc(IntPtr param, int offset, int nelements, [Out] float[] matrices)
 		/// <summary>
 		/// Gets an array matrix parameters (float) in column order.
 		/// </summary>
@@ -1903,10 +1903,10 @@ namespace Tao.Cg
 		/// <param name="nelements">The number of elements to get. A value of 0 will default to the number of elements in the array minus the offset value.</param>
 		/// <param name="matrices">The array of values retreived from parameter.. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLGetMatrixParameterArrayfc(IntPtr param, long offset, long nelements, [Out] float[] matrices);
-		#endregion void cgGLGetMatrixParameterArrayfc(IntPtr param, long offset, long nelements, const float[] matrices)
+		public static extern void cgGLGetMatrixParameterArrayfc(IntPtr param, int offset, int nelements, [Out] float[] matrices);
+		#endregion void cgGLGetMatrixParameterArrayfc(IntPtr param, int offset, int nelements, const float[] matrices)
 
-		#region void cgGLGetMatrixParameterArrayfc(IntPtr param, long offset, long nelements, [Out] IntPtr matrices)
+		#region void cgGLGetMatrixParameterArrayfc(IntPtr param, int offset, int nelements, [Out] IntPtr matrices)
 		/// <summary>
 		/// Gets an array matrix parameters (float) in column order.
 		/// </summary>
@@ -1915,14 +1915,14 @@ namespace Tao.Cg
 		/// <param name="nelements">The number of elements to get. A value of 0 will default to the number of elements in the array minus the offset value.</param>
 		/// <param name="matrices">The array of values retreived from parameter.. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLGetMatrixParameterArrayfc(IntPtr param, long offset, long nelements, [Out] IntPtr matrices);
-		#endregion void cgGLGetMatrixParameterArrayfc(IntPtr param, long offset, long nelements, const IntPtr matrices)
+		public static extern void cgGLGetMatrixParameterArrayfc(IntPtr param, int offset, int nelements, [Out] IntPtr matrices);
+		#endregion void cgGLGetMatrixParameterArrayfc(IntPtr param, int offset, int nelements, const IntPtr matrices)
 
 		#endregion cgGLGetMatrixParameterArrayfc
 
 		#region cgGLGetMatrixParameterArraydc
 
-		#region void cgGLGetMatrixParameterArraydc(IntPtr param, long offset, long nelements, [Out] double* matrices)
+		#region void cgGLGetMatrixParameterArraydc(IntPtr param, int offset, int nelements, [Out] double* matrices)
 		/// <summary>
 		/// Gets an array matrix parameters (double) in column order.
 		/// </summary>
@@ -1931,10 +1931,10 @@ namespace Tao.Cg
 		/// <param name="nelements">The number of elements to get. A value of 0 will default to the number of elements in the array minus the offset value.</param>
 		/// <param name="matrices">The array of values retreived from parameter.. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
-		public unsafe static extern void cgGLGetMatrixParameterArraydc(IntPtr param, long offset, long nelements, [Out] double* matrices);
-		#endregion void cgGLGetMatrixParameterArraydc(IntPtr param, long offset, long nelements, const double* matrices)
+		public unsafe static extern void cgGLGetMatrixParameterArraydc(IntPtr param, int offset, int nelements, [Out] double* matrices);
+		#endregion void cgGLGetMatrixParameterArraydc(IntPtr param, int offset, int nelements, const double* matrices)
 
-		#region void cgGLGetMatrixParameterArraydc(IntPtr param, long offset, long nelements, [Out] double[] matrices)
+		#region void cgGLGetMatrixParameterArraydc(IntPtr param, int offset, int nelements, [Out] double[] matrices)
 		/// <summary>
 		/// Gets an array matrix parameters (double) in column order.
 		/// </summary>
@@ -1943,10 +1943,10 @@ namespace Tao.Cg
 		/// <param name="nelements">The number of elements to get. A value of 0 will default to the number of elements in the array minus the offset value.</param>
 		/// <param name="matrices">The array of values retreived from parameter.. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLGetMatrixParameterArraydc(IntPtr param, long offset, long nelements, [Out] double[] matrices);
-		#endregion void cgGLGetMatrixParameterArraydc(IntPtr param, long offset, long nelements, const double[] matrices)
+		public static extern void cgGLGetMatrixParameterArraydc(IntPtr param, int offset, int nelements, [Out] double[] matrices);
+		#endregion void cgGLGetMatrixParameterArraydc(IntPtr param, int offset, int nelements, const double[] matrices)
 
-		#region void cgGLGetMatrixParameterArraydc(IntPtr param, long offset, long nelements, [Out] IntPtr matrices)
+		#region void cgGLGetMatrixParameterArraydc(IntPtr param, int offset, int nelements, [Out] IntPtr matrices)
 		/// <summary>
 		/// Gets an array matrix parameters (double) in column order.
 		/// </summary>
@@ -1955,13 +1955,13 @@ namespace Tao.Cg
 		/// <param name="nelements">The number of elements to get. A value of 0 will default to the number of elements in the array minus the offset value.</param>
 		/// <param name="matrices">The array of values retreived from parameter.. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLGetMatrixParameterArraydc(IntPtr param, long offset, long nelements, [Out] IntPtr matrices);
-		#endregion void cgGLGetMatrixParameterArraydc(IntPtr param, long offset, long nelements, const IntPtr matrices)
+		public static extern void cgGLGetMatrixParameterArraydc(IntPtr param, int offset, int nelements, [Out] IntPtr matrices);
+		#endregion void cgGLGetMatrixParameterArraydc(IntPtr param, int offset, int nelements, const IntPtr matrices)
 		#endregion cgGLGetMatrixParameterArraydc
 
 
 		#region cgGLGetMatrixParameterArrayfr
-		#region void cgGLGetMatrixParameterArrayfr(IntPtr param, long offset, long nelements, [Out] float* matrices)
+		#region void cgGLGetMatrixParameterArrayfr(IntPtr param, int offset, int nelements, [Out] float* matrices)
 		/// <summary>
 		/// Gets an array matrix parameters (float) in row order.
 		/// </summary>
@@ -1970,10 +1970,10 @@ namespace Tao.Cg
 		/// <param name="nelements">The number of elements to get. A value of 0 will default to the number of elements in the array minus the offset value.</param>
 		/// <param name="matrices">The array of values retreived from parameter.. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
-		public unsafe static extern void cgGLGetMatrixParameterArrayfr(IntPtr param, long offset, long nelements, [Out] float* matrices);
-		#endregion void cgGLGetMatrixParameterArrayfr(IntPtr param, long offset, long nelements, const float* matrices)
+		public unsafe static extern void cgGLGetMatrixParameterArrayfr(IntPtr param, int offset, int nelements, [Out] float* matrices);
+		#endregion void cgGLGetMatrixParameterArrayfr(IntPtr param, int offset, int nelements, const float* matrices)
 
-		#region void cgGLGetMatrixParameterArrayfr(IntPtr param, long offset, long nelements, [Out] float[] matrices)
+		#region void cgGLGetMatrixParameterArrayfr(IntPtr param, int offset, int nelements, [Out] float[] matrices)
 		/// <summary>
 		/// Gets an array matrix parameters (float) in row order.
 		/// </summary>
@@ -1982,10 +1982,10 @@ namespace Tao.Cg
 		/// <param name="nelements">The number of elements to get. A value of 0 will default to the number of elements in the array minus the offset value.</param>
 		/// <param name="matrices">The array of values retreived from parameter.. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLGetMatrixParameterArrayfr(IntPtr param, long offset, long nelements, [Out] float[] matrices);
-		#endregion void cgGLGetMatrixParameterArrayfr(IntPtr param, long offset, long nelements, const float[] matrices)
+		public static extern void cgGLGetMatrixParameterArrayfr(IntPtr param, int offset, int nelements, [Out] float[] matrices);
+		#endregion void cgGLGetMatrixParameterArrayfr(IntPtr param, int offset, int nelements, const float[] matrices)
 
-		#region void cgGLGetMatrixParameterArrayfr(IntPtr param, long offset, long nelements, [Out] IntPtr matrices)
+		#region void cgGLGetMatrixParameterArrayfr(IntPtr param, int offset, int nelements, [Out] IntPtr matrices)
 		/// <summary>
 		/// Gets an array matrix parameters (float) in row order.
 		/// </summary>
@@ -1994,12 +1994,12 @@ namespace Tao.Cg
 		/// <param name="nelements">The number of elements to get. A value of 0 will default to the number of elements in the array minus the offset value.</param>
 		/// <param name="matrices">The array of values retreived from parameter.. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLGetMatrixParameterArrayfr(IntPtr param, long offset, long nelements, [Out] IntPtr matrices);
-		#endregion void cgGLGetMatrixParameterArrayfr(IntPtr param, long offset, long nelements, const IntPtr matrices)
+		public static extern void cgGLGetMatrixParameterArrayfr(IntPtr param, int offset, int nelements, [Out] IntPtr matrices);
+		#endregion void cgGLGetMatrixParameterArrayfr(IntPtr param, int offset, int nelements, const IntPtr matrices)
 		#endregion cgGLGetMatrixParameterArrayfr
 
 		#region cgGLGetMatrixParameterArraydr
-		#region void cgGLGetMatrixParameterArraydr(IntPtr param, long offset, long nelements, [Out] double* matrices)
+		#region void cgGLGetMatrixParameterArraydr(IntPtr param, int offset, int nelements, [Out] double* matrices)
 		/// <summary>
 		/// Gets an array matrix parameters (double) in row order.
 		/// </summary>
@@ -2008,10 +2008,10 @@ namespace Tao.Cg
 		/// <param name="nelements">The number of elements to get. A value of 0 will default to the number of elements in the array minus the offset value.</param>
 		/// <param name="matrices">The array of values retreived from parameter.. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
-		public unsafe static extern void cgGLGetMatrixParameterArraydr(IntPtr param, long offset, long nelements, [Out] double* matrices);
-		#endregion void cgGLGetMatrixParameterArraydr(IntPtr param, long offset, long nelements, const double* matrices)
+		public unsafe static extern void cgGLGetMatrixParameterArraydr(IntPtr param, int offset, int nelements, [Out] double* matrices);
+		#endregion void cgGLGetMatrixParameterArraydr(IntPtr param, int offset, int nelements, const double* matrices)
 
-		#region void cgGLGetMatrixParameterArraydr(IntPtr param, long offset, long nelements, [Out] double[] matrices)
+		#region void cgGLGetMatrixParameterArraydr(IntPtr param, int offset, int nelements, [Out] double[] matrices)
 		/// <summary>
 		/// Gets an array matrix parameters (double) in row order.
 		/// </summary>
@@ -2020,10 +2020,10 @@ namespace Tao.Cg
 		/// <param name="nelements">The number of elements to get. A value of 0 will default to the number of elements in the array minus the offset value.</param>
 		/// <param name="matrices">The array of values retreived from parameter.. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLGetMatrixParameterArraydr(IntPtr param, long offset, long nelements, [Out] double[] matrices);
-		#endregion void cgGLGetMatrixParameterArraydr(IntPtr param, long offset, long nelements, const double[] matrices)
+		public static extern void cgGLGetMatrixParameterArraydr(IntPtr param, int offset, int nelements, [Out] double[] matrices);
+		#endregion void cgGLGetMatrixParameterArraydr(IntPtr param, int offset, int nelements, const double[] matrices)
 
-		#region void cgGLGetMatrixParameterArraydr(IntPtr param, long offset, long nelements, [Out] IntPtr matrices)
+		#region void cgGLGetMatrixParameterArraydr(IntPtr param, int offset, int nelements, [Out] IntPtr matrices)
 		/// <summary>
 		/// Gets an array matrix parameters (double) in row order.
 		/// </summary>
@@ -2032,8 +2032,8 @@ namespace Tao.Cg
 		/// <param name="nelements">The number of elements to get. A value of 0 will default to the number of elements in the array minus the offset value.</param>
 		/// <param name="matrices">The array of values retreived from parameter.. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
 		[DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void cgGLGetMatrixParameterArraydr(IntPtr param, long offset, long nelements, [Out] IntPtr matrices);
-		#endregion void cgGLGetMatrixParameterArraydr(IntPtr param, long offset, long nelements, const IntPtr matrices)
+		public static extern void cgGLGetMatrixParameterArraydr(IntPtr param, int offset, int nelements, [Out] IntPtr matrices);
+		#endregion void cgGLGetMatrixParameterArraydr(IntPtr param, int offset, int nelements, const IntPtr matrices)
 		#endregion cgGLGetMatrixParameterArraydr
 		#endregion
 		#endregion

@@ -1,4 +1,4 @@
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ProjectType>Local</ProjectType>
     <ProductVersion>8.0.50727</ProductVersion>
@@ -68,10 +68,6 @@
       <Name>System</Name>
       <HintPath>\System.dll</HintPath>
     </Reference>
-    <Reference Include="Tao.FreeType, Version=2.3.5.0, Culture=neutral, PublicKeyToken=e499629dc69cd531, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Tao.FreeType\bin\Debug\Tao.FreeType.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
@@ -86,6 +82,12 @@
   <ItemGroup>
     <None Include="Tao.FtGl.dll.config" />
     <None Include="Tao.FtGl.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tao.FreeType\Tao.FreeType.csproj">
+      <Project>{C04A3F9B-E8C5-42F2-9E15-1B2E71264881}</Project>
+      <Name>Tao.FreeType</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
   <PropertyGroup>

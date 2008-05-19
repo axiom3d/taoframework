@@ -47,10 +47,12 @@
         <delete dir="${bin.dir}" failonerror="false" />
         <delete dir="${obj.dir}" failonerror="false" />
         <nant buildfile="./Tao.FreeType.dll.build" target="clean" />
+	<nant buildfile="../Tao.FtGl/Tao.FtGl.dll.build" target="clean" />
     </target>
 
     <target name="build" depends="init" description="">
         <nant buildfile="./Tao.FreeType.dll.build" target="build" />
+	<nant buildfile="../Tao.FtGl/Tao.FtGl.dll.build" target="build" />
     </target>
 
     <target name="build-release" depends="Release, init, build" description="Builds in Release mode" />
@@ -62,6 +64,7 @@
     <target name="doc" depends="build-release">
         <echo message="Generating all documentation from all builds" />
         <nant buildfile="./Tao.FreeType.dll.build" target="doc" />
+	<nant buildfile="../Tao.FtGl/Tao.FtGl.dll.build" target="doc" />
     </target>
 
 </project>

@@ -665,6 +665,21 @@ String url,
         [DllImport(AVFORMAT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int dc1394_init();
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="f">Pointer to <see cref="AVInputFormat"/> or <see cref="IntPtr.Zero"/></param>
+        /// <returns>Pointer to <see cref="AVInputFormat"/> or <see cref="IntPtr.Zero"/></returns>
+        [DllImport(AVFORMAT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern IntPtr av_iformat_next(IntPtr f);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="f">Pointer to <see cref="AVOutputFormat"/> or <see cref="IntPtr.Zero"/></param>
+        /// <returns>Pointer to <see cref="AVOutputFormat"/> or <see cref="IntPtr.Zero"/></returns>
+        [DllImport(AVFORMAT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern IntPtr av_oformat_next(IntPtr f);
 
         // *********************************************************************************
         // Constants

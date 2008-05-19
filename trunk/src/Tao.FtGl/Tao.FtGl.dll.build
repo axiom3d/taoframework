@@ -8,6 +8,7 @@
 	        <include name="${project::get-base-directory()}/${build.dir}" />
 	    </lib>
 	    <include name="System.dll" />
+	    <include name="../Tao.FreeType/${build.dir}/Tao.FreeType.dll" />
 	</assemblyfileset >
 	
 	<property name="proj.keyfile" value="${project::get-name()}.snk" />

@@ -59,12 +59,18 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private extern static IntPtr ftglCreateBitmapFont(string namefont);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="namefont"></param>
             public FTGLBitmapFont(string namefont)
             {
                 _ptr = ftglCreateBitmapFont(namefont);
             }
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public class FTGLPixmapFont : FTFont
         {
             /// <summary>
@@ -72,12 +78,18 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private extern static IntPtr ftglCreatePixmapFont(string namefont);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="namefont"></param>
             public FTGLPixmapFont(string namefont)
             {
                 _ptr = ftglCreatePixmapFont(namefont);
             }
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public class FTGLOutlineFont : FTFont
         {
             /// <summary>
@@ -85,12 +97,18 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private extern static IntPtr ftglCreateOutlineFont(string namefont);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="namefont"></param>
             public FTGLOutlineFont(string namefont)
             {
                 _ptr = ftglCreateOutlineFont(namefont);
             }
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public class FTGLPolygonFont : FTFont
         {
             /// <summary>
@@ -98,12 +116,18 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private extern static IntPtr ftglCreatePolygonFont(string namefont);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="namefont"></param>
             public FTGLPolygonFont(string namefont)
             {
                 _ptr = ftglCreatePolygonFont(namefont);
             }
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public class FTGLExtrudeFont : FTFont
         {
             /// <summary>
@@ -111,12 +135,18 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private extern static IntPtr ftglCreateExtrudeFont(string namefont);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="namefont"></param>
             public FTGLExtrudeFont(string namefont)
             {
                 _ptr = ftglCreateExtrudeFont(namefont);
             }
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public class FTGLTextureFont : FTFont
         {
             /// <summary>
@@ -124,7 +154,10 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private extern static IntPtr ftglCreateTextureFont(string namefont);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="namefont"></param>
             public FTGLTextureFont(string namefont)
             {
                 _ptr = ftglCreateTextureFont(namefont);
@@ -136,11 +169,18 @@ namespace Tao.FtGl
         /// </summary>
         abstract public class FTFont : IDisposable
         {
+            /// <summary>
+            /// 
+            /// </summary>
             [CLSCompliant(false)]
             protected IntPtr _ptr = IntPtr.Zero;
-
+            /// <summary>
+            /// 
+            /// </summary>
             public IntPtr Pointer { get{ return _ptr;} }
-
+            /// <summary>
+            /// 
+            /// </summary>
             public FTFont()
             {
             }
@@ -150,14 +190,18 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private extern static void ftglDestroyFont(IntPtr font);
-
+            /// <summary>
+            /// 
+            /// </summary>
             public void Dispose()
             {
                 if(_ptr != IntPtr.Zero)
                     ftglDestroyFont(_ptr);
                 _ptr = IntPtr.Zero;
             }
-
+            /// <summary>
+            /// 
+            /// </summary>
             ~FTFont()
             {
                 if(_ptr != IntPtr.Zero)
@@ -170,7 +214,10 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private static extern float ftglGetFontLineHeight(IntPtr font);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <returns></returns>
             public float LineHeight()
             {
                 return ftglGetFontLineHeight(_ptr);
@@ -181,7 +228,11 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private static extern int ftglSetFontCharMap(IntPtr font, FT_Encoding encoding);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="encoding"></param>
+            /// <returns></returns>
             [CLSCompliant(false)]
             public int CharMap(FT_Encoding encoding)
             {
@@ -193,7 +244,16 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private static extern void ftglGetFontBBox(IntPtr font, string str, int start, int end, float[] coord);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="str"></param>
+            /// <param name="x1"></param>
+            /// <param name="y1"></param>
+            /// <param name="z1"></param>
+            /// <param name="x2"></param>
+            /// <param name="y2"></param>
+            /// <param name="z2"></param>
             public void BBox(string str,
                              out float x1, out float y1, out float z1,
                              out float x2, out float y2, out float z2)
@@ -201,7 +261,18 @@ namespace Tao.FtGl
                 BBox(str, 0, -1, out x1, out y1, out z1,
                                  out x2, out y2, out z2);
             }
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="str"></param>
+            /// <param name="start"></param>
+            /// <param name="end"></param>
+            /// <param name="x1"></param>
+            /// <param name="y1"></param>
+            /// <param name="z1"></param>
+            /// <param name="x2"></param>
+            /// <param name="y2"></param>
+            /// <param name="z2"></param>
             public void BBox(string str, int start, int end,
                              out float x1, out float y1, out float z1,
                              out float x2, out float y2, out float z2)
@@ -218,7 +289,10 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private static extern uint ftglGetFontFaceSize(IntPtr font);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <returns></returns>
             public int FaceSize()
             {
                 return (int)ftglGetFontFaceSize(_ptr);
@@ -229,12 +303,21 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private static extern int ftglSetFontFaceSize(IntPtr font, uint size, uint res);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="size"></param>
+            /// <param name="res"></param>
+            /// <returns></returns>
             public int FaceSize(int size, int res)
             {
                 return ftglSetFontFaceSize(_ptr, (uint)size, (uint)res);
             }
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="size"></param>
+            /// <returns></returns>
             public int FaceSize(int size)
             {
                 return ftglSetFontFaceSize(_ptr, (uint)size, 72);
@@ -245,7 +328,10 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private static extern float ftglGetFontDescender(IntPtr font);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <returns></returns>
             public float Descender()
             {
                 return ftglGetFontDescender(_ptr);
@@ -256,7 +342,10 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private static extern float ftglGetFontAscender(IntPtr font);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <returns></returns>
             public float Ascender()
             {
                 return ftglGetFontAscender(_ptr);
@@ -267,7 +356,11 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private static extern float ftglGetFontAdvance(IntPtr font, string str);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="str"></param>
+            /// <returns></returns>
             public float Advance(string str)
             {
                 return ftglGetFontAdvance(_ptr, str);
@@ -278,7 +371,10 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private static extern void ftglSetFontDepth(IntPtr font, float depth);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="depth"></param>
             public void Depth(float depth)
             {
                 ftglSetFontDepth(_ptr, depth);
@@ -290,7 +386,11 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private static extern void ftglSetFontOutset(IntPtr font, float front, float back);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="front"></param>
+            /// <param name="back"></param>
             public void Outset(float front, float back)
             {
                 ftglSetFontOutset(_ptr, front, back);
@@ -301,7 +401,10 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private static extern void ftglRenderFont(IntPtr font, string str);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="str"></param>
             public void Render(string str)
             {
                 ftglRenderFont(_ptr, str);
@@ -312,7 +415,10 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private static extern int ftglGetFontError(IntPtr font);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <returns></returns>
             public int Error()
             {
                 return ftglGetFontError(_ptr);
@@ -323,7 +429,11 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private static extern int ftglAttachFile(IntPtr font, string path);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="pathFont"></param>
+            /// <returns></returns>
             public bool Attach(string pathFont)
             {
                 int rtn = ftglAttachFile(_ptr, pathFont);
@@ -337,7 +447,12 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private static extern int ftglAttachData(IntPtr font, string p, int size);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="p"></param>
+            /// <param name="size"></param>
+            /// <returns></returns>
             public bool Attach(string p, int size)
             {
                 int rtn = ftglAttachData(_ptr, p, size);
@@ -351,7 +466,10 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private static extern int ftglGetFontCharMapCount(IntPtr font);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <returns></returns>
             public int CharMapCount()
             {
                 return ftglGetFontCharMapCount(_ptr);
@@ -362,7 +480,10 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private static extern List<FT_Encoding> ftglGetFontCharMapList(IntPtr font);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <returns></returns>
             [CLSCompliant(false)]
             public List<FT_Encoding> CharMapList()
             {
@@ -374,7 +495,10 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private static extern void ftglSetFontDisplayList(IntPtr font, int use);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="use"></param>
             public void SetDisplayList(bool use)
             {
                 if(!use)
@@ -393,7 +517,13 @@ namespace Tao.FtGl
             ///
             /// </summary>
             RENDER_FRONT = 0x01,
+            /// <summary>
+            /// 
+            /// </summary>
             RENDER_BACK = 0x02,
+            /// <summary>
+            /// 
+            /// </summary>
             RENDER_SIDE = 0x04,
         }
         /// <summary>
@@ -405,8 +535,17 @@ namespace Tao.FtGl
             ///
             /// </summary>
             ALIGN_LEFT = 0,
+            /// <summary>
+            /// 
+            /// </summary>
             ALIGN_CENTER = 1,
+            /// <summary>
+            /// 
+            /// </summary>
             ALIGN_RIGHT = 2,
+            /// <summary>
+            /// 
+            /// </summary>
             ALIGN_JUSTIFY = 3,
         }
 
@@ -422,7 +561,9 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private extern static IntPtr ftglCreateSimpleLayout();
-
+            /// <summary>
+            /// 
+            /// </summary>
             public FTSimpleLayout()
             {
                 _ptr = ftglCreateSimpleLayout();
@@ -433,7 +574,11 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private static extern void ftglRenderLayout(IntPtr layout, string str, int mode);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="str"></param>
+            /// <param name="mode"></param>
             public void RenderMode(string str, RenderMode mode)
             {
                 ftglRenderLayout(_ptr, str, (int)mode);
@@ -445,7 +590,11 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private static extern void ftglRenderLayoutSpace(IntPtr layout, string str, float ExtraSpace);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="str"></param>
+            /// <param name="extraSpace"></param>
             public void RenderSpace(string str, float extraSpace)
             {
                 ftglRenderLayoutSpace(_ptr, str, extraSpace);
@@ -456,7 +605,10 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private static extern void ftglSetLayoutLineLength(IntPtr layout, float lenght);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="length"></param>
             public void SetLineLength(float length)
             {
                 ftglSetLayoutLineLength(_ptr, length);
@@ -467,7 +619,10 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private static extern float ftglGetLayoutLineLength(IntPtr layout);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <returns></returns>
             public float GetLineLength()
             {
                 return ftglGetLayoutLineLength(_ptr);
@@ -478,7 +633,10 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private static extern void ftglSetLayoutAlignment(IntPtr layout, int align);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="align"></param>
             public void SetAlignment(TextAlignment align)
             {
                 ftglSetLayoutAlignment(_ptr, (int)align);
@@ -489,7 +647,10 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private static extern int ftglGetLayoutAlignement(IntPtr layout);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <returns></returns>
             public TextAlignment GetAlignment()
             {
                 return (TextAlignment)ftglGetLayoutAlignement(_ptr);
@@ -500,7 +661,10 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private static extern void ftglSetLayoutLineSpacing(IntPtr layout, float space);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="space"></param>
             public void SetLineSpacing(float space)
             {
                 ftglSetLayoutLineSpacing(_ptr, space);
@@ -511,7 +675,10 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private static extern float ftglGetLayoutLineSpacing(IntPtr layout);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <returns></returns>
             public float GetLineSpacing()
             {
                 return ftglGetLayoutLineSpacing(_ptr);
@@ -523,21 +690,30 @@ namespace Tao.FtGl
         /// </summary>
         abstract public class FTLayout : IDisposable
         {
+            /// <summary>
+            /// 
+            /// </summary>
             [CLSCompliant(false)]
             protected IntPtr _ptr = IntPtr.Zero;
-
+            /// <summary>
+            /// 
+            /// </summary>
             public FTLayout() {}
 
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private extern static void ftglDestroyLayout(IntPtr layout);
-
+            /// <summary>
+            /// 
+            /// </summary>
             public void Dispose()
             {
                 if(_ptr != IntPtr.Zero)
                     ftglDestroyLayout(_ptr);
                 _ptr = IntPtr.Zero;
             }
-
+            /// <summary>
+            /// 
+            /// </summary>
             ~FTLayout()
             {
                 if(_ptr != IntPtr.Zero)
@@ -550,7 +726,16 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private static extern void ftglGetLayoutBBox(IntPtr layout, string str, float[] coord);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="str"></param>
+            /// <param name="x1"></param>
+            /// <param name="y1"></param>
+            /// <param name="z1"></param>
+            /// <param name="x2"></param>
+            /// <param name="y2"></param>
+            /// <param name="z2"></param>
             public void BBox(string str, out float x1, out float y1, out float z1,
                                          out float x2, out float y2, out float z2)
             {
@@ -566,7 +751,10 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private static extern void ftglSetLayoutFont(IntPtr layout, IntPtr fontToAdd);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="font"></param>
             public void SetFont(FTFont font)
             {
                 ftglSetLayoutFont(_ptr, font.Pointer);
@@ -577,7 +765,10 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private static extern FTFont ftglGetLayoutFont(IntPtr layout);
-
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <returns></returns>
             public FTFont GetFont()
             {
                 return ftglGetLayoutFont(_ptr);

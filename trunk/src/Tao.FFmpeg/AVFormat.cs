@@ -25,18 +25,6 @@ SOFTWARE.
 */
 #endregion License
 
-/* Define all previous supported version numbers
-this is a hack to be able to test #if VERSION < 52
-by doing #if !VERSION_52 */
-#if AVFORMAT_VERSION_52
-    #define AVFORMAT_VERSION_51
-#elif AVFORMAT_VERSION_51
-    // nothing to do
-#else
-    #define AVFORMAT_VERSION_51
-    #warning No version for avformat specified, defaulting to 51
-#endif
-
 using System;
 using System.Runtime;
 using System.Runtime.InteropServices;
@@ -57,11 +45,7 @@ namespace Tao.FFmpeg
         /// <remarks>
         ///     Specifies avformat.dll everywhere; will be mapped via .config for mono.
         /// </remarks>
-#if AVFORMAT_VERSION_52
         private const string AVFORMAT_NATIVE_LIBRARY = "avformat-52.dll";
-#elif AVFORMAT_VERSION_51
-        private const string AVFORMAT_NATIVE_LIBRARY = "avformat-51.dll";
-#endif
         #endregion string AVFORMAT_NATIVE_LIBRARY
         #endregion Private Constants
 
@@ -128,10 +112,10 @@ namespace Tao.FFmpeg
         // av_free_packet is internal, so reimplemented in managed code
         public static void av_free_packet(IntPtr pAVPacket)
         {
-            if(pAVPacket == IntPtr.Zero)
+            if (pAVPacket == IntPtr.Zero)
                 return;
 
-            AVPacket packet = (AVPacket) Marshal.PtrToStructure(pAVPacket, typeof (AVPacket));
+            AVPacket packet = (AVPacket)Marshal.PtrToStructure(pAVPacket, typeof(AVPacket));
             if (packet.destruct == null)
                 return;
 
@@ -1000,13 +984,6 @@ String url,
             /// 
             /// </summary>
             public int channel;
-#if !AVFORMAT_VERSION_52
-            /// <summary>
-            /// 
-            /// </summary>
-            [MarshalAs(UnmanagedType.LPStr)]
-            public String device;
-#endif
             /// <summary>
             /// 
             /// </summary>
@@ -1029,16 +1006,6 @@ String url,
             /// 
             /// </summary>
             public int prealloced_context;
-#if !AVFORMAT_VERSION_52
-            /// <summary>
-            /// 
-            /// </summary>
-            public CodecID video_codec_id;
-            /// <summary>
-            /// 
-            /// </summary>
-            public CodecID audio_codec_id;
-#endif
         };
 
         /// <summary>
@@ -1386,14 +1353,6 @@ String url,
             [MarshalAs(UnmanagedType.I8)]
             public Int64 codec_info_duration; // internal data used in av_find_stream_info()
 
-#if !AVFORMAT_VERSION_52
-            /// <summary>
-            /// 
-            /// </summary>
-            [MarshalAs(UnmanagedType.I4)]
-            public int codec_info_nb_frames;
-#endif
-
             /// <summary>
             /// 
             /// </summary>
@@ -1540,11 +1499,7 @@ String url,
             /// <summary>
             /// 
             /// </summary>
-#if AVFORMAT_VERSION_52
             public IntPtr pb; // ByteIOContext
-#else
-            public ByteIOContext pb;
-#endif
 
             /// <summary>
             /// 
@@ -1750,7 +1705,7 @@ String url,
             [MarshalAs(UnmanagedType.U4)]
             [CLSCompliant(false)]
             public uint probesize; // decoding: size of data to probe; encoding unused
-          
+
             /// <summary>
             /// 
             /// </summary>
@@ -1774,7 +1729,7 @@ String url,
             [MarshalAs(UnmanagedType.U4)]
             [CLSCompliant(false)]
             public uint nb_programs;
-            
+
             /// <summary>
             /// 
             /// </summary>

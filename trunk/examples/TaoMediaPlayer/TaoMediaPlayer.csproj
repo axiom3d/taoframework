@@ -8,7 +8,8 @@
     <AssemblyName>TaoMediaPlayer</AssemblyName>
     <RootNamespace>TaoMediaPlayer</RootNamespace>
     <MinFrameworkVersionRequired>2.0</MinFrameworkVersionRequired>
-    <ApplicationIcon>tao.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
     <StartupObject>TaoMediaPlayer.MainForm</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -66,9 +67,6 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <AppDesigner Include="TaoMediaplayer\Properties\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="tao.ico" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\Tao.FFmpeg\Tao.FFmpeg.csproj">

@@ -6,6 +6,9 @@ All rights reserved.
 Tao.FFmpeg is an FFmpeg API binding for .NET, implementing FFmpeg 0.4.9.
 
 Change Log:
+0.4.9.1 - June 2008:
+    Updated lib to latest version.
+
 0.4.9.0 - August 2007:
     Initial version by Tzehaw Huang (jackaroomaster at users.sourceforge.net). 
     Tzehaw has graciously changed the license from GPL to MIT for inclulsion in the Tao Framework.

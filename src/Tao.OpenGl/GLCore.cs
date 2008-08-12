@@ -134,10 +134,10 @@ namespace Tao.OpenGl
             internal extern static unsafe void Color4usv(UInt16* v);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glEdgeFlag", ExactSpelling = true)]
-            internal extern static void EdgeFlag(Int32 flag);
+            internal extern static void EdgeFlag(bool flag);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glEdgeFlagv", ExactSpelling = true)]
-            internal extern static unsafe void EdgeFlagv(Int32* flag);
+            internal extern static unsafe void EdgeFlagv(bool* flag);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glEnd", ExactSpelling = true)]
             internal extern static void End();
@@ -557,10 +557,10 @@ namespace Tao.OpenGl
             internal extern static unsafe void TexParameteriv(int target, int pname, Int32* @params);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glTexImage1D", ExactSpelling = true)]
-            internal extern static void TexImage1D(int target, Int32 level, int internalformat, Int32 width, Int32 border, int format, int type, IntPtr pixels);
+            internal extern static void TexImage1D(int target, Int32 level, Int32 internalformat, Int32 width, Int32 border, int format, int type, IntPtr pixels);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glTexImage2D", ExactSpelling = true)]
-            internal extern static void TexImage2D(int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 border, int format, int type, IntPtr pixels);
+            internal extern static void TexImage2D(int target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, int format, int type, IntPtr pixels);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glTexEnvf", ExactSpelling = true)]
             internal extern static void TexEnvf(int target, int pname, Single param);
@@ -641,10 +641,10 @@ namespace Tao.OpenGl
             internal extern static void StencilMask(UInt32 mask);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glColorMask", ExactSpelling = true)]
-            internal extern static void ColorMask(Int32 red, Int32 green, Int32 blue, Int32 alpha);
+            internal extern static void ColorMask(bool red, bool green, bool blue, bool alpha);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glDepthMask", ExactSpelling = true)]
-            internal extern static void DepthMask(Int32 flag);
+            internal extern static void DepthMask(bool flag);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glIndexMask", ExactSpelling = true)]
             internal extern static void IndexMask(UInt32 mask);
@@ -785,7 +785,7 @@ namespace Tao.OpenGl
             internal extern static void DrawPixels(Int32 width, Int32 height, int format, int type, IntPtr pixels);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glGetBooleanv", ExactSpelling = true)]
-            internal extern static unsafe void GetBooleanv(int pname, [Out] Int32* @params);
+            internal extern static unsafe void GetBooleanv(int pname, [Out] bool* @params);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glGetClipPlane", ExactSpelling = true)]
             internal extern static unsafe void GetClipPlane(int plane, [Out] Double* equation);
@@ -869,10 +869,10 @@ namespace Tao.OpenGl
             internal extern static unsafe void GetTexLevelParameteriv(int target, Int32 level, int pname, [Out] Int32* @params);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glIsEnabled", ExactSpelling = true)]
-            internal extern static Int32 IsEnabled(int cap);
+            internal extern static bool IsEnabled(int cap);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glIsList", ExactSpelling = true)]
-            internal extern static Int32 IsList(UInt32 list);
+            internal extern static bool IsList(UInt32 list);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glDepthRange", ExactSpelling = true)]
             internal extern static void DepthRange(Double near, Double far);
@@ -989,7 +989,7 @@ namespace Tao.OpenGl
             internal extern static void TexSubImage2D(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, int format, int type, IntPtr pixels);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glAreTexturesResident", ExactSpelling = true)]
-            internal extern static unsafe Int32 AreTexturesResident(Int32 n, UInt32* textures, [Out] Int32* residences);
+            internal extern static unsafe bool AreTexturesResident(Int32 n, UInt32* textures, [Out] bool* residences);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glBindTexture", ExactSpelling = true)]
             internal extern static void BindTexture(int target, UInt32 texture);
@@ -1001,7 +1001,7 @@ namespace Tao.OpenGl
             internal extern static unsafe void GenTextures(Int32 n, [Out] UInt32* textures);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glIsTexture", ExactSpelling = true)]
-            internal extern static Int32 IsTexture(UInt32 texture);
+            internal extern static bool IsTexture(UInt32 texture);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glPrioritizeTextures", ExactSpelling = true)]
             internal extern static unsafe void PrioritizeTextures(Int32 n, UInt32* textures, Single* priorities);
@@ -1094,7 +1094,7 @@ namespace Tao.OpenGl
             internal extern static void SeparableFilter2D(int target, int internalformat, Int32 width, Int32 height, int format, int type, IntPtr row, IntPtr column);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glGetHistogram", ExactSpelling = true)]
-            internal extern static void GetHistogram(int target, Int32 reset, int format, int type, [Out] IntPtr values);
+            internal extern static void GetHistogram(int target, bool reset, int format, int type, [Out] IntPtr values);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glGetHistogramParameterfv", ExactSpelling = true)]
             internal extern static unsafe void GetHistogramParameterfv(int target, int pname, [Out] Single* @params);
@@ -1103,7 +1103,7 @@ namespace Tao.OpenGl
             internal extern static unsafe void GetHistogramParameteriv(int target, int pname, [Out] Int32* @params);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glGetMinmax", ExactSpelling = true)]
-            internal extern static void GetMinmax(int target, Int32 reset, int format, int type, [Out] IntPtr values);
+            internal extern static void GetMinmax(int target, bool reset, int format, int type, [Out] IntPtr values);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glGetMinmaxParameterfv", ExactSpelling = true)]
             internal extern static unsafe void GetMinmaxParameterfv(int target, int pname, [Out] Single* @params);
@@ -1112,10 +1112,10 @@ namespace Tao.OpenGl
             internal extern static unsafe void GetMinmaxParameteriv(int target, int pname, [Out] Int32* @params);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glHistogram", ExactSpelling = true)]
-            internal extern static void Histogram(int target, Int32 width, int internalformat, Int32 sink);
+            internal extern static void Histogram(int target, Int32 width, int internalformat, bool sink);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glMinmax", ExactSpelling = true)]
-            internal extern static void Minmax(int target, int internalformat, Int32 sink);
+            internal extern static void Minmax(int target, int internalformat, bool sink);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glResetHistogram", ExactSpelling = true)]
             internal extern static void ResetHistogram(int target);
@@ -1124,7 +1124,7 @@ namespace Tao.OpenGl
             internal extern static void ResetMinmax(int target);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glTexImage3D", ExactSpelling = true)]
-            internal extern static void TexImage3D(int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, int format, int type, IntPtr pixels);
+            internal extern static void TexImage3D(int target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, int format, int type, IntPtr pixels);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glTexSubImage3D", ExactSpelling = true)]
             internal extern static void TexSubImage3D(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, int type, IntPtr pixels);
@@ -1247,7 +1247,7 @@ namespace Tao.OpenGl
             internal extern static unsafe void MultTransposeMatrixd(Double* m);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glSampleCoverage", ExactSpelling = true)]
-            internal extern static void SampleCoverage(Single value, Int32 invert);
+            internal extern static void SampleCoverage(Single value, bool invert);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glCompressedTexImage3D", ExactSpelling = true)]
             internal extern static void CompressedTexImage3D(int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr data);
@@ -1412,7 +1412,7 @@ namespace Tao.OpenGl
             internal extern static unsafe void DeleteQueries(Int32 n, UInt32* ids);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glIsQuery", ExactSpelling = true)]
-            internal extern static Int32 IsQuery(UInt32 id);
+            internal extern static bool IsQuery(UInt32 id);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glBeginQuery", ExactSpelling = true)]
             internal extern static void BeginQuery(int target, UInt32 id);
@@ -1439,7 +1439,7 @@ namespace Tao.OpenGl
             internal extern static unsafe void GenBuffers(Int32 n, [Out] UInt32* buffers);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glIsBuffer", ExactSpelling = true)]
-            internal extern static Int32 IsBuffer(UInt32 buffer);
+            internal extern static bool IsBuffer(UInt32 buffer);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glBufferData", ExactSpelling = true)]
             internal extern static void BufferData(int target, IntPtr size, IntPtr data, int usage);
@@ -1454,7 +1454,7 @@ namespace Tao.OpenGl
             internal extern static unsafe IntPtr MapBuffer(int target, int access);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glUnmapBuffer", ExactSpelling = true)]
-            internal extern static Int32 UnmapBuffer(int target);
+            internal extern static bool UnmapBuffer(int target);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glGetBufferParameteriv", ExactSpelling = true)]
             internal extern static unsafe void GetBufferParameteriv(int target, int pname, [Out] Int32* @params);
@@ -1556,10 +1556,10 @@ namespace Tao.OpenGl
             internal extern static void GetVertexAttribPointerv(UInt32 index, int pname, [Out] IntPtr pointer);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glIsProgram", ExactSpelling = true)]
-            internal extern static Int32 IsProgram(UInt32 program);
+            internal extern static bool IsProgram(UInt32 program);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glIsShader", ExactSpelling = true)]
-            internal extern static Int32 IsShader(UInt32 shader);
+            internal extern static bool IsShader(UInt32 shader);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glLinkProgram", ExactSpelling = true)]
             internal extern static void LinkProgram(UInt32 program);
@@ -1619,13 +1619,13 @@ namespace Tao.OpenGl
             internal extern static unsafe void Uniform4iv(Int32 location, Int32 count, Int32* value);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glUniformMatrix2fv", ExactSpelling = true)]
-            internal extern static unsafe void UniformMatrix2fv(Int32 location, Int32 count, Int32 transpose, Single* value);
+            internal extern static unsafe void UniformMatrix2fv(Int32 location, Int32 count, bool transpose, Single* value);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glUniformMatrix3fv", ExactSpelling = true)]
-            internal extern static unsafe void UniformMatrix3fv(Int32 location, Int32 count, Int32 transpose, Single* value);
+            internal extern static unsafe void UniformMatrix3fv(Int32 location, Int32 count, bool transpose, Single* value);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glUniformMatrix4fv", ExactSpelling = true)]
-            internal extern static unsafe void UniformMatrix4fv(Int32 location, Int32 count, Int32 transpose, Single* value);
+            internal extern static unsafe void UniformMatrix4fv(Int32 location, Int32 count, bool transpose, Single* value);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glValidateProgram", ExactSpelling = true)]
             internal extern static void ValidateProgram(UInt32 program);
@@ -1739,25 +1739,25 @@ namespace Tao.OpenGl
             internal extern static unsafe void VertexAttrib4usv(UInt32 index, UInt16* v);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glVertexAttribPointer", ExactSpelling = true)]
-            internal extern static void VertexAttribPointer(UInt32 index, Int32 size, int type, Int32 normalized, Int32 stride, IntPtr pointer);
+            internal extern static void VertexAttribPointer(UInt32 index, Int32 size, int type, bool normalized, Int32 stride, IntPtr pointer);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glUniformMatrix2x3fv", ExactSpelling = true)]
-            internal extern static unsafe void UniformMatrix2x3fv(Int32 location, Int32 count, Int32 transpose, Single* value);
+            internal extern static unsafe void UniformMatrix2x3fv(Int32 location, Int32 count, bool transpose, Single* value);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glUniformMatrix3x2fv", ExactSpelling = true)]
-            internal extern static unsafe void UniformMatrix3x2fv(Int32 location, Int32 count, Int32 transpose, Single* value);
+            internal extern static unsafe void UniformMatrix3x2fv(Int32 location, Int32 count, bool transpose, Single* value);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glUniformMatrix2x4fv", ExactSpelling = true)]
-            internal extern static unsafe void UniformMatrix2x4fv(Int32 location, Int32 count, Int32 transpose, Single* value);
+            internal extern static unsafe void UniformMatrix2x4fv(Int32 location, Int32 count, bool transpose, Single* value);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glUniformMatrix4x2fv", ExactSpelling = true)]
-            internal extern static unsafe void UniformMatrix4x2fv(Int32 location, Int32 count, Int32 transpose, Single* value);
+            internal extern static unsafe void UniformMatrix4x2fv(Int32 location, Int32 count, bool transpose, Single* value);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glUniformMatrix3x4fv", ExactSpelling = true)]
-            internal extern static unsafe void UniformMatrix3x4fv(Int32 location, Int32 count, Int32 transpose, Single* value);
+            internal extern static unsafe void UniformMatrix3x4fv(Int32 location, Int32 count, bool transpose, Single* value);
             [System.Security.SuppressUnmanagedCodeSecurity()]
             [System.Runtime.InteropServices.DllImport(Gl.Library, EntryPoint = "glUniformMatrix4x3fv", ExactSpelling = true)]
-            internal extern static unsafe void UniformMatrix4x3fv(Int32 location, Int32 count, Int32 transpose, Single* value);
+            internal extern static unsafe void UniformMatrix4x3fv(Int32 location, Int32 count, bool transpose, Single* value);
         }
     }
 }

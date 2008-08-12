@@ -132,10 +132,10 @@ namespace Tao.OpenGl
             internal unsafe delegate void Color4usv(UInt16* v);
             internal unsafe static Color4usv glColor4usv;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate void EdgeFlag(Int32 flag);
+            internal delegate void EdgeFlag(bool flag);
             internal static EdgeFlag glEdgeFlag;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal unsafe delegate void EdgeFlagv(Int32* flag);
+            internal unsafe delegate void EdgeFlagv(bool* flag);
             internal unsafe static EdgeFlagv glEdgeFlagv;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void End();
@@ -555,10 +555,10 @@ namespace Tao.OpenGl
             internal unsafe delegate void TexParameteriv(int target, int pname, Int32* @params);
             internal unsafe static TexParameteriv glTexParameteriv;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate void TexImage1D(int target, Int32 level, int internalformat, Int32 width, Int32 border, int format, int type, IntPtr pixels);
+            internal delegate void TexImage1D(int target, Int32 level, Int32 internalformat, Int32 width, Int32 border, int format, int type, IntPtr pixels);
             internal static TexImage1D glTexImage1D;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate void TexImage2D(int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 border, int format, int type, IntPtr pixels);
+            internal delegate void TexImage2D(int target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, int format, int type, IntPtr pixels);
             internal static TexImage2D glTexImage2D;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void TexEnvf(int target, int pname, Single param);
@@ -639,10 +639,10 @@ namespace Tao.OpenGl
             internal delegate void StencilMask(UInt32 mask);
             internal static StencilMask glStencilMask;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate void ColorMask(Int32 red, Int32 green, Int32 blue, Int32 alpha);
+            internal delegate void ColorMask(bool red, bool green, bool blue, bool alpha);
             internal static ColorMask glColorMask;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate void DepthMask(Int32 flag);
+            internal delegate void DepthMask(bool flag);
             internal static DepthMask glDepthMask;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void IndexMask(UInt32 mask);
@@ -783,7 +783,7 @@ namespace Tao.OpenGl
             internal delegate void DrawPixels(Int32 width, Int32 height, int format, int type, IntPtr pixels);
             internal static DrawPixels glDrawPixels;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal unsafe delegate void GetBooleanv(int pname, [Out] Int32* @params);
+            internal unsafe delegate void GetBooleanv(int pname, [Out] bool* @params);
             internal unsafe static GetBooleanv glGetBooleanv;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal unsafe delegate void GetClipPlane(int plane, [Out] Double* equation);
@@ -867,10 +867,10 @@ namespace Tao.OpenGl
             internal unsafe delegate void GetTexLevelParameteriv(int target, Int32 level, int pname, [Out] Int32* @params);
             internal unsafe static GetTexLevelParameteriv glGetTexLevelParameteriv;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate Int32 IsEnabled(int cap);
+            internal delegate bool IsEnabled(int cap);
             internal static IsEnabled glIsEnabled;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate Int32 IsList(UInt32 list);
+            internal delegate bool IsList(UInt32 list);
             internal static IsList glIsList;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void DepthRange(Double near, Double far);
@@ -987,7 +987,7 @@ namespace Tao.OpenGl
             internal delegate void TexSubImage2D(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, int format, int type, IntPtr pixels);
             internal static TexSubImage2D glTexSubImage2D;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal unsafe delegate Int32 AreTexturesResident(Int32 n, UInt32* textures, [Out] Int32* residences);
+            internal unsafe delegate bool AreTexturesResident(Int32 n, UInt32* textures, [Out] bool* residences);
             internal unsafe static AreTexturesResident glAreTexturesResident;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void BindTexture(int target, UInt32 texture);
@@ -999,7 +999,7 @@ namespace Tao.OpenGl
             internal unsafe delegate void GenTextures(Int32 n, [Out] UInt32* textures);
             internal unsafe static GenTextures glGenTextures;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate Int32 IsTexture(UInt32 texture);
+            internal delegate bool IsTexture(UInt32 texture);
             internal static IsTexture glIsTexture;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal unsafe delegate void PrioritizeTextures(Int32 n, UInt32* textures, Single* priorities);
@@ -1092,7 +1092,7 @@ namespace Tao.OpenGl
             internal delegate void SeparableFilter2D(int target, int internalformat, Int32 width, Int32 height, int format, int type, IntPtr row, IntPtr column);
             internal static SeparableFilter2D glSeparableFilter2D;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate void GetHistogram(int target, Int32 reset, int format, int type, [Out] IntPtr values);
+            internal delegate void GetHistogram(int target, bool reset, int format, int type, [Out] IntPtr values);
             internal static GetHistogram glGetHistogram;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal unsafe delegate void GetHistogramParameterfv(int target, int pname, [Out] Single* @params);
@@ -1101,7 +1101,7 @@ namespace Tao.OpenGl
             internal unsafe delegate void GetHistogramParameteriv(int target, int pname, [Out] Int32* @params);
             internal unsafe static GetHistogramParameteriv glGetHistogramParameteriv;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate void GetMinmax(int target, Int32 reset, int format, int type, [Out] IntPtr values);
+            internal delegate void GetMinmax(int target, bool reset, int format, int type, [Out] IntPtr values);
             internal static GetMinmax glGetMinmax;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal unsafe delegate void GetMinmaxParameterfv(int target, int pname, [Out] Single* @params);
@@ -1110,10 +1110,10 @@ namespace Tao.OpenGl
             internal unsafe delegate void GetMinmaxParameteriv(int target, int pname, [Out] Int32* @params);
             internal unsafe static GetMinmaxParameteriv glGetMinmaxParameteriv;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate void Histogram(int target, Int32 width, int internalformat, Int32 sink);
+            internal delegate void Histogram(int target, Int32 width, int internalformat, bool sink);
             internal static Histogram glHistogram;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate void Minmax(int target, int internalformat, Int32 sink);
+            internal delegate void Minmax(int target, int internalformat, bool sink);
             internal static Minmax glMinmax;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void ResetHistogram(int target);
@@ -1122,7 +1122,7 @@ namespace Tao.OpenGl
             internal delegate void ResetMinmax(int target);
             internal static ResetMinmax glResetMinmax;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate void TexImage3D(int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, int format, int type, IntPtr pixels);
+            internal delegate void TexImage3D(int target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, int format, int type, IntPtr pixels);
             internal static TexImage3D glTexImage3D;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void TexSubImage3D(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, int format, int type, IntPtr pixels);
@@ -1245,7 +1245,7 @@ namespace Tao.OpenGl
             internal unsafe delegate void MultTransposeMatrixd(Double* m);
             internal unsafe static MultTransposeMatrixd glMultTransposeMatrixd;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate void SampleCoverage(Single value, Int32 invert);
+            internal delegate void SampleCoverage(Single value, bool invert);
             internal static SampleCoverage glSampleCoverage;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void CompressedTexImage3D(int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr data);
@@ -1410,7 +1410,7 @@ namespace Tao.OpenGl
             internal unsafe delegate void DeleteQueries(Int32 n, UInt32* ids);
             internal unsafe static DeleteQueries glDeleteQueries;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate Int32 IsQuery(UInt32 id);
+            internal delegate bool IsQuery(UInt32 id);
             internal static IsQuery glIsQuery;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void BeginQuery(int target, UInt32 id);
@@ -1437,7 +1437,7 @@ namespace Tao.OpenGl
             internal unsafe delegate void GenBuffers(Int32 n, [Out] UInt32* buffers);
             internal unsafe static GenBuffers glGenBuffers;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate Int32 IsBuffer(UInt32 buffer);
+            internal delegate bool IsBuffer(UInt32 buffer);
             internal static IsBuffer glIsBuffer;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void BufferData(int target, IntPtr size, IntPtr data, int usage);
@@ -1452,7 +1452,7 @@ namespace Tao.OpenGl
             internal unsafe delegate IntPtr MapBuffer(int target, int access);
             internal unsafe static MapBuffer glMapBuffer;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate Int32 UnmapBuffer(int target);
+            internal delegate bool UnmapBuffer(int target);
             internal static UnmapBuffer glUnmapBuffer;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal unsafe delegate void GetBufferParameteriv(int target, int pname, [Out] Int32* @params);
@@ -1554,10 +1554,10 @@ namespace Tao.OpenGl
             internal delegate void GetVertexAttribPointerv(UInt32 index, int pname, [Out] IntPtr pointer);
             internal static GetVertexAttribPointerv glGetVertexAttribPointerv;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate Int32 IsProgram(UInt32 program);
+            internal delegate bool IsProgram(UInt32 program);
             internal static IsProgram glIsProgram;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate Int32 IsShader(UInt32 shader);
+            internal delegate bool IsShader(UInt32 shader);
             internal static IsShader glIsShader;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void LinkProgram(UInt32 program);
@@ -1617,13 +1617,13 @@ namespace Tao.OpenGl
             internal unsafe delegate void Uniform4iv(Int32 location, Int32 count, Int32* value);
             internal unsafe static Uniform4iv glUniform4iv;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal unsafe delegate void UniformMatrix2fv(Int32 location, Int32 count, Int32 transpose, Single* value);
+            internal unsafe delegate void UniformMatrix2fv(Int32 location, Int32 count, bool transpose, Single* value);
             internal unsafe static UniformMatrix2fv glUniformMatrix2fv;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal unsafe delegate void UniformMatrix3fv(Int32 location, Int32 count, Int32 transpose, Single* value);
+            internal unsafe delegate void UniformMatrix3fv(Int32 location, Int32 count, bool transpose, Single* value);
             internal unsafe static UniformMatrix3fv glUniformMatrix3fv;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal unsafe delegate void UniformMatrix4fv(Int32 location, Int32 count, Int32 transpose, Single* value);
+            internal unsafe delegate void UniformMatrix4fv(Int32 location, Int32 count, bool transpose, Single* value);
             internal unsafe static UniformMatrix4fv glUniformMatrix4fv;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void ValidateProgram(UInt32 program);
@@ -1737,25 +1737,25 @@ namespace Tao.OpenGl
             internal unsafe delegate void VertexAttrib4usv(UInt32 index, UInt16* v);
             internal unsafe static VertexAttrib4usv glVertexAttrib4usv;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate void VertexAttribPointer(UInt32 index, Int32 size, int type, Int32 normalized, Int32 stride, IntPtr pointer);
+            internal delegate void VertexAttribPointer(UInt32 index, Int32 size, int type, bool normalized, Int32 stride, IntPtr pointer);
             internal static VertexAttribPointer glVertexAttribPointer;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal unsafe delegate void UniformMatrix2x3fv(Int32 location, Int32 count, Int32 transpose, Single* value);
+            internal unsafe delegate void UniformMatrix2x3fv(Int32 location, Int32 count, bool transpose, Single* value);
             internal unsafe static UniformMatrix2x3fv glUniformMatrix2x3fv;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal unsafe delegate void UniformMatrix3x2fv(Int32 location, Int32 count, Int32 transpose, Single* value);
+            internal unsafe delegate void UniformMatrix3x2fv(Int32 location, Int32 count, bool transpose, Single* value);
             internal unsafe static UniformMatrix3x2fv glUniformMatrix3x2fv;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal unsafe delegate void UniformMatrix2x4fv(Int32 location, Int32 count, Int32 transpose, Single* value);
+            internal unsafe delegate void UniformMatrix2x4fv(Int32 location, Int32 count, bool transpose, Single* value);
             internal unsafe static UniformMatrix2x4fv glUniformMatrix2x4fv;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal unsafe delegate void UniformMatrix4x2fv(Int32 location, Int32 count, Int32 transpose, Single* value);
+            internal unsafe delegate void UniformMatrix4x2fv(Int32 location, Int32 count, bool transpose, Single* value);
             internal unsafe static UniformMatrix4x2fv glUniformMatrix4x2fv;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal unsafe delegate void UniformMatrix3x4fv(Int32 location, Int32 count, Int32 transpose, Single* value);
+            internal unsafe delegate void UniformMatrix3x4fv(Int32 location, Int32 count, bool transpose, Single* value);
             internal unsafe static UniformMatrix3x4fv glUniformMatrix3x4fv;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal unsafe delegate void UniformMatrix4x3fv(Int32 location, Int32 count, Int32 transpose, Single* value);
+            internal unsafe delegate void UniformMatrix4x3fv(Int32 location, Int32 count, bool transpose, Single* value);
             internal unsafe static UniformMatrix4x3fv glUniformMatrix4x3fv;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void ActiveTextureARB(int texture);
@@ -1872,7 +1872,7 @@ namespace Tao.OpenGl
             internal unsafe delegate void MultTransposeMatrixdARB(Double* m);
             internal unsafe static MultTransposeMatrixdARB glMultTransposeMatrixdARB;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate void SampleCoverageARB(Single value, Int32 invert);
+            internal delegate void SampleCoverageARB(Single value, bool invert);
             internal static SampleCoverageARB glSampleCoverageARB;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void CompressedTexImage3DARB(int target, Int32 level, int internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr data);
@@ -2103,7 +2103,7 @@ namespace Tao.OpenGl
             internal unsafe delegate void VertexAttrib4usvARB(UInt32 index, UInt16* v);
             internal unsafe static VertexAttrib4usvARB glVertexAttrib4usvARB;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate void VertexAttribPointerARB(UInt32 index, Int32 size, int type, Int32 normalized, Int32 stride, IntPtr pointer);
+            internal delegate void VertexAttribPointerARB(UInt32 index, Int32 size, int type, bool normalized, Int32 stride, IntPtr pointer);
             internal static VertexAttribPointerARB glVertexAttribPointerARB;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void EnableVertexAttribArrayARB(UInt32 index);
@@ -2178,7 +2178,7 @@ namespace Tao.OpenGl
             internal delegate void GetVertexAttribPointervARB(UInt32 index, int pname, [Out] IntPtr pointer);
             internal static GetVertexAttribPointervARB glGetVertexAttribPointervARB;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate Int32 IsProgramARB(UInt32 program);
+            internal delegate bool IsProgramARB(UInt32 program);
             internal static IsProgramARB glIsProgramARB;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void BindBufferARB(int target, UInt32 buffer);
@@ -2190,7 +2190,7 @@ namespace Tao.OpenGl
             internal unsafe delegate void GenBuffersARB(Int32 n, [Out] UInt32* buffers);
             internal unsafe static GenBuffersARB glGenBuffersARB;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate Int32 IsBufferARB(UInt32 buffer);
+            internal delegate bool IsBufferARB(UInt32 buffer);
             internal static IsBufferARB glIsBufferARB;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void BufferDataARB(int target, IntPtr size, IntPtr data, int usage);
@@ -2205,7 +2205,7 @@ namespace Tao.OpenGl
             internal unsafe delegate IntPtr MapBufferARB(int target, int access);
             internal unsafe static MapBufferARB glMapBufferARB;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate Int32 UnmapBufferARB(int target);
+            internal delegate bool UnmapBufferARB(int target);
             internal static UnmapBufferARB glUnmapBufferARB;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal unsafe delegate void GetBufferParameterivARB(int target, int pname, [Out] Int32* @params);
@@ -2220,7 +2220,7 @@ namespace Tao.OpenGl
             internal unsafe delegate void DeleteQueriesARB(Int32 n, UInt32* ids);
             internal unsafe static DeleteQueriesARB glDeleteQueriesARB;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate Int32 IsQueryARB(UInt32 id);
+            internal delegate bool IsQueryARB(UInt32 id);
             internal static IsQueryARB glIsQueryARB;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void BeginQueryARB(int target, UInt32 id);
@@ -2319,13 +2319,13 @@ namespace Tao.OpenGl
             internal unsafe delegate void Uniform4ivARB(Int32 location, Int32 count, Int32* value);
             internal unsafe static Uniform4ivARB glUniform4ivARB;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal unsafe delegate void UniformMatrix2fvARB(Int32 location, Int32 count, Int32 transpose, Single* value);
+            internal unsafe delegate void UniformMatrix2fvARB(Int32 location, Int32 count, bool transpose, Single* value);
             internal unsafe static UniformMatrix2fvARB glUniformMatrix2fvARB;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal unsafe delegate void UniformMatrix3fvARB(Int32 location, Int32 count, Int32 transpose, Single* value);
+            internal unsafe delegate void UniformMatrix3fvARB(Int32 location, Int32 count, bool transpose, Single* value);
             internal unsafe static UniformMatrix3fvARB glUniformMatrix3fvARB;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal unsafe delegate void UniformMatrix4fvARB(Int32 location, Int32 count, Int32 transpose, Single* value);
+            internal unsafe delegate void UniformMatrix4fvARB(Int32 location, Int32 count, bool transpose, Single* value);
             internal unsafe static UniformMatrix4fvARB glUniformMatrix4fvARB;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal unsafe delegate void GetObjectParameterfvARB(UInt32 obj, int pname, [Out] Single* @params);
@@ -2409,7 +2409,7 @@ namespace Tao.OpenGl
             internal delegate void CopyTexSubImage3DEXT(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height);
             internal static CopyTexSubImage3DEXT glCopyTexSubImage3DEXT;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate void GetHistogramEXT(int target, Int32 reset, int format, int type, [Out] IntPtr values);
+            internal delegate void GetHistogramEXT(int target, bool reset, int format, int type, [Out] IntPtr values);
             internal static GetHistogramEXT glGetHistogramEXT;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal unsafe delegate void GetHistogramParameterfvEXT(int target, int pname, [Out] Single* @params);
@@ -2418,7 +2418,7 @@ namespace Tao.OpenGl
             internal unsafe delegate void GetHistogramParameterivEXT(int target, int pname, [Out] Int32* @params);
             internal unsafe static GetHistogramParameterivEXT glGetHistogramParameterivEXT;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate void GetMinmaxEXT(int target, Int32 reset, int format, int type, [Out] IntPtr values);
+            internal delegate void GetMinmaxEXT(int target, bool reset, int format, int type, [Out] IntPtr values);
             internal static GetMinmaxEXT glGetMinmaxEXT;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal unsafe delegate void GetMinmaxParameterfvEXT(int target, int pname, [Out] Single* @params);
@@ -2427,10 +2427,10 @@ namespace Tao.OpenGl
             internal unsafe delegate void GetMinmaxParameterivEXT(int target, int pname, [Out] Int32* @params);
             internal unsafe static GetMinmaxParameterivEXT glGetMinmaxParameterivEXT;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate void HistogramEXT(int target, Int32 width, int internalformat, Int32 sink);
+            internal delegate void HistogramEXT(int target, Int32 width, int internalformat, bool sink);
             internal static HistogramEXT glHistogramEXT;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate void MinmaxEXT(int target, int internalformat, Int32 sink);
+            internal delegate void MinmaxEXT(int target, int internalformat, bool sink);
             internal static MinmaxEXT glMinmaxEXT;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void ResetHistogramEXT(int target);
@@ -2526,7 +2526,7 @@ namespace Tao.OpenGl
             internal delegate void TexSubImage4DSGIS(int target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 woffset, Int32 width, Int32 height, Int32 depth, Int32 size4d, int format, int type, IntPtr pixels);
             internal static TexSubImage4DSGIS glTexSubImage4DSGIS;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal unsafe delegate Int32 AreTexturesResidentEXT(Int32 n, UInt32* textures, [Out] Int32* residences);
+            internal unsafe delegate bool AreTexturesResidentEXT(Int32 n, UInt32* textures, [Out] bool* residences);
             internal unsafe static AreTexturesResidentEXT glAreTexturesResidentEXT;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void BindTextureEXT(int target, UInt32 texture);
@@ -2538,7 +2538,7 @@ namespace Tao.OpenGl
             internal unsafe delegate void GenTexturesEXT(Int32 n, [Out] UInt32* textures);
             internal unsafe static GenTexturesEXT glGenTexturesEXT;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate Int32 IsTextureEXT(UInt32 texture);
+            internal delegate bool IsTextureEXT(UInt32 texture);
             internal static IsTextureEXT glIsTextureEXT;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal unsafe delegate void PrioritizeTexturesEXT(Int32 n, UInt32* textures, Single* priorities);
@@ -2556,7 +2556,7 @@ namespace Tao.OpenGl
             internal unsafe delegate void GetSharpenTexFuncSGIS(int target, [Out] Single* points);
             internal unsafe static GetSharpenTexFuncSGIS glGetSharpenTexFuncSGIS;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate void SampleMaskSGIS(Single value, Int32 invert);
+            internal delegate void SampleMaskSGIS(Single value, bool invert);
             internal static SampleMaskSGIS glSampleMaskSGIS;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void SamplePatternSGIS(int pattern);
@@ -2571,7 +2571,7 @@ namespace Tao.OpenGl
             internal delegate void DrawArraysEXT(int mode, Int32 first, Int32 count);
             internal static DrawArraysEXT glDrawArraysEXT;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal unsafe delegate void EdgeFlagPointerEXT(Int32 stride, Int32 count, Int32* pointer);
+            internal unsafe delegate void EdgeFlagPointerEXT(Int32 stride, Int32 count, bool* pointer);
             internal unsafe static EdgeFlagPointerEXT glEdgeFlagPointerEXT;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void GetPointervEXT(int pname, [Out] IntPtr @params);
@@ -2820,7 +2820,7 @@ namespace Tao.OpenGl
             internal delegate void DeleteAsyncMarkersSGIX(UInt32 marker, Int32 range);
             internal static DeleteAsyncMarkersSGIX glDeleteAsyncMarkersSGIX;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate Int32 IsAsyncMarkerSGIX(UInt32 marker);
+            internal delegate bool IsAsyncMarkerSGIX(UInt32 marker);
             internal static IsAsyncMarkerSGIX glIsAsyncMarkerSGIX;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void VertexPointervINTEL(Int32 size, int type, IntPtr pointer);
@@ -3192,7 +3192,7 @@ namespace Tao.OpenGl
             internal delegate void CombinerInputNV(int stage, int portion, int variable, int input, int mapping, int componentUsage);
             internal static CombinerInputNV glCombinerInputNV;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate void CombinerOutputNV(int stage, int portion, int abOutput, int cdOutput, int sumOutput, int scale, int bias, Int32 abDotProduct, Int32 cdDotProduct, Int32 muxSum);
+            internal delegate void CombinerOutputNV(int stage, int portion, int abOutput, int cdOutput, int sumOutput, int scale, int bias, bool abDotProduct, bool cdDotProduct, bool muxSum);
             internal static CombinerOutputNV glCombinerOutputNV;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void FinalCombinerInputNV(int variable, int input, int mapping, int componentUsage);
@@ -3303,7 +3303,7 @@ namespace Tao.OpenGl
             internal delegate void SecondaryColorPointerListIBM(Int32 size, int type, Int32 stride, IntPtr pointer, Int32 ptrstride);
             internal static SecondaryColorPointerListIBM glSecondaryColorPointerListIBM;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal unsafe delegate void EdgeFlagPointerListIBM(Int32 stride, Int32* pointer, Int32 ptrstride);
+            internal unsafe delegate void EdgeFlagPointerListIBM(Int32 stride, bool* pointer, Int32 ptrstride);
             internal unsafe static EdgeFlagPointerListIBM glEdgeFlagPointerListIBM;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void FogCoordPointerListIBM(int type, Int32 stride, IntPtr pointer, Int32 ptrstride);
@@ -3324,13 +3324,13 @@ namespace Tao.OpenGl
             internal delegate void TbufferMask3DFX(UInt32 mask);
             internal static TbufferMask3DFX glTbufferMask3DFX;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate void SampleMaskEXT(Single value, Int32 invert);
+            internal delegate void SampleMaskEXT(Single value, bool invert);
             internal static SampleMaskEXT glSampleMaskEXT;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void SamplePatternEXT(int pattern);
             internal static SamplePatternEXT glSamplePatternEXT;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate void TextureColorMaskSGIS(Int32 red, Int32 green, Int32 blue, Int32 alpha);
+            internal delegate void TextureColorMaskSGIS(bool red, bool green, bool blue, bool alpha);
             internal static TextureColorMaskSGIS glTextureColorMaskSGIS;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void IglooInterfaceSGIX(int pname, IntPtr @params);
@@ -3342,10 +3342,10 @@ namespace Tao.OpenGl
             internal unsafe delegate void GenFencesNV(Int32 n, [Out] UInt32* fences);
             internal unsafe static GenFencesNV glGenFencesNV;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate Int32 IsFenceNV(UInt32 fence);
+            internal delegate bool IsFenceNV(UInt32 fence);
             internal static IsFenceNV glIsFenceNV;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate Int32 TestFenceNV(UInt32 fence);
+            internal delegate bool TestFenceNV(UInt32 fence);
             internal static TestFenceNV glTestFenceNV;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal unsafe delegate void GetFenceivNV(UInt32 fence, int pname, [Out] Int32* @params);
@@ -3357,7 +3357,7 @@ namespace Tao.OpenGl
             internal delegate void SetFenceNV(UInt32 fence, int condition);
             internal static SetFenceNV glSetFenceNV;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate void MapControlPointsNV(int target, UInt32 index, int type, Int32 ustride, Int32 vstride, Int32 uorder, Int32 vorder, Int32 packed, IntPtr points);
+            internal delegate void MapControlPointsNV(int target, UInt32 index, int type, Int32 ustride, Int32 vstride, Int32 uorder, Int32 vorder, bool packed, IntPtr points);
             internal static MapControlPointsNV glMapControlPointsNV;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal unsafe delegate void MapParameterivNV(int target, int pname, Int32* @params);
@@ -3366,7 +3366,7 @@ namespace Tao.OpenGl
             internal unsafe delegate void MapParameterfvNV(int target, int pname, Single* @params);
             internal unsafe static MapParameterfvNV glMapParameterfvNV;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate void GetMapControlPointsNV(int target, UInt32 index, int type, Int32 ustride, Int32 vstride, Int32 packed, [Out] IntPtr points);
+            internal delegate void GetMapControlPointsNV(int target, UInt32 index, int type, Int32 ustride, Int32 vstride, bool packed, [Out] IntPtr points);
             internal static GetMapControlPointsNV glGetMapControlPointsNV;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal unsafe delegate void GetMapParameterivNV(int target, int pname, [Out] Int32* @params);
@@ -3390,7 +3390,7 @@ namespace Tao.OpenGl
             internal unsafe delegate void GetCombinerStageParameterfvNV(int stage, int pname, [Out] Single* @params);
             internal unsafe static GetCombinerStageParameterfvNV glGetCombinerStageParameterfvNV;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal unsafe delegate Int32 AreProgramsResidentNV(Int32 n, UInt32* programs, [Out] Int32* residences);
+            internal unsafe delegate bool AreProgramsResidentNV(Int32 n, UInt32* programs, [Out] bool* residences);
             internal unsafe static AreProgramsResidentNV glAreProgramsResidentNV;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void BindProgramNV(int target, UInt32 id);
@@ -3432,7 +3432,7 @@ namespace Tao.OpenGl
             internal delegate void GetVertexAttribPointervNV(UInt32 index, int pname, [Out] IntPtr pointer);
             internal static GetVertexAttribPointervNV glGetVertexAttribPointervNV;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate Int32 IsProgramNV(UInt32 id);
+            internal delegate bool IsProgramNV(UInt32 id);
             internal static IsProgramNV glIsProgramNV;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal unsafe delegate void LoadProgramNV(int target, UInt32 id, Int32 len, Byte* program);
@@ -3645,7 +3645,7 @@ namespace Tao.OpenGl
             internal delegate Int32 NewObjectBufferATI(Int32 size, IntPtr pointer, int usage);
             internal static NewObjectBufferATI glNewObjectBufferATI;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate Int32 IsObjectBufferATI(UInt32 buffer);
+            internal delegate bool IsObjectBufferATI(UInt32 buffer);
             internal static IsObjectBufferATI glIsObjectBufferATI;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void UpdateObjectBufferATI(UInt32 buffer, UInt32 offset, Int32 size, IntPtr pointer, int preserve);
@@ -3771,10 +3771,10 @@ namespace Tao.OpenGl
             internal delegate Int32 BindParameterEXT(int value);
             internal static BindParameterEXT glBindParameterEXT;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate Int32 IsVariantEnabledEXT(UInt32 id, int cap);
+            internal delegate bool IsVariantEnabledEXT(UInt32 id, int cap);
             internal static IsVariantEnabledEXT glIsVariantEnabledEXT;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal unsafe delegate void GetVariantBooleanvEXT(UInt32 id, int value, [Out] Int32* data);
+            internal unsafe delegate void GetVariantBooleanvEXT(UInt32 id, int value, [Out] bool* data);
             internal unsafe static GetVariantBooleanvEXT glGetVariantBooleanvEXT;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal unsafe delegate void GetVariantIntegervEXT(UInt32 id, int value, [Out] Int32* data);
@@ -3786,7 +3786,7 @@ namespace Tao.OpenGl
             internal delegate void GetVariantPointervEXT(UInt32 id, int value, [Out] IntPtr data);
             internal static GetVariantPointervEXT glGetVariantPointervEXT;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal unsafe delegate void GetInvariantBooleanvEXT(UInt32 id, int value, [Out] Int32* data);
+            internal unsafe delegate void GetInvariantBooleanvEXT(UInt32 id, int value, [Out] bool* data);
             internal unsafe static GetInvariantBooleanvEXT glGetInvariantBooleanvEXT;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal unsafe delegate void GetInvariantIntegervEXT(UInt32 id, int value, [Out] Int32* data);
@@ -3795,7 +3795,7 @@ namespace Tao.OpenGl
             internal unsafe delegate void GetInvariantFloatvEXT(UInt32 id, int value, [Out] Single* data);
             internal unsafe static GetInvariantFloatvEXT glGetInvariantFloatvEXT;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal unsafe delegate void GetLocalConstantBooleanvEXT(UInt32 id, int value, [Out] Int32* data);
+            internal unsafe delegate void GetLocalConstantBooleanvEXT(UInt32 id, int value, [Out] bool* data);
             internal unsafe static GetLocalConstantBooleanvEXT glGetLocalConstantBooleanvEXT;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal unsafe delegate void GetLocalConstantIntegervEXT(UInt32 id, int value, [Out] Int32* data);
@@ -3957,7 +3957,7 @@ namespace Tao.OpenGl
             internal unsafe delegate void DeleteOcclusionQueriesNV(Int32 n, UInt32* ids);
             internal unsafe static DeleteOcclusionQueriesNV glDeleteOcclusionQueriesNV;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate Int32 IsOcclusionQueryNV(UInt32 id);
+            internal delegate bool IsOcclusionQueryNV(UInt32 id);
             internal static IsOcclusionQueryNV glIsOcclusionQueryNV;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void BeginOcclusionQueryNV(UInt32 id);
@@ -4005,16 +4005,16 @@ namespace Tao.OpenGl
             internal delegate void SetFenceAPPLE(UInt32 fence);
             internal static SetFenceAPPLE glSetFenceAPPLE;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate Int32 IsFenceAPPLE(UInt32 fence);
+            internal delegate bool IsFenceAPPLE(UInt32 fence);
             internal static IsFenceAPPLE glIsFenceAPPLE;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate Int32 TestFenceAPPLE(UInt32 fence);
+            internal delegate bool TestFenceAPPLE(UInt32 fence);
             internal static TestFenceAPPLE glTestFenceAPPLE;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void FinishFenceAPPLE(UInt32 fence);
             internal static FinishFenceAPPLE glFinishFenceAPPLE;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate Int32 TestObjectAPPLE(int @object, UInt32 name);
+            internal delegate bool TestObjectAPPLE(int @object, UInt32 name);
             internal static TestObjectAPPLE glTestObjectAPPLE;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void FinishObjectAPPLE(int @object, Int32 name);
@@ -4029,7 +4029,7 @@ namespace Tao.OpenGl
             internal unsafe delegate void GenVertexArraysAPPLE(Int32 n, [Out] UInt32* arrays);
             internal unsafe static GenVertexArraysAPPLE glGenVertexArraysAPPLE;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate Int32 IsVertexArrayAPPLE(UInt32 array);
+            internal delegate bool IsVertexArrayAPPLE(UInt32 array);
             internal static IsVertexArrayAPPLE glIsVertexArrayAPPLE;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void VertexArrayRangeAPPLE(Int32 length, [Out] IntPtr pointer);
@@ -4224,7 +4224,7 @@ namespace Tao.OpenGl
             internal delegate void StencilFuncSeparateATI(int frontfunc, int backfunc, Int32 @ref, UInt32 mask);
             internal static StencilFuncSeparateATI glStencilFuncSeparateATI;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate void VertexAttribArrayObjectATI(UInt32 index, Int32 size, int type, Int32 normalized, Int32 stride, UInt32 buffer, UInt32 offset);
+            internal delegate void VertexAttribArrayObjectATI(UInt32 index, Int32 size, int type, bool normalized, Int32 stride, UInt32 buffer, UInt32 offset);
             internal static VertexAttribArrayObjectATI glVertexAttribArrayObjectATI;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal unsafe delegate void GetVertexAttribArrayObjectfvATI(UInt32 index, int pname, [Out] Single* @params);
@@ -4239,7 +4239,7 @@ namespace Tao.OpenGl
             internal delegate void BlendEquationSeparateEXT(int modeRGB, int modeAlpha);
             internal static BlendEquationSeparateEXT glBlendEquationSeparateEXT;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate Int32 IsRenderbufferEXT(UInt32 renderbuffer);
+            internal delegate bool IsRenderbufferEXT(UInt32 renderbuffer);
             internal static IsRenderbufferEXT glIsRenderbufferEXT;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void BindRenderbufferEXT(int target, UInt32 renderbuffer);
@@ -4257,7 +4257,7 @@ namespace Tao.OpenGl
             internal unsafe delegate void GetRenderbufferParameterivEXT(int target, int pname, [Out] Int32* @params);
             internal unsafe static GetRenderbufferParameterivEXT glGetRenderbufferParameterivEXT;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate Int32 IsFramebufferEXT(UInt32 framebuffer);
+            internal delegate bool IsFramebufferEXT(UInt32 framebuffer);
             internal static IsFramebufferEXT glIsFramebufferEXT;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void BindFramebufferEXT(int target, UInt32 framebuffer);
@@ -4515,10 +4515,10 @@ namespace Tao.OpenGl
             internal unsafe delegate void ProgramBufferParametersIuivNV(int target, UInt32 buffer, UInt32 index, Int32 count, UInt32* @params);
             internal unsafe static ProgramBufferParametersIuivNV glProgramBufferParametersIuivNV;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate void ColorMaskIndexedEXT(UInt32 index, Int32 r, Int32 g, Int32 b, Int32 a);
+            internal delegate void ColorMaskIndexedEXT(UInt32 index, bool r, bool g, bool b, bool a);
             internal static ColorMaskIndexedEXT glColorMaskIndexedEXT;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal unsafe delegate void GetBooleanIndexedvEXT(int target, UInt32 index, [Out] Int32* data);
+            internal unsafe delegate void GetBooleanIndexedvEXT(int target, UInt32 index, [Out] bool* data);
             internal unsafe static GetBooleanIndexedvEXT glGetBooleanIndexedvEXT;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal unsafe delegate void GetIntegerIndexedvEXT(int target, UInt32 index, [Out] Int32* data);
@@ -4530,7 +4530,7 @@ namespace Tao.OpenGl
             internal delegate void DisableIndexedEXT(int target, UInt32 index);
             internal static DisableIndexedEXT glDisableIndexedEXT;
             [System.Security.SuppressUnmanagedCodeSecurity()]
-            internal delegate Int32 IsEnabledIndexedEXT(int target, UInt32 index);
+            internal delegate bool IsEnabledIndexedEXT(int target, UInt32 index);
             internal static IsEnabledIndexedEXT glIsEnabledIndexedEXT;
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void BeginTransformFeedbackNV(int primitiveMode);
@@ -4592,6 +4592,9 @@ namespace Tao.OpenGl
             [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate void ClearColorIuiEXT(UInt32 red, UInt32 green, UInt32 blue, UInt32 alpha);
             internal static ClearColorIuiEXT glClearColorIuiEXT;
+            [System.Security.SuppressUnmanagedCodeSecurity()]
+            internal delegate void FrameTerminatorGREMEDY();
+            internal static FrameTerminatorGREMEDY glFrameTerminatorGREMEDY;
         }
     }
     #pragma warning restore 0649

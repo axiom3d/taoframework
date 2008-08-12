@@ -376,7 +376,7 @@ namespace NeHe {
 
             Gl.glLoadIdentity();                                                // Reset The Modelview Matrix
             Gl.glTranslatef(0, -0.6f, zoom);                                    // Zoom And Raise Camera Above The Floor (Up 0.6 Units)
-            Gl.glColorMask(0, 0, 0, 0);                                         // Set Color Mask
+            Gl.glColorMask(false, false, false, false);                         // Set Color Mask
             Gl.glEnable(Gl.GL_STENCIL_TEST);                                    // Enable Stencil Buffer For "marking" The Floor
             Gl.glStencilFunc(Gl.GL_ALWAYS, 1, 1);                               // Always Passes, 1 Bit Plane, 1 As Mask
             Gl.glStencilOp(Gl.GL_KEEP, Gl.GL_KEEP, Gl.GL_REPLACE);              // We Set The Stencil Buffer To 1 Where We Draw Any Polygon
@@ -386,7 +386,7 @@ namespace NeHe {
             DrawFloor();                                                        // Draw The Floor (Draws To The Stencil Buffer)
                                                                                 // We Only Want To Mark It In The Stencil Buffer
             Gl.glEnable(Gl.GL_DEPTH_TEST);                                      // Enable Depth Testing
-            Gl.glColorMask(1, 1, 1, 1);                                         // Set Color Mask to TRUE, TRUE, TRUE, TRUE
+            Gl.glColorMask(true, true, true, true);                             // Set Color Mask to TRUE, TRUE, TRUE, TRUE
             Gl.glStencilFunc(Gl.GL_EQUAL, 1, 1);                                // We Draw Only Where The Stencil Is 1
                                                                                 // (I.E. Where The Floor Was Drawn)
             Gl.glStencilOp(Gl.GL_KEEP, Gl.GL_KEEP, Gl.GL_KEEP);                 // Don't Change The Stencil Buffer

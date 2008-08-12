@@ -299,7 +299,7 @@ namespace GeWangExamples
                 // mirror shine
                 Gl.glBlendFunc(Gl.GL_SRC_ALPHA, Gl.GL_ONE_MINUS_SRC_ALPHA);
                 Gl.glEnable(Gl.GL_BLEND);
-                Gl.glDepthMask(Gl.GL_FALSE);
+                Gl.glDepthMask(false);
                 Gl.glDepthFunc(Gl.GL_LEQUAL);
                 Gl.glDisable(Gl.GL_LIGHTING);
 
@@ -310,7 +310,7 @@ namespace GeWangExamples
                 Gl.glEnd();
 
                 Gl.glDisable(Gl.GL_BLEND);
-                Gl.glDepthMask(Gl.GL_TRUE);
+                Gl.glDepthMask(false);
                 Gl.glDepthFunc(Gl.GL_LESS);
                 Gl.glEnable(Gl.GL_LIGHTING);
             Gl.glPopMatrix();

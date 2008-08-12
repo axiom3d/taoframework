@@ -174,10 +174,10 @@ namespace Redbook {
                 Gl.glMaterialfv(Gl.GL_FRONT, Gl.GL_EMISSION, materialEmission);
                 Gl.glMaterialfv(Gl.GL_FRONT, Gl.GL_DIFFUSE, materialTransparent);
                 Gl.glEnable(Gl.GL_BLEND);
-                Gl.glDepthMask((byte) Gl.GL_FALSE);
+                Gl.glDepthMask(false);
                 Gl.glBlendFunc(Gl.GL_SRC_ALPHA, Gl.GL_ONE);
                 Gl.glCallList(cubeList);
-                Gl.glDepthMask((byte) Gl.GL_TRUE);
+                Gl.glDepthMask(true);
                 Gl.glDisable(Gl.GL_BLEND);
             Gl.glPopMatrix();
 

@@ -173,7 +173,7 @@ namespace Redbook {
                     Gl.glLoadIdentity();
 
                     // Disable color buffer update.
-                    Gl.glColorMask(0, 0, 0, 0);
+                    Gl.glColorMask(false, false, false, false);
                     Gl.glDisable(Gl.GL_DEPTH_TEST);
                     Gl.glStencilFunc(Gl.GL_ALWAYS, 0x1, 0x1);
                     Gl.glStencilOp(Gl.GL_REPLACE, Gl.GL_REPLACE, Gl.GL_REPLACE);
@@ -190,7 +190,7 @@ namespace Redbook {
             Gl.glMatrixMode(Gl.GL_MODELVIEW);
     
             // Enable color buffer update.
-            Gl.glColorMask(1, 1, 1, 1);
+            Gl.glColorMask(true, true, true, true);
             Gl.glEnable(Gl.GL_DEPTH_TEST);
             Gl.glStencilOp(Gl.GL_KEEP, Gl.GL_KEEP, Gl.GL_KEEP);
 

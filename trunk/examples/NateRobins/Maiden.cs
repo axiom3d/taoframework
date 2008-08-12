@@ -425,7 +425,7 @@ namespace NateRobins {
                     Gl.glMatrixMode(Gl.GL_MODELVIEW);
                     Gl.glPushMatrix();
                         Gl.glLoadIdentity();
-                        Gl.glDepthMask(Gl.GL_FALSE);
+                        Gl.glDepthMask(false);
                         Gl.glDisable(Gl.GL_DEPTH_TEST);
                         Gl.glDisable(Gl.GL_LIGHTING);
 
@@ -479,7 +479,7 @@ namespace NateRobins {
 
                         Gl.glEnable(Gl.GL_LIGHTING);
                         Gl.glEnable(Gl.GL_DEPTH_TEST);
-                        Gl.glDepthMask(Gl.GL_TRUE);
+                        Gl.glDepthMask(true);
                         Gl.glMatrixMode(Gl.GL_PROJECTION);
                     Gl.glPopMatrix();
                     Gl.glMatrixMode(Gl.GL_MODELVIEW);
@@ -617,13 +617,13 @@ namespace NateRobins {
                     break;
                 case (byte) 'c':
                 case (byte) 'C':
-                    if(Gl.glIsEnabled(Gl.GL_CULL_FACE) == Gl.GL_TRUE) {
+                    if(Gl.glIsEnabled(Gl.GL_CULL_FACE) == true) {
                         Gl.glDisable(Gl.GL_CULL_FACE);
                     }
                     else {
                         Gl.glEnable(Gl.GL_CULL_FACE);
                     }
-                    Console.WriteLine("Culling {0}.", (Gl.glIsEnabled(Gl.GL_CULL_FACE) == Gl.GL_TRUE) ? "enabled" : "disabled");
+                    Console.WriteLine("Culling {0}.", Gl.glIsEnabled(Gl.GL_CULL_FACE) ? "enabled" : "disabled");
                     break;
                 case (byte) ' ':
                     frozen = !frozen;

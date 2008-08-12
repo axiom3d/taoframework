@@ -159,7 +159,7 @@ namespace NateRobins {
                     break;
                 case (byte) 'c':
                 case (byte) 'C':
-                    if(Gl.glIsEnabled(Gl.GL_CULL_FACE) == Gl.GL_TRUE) {
+                    if(Gl.glIsEnabled(Gl.GL_CULL_FACE)) {
                         Gl.glDisable(Gl.GL_CULL_FACE);
                     }
                     else {

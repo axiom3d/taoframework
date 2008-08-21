@@ -190,10 +190,14 @@ namespace Tao.Platform.Windows
 
             Delegate old = f.GetValue(null) as Delegate;
             Delegate @new = GetDelegate(f.Name, f.FieldType);
-            if (old.Target != @new.Target)
+
+            if (@new == null) return false;
+
+            if (old == null || old.Target != @new.Target)
             {
                 f.SetValue(null, @new);
             }
+
             return @new != null;
         }
 

@@ -200,5 +200,12 @@ namespace Tao.Platform.Windows
         public const int WGL_DRAW_TO_BITMAP_ARB = ((int)0x2002);
         public const int WGL_BACK_LEFT_ARB = ((int)0x2085);
         public const int WGL_SUPPORT_OPENGL_EXT = ((int)0x2010);
+        public const int WGL_CONTEXT_DEBUG_BIT_ARB = ((int)0x0001);
+        public const int WGL_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB = ((int)0x0002);
+        public const int WGL_CONTEXT_MAJOR_VERSION_ARB = ((int)0x2091);
+        public const int WGL_CONTEXT_MINOR_VERSION_ARB = ((int)0x2092);
+        public const int WGL_CONTEXT_LAYER_PLANE_ARB = ((int)0x2093);
+        public const int WGL_CONTEXT_FLAGS_ARB = ((int)0x2094);
+        public const int ERROR_INVALID_VERSION_ARB = ((int)0x2095);
     }
 }

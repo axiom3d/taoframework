@@ -889,6 +889,12 @@ namespace Tao.Platform.Windows
             }
         }
 
+        public static
+        IntPtr wglCreateContextAttribsARB(IntPtr hDC, IntPtr shareHGLRC, int[] attribs)
+        {
+            return Delegates.wglCreateContextAttribsARB(hDC, shareHGLRC, attribs);
+        }
+
         [System.CLSCompliant(false)]
         public static 
         bool wglCreateDisplayColorTableEXT(UInt16 id)

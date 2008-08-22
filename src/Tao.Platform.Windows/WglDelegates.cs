@@ -135,6 +135,9 @@ namespace Tao.Platform.Windows
             internal unsafe delegate Boolean SetPbufferAttribARB(IntPtr hPbuffer, int* piAttribList);
             internal unsafe static SetPbufferAttribARB wglSetPbufferAttribARB;
             [System.Security.SuppressUnmanagedCodeSecurity()]
+            internal delegate IntPtr CreateContextAttribsARB(IntPtr hDC, IntPtr shareHGLRC, int[] attribs);
+            internal static CreateContextAttribsARB wglCreateContextAttribsARB;
+            [System.Security.SuppressUnmanagedCodeSecurity()]
             internal delegate bool CreateDisplayColorTableEXT(UInt16 id);
             internal static CreateDisplayColorTableEXT wglCreateDisplayColorTableEXT;
             [System.Security.SuppressUnmanagedCodeSecurity()]

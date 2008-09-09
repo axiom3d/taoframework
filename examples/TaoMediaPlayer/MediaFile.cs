@@ -249,12 +249,12 @@ namespace TaoMediaPlayer
             if (FFmpeg.av_open_input_file(out pFormatContext, filename, IntPtr.Zero, 0, IntPtr.Zero) < 0)
                 throw new Exception("Unable to open stream");
 
-            // Get context
-            FFmpeg.AVFormatContext formatContext = PtrToStructure<FFmpeg.AVFormatContext>(pFormatContext);
-
             // Get stream info
             if (FFmpeg.av_find_stream_info(pFormatContext) < 0)
                 throw new Exception("Unable to find stream info");
+
+            // Get context
+            FFmpeg.AVFormatContext formatContext = PtrToStructure<FFmpeg.AVFormatContext>(pFormatContext);
 
             // Loop through streams in this file
             for (int i = 0; i < formatContext.nb_streams; ++i)

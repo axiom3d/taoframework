@@ -2840,6 +2840,7 @@ stream (only used by libavformat) */
         /// <summary>
         /// 
         /// </summary>
+        [StructLayout(LayoutKind.Sequential)]
         public struct AVFrame
         {
             /*
@@ -2956,7 +2957,7 @@ stream (only used by libavformat) */
             /// <summary>
             /// int8_t *qscale_table;
             /// </summary>
-            public byte[] qscale_table;
+            public IntPtr qscale_table;
             /**
              * QP store stride
              * - encoding: unused
@@ -2970,7 +2971,7 @@ stream (only used by libavformat) */
              * - encoding: unused
              * - decoding: Set by libavcodec.
              */
-            public byte[] mbskip_table;
+            public IntPtr mbskip_table;
 
             /*
              * motion vector table
@@ -2999,8 +3000,7 @@ stream (only used by libavformat) */
             /// <summary>
             /// 
             /// </summary>
-            [CLSCompliant(false)]
-            public uint[] mb_type;
+            public IntPtr mb_type;
 
             /*
              * log2 of the size of the block which a single vector in motion_val represents: 
@@ -3123,7 +3123,7 @@ stream (only used by libavformat) */
             /// <summary>
             /// 
             /// </summary>
-            public short[] dct_coeff;
+            public IntPtr dct_coeff;
 
             /*
              * motion referece frame index

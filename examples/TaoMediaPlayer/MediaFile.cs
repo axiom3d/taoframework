@@ -208,6 +208,7 @@ namespace TaoMediaPlayer
         double videoTimebase;
         FFmpeg.PixelFormat originalVideoFormat;
         object locker = new object();
+        private IntPtr swsContext;
         #endregion
 
         #region Properties
@@ -331,6 +332,9 @@ namespace TaoMediaPlayer
                 FFmpeg.av_free_packet(packet.priv);
             foreach (FFmpeg.AVPacket packet in audioPacketQueue)
                 FFmpeg.av_free_packet(packet.priv);
+
+            if(swsContext != IntPtr.Zero)
+                FFmpeg.sws_freeContext(swsContext);
 
             if (videoStream.codec != IntPtr.Zero)
                 FFmpeg.avcodec_close(videoStream.codec);
@@ -490,9 +494,22 @@ namespace TaoMediaPlayer
             // Create RGB frame
             IntPtr rgbFrame = FFmpeg.avcodec_alloc_frame();
             FFmpeg.avpicture_fill(rgbFrame, target, (int)desiredFormat, width, height);
-
+            
             // Convert video frame to RGB
+#if SWSCALE
+            swsContext =
+                FFmpeg.sws_getCachedContext(swsContext, width, height, (int) originalVideoFormat, width, height, (int) desiredFormat,
+                                      FFmpeg.SWS_FAST_BILINEAR, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero);
+            if(swsContext == IntPtr.Zero)
+                throw new Exception("Not able to get libswscale context");
+
+            FFmpeg.AVFrame src = PtrToStructure<FFmpeg.AVFrame>(vFrame);
+            FFmpeg.AVFrame dst = PtrToStructure<FFmpeg.AVFrame>(rgbFrame);
+
+            FFmpeg.sws_scale(swsContext, vFrame, src.linesize, 0, height, rgbFrame, dst.linesize);
+#else
             FFmpeg.img_convert(rgbFrame, (int)desiredFormat, vFrame, (int)originalVideoFormat, width, height);
+#endif
 
             // Free memory
             FFmpeg.av_free(rgbFrame);

@@ -78,6 +78,27 @@ namespace Tao.FFmpeg
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="context"></param>
+        /// <param name="source_width"></param>
+        /// <param name="source_height"></param>
+        /// <param name="source_pix_fmt"></param>
+        /// <param name="dest_width"></param>
+        /// <param name="dest_height"></param>
+        /// <param name="dest_pix_fmt"></param>
+        /// <param name="flags"></param>
+        /// <param name="srcFilter"></param>
+        /// <param name="destFilter"></param>
+        /// <param name="Param"></param>
+        /// <returns></returns>
+        [DllImport(AVSWSCALE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern IntPtr sws_getCachedContext(IntPtr context, int source_width, int source_height,
+                                                         int source_pix_fmt, int dest_width, int dest_height,
+                                                         int dest_pix_fmt, int flags,
+                                                         IntPtr srcFilter, IntPtr destFilter, IntPtr Param);
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="SwsContext"></param>
         /// <param name="src"></param>
         /// <param name="srcStride"></param>

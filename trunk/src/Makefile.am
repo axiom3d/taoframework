@@ -26,7 +26,9 @@ CLEANFILES = Tao.zip Tao.tree
 # (see also Assembly.am)
 $(monodoc_DATA):
 	for x in $(filter-out Tao.OpenGl Tao.GlBindGen, $(SUBDIRS)); do \
-	  monodocer --assembly:$$x/$$x.dll --path:doc/$$x; \
+	  $(mkdir_p) doc/$$x && \
+	  echo monodocer --assembly:$$x/$$x.dll --path:doc/$$x && \
+	  monodocer --assembly:$$x/$$x.dll --path:doc/$$x || exit 1; \
         done
 	mdassembler --out Tao \
 	  $(addprefix --ecma doc/, $(filter-out Tao.OpenGl Tao.GlBindGen, $(SUBDIRS)))

@@ -243,7 +243,7 @@ namespace Tao.FtGl
             /// Get the bounding box for a string.
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-            private static extern void ftglGetFontBBox(IntPtr font, string str, int start, int end, float[] coord);
+            private static extern void ftglGetFontBBox(IntPtr font, string str, int len, float[] coord);
             /// <summary>
             /// 
             /// </summary>
@@ -258,8 +258,7 @@ namespace Tao.FtGl
                              out float x1, out float y1, out float z1,
                              out float x2, out float y2, out float z2)
             {
-                BBox(str, 0, -1, out x1, out y1, out z1,
-                                 out x2, out y2, out z2);
+                BBox(str, -1, out x1, out y1, out z1, out x2, out y2, out z2);
             }
             /// <summary>
             /// 
@@ -273,13 +272,13 @@ namespace Tao.FtGl
             /// <param name="x2"></param>
             /// <param name="y2"></param>
             /// <param name="z2"></param>
-            public void BBox(string str, int start, int end,
+            public void BBox(string str, int len,
                              out float x1, out float y1, out float z1,
                              out float x2, out float y2, out float z2)
             {
                 x1 = y1 = z1 = x2 = y2 = z2 = 0;
                 float[]coord  = new float[6];
-                ftglGetFontBBox(_ptr, str, start, end, coord);
+                ftglGetFontBBox(_ptr, str, len, coord);
                 x1 = coord[0]; y1 = coord[1]; z1 = coord[2];
                 x2 = coord[3]; y2 = coord[4]; z2 = coord[5];
             }

@@ -67,7 +67,25 @@ namespace Tao.FtGl
             {
                 _ptr = ftglCreateBitmapFont(namefont);
             }
+
+            /// <summary>
+            /// Open and read a font from memory. Create a Bitmap font
+            /// </summary>
+            [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+            private extern static IntPtr ftglCreateBitmapFontFromMem(IntPtr bytes, int len);
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="data"></param>
+            public FTGLBitmapFont(byte[] data)
+            {
+                _data = data;
+                _gch = GCHandle.Alloc(data, GCHandleType.Pinned);
+                _ptr = ftglCreateBitmapFontFromMem(_gch.AddrOfPinnedObject(),
+                                                   data.Length);
+            }
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -86,7 +104,25 @@ namespace Tao.FtGl
             {
                 _ptr = ftglCreatePixmapFont(namefont);
             }
+
+            /// <summary>
+            /// Open and read a font from memory. Create a Pixmap font
+            /// </summary>
+            [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+            private extern static IntPtr ftglCreatePixmapFontFromMem(IntPtr bytes, int len);
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="data"></param>
+            public FTGLPixmapFont(byte[] data)
+            {
+                _data = data;
+                _gch = GCHandle.Alloc(data, GCHandleType.Pinned);
+                _ptr = ftglCreatePixmapFontFromMem(_gch.AddrOfPinnedObject(),
+                                                   data.Length);
+            }
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -105,7 +141,25 @@ namespace Tao.FtGl
             {
                 _ptr = ftglCreateOutlineFont(namefont);
             }
+
+            /// <summary>
+            /// Open and read a font from memory. Create a Outline font
+            /// </summary>
+            [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+            private extern static IntPtr ftglCreateOutlineFontFromMem(IntPtr bytes, int len);
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="data"></param>
+            public FTGLOutlineFont(byte[] data)
+            {
+                _data = data;
+                _gch = GCHandle.Alloc(data, GCHandleType.Pinned);
+                _ptr = ftglCreateOutlineFontFromMem(_gch.AddrOfPinnedObject(),
+                                                    data.Length);
+            }
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -124,7 +178,25 @@ namespace Tao.FtGl
             {
                 _ptr = ftglCreatePolygonFont(namefont);
             }
+
+            /// <summary>
+            /// Open and read a font from memory. Create a Polygon font
+            /// </summary>
+            [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+            private extern static IntPtr ftglCreatePolygonFontFromMem(IntPtr bytes, int len);
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="data"></param>
+            public FTGLPolygonFont(byte[] data)
+            {
+                _data = data;
+                _gch = GCHandle.Alloc(data, GCHandleType.Pinned);
+                _ptr = ftglCreatePolygonFontFromMem(_gch.AddrOfPinnedObject(),
+                                                    data.Length);
+            }
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -143,7 +215,25 @@ namespace Tao.FtGl
             {
                 _ptr = ftglCreateExtrudeFont(namefont);
             }
+
+            /// <summary>
+            /// Open and read a font from memory. Create a Extrude font
+            /// </summary>
+            [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+            private extern static IntPtr ftglCreateExtrudeFontFromMem(IntPtr bytes, int len);
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="data"></param>
+            public FTGLExtrudeFont(byte[] data)
+            {
+                _data = data;
+                _gch = GCHandle.Alloc(data, GCHandleType.Pinned);
+                _ptr = ftglCreateExtrudeFontFromMem(_gch.AddrOfPinnedObject(),
+                                                    data.Length);
+            }
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -162,6 +252,23 @@ namespace Tao.FtGl
             {
                 _ptr = ftglCreateTextureFont(namefont);
             }
+
+            /// <summary>
+            /// Open and read a font from memory. Create a Texture font
+            /// </summary>
+            [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+            private extern static IntPtr ftglCreateTextureFontFromMem(IntPtr bytes, int len);
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="data"></param>
+            public FTGLTextureFont(byte[] data)
+            {
+                _data = data;
+                _gch = GCHandle.Alloc(data, GCHandleType.Pinned);
+                _ptr = ftglCreateTextureFontFromMem(_gch.AddrOfPinnedObject(),
+                                                    data.Length);
+            }
         }
 
         /// <summary>
@@ -174,6 +281,16 @@ namespace Tao.FtGl
             /// </summary>
             [CLSCompliant(false)]
             protected IntPtr _ptr = IntPtr.Zero;
+            /// <summary>
+            /// 
+            /// </summary>
+            [CLSCompliant(false)]
+            protected byte[] _data = null;
+            /// <summary>
+            /// 
+            /// </summary>
+            [CLSCompliant(false)]
+            protected GCHandle _gch;
             /// <summary>
             /// 
             /// </summary>
@@ -198,6 +315,9 @@ namespace Tao.FtGl
                 if(_ptr != IntPtr.Zero)
                     ftglDestroyFont(_ptr);
                 _ptr = IntPtr.Zero;
+                if(_data != null)
+                    _gch.Free();
+                _data = null;
             }
             /// <summary>
             /// 
@@ -207,6 +327,9 @@ namespace Tao.FtGl
                 if(_ptr != IntPtr.Zero)
                     ftglDestroyFont(_ptr);
                 _ptr = IntPtr.Zero;
+                if(_data != null)
+                    _gch.Free();
+                _data = null;
             }
 
             /// <summary>

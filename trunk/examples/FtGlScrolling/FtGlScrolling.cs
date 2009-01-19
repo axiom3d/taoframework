@@ -106,10 +106,10 @@ namespace FtGlScrolling
             Gl.glPopMatrix();
         }
 
-        public void Dispose()
+        public void Close()
         {
-            _font.Dispose();
-            _layout.Dispose();
+            _font.Close();
+            _layout.Close();
         }
     }
 
@@ -158,7 +158,7 @@ namespace FtGlScrolling
             switch(k)
             {
                 case 27:
-                    _scrolltext.Dispose();
+                    _scrolltext.Close();
                     System.Environment.Exit(0);
                     break;
             }

@@ -274,27 +274,31 @@ namespace Tao.FtGl
         /// <summary>
         /// Generic Font abstract class
         /// </summary>
-        abstract public class FTFont : IDisposable
+        abstract public class FTFont
         {
             /// <summary>
             /// 
             /// </summary>
             [CLSCompliant(false)]
             protected IntPtr _ptr = IntPtr.Zero;
+
             /// <summary>
             /// 
             /// </summary>
             [CLSCompliant(false)]
             protected byte[] _data = null;
+
             /// <summary>
             /// 
             /// </summary>
             [CLSCompliant(false)]
             protected GCHandle _gch;
+
             /// <summary>
             /// 
             /// </summary>
             public IntPtr Pointer { get{ return _ptr;} }
+
             /// <summary>
             /// 
             /// </summary>
@@ -307,26 +311,26 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private extern static void ftglDestroyFont(IntPtr font);
+
             /// <summary>
             /// 
             /// </summary>
-            public void Dispose()
+            public void Close()
             {
+                // We destroy the font in case the GL context disappears
+                // before the GC calls the destructor.
                 if(_ptr != IntPtr.Zero)
                     ftglDestroyFont(_ptr);
                 _ptr = IntPtr.Zero;
-                if(_data != null)
-                    _gch.Free();
-                _data = null;
             }
+
             /// <summary>
             /// 
             /// </summary>
             ~FTFont()
             {
-                if(_ptr != IntPtr.Zero)
-                    ftglDestroyFont(_ptr);
-                _ptr = IntPtr.Zero;
+                Close();
+
                 if(_data != null)
                     _gch.Free();
                 _data = null;
@@ -337,6 +341,7 @@ namespace Tao.FtGl
             /// </summary>
             [DllImport(FTGL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
             private static extern float ftglGetFontLineHeight(IntPtr font);
+
             /// <summary>
             /// 
             /// </summary>
@@ -810,7 +815,7 @@ namespace Tao.FtGl
         /// <summary>
         /// Generic Layout abstract class
         /// </summary>
-        abstract public class FTLayout : IDisposable
+        abstract public class FTLayout
         {
             /// <summary>
             /// 
@@ -827,7 +832,7 @@ namespace Tao.FtGl
             /// <summary>
             /// 
             /// </summary>
-            public void Dispose()
+            public void Close()
             {
                 if(_ptr != IntPtr.Zero)
                     ftglDestroyLayout(_ptr);
@@ -838,9 +843,7 @@ namespace Tao.FtGl
             /// </summary>
             ~FTLayout()
             {
-                if(_ptr != IntPtr.Zero)
-                    ftglDestroyLayout(_ptr);
-                _ptr = IntPtr.Zero;
+                Close();
             }
 
             /// <summary>

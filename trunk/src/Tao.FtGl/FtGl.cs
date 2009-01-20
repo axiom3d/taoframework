@@ -315,7 +315,7 @@ namespace Tao.FtGl
             /// <summary>
             /// 
             /// </summary>
-            public void Close()
+            public void Destroy()
             {
                 // We destroy the font in case the GL context disappears
                 // before the GC calls the destructor.
@@ -329,7 +329,7 @@ namespace Tao.FtGl
             /// </summary>
             ~FTFont()
             {
-                Close();
+                // XXX: We purposedly don’t call Destroy() here!
 
                 if(_data != null)
                     _gch.Free();
@@ -832,7 +832,7 @@ namespace Tao.FtGl
             /// <summary>
             /// 
             /// </summary>
-            public void Close()
+            public void Destroy()
             {
                 if(_ptr != IntPtr.Zero)
                     ftglDestroyLayout(_ptr);
@@ -843,7 +843,7 @@ namespace Tao.FtGl
             /// </summary>
             ~FTLayout()
             {
-                Close();
+                Destroy();
             }
 
             /// <summary>

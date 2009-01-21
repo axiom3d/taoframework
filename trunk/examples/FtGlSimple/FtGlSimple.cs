@@ -358,7 +358,7 @@ namespace FtGlSimple
             {
                 case 27:
                     for( int i = 0; i < 6; ++i)
-                        fonts[i].Dispose();
+                        fonts[i].Destroy();
                     System.Environment.Exit(0);
                     break;
                 case 13:

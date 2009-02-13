@@ -25,6 +25,7 @@ CLEANFILES = Tao.zip Tao.tree
 # FIXME: doc generation is disabled for Tao.OpenGl because of a gmcs bug
 # (see also Assembly.am)
 $(monodoc_DATA):
+	export MONO_PATH=$(shell echo $(SUBDIRS) | tr ' ' :):$$MONO_PATH; \
 	for x in $(filter-out Tao.OpenGl Tao.GlBindGen, $(SUBDIRS)); do \
 	  $(mkdir_p) doc/$$x && \
 	  echo monodocer --assembly:$$x/$$x.dll --path:doc/$$x && \

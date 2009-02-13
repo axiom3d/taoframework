@@ -15,12 +15,11 @@ EXTRA_DIST = \
     clean.bat \
     clean.sh \
     other/win32installer/runtime.ini \
-    other/win32installer/Tao.nsi \
+    other/win32installer/TaoFramework.nsi \
     other/Tao_Logos/TaoButton.jpg \
     other/Tao_Logos/tao.ico \
     other/Tao_Logos/TaoPill.gif \
     other/Tao_Logos/yinyangblue.gif \
-    prebuild.xml \
     taoframework.spec.suse.example \
     template.pc \
     tao.build

@@ -109,10 +109,10 @@ namespace Tao.FFmpeg
         /// <returns></returns>
         [DllImport(AVSWSCALE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int sws_scale(IntPtr SwsContext,
-        IntPtr src,
+        IntPtr[] src,
         int[] srcStride,
         int srcSliceY, int srcSliceH,
-        IntPtr dst,
+        IntPtr[] dst,
         int[] dstStride);
 
         /* values for the flags, the stuff on the command line is different */

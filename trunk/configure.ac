@@ -27,7 +27,11 @@ PKG_CHECK_MODULES(MONO_DEPENDENCY, mono >= $MONO_REQUIRED_VERSION,
                   has_mono=true, has_mono=false)
 if test "x$has_mono" = "xtrue"; then
   AC_PATH_PROG(RUNTIME, mono, no)
-  AC_PATH_PROG(CSC, gmcs, no)
+  AC_PATH_PROG(CSC, csc, no)
+  if test "$CSC" = "no"; then
+    AC_PATH_PROG(GMCS, gmcs, no)
+    CSC="$GMCS"
+  fi
   if test `uname -s` = "Darwin"; then
         LIB_PREFIX=
         LIB_SUFFIX=.dylib
@@ -37,13 +41,12 @@ if test "x$has_mono" = "xtrue"; then
   fi
 else
   AC_PATH_PROG(CSC, csc.exe, no)
-  if test x$CSC = "xno"; then
-        AC_MSG_ERROR([You need to install either mono or .Net])
-  else
-    RUNTIME=
-    LIB_PREFIX=
-    LIB_SUFFIX=
-  fi
+  RUNTIME=
+  LIB_PREFIX=
+  LIB_SUFFIX=
+fi
+if test x$CSC = "xno"; then
+    AC_MSG_ERROR([You need to install either mono or .Net])
 fi
 
 AC_SUBST(LIB_PREFIX)
@@ -57,8 +60,12 @@ if test "x$GACUTIL" = "xno" ; then
 fi
 AC_SUBST(GACUTIL)
 
-AC_PATH_PROG(RESGEN, resgen2 resgen)
-if test "x$RESGEN" = "xno" ; then
+AC_PATH_PROG(RESGEN, resgen2)
+if test "$RESGEN" = "no"; then
+  AC_PATH_PROG(RESGEN1, resgen, no)
+  RESGEN="$RESGEN1"
+fi
+if test "$RESGEN" = "no" ; then
   AC_MSG_ERROR([No resgen tool found])
 fi
 AC_SUBST(RESGEN)

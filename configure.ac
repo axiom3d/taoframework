@@ -57,7 +57,7 @@ if test "x$GACUTIL" = "xno" ; then
 fi
 AC_SUBST(GACUTIL)
 
-AC_PATH_PROG(RESGEN, resgen)
+AC_PATH_PROG(RESGEN, resgen2 resgen)
 if test "x$RESGEN" = "xno" ; then
   AC_MSG_ERROR([No resgen tool found])
 fi

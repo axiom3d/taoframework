@@ -1,4 +1,4 @@
-AC_INIT(taoframework, 2.1.svn20090215)
+AC_INIT(taoframework, 2.1.svn20090731)
 AC_CONFIG_AUX_DIR(.auto)
 AM_INIT_AUTOMAKE([no-define tar-ustar])
 AM_MAINTAINER_MODE
@@ -29,6 +29,10 @@ if test "x$has_mono" = "xtrue"; then
   AC_PATH_PROG(RUNTIME, mono, no)
   AC_PATH_PROG(CSC, csc, no)
   if test "$CSC" = "no"; then
+    AC_PATH_PROG(GMCS2, gmcs2, no)
+    CSC="$GMCS2"
+  fi
+  if test "$CSC" = "no"; then
     AC_PATH_PROG(GMCS, gmcs, no)
     CSC="$GMCS"
   fi
@@ -54,8 +58,12 @@ AC_SUBST(LIB_SUFFIX)
 AC_SUBST(RUNTIME)
 AC_SUBST(CSC)
 
-AC_PATH_PROG(GACUTIL, gacutil)
-if test "x$GACUTIL" = "xno" ; then
+AC_PATH_PROG(GACUTIL, gacutil2)
+if test "$GACUTIL" = "no"; then
+  AC_PATH_PROG(GACUTIL1, gacutil, no)
+  GACUTIL="$GACUTIL1"
+fi
+if test "$GACUTIL" = "no" ; then
   AC_MSG_ERROR([No gacutil tool found])
 fi
 AC_SUBST(GACUTIL)

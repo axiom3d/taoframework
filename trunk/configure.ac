@@ -1,4 +1,4 @@
-AC_INIT(taoframework, 2.1.svn20090731)
+AC_INIT(taoframework, 2.1.svn20090801)
 AC_CONFIG_AUX_DIR(.auto)
 AM_INIT_AUTOMAKE([no-define tar-ustar])
 AM_MAINTAINER_MODE

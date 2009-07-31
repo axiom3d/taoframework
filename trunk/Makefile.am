@@ -6,6 +6,7 @@ DIST_SUBDIRS = $(SUBDIRS) m4
 ACLOCAL_AMFLAGS = -I m4
 
 EXTRA_DIST = \
+    bootstrap \
     build.bat \
     build.sh \
     build-debug.bat \

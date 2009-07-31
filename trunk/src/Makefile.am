@@ -28,8 +28,8 @@ $(monodoc_DATA):
 	export MONO_PATH=$(shell echo $(SUBDIRS) | tr ' ' :):$$MONO_PATH; \
 	for x in $(filter-out Tao.OpenGl Tao.GlBindGen, $(SUBDIRS)); do \
 	  $(mkdir_p) doc/$$x && \
-	  echo monodocer --assembly:$$x/$$x.dll --path:doc/$$x && \
-	  monodocer --assembly:$$x/$$x.dll --path:doc/$$x || exit 1; \
+	  echo monodocer $$x/$$x.dll --out doc/$$x && \
+	  monodocer $$x/$$x.dll --out doc/$$x || exit 1; \
         done
 	mdassembler --out Tao \
 	  $(addprefix --ecma doc/, $(filter-out Tao.OpenGl Tao.GlBindGen, $(SUBDIRS)))

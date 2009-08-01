@@ -61,8 +61,8 @@ namespace Tao.Platform.X11
         // Prevent BeforeFieldInit optimization.
         static API() { }
 
-        private const string _dll_name = "libX11";
-        private const string _dll_name_vid = "libXxf86vm";
+        private const string _dll_name = "libX11.so.6";
+        private const string _dll_name_vid = "libXxf86vm.so.1";
 
         // Display management
         [DllImport(_dll_name, EntryPoint = "XOpenDisplay")]

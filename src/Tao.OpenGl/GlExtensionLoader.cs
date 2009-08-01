@@ -164,11 +164,11 @@ namespace Tao.OpenGl
         // we can't depend on any symbols from Tao.OpenGl.Gl
 
         // linux
-        [DllImport("libGL.so", EntryPoint = "glXGetProcAddress")]
+        [DllImport("libGL.so.1", EntryPoint = "glXGetProcAddress")]
         internal static extern IntPtr glxGetProcAddress(string s);
 
         // also linux, for our ARB-y friends
-        [DllImport("libGL.so", EntryPoint = "glXGetProcAddressARB")]
+        [DllImport("libGL.so.1", EntryPoint = "glXGetProcAddressARB")]
         internal static extern IntPtr glxGetProcAddressARB(string s);
 
         // windows
